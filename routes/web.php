@@ -24,4 +24,8 @@ Auth::routes([
     'verify' => false, // Email Verification Routes...
 ]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
+    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+    Route::get('/profile', 'App\Http\Controllers\UserController@profile')->name('profile');
+
+});
