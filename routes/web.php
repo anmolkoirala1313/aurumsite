@@ -17,6 +17,25 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/about', function () {
+    return view('frontend.pages.aboutus');
+});
+
+Route::get('/team', function () {
+    return view('frontend.pages.team');
+});
+
+Route::get('/service', function () {
+    return view('frontend.pages.service');
+});
+Route::get('/process', function () {
+    return view('frontend.pages.process');
+});
+
+Route::get('/contact-us', function () {
+    return view('frontend.pages.contact-us');
+});
+
 Auth::routes();
 
 Auth::routes([

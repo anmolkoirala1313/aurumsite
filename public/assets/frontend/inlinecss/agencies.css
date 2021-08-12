@@ -1,0 +1,240 @@
+
+.dt-sc-menu-sorting a {
+    color: rgba(87, 31, 156, 0.6)
+}
+
+.dt-sc-team.type2 .dt-sc-team-thumb .dt-sc-team-thumb-overlay,
+.dt-sc-hexagon-image span:before,
+.dt-sc-keynote-speakers .dt-sc-speakers-thumb .dt-sc-speakers-thumb-overlay {
+    background: rgba(87, 31, 156, 0.9)
+}
+
+.portfolio .image-overlay,
+.portfolio.type4 .image-overlay,
+.recent-portfolio-widget ul li a:before,
+.dt-sc-image-caption.type2:hover .dt-sc-image-content,
+.dt-sc-timeline-section.type4 .dt-sc-timeline-thumb-overlay,
+.dt-sc-fitness-program-short-details-wrapper .dt-sc-fitness-program-short-details,
+.dt-sc-yoga-classes .dt-sc-yoga-classes-image-wrapper:before,
+.dt-sc-yoga-course .dt-sc-yoga-course-thumb-overlay,
+.dt-sc-yoga-program .dt-sc-yoga-program-thumb-overlay,
+.dt-sc-yoga-pose .dt-sc-yoga-pose-thumb:before,
+.dt-sc-yoga-teacher .dt-sc-yoga-teacher-thumb:before,
+.dt-sc-doctors .dt-sc-doctors-thumb-overlay,
+.dt-sc-event-addon>.dt-sc-event-addon-date,
+.dt-sc-course .dt-sc-course-overlay,
+.dt-sc-process-steps .dt-sc-process-thumb-overlay {
+    background: rgba(87, 31, 156, 0.9)
+}
+
+.dt-sc-icon-box.type10:hover .icon-wrapper:before {
+    box-shadow: 7px 0px 0px 0px #571F9C
+}
+
+.dt-sc-counter.type6 .dt-sc-couter-icon-holder:before {
+    box-shadow: 5px 1px 0px 0px #571F9C
+}
+
+.dt-sc-button.with-shadow.white,
+.dt-sc-pr-tb-col.type2 .dt-sc-buy-now a {
+    box-shadow: 3px 3px 0px 0px #571F9C
+}
+
+.dt-sc-restaurant-events-list .dt-sc-restaurant-event-details h6:before {
+    border-bottom-color: rgba(87, 31, 156, 0.6)
+}
+
+.woo-type1 .woocommerce ul.products li.product .star-rating:before,
+.woo-type1 .woocommerce ul.products li.product .star-rating span:before,
+.woo-type1.woocommerce ul.products li.product .star-rating:before,
+.woo-type1.woocommerce ul.products li.product .star-rating span:before,
+.woo-type1.woocommerce .star-rating:before,
+.woo-type1.woocommerce .star-rating span:before,
+.woo-type1 .woocommerce .star-rating:before,
+.woo-type1 .woocommerce .star-rating span:before,
+.woo-type2 ul.products li.product .product-details h5 a:hover,
+.woo-type2 ul.products li.product-category:hover .product-details h5,
+.woo-type2 ul.products li.product-category:hover .product-details h5 .count {
+    color: rgba(87, 31, 156, 0.75)
+}
+
+.woo-type2 ul.products li.product .product-thumb a.add_to_cart_button:hover,
+.woo-type2 ul.products li.product .product-thumb a.button.product_type_simple:hover,
+.woo-type2 ul.products li.product .product-thumb a.button.product_type_variable:hover,
+.woo-type2 ul.products li.product .product-thumb a.added_to_cart.wc-forward:hover,
+.woo-type2 ul.products li.product .product-thumb a.add_to_wishlist:hover,
+.woo-type2 ul.products li.product .product-thumb .yith-wcwl-wishlistaddedbrowse a:hover,
+.woo-type2 ul.products li.product .product-thumb .yith-wcwl-wishlistexistsbrowse a:hover,
+.woo-type6.woocommerce ul.products li.product:hover .product-content,
+.woo-type6 .woocommerce ul.products li.product:hover .product-content,
+.woo-type6.woocommerce ul.products li.product.instock:hover .on-sale-product .product-content,
+.woo-type6 .woocommerce ul.products li.product.instock:hover .on-sale-product .product-content,
+.woo-type6.woocommerce ul.products li.product.outofstock:hover .out-of-stock-product .product-content,
+.woo-type6 .woocommerce ul.products li.product.outofstock:hover .out-of-stock-product .product-content,
+.woo-type6.woocommerce ul.products li.product-category:hover .product-thumb .image:after,
+.woo-type6 .woocommerce ul.products li.product-category:hover .product-thumb .image:after,
+.woo-type8.woocommerce ul.products li.product:hover .product-content,
+.woo-type8.woocommerce ul.products li.product-category:hover .product-thumb .image:after,
+.woo-type8 .woocommerce ul.products li.product:hover .product-content,
+.woo-type8 .woocommerce ul.products li.product-category:hover .product-thumb .image:after,
+.woo-type13.woocommerce ul.products li.product:hover .product-content,
+.woo-type13 .woocommerce ul.products li.product:hover .product-content,
+.woo-type13.woocommerce ul.products li.product.instock:hover .on-sale-product .product-content,
+.woo-type13 .woocommerce ul.products li.product.instock:hover .on-sale-product .product-content,
+.woo-type13.woocommerce ul.products li.product.outofstock:hover .out-of-stock-product .product-content,
+.woo-type13 .woocommerce ul.products li.product.outofstock:hover .out-of-stock-product .product-content,
+.woo-type13.woocommerce ul.products li.product-category:hover .product-thumb .image:after,
+.woo-type13 .woocommerce ul.products li.product-category:hover .product-thumb .image:after {
+    background-color: rgba(87, 31, 156, 0.75)
+}
+
+.woo-type8.woocommerce ul.products li.product:hover .product-content:after,
+.woo-type8 .woocommerce ul.products li.product:hover .product-content:after {
+    border-color: rgba(87, 31, 156, 0.75) rgba(87, 31, 156, 0.75) rgba(255, 255, 255, 0.35) rgba(255, 255, 255, 0.35)
+}
+
+.woo-type9.woocommerce ul.products li.product .product-wrapper,
+.woo-type9 .woocommerce ul.products li.product .product-wrapper {
+    border-color: rgba(87, 31, 156, 0.6)
+}
+
+.woo-type11 ul.products li.product:hover .product-wrapper {
+    box-shadow: 0 0 0 3px #571F9C;
+}
+
+.woo-type12 ul.products li.product .product-details {
+    box-shadow: 0 -3px 0 0 #571F9C inset;
+}
+
+.woo-type14 ul.products li.product .product-details,
+.woo-type14 ul.products li.product .product-details h5:after {
+    box-shadow: 0 0 0 2px #571F9C inset;
+}
+
+.woo-type15 ul.products li.product .product-thumb a.add_to_cart_button:after,
+.woo-type15 ul.products li.product .product-thumb a.button.product_type_simple:after,
+.woo-type15 ul.products li.product .product-thumb a.button.product_type_variable:after,
+.woo-type15 ul.products li.product .product-thumb a.added_to_cart.wc-forward:after,
+.woo-type15 ul.products li.product .product-thumb a.add_to_wishlist:after,
+.woo-type15 ul.products li.product .product-thumb .yith-wcwl-wishlistaddedbrowse a:after,
+.woo-type15 ul.products li.product .product-thumb .yith-wcwl-wishlistexistsbrowse a:after {
+    box-shadow: 0 0 0 2px #571F9C;
+}
+
+@media only screen and (max-width: 767px) {
+
+    .dt-sc-contact-info.type4:after,
+    .dt-sc-icon-box.type10 .icon-content h4:after,
+    .dt-sc-counter.type6.last h4::before,
+    .dt-sc-counter.type6 h4::after,
+    #tribe-events-content .tribe-events-calendar td.tribe-events-present.mobile-active:hover,
+    .tribe-events-calendar td.tribe-events-present.mobile-active,
+    .tribe-events-calendar td.tribe-events-present.mobile-active div[id*=tribe-events-daynum-],
+    .tribe-events-calendar td.tribe-events-present.mobile-active div[id*=tribe-events-daynum-] a,
+    .tribe-events-sub-nav li a {
+        background-color: #571F9C
+    }
+
+    .dt-sc-timeline-section.type2,
+    .dt-sc-timeline-section.type2::before {
+        border-color: #571F9C
+    }
+}
+
+.dt-sc-event-month-thumb .dt-sc-event-read-more,
+.dt-sc-training-thumb-overlay {
+    background: rgba(63, 23, 113, 0.85)
+}
+
+.dt-sc-icon-box.type10 .icon-wrapper:before,
+.dt-sc-contact-info.type4 span:after,
+.dt-sc-pr-tb-col.type2 .dt-sc-tb-header:before {
+    box-shadow: 5px 0px 0px 0px #3F1771
+}
+
+@media only screen and (max-width: 767px) {
+
+    .dt-sc-highlight .dt-sc-testimonial.type6 .dt-sc-testimonial-author:after,
+    .dt-sc-highlight .dt-sc-testimonial.type6 .dt-sc-testimonial-author:after,
+    .skin-highlight .dt-sc-testimonial.type6 .dt-sc-testimonial-author:after {
+        background-color: #3F1771
+    }
+}
+
+.woo-type7 ul.products li.product:hover .product-details {
+    box-shadow: 0 -3px 0 0 #3F1771 inset;
+}
+
+.woo-type8 ul.products li.product:hover .product-details h5:after {
+    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #3F1771 rgba(0, 0, 0, 0);
+}
+
+.woo-type9 ul.products li.product:hover .product-wrapper {
+    border-color: rgba(63, 23, 113, 0.75)
+}
+
+.woo-type19 ul.products li.product:hover .product-thumb .image {
+    box-shadow: 0 0 1px 4px #3F1771;
+}
+
+.woo-type20 ul.products li.product .product-thumb a.add_to_cart_button:hover,
+.woo-type20 ul.products li.product .product-thumb a.button.product_type_simple:hover,
+.woo-type20 ul.products li.product .product-thumb a.button.product_type_variable:hover,
+.woo-type20 ul.products li.product .product-thumb a.added_to_cart.wc-forward:hover,
+.woo-type20 ul.products li.product .product-thumb a.add_to_wishlist:hover,
+.woo-type20 ul.products li.product .product-thumb .yith-wcwl-wishlistaddedbrowse a:hover,
+.woo-type20 ul.products li.product .product-thumb .yith-wcwl-wishlistexistsbrowse a:hover,
+.woo-type20 ul.products li.product:hover .product-wrapper {
+    background-color: rgba(63, 23, 113, 0.5)
+}
+
+.dt-sc-faculty .dt-sc-faculty-thumb-overlay {
+    background: rgba(111, 39, 199, 0.9)
+}
+
+.dt-sc-process-flow .dt-sc-icon-box.type3 .icon-wrapper span::before {
+    background: rgba(111, 39, 199, 0.75)
+}
+
+.dt-sc-process-flow .dt-sc-icon-box.type3:hover .icon-wrapper span::before {
+    background: rgba(111, 39, 199, 0.6)
+}
+
+.woo-type18 ul.products li.product:hover .product-content,
+.woo-type18 ul.products li.product.instock:hover .on-sale-product .product-content,
+.woo-type18 ul.products li.product.outofstock:hover .out-of-stock-product .product-content,
+.woo-type18.woocommerce ul.products li.product:hover .product-content,
+.woo-type18.woocommerce ul.products li.product.instock:hover .on-sale-product .product-content,
+.woo-type18.woocommerce ul.products li.product.outofstock:hover .out-of-stock-product .product-content,
+.woo-type18.woocommerce-page ul.products li.product:hover .product-content,
+.woo-type18.woocommerce-page ul.products li.product.instock:hover .on-sale-product .product-content,
+.woo-type18.woocommerce-page ul.products li.product.outofstock:hover .out-of-stock-product .product-content {
+    background-color: rgba(111, 39, 199, 0.6)
+}
+
+.woo-type19.woocommerce ul.products li.product:hover .product-content,
+.woo-type19 .woocommerce ul.products li.product:hover .product-content,
+.woo-type19.woocommerce ul.products li.product.instock:hover .on-sale-product .product-content,
+.woo-type19 .woocommerce ul.products li.product.instock:hover .on-sale-product .product-content,
+.woo-type19.woocommerce ul.products li.product.outofstock:hover .out-of-stock-product .product-content,
+.woo-type19 .woocommerce ul.products li.product.outofstock:hover .out-of-stock-product .product-content,
+.woo-type20.woocommerce ul.products li.product:hover .product-content,
+.woo-type20 .woocommerce ul.products li.product:hover .product-content,
+.woo-type20.woocommerce ul.products li.product.instock:hover .on-sale-product .product-content,
+.woo-type20 .woocommerce ul.products li.product.instock:hover .on-sale-product .product-content,
+.woo-type20.woocommerce ul.products li.product.outofstock:hover .out-of-stock-product .product-content,
+.woo-type20 .woocommerce ul.products li.product.outofstock:hover .out-of-stock-product .product-content {
+    background-color: rgba(111, 39, 199, 0.4)
+}
+
+.woo-type1 ul.products li.product:hover .product-thumb:after {
+    box-shadow: 0 0 0 10px rgba(111, 39, 199, 0.35) inset;
+}
+
+.woo-type7 ul.products li.product .product-details {
+    box-shadow: 0 -2px 0 0 #6F27C7;
+}
+
+.woo-type20 ul.products li.product .product-wrapper {
+    box-shadow: 0 0 0 5px rgba(111, 39, 199, 0.75) inset;
+}
