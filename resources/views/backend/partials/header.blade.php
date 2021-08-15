@@ -13,6 +13,8 @@
 
     <link rel="stylesheet" href="{{asset('assets/backend/css/font-awesome.min.css')}}">
 
+    <link rel="stylesheet" href="{{asset('assets/backend/plugins/select2/select2.min.css')}}">
+
     <link rel="stylesheet" href="{{asset('assets/backend/css/bootstrap-datetimepicker.min.css')}}">
 
     <link rel="stylesheet" href="{{asset('assets/backend/css/style.css')}}">
@@ -23,7 +25,7 @@
 {{--    <script src="{{asset('assets/backend/js/respond.min.js')}}"></script>--}}
     <![endif]-->
 
-    @yield('styles')
+    @yield('css')
 
 </head>
 <body>

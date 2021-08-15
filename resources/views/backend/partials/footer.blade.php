@@ -10,7 +10,8 @@
 <script src="{{asset('assets/backend/js/popper.min.js')}}"></script>
 <script src="{{asset('assets/backend/js/bootstrap.min.js')}}"></script>
 
-
+<script src="{{asset('assets/backend/plugins/select2/select2.min.js')}}"></script>
+s
 
 <script src="{{asset('assets/backend/plugins/select2/moment.min.js')}}"></script>
 <script src="{{asset('assets/backend/js/bootstrap-datetimepicker.min.js')}}"></script>

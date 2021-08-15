@@ -12,10 +12,10 @@
                                             <div class="custom-search input-group">
                                                 <div class="custom-breadcrumb">
                                                     <ol class="breadcrumb no-bg-color d-inline-block p-0 m-0 mb-2">
-                                                        <li class="breadcrumb-item d-inline-block"><a href="#" class="text-dark">Home</a></li>
-                                                        <li class="breadcrumb-item d-inline-block active">Dashboard</li>
+                                                        <li class="breadcrumb-item d-inline-block"><a href="{{route('dashboard')}}" class="text-dark">Home</a></li>
+                                                        <li class="breadcrumb-item d-inline-block active">{{ucfirst(Request::segment(2))}}</li>
                                                     </ol>
-                                                    <h4 class="text-dark">Admin Dashboard</h4>
+                                                    <h4 class="text-dark">{{ucfirst(Request::segment(2))}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -24,6 +24,7 @@
                             </div>
                         </div>
                     </div>
+                    @if(Request::segment(2) == 'dashboard')
                     <div class="user-card card shadow-sm bg-white text-center ctm-border-radius grow">
                         <div class="user-info card-body">
                             <div class="user-avatar mb-4">
@@ -35,6 +36,20 @@
                             </div>
                         </div>
                     </div>
+                    @elseif(Request::segment(2) == 'profile')
+                        <div class="user-card card shadow-sm bg-white text-center ctm-border-radius grow">
+                            <div class="user-info card-body">
+                                <div class="user-avatar mb-4">
+                                    <img src="{{asset('assets/backend/img/profiles/img-13.jpg')}}" alt="User Avatar" class="img-fluid rounded-circle" width="100">
+                                </div>
+                                <div class="user-details">
+                                    <h4><b>{{ucwords(Auth::user()->name)}}</b></h4>
+                                    <p>{{Auth::user()->email}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+
 
                     <div class="sidebar-wrapper d-lg-block d-md-none d-none">
                         <div class="card ctm-border-radius shadow-sm border-none grow">

@@ -46,5 +46,9 @@ Auth::routes([
 Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
     Route::get('/profile', 'App\Http\Controllers\UserController@profile')->name('profile');
+    Route::put('/profile/{id}/update', 'App\Http\Controllers\UserController@update')->name('user.update');
+    Route::put('/profileimage/{id}/update', 'App\Http\Controllers\UserController@imageupdate')->name('user.imageupdate');
+    Route::put('/profile/password', 'App\Http\Controllers\UserController@profilepassword')->name('user.password');
+
 
 });

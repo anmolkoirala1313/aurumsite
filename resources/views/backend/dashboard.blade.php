@@ -4,15 +4,6 @@
 
 
                 <div class="col-xl-9 col-lg-8  col-md-12">
-                    <div class="quicklink-sidebar-menu ctm-border-radius shadow-sm bg-white card grow">
-                        <div class="card-body">
-                            <ul class="list-group list-group-horizontal-lg">
-                                <li class="list-group-item text-center active button-5"><a href="#" class="text-white">Admin Dashboard</a></li>
-                                <li class="list-group-item text-center button-6"><a class="text-dark" href="#">Employees Dashboard</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
                     <div class="row">
                         <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="card dash-widget ctm-border-radius shadow-sm grow">
