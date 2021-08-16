@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="{{asset('assets/backend/css/bootstrap-datetimepicker.min.css')}}">
 
     <link rel="stylesheet" href="{{asset('assets/backend/css/style.css')}}">
+
+    <link rel="stylesheet" href="{{asset('assets/backend/css/toastr.min.css')}}">
+
+    <link href="{{asset('assets/backend/css/sweetalert/sweetalert.css')}}" rel="stylesheet">
     <title>@yield('title')</title>
 
 <!--[if lt IE 9]>

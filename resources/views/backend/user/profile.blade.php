@@ -146,18 +146,25 @@
 
                                                     <div class="form-group">
                                                         <label>Current Password</label>
-
-                                                        <input type="password" class="form-control" placeholder="Current Password" name="current_password">
+                                                        <input type="password" class="form-control" placeholder="Current Password" name="current_password" required>
+                                                        <div class="invalid-feedback">
+                                                            Please enter your current password.
+                                                        </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label>New Password</label>
-
-                                                        <input type="password" class="form-control" placeholder="New Password" id="password" name="password">
+                                                        <input type="password" class="form-control" placeholder="New Password" id="password" name="password" required>
+                                                        <div class="invalid-feedback">
+                                                            Please enter your new password.
+                                                        </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Repeat Password</label>
-                                                        <input type="password" class="form-control" placeholder="Repeat Password" name="repeated_password" id="repeated_password">
+                                                        <input type="password" class="form-control" placeholder="Repeat Password" name="repeated_password" id="repeated_password" required>
                                                         <span class="ctm-text-sm" id="wrongpassword"></span>
+                                                        <div class="invalid-feedback">
+                                                            Please repeat your new password.
+                                                        </div>
                                                     </div>
                                                     <div class="text-center">
                                                         <button type="submit" id="changepswBtn" class="btn btn-theme button-1 ctm-border-radius text-white text-center">Change My Password</button>
@@ -189,7 +196,10 @@
                 {!! Form::open(['method'=>'put','route'=>['user.update', $user->id],'enctype'=>'multipart/form-data','class'=>'needs-validation','novalidate'=>'']) !!}
                     <div class="form-group mb-3">
                         <label>Name</label>
-                        <input type="text" class="form-control" name="name" value="{{$user->name}}">
+                        <input type="text" class="form-control" name="name" value="{{$user->name}}" required>
+                        <div class="invalid-feedback">
+                            Please enter your name.
+                        </div>
                     </div>
                     <div class="form-group mb-3">
                         <label>Email</label>
@@ -221,6 +231,23 @@
 @section('js')
 
     <script type="text/javascript">
+        @if($errors->has('success'))
+            toastr.options =
+            {
+                "closeButton" : true,
+                "progressBar" : true
+            }
+        toastr.error("{{ $errors->first('success') }}");
+        @endif
+
+        @if($errors->has('error'))
+            toastr.options =
+            {
+                "closeButton" : true,
+                "progressBar" : true
+            }
+        toastr.error("{{ $errors->first('error') }}");
+        @endif
 
         var loadFile = function(event) {
             var image = document.getElementById('image');
