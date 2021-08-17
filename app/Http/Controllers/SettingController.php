@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Setting;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class SettingController extends Controller
 {
@@ -63,33 +65,6 @@ class SettingController extends Controller
             'created_by'                => Auth::user()->id,
         ];
 
-        if(!empty($request->file('logo'))){
-            $image =   $request->file('logo');
-            $name  =   uniqid().'_'.$image->getClientOriginalName();
-            $path  =   base_path().'/public/images/uploads/settings/';
-            if ($image->move($path,$name)){
-                $data['logo']=$name;
-            }
-        }
-
-        if(!empty($request->file('logo_white'))){
-            $image  =   $request->file('logo_white');
-            $name   =   uniqid().'_'.$image->getClientOriginalName();
-            $path   =   base_path().'/public/images/uploads/settings/';
-            if ($image->move($path,$name)){
-                $data['logo_white']=$name;
-            }
-        }
-
-
-        if(!empty($request->file('favicon'))){
-            $image  =   $request->file('favicon');
-            $name   =   uniqid().'_'.$image->getClientOriginalName();
-            $path   =   base_path().'/public/images/uploads/settings/';
-            if ($image->move($path,$name)){
-                $data['favicon']=$name;
-            }
-        }
         $theme = Setting::create($data);
         if($theme){
             Session::flash('success','Settings Created Successfully');
@@ -146,6 +121,20 @@ class SettingController extends Controller
         $update_theme->google_analytics         =  $request->input('google_analytics');
         $update_theme->updated_by               =  Auth::user()->id;
 
+        $status=$update_theme->update();
+
+        if($status){
+            Session::flash('success','Settings Updated Successfully');
+        }
+        else{
+            Session::flash('error','Something Went Wrong. Settings could not be Updated');
+        }
+        return redirect()->back();
+    }
+
+    public function imageupdate(Request $request, $id)
+    {
+        $update_theme                           =  Setting::find($id);
         $oldimage_logo                          = $update_theme->logo;
         $oldimage_logo_white                    = $update_theme->logo_white;
         $oldimage_favicon                       = $update_theme->favicon;
@@ -190,14 +179,17 @@ class SettingController extends Controller
 
         }
         $status=$update_theme->update();
+
         if($status){
-            Session::flash('success','Settings Updated Successfully');
+            Session::flash('success','Your Logo Images is Updated Successfully');
         }
         else{
-            Session::flash('error','Something Went Wrong. Settings could not be Updated');
+            Session::flash('error','Something Went Wrong. Your Logo Images could not be Updated');
         }
         return redirect()->back();
     }
+
+
 
     /**
      * Remove the specified resource from storage.

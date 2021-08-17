@@ -22,7 +22,7 @@
             max-width: 505px!important;
         }
 
-        #current-img{
+        .default-image{
             border: 6px solid #f3f3f3;
             border-radius: 10px;
         }
@@ -124,7 +124,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Address <span class="text-muted">*</span></label>
-                                                        <input type="email" class="form-control" name="address" id="address" value="{{@$settings->address}}" required>
+                                                        <input type="text" class="form-control" name="address" id="address" value="{{@$settings->address}}" required>
                                                         <div class="invalid-feedback">
                                                             Please enter an address.
                                                         </div>
@@ -258,32 +258,30 @@
                                     <div class="col-lg-6 d-flex">
                                         <div class="card ctm-border-radius shadow-sm company-logo flex-fill grow">
                                             <div class="card-header">
-                                                <h4 class="card-title mb-0"> Profile Image</h4>
+                                                <h4 class="card-title mb-0"> Main Logo</h4>
                                             </div>
                                             <div class="card-body">
-                                               {!! Form::open(['url'=>route('setting.imageupdate', @$settings->id),'method'=>'PUT','enctype'=>'multipart/form-data']) !!}
                                                 <input type="hidden" name="website_name" value="{{@$settings->website_name}}">
                                                 <input type="hidden" name="website_description" value="{{@$settings->website_description}}">
 
                                                 <div class="row justify-content-center">
-                                                    <div class="col-9 mb-4">
+                                                    <div class="col-12 mb-4">
                                                         <div class="custom-file h-auto">
                                                             <div class="avatar-upload">
                                                                 <div class="avatar-edit">
-                                                                    <input type="file" class="custom-file-input" hidden id="imageUpload" onchange="loadFile(event)" name="image">
+                                                                    <input type="file" class="custom-file-input" hidden id="imageUpload" onchange="loadFile(event)" name="logo">
                                                                     <label for="imageUpload"></label>
                                                                 </div>
                                                             </div>
-                                                            <img id="current-img" src="/images/uploads/profiles/default-profile.png" alt="yes" class="w-100">
+                                                            <img id="current-img" src="<?php if(!empty($settings->logo)){ echo '/images/uploads/settings/'.$settings->logo; } else{  echo '/images/uploads/default-placeholder.png'; } ?>"  alt="{{@$settings->website_name}}" class="default-image w-100">
                                                         </div>
                                                     </div>
-                                                </div>
 
+                                                    <div class="text-center">
+                                                        <button type="submit" class="btn btn-theme ctm-border-radius text-white button-1">Update</button>
+                                                    </div>
 
-                                                <div class="text-center">
-                                                    <button type="submit" class="btn btn-theme ctm-border-radius text-white button-1"><i class="fa fa-check" aria-hidden="true"></i></button>
                                                 </div>
-                                                {!! Form::close() !!}
                                             </div>
                                         </div>
                                     </div>
@@ -294,20 +292,20 @@
                                             <div class="col-xl-12 col-lg-6 col-md-6 d-flex">
                                                 <div class="card ctm-border-radius shadow-sm grow flex-fill">
                                                     <div class="card-header">
-                                                        <h4 class="card-title mb-0">Dates</h4>
+                                                        <h4 class="card-title mb-0">White Logo</h4>
                                                     </div>
                                                     <div class="card-body text-center">
 
                                                         <div class="row justify-content-center">
-                                                            <div class="col-9 mb-4">
+                                                            <div class="col-6 mb-4">
                                                                 <div class="custom-file h-auto">
                                                                     <div class="avatar-upload">
                                                                         <div class="avatar-edit">
-                                                                            <input type="file" class="custom-file-input" hidden="" id="whiteimage" onchange="loadFile(event)" name="logo_white">
-                                                                            <label for="whiteimage"></label>
+                                                                            <input type="file" class="custom-file-input" hidden="" id="logo_white" onchange="loadWhite(event)" name="logo_white">
+                                                                            <label for="logo_white"></label>
                                                                         </div>
                                                                     </div>
-                                                                    <img id="currentwhite-img" src="/images/uploads/profiles/default-profile.png" alt="yes" class="w-100">
+                                                                    <img id="currentwhite-img" src="<?php if(!empty($settings->logo_white)){ echo '/images/uploads/settings/'.$settings->logo_white; } else{  echo '/images/uploads/default-placeholder.png'; } ?>" alt="{{@$settings->website_name}}" class="default-image w-100">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -318,25 +316,25 @@
                                             <div class="col-xl-12 col-lg-6 col-md-6 d-flex">
                                                 <div class="card ctm-border-radius shadow-sm grow flex-fill">
                                                     <div class="card-header">
-                                                        <h4 class="card-title d-inline-block mb-0">Dates</h4>
+                                                        <h4 class="card-title d-inline-block mb-0">Favicon</h4>
                                                         <span class="float-right"><a href="javascript:void(0)" class="text-primary" data-toggle="modal" data-target="#addNewType"> New Type</a></span>
                                                     </div>
                                                     <div class="card-body">
-                                                        <div class="input-group mb-3">
-                                                            <input class="form-control datetimepicker date-enter" type="text" placeholder="Add Start Date">
-                                                            <div class="input-group-append">
-                                                                <button class="btn btn-theme text-white" type="button"><i class="fa fa-calendar" aria-hidden="true"></i></button>
+
+                                                        <div class="row justify-content-center">
+                                                            <div class="col-4 mb-4">
+                                                                <div class="custom-file h-auto">
+                                                                    <div class="avatar-upload">
+                                                                        <div class="avatar-edit">
+                                                                            <input type="file" class="custom-file-input" hidden="" id="favicon" onchange="loadFav(event)" name="favicon">
+                                                                            <label for="favicon"></label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <img id="currentfav-img" src="<?php if(!empty($settings->favicon)){ echo '/images/uploads/settings/'.$settings->favicon; } else{  echo '/images/uploads/default-placeholder.png'; } ?>" alt="{{@$settings->website_name}}" class="default-image w-100">
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <div class="input-group mb-3">
-                                                            <input class="form-control datetimepicker date-enter" type="text" placeholder="Add Visa Expiry Date">
-                                                            <div class="input-group-append">
-                                                                <button class="btn btn-theme text-white" type="button"><i class="fa fa-calendar" aria-hidden="true"></i></button>
-                                                            </div>
-                                                        </div>
-                                                        <div class="text-center">
-                                                            <a href="javascript:void(0)" class="btn btn-theme ctm-border-radius text-white button-1">Add A Key Date</a>
-                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -371,11 +369,18 @@
             replacement.src = URL.createObjectURL(event.target.files[0]);
         };
 
-        var loadFile = function(event) {
+        var loadWhite = function(event) {
             var image = document.getElementById('logo_white');
-            var replacement = document.getElementById('current-img');
+            var replacement = document.getElementById('currentwhite-img');
             replacement.src = URL.createObjectURL(event.target.files[0]);
         };
+
+        var loadFav = function(event) {
+            var image = document.getElementById('favicon');
+            var replacement = document.getElementById('currentfav-img');
+            replacement.src = URL.createObjectURL(event.target.files[0]);
+        };
+
 
 
         //necessary for switching tabs
