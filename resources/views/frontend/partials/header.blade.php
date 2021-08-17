@@ -155,6 +155,7 @@
         href="{{asset('assets/frontend/inlinecss/vs_custom.css')}}"
           type='text/css' media='all' />
 
+
     <script type='text/javascript'
             src="{{asset('assets/frontend/js/jquery/jquery.min.js?ver=3.5.1')}}"
             id='jquery-core-js'></script>
@@ -292,11 +293,11 @@
                         <div class="main-header">
                             <div id="logo"> <a href="/" rel="home">
                                     <img class="normal_logo"
-                                         src="../wpengine.netdna-ssl.com/wp-content/themes/agencies/images/logo.png"
-                                         alt="Agency" title="Agency" />
+                                         src="<?php if(@$setting_data->logo){?>{{asset('/images/uploads/settings/'.@$setting_data->logo)}}<?php }?>"
+                                         alt="logo" title="logo" />
                                     <img class="darkbg_logo"
-                                         src="../wpengine.netdna-ssl.com/wp-content/themes/agencies/images/light-logo.png"
-                                         alt="Agency" title="Agency" />
+                                        src="<?php if(@$setting_data->logo_white){?>{{asset('/images/uploads/settings/'.@$setting_data->logo_white)}}<?php }?>"
+                                         alt="logo" title="logo" />
                                 </a></div>
                             <div id="menu-wrapper" class="menu-wrapper ">
                                 <div class="dt-menu-toggle" id="dt-menu-toggle">

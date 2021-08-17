@@ -5,20 +5,25 @@
                             <div class="container">
                                 <div class='column dt-sc-one-third first'>
                                     <aside id="text-4" class="widget widget_text">
-                                        <div class="textwidget"><img
-                                                src="../wpengine.netdna-ssl.com/wp-content/themes/agencies/images/light-logo.png"
-                                                alt="light-logo" style="width: 50%;">
+                                        <div class="textwidget">
+                                        <img
+                                                src="<?php if(@$setting_data->logo_white){?>{{asset('/images/uploads/settings/'.@$setting_data->logo_white)}}<?php } ?>"                                                alt="light-logo" style="width: 50%;">
                                             <div class="vc_empty_space" style="height: 25px"><span class="vc_empty_space_inner"></span></div>
                                             <p>@if(!empty(@$setting_data->website_description)) {{@$setting_data->website_description}} @endif </p>
                                             <div class="vc_empty_space" style="height: 10px"><span class="vc_empty_space_inner"></span></div>
                                            
                                             <div class="vc_empty_space" style="height: 16px"><span class="vc_empty_space_inner"></span></div>
                                             <div class='alignleft  dt-sc-subtitle-text'>STAY CONNECTED</div>
-                                            <ul class='dt-sc-sociable  dt-simple-narrow'>
-                                                <li class="delicious"><a target="_blank" href="#" rel="noopener"></a></li>
-                                                <li class="dribbble"><a target="_blank" href="#" rel="noopener"></a></li>
-                                                <li class="facebook"><a target="_blank" href="#" rel="noopener"></a></li>
+                                            <ul class='dt-sc-sociable dt-simple-narrow'>
+                                                <li class="facebook"><a target="_blank" href="@if(!empty(@$setting_data->facebook)) {{@$setting_data->facebook}} @endif" rel="noopener"></a></li>
+                                                <li class="instagram"><a target="_blank"href="@if(!empty(@$setting_data->instagram)) {{@$setting_data->instagram}} @endif" rel="noopener"></a></li>
+                                                <li class="youtube"><a target="_blank" href="@if(!empty(@$setting_data->youtube)) {{@$setting_data->youtube}} @endif" rel="noopener"></a></li>
+                                                <li class="whatsapp"><a target="_blank" href="@if(!empty(@$setting_data->whatsapp)) {{@$setting_data->whatsapp}} @endif" rel="noopener"></a></li>
+                                                <a class="viber-anchor" target="_blank" href="@if(!empty(@$setting_data->viber)) {{@$setting_data->viber}} @endif" rel="noopener"><i class="fab fa-viber"></i> </a>
+                                           
                                             </ul>
+
+
                                         </div>
                                     </aside>
                                 </div>
@@ -61,8 +66,7 @@
 
                         <div class="footer-copyright dt-sc-dark-bg">
                             <div class="container">
-                                <div class="column dt-sc-one-half first ">Copyright &copy; 2017, <a title=""
-                                                                                                    href="http://themeforest.net/user/designthemes">DesignThemes</a>
+                                <div class="column dt-sc-one-half first ">&copy; 2021, @if(!empty(@$setting_data->website_name)) {{ucwords(@$setting_data->website_name)}} @endif  | Developed By: <a target="_blank" rel="noopener" href="https://www.canosoft.com.np/">Canosoft Techonology</a> |
                                     <ul id="menu-footer-menu" class="menu-links ">
                                         <li id="menu-item-39" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-39"><a
                                                 href="#">Privacy Policy</a></li>
@@ -230,6 +234,7 @@
                 <script type='text/javascript'
                 src="{{asset('assets/frontend/plugins/js_composer/assets/lib/vc_waypoints/vc-waypoints.min.js')}}"
                 id='vc_waypoints-js'></script>
+                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
                
                 @yield('js')
 
