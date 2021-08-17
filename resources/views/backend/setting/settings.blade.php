@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title') Profile @endsection
+@section('title') Settings @endsection
 @section('css')
 
     <style>

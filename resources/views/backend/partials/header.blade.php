@@ -98,7 +98,7 @@
                                                 </span>
                                                 </span>
                                             </a>
-                                            <a class="dropdown-item p-2" href="#">
+                                            <a class="dropdown-item p-2" href="{{route('setting.index')}}">
                                                 <span class="media align-items-center">
                                                 <span class="lnr lnr-cog mr-3"></span>
                                                 <span class="media-body text-truncate">
@@ -116,6 +116,9 @@
                                                 </span>
                                                 </span>
                                             </a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                @csrf
+                                            </form>
                                         </div>
 
                                     </div>
