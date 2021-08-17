@@ -28,7 +28,7 @@
                     <div class="user-card card shadow-sm bg-white text-center ctm-border-radius grow">
                         <div class="user-info card-body">
                             <div class="user-avatar mb-4">
-                                <img src="{{asset('assets/backend/img/profiles/img-13.jpg')}}" alt="User Avatar" class="img-fluid rounded-circle" width="100">
+                                <img src="{{(!empty(Auth::user()->image)) ? '/images/uploads/profiles/'.Auth::user()->image : '/images/uploads/profiles/default-profile.png'}}" alt="User Avatar" class="img-fluid rounded-circle" width="100">
                             </div>
                             <div class="user-details">
                                 <h4><b>Welcome {{ucwords(Auth::user()->name)}}</b></h4>
@@ -40,7 +40,7 @@
                         <div class="user-card card shadow-sm bg-white text-center ctm-border-radius grow">
                             <div class="user-info card-body">
                                 <div class="user-avatar mb-4">
-                                    <img src="{{asset('assets/backend/img/profiles/img-13.jpg')}}" alt="User Avatar" class="img-fluid rounded-circle" width="100">
+                                    <img src="{{(!empty(Auth::user()->image)) ? '/images/uploads/profiles/'.Auth::user()->image : '/images/uploads/profiles/default-profile.png'}}" alt="User Avatar" class="img-fluid rounded-circle" width="100">
                                 </div>
                                 <div class="user-details">
                                     <h4><b>{{ucwords(Auth::user()->name)}}</b></h4>

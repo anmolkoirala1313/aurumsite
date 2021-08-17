@@ -85,7 +85,7 @@
                                     <div class="user-info align-right dropdown d-inline-block header-dropdown">
                                         <a href="javascript:void(0)" data-toggle="dropdown" class=" menu-style dropdown-toggle">
                                             <div class="user-avatar d-inline-block">
-                                                <img src="{{asset('assets/backend/img/profiles/img-6.jpg')}}" alt="user avatar" class="rounded-circle img-fluid" width="55">
+                                                <img src="{{(!empty(Auth::user()->image)) ? '/images/uploads/profiles/'.Auth::user()->image : '/images/uploads/profiles/default-profile.png'}}" alt="user avatar" class="rounded-circle img-fluid" width="55">
                                             </div>
                                         </a>
 
