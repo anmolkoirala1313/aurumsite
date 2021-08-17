@@ -13,7 +13,7 @@
     <link href=''
           rel='shortcut icon' type='image/x-icon' />
     <meta name='robots' content='max-image-preview:large' />
-    
+
     <script type="text/javascript">
         window._wpemojiSettings = { "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/", "ext": ".png", "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/", "svgExt": ".svg", "source": { "concatemoji": "{{asset('assets/frontend/js/wp-emoji-release.min.js?ver=5.7.2')}}" } };
         !function (e, a, t) { var n, r, o, i = a.createElement("canvas"), p = i.getContext && i.getContext("2d"); function s(e, t) { var a = String.fromCharCode; p.clearRect(0, 0, i.width, i.height), p.fillText(a.apply(this, e), 0, 0); e = i.toDataURL(); return p.clearRect(0, 0, i.width, i.height), p.fillText(a.apply(this, t), 0, 0), e === i.toDataURL() } function c(e) { var t = a.createElement("script"); t.src = e, t.defer = t.type = "text/javascript", a.getElementsByTagName("head")[0].appendChild(t) } for (o = Array("flag", "emoji"), t.supports = { everything: !0, everythingExceptFlag: !0 }, r = 0; r < o.length; r++)t.supports[o[r]] = function (e) { if (!p || !p.fillText) return !1; switch (p.textBaseline = "top", p.font = "600 32px Arial", e) { case "flag": return s([127987, 65039, 8205, 9895, 65039], [127987, 65039, 8203, 9895, 65039]) ? !1 : !s([55356, 56826, 55356, 56819], [55356, 56826, 8203, 55356, 56819]) && !s([55356, 57332, 56128, 56423, 56128, 56418, 56128, 56421, 56128, 56430, 56128, 56423, 56128, 56447], [55356, 57332, 8203, 56128, 56423, 8203, 56128, 56418, 8203, 56128, 56421, 8203, 56128, 56430, 8203, 56128, 56423, 8203, 56128, 56447]); case "emoji": return !s([55357, 56424, 8205, 55356, 57212], [55357, 56424, 8203, 55356, 57212]) }return !1 }(o[r]), t.supports.everything = t.supports.everything && t.supports[o[r]], "flag" !== o[r] && (t.supports.everythingExceptFlag = t.supports.everythingExceptFlag && t.supports[o[r]]); t.supports.everythingExceptFlag = t.supports.everythingExceptFlag && !t.supports.flag, t.DOMReady = !1, t.readyCallback = function () { t.DOMReady = !0 }, t.supports.everything || (n = function () { t.readyCallback() }, a.addEventListener ? (a.addEventListener("DOMContentLoaded", n, !1), e.addEventListener("load", n, !1)) : (e.attachEvent("onload", n), a.attachEvent("onreadystatechange", function () { "complete" === a.readyState && t.readyCallback() })), (n = t.source || {}).concatemoji ? c(n.concatemoji) : n.wpemoji && n.twemoji && (c(n.twemoji), c(n.wpemoji))) }(window, document, window._wpemojiSettings);
@@ -39,7 +39,7 @@
     <link rel='stylesheet' id='wp-block-library-theme-css'
           href="{{asset('assets/frontend/css/theme.min.css?ver=5.7.2')}}"
           type='text/css' media='all' />
-  
+
     <link rel='stylesheet' id='dt-animation-css-css'
           href="{{asset('assets/frontend/plugins/designthemes-core-features/shortcodes/css/animations.css?ver=5.7.2')}}"
           type='text/css' media='all' />
@@ -55,8 +55,8 @@
     <style id='rs-plugin-settings-inline-css' type='text/css'>
         #rs-demo-id {}
     </style>
-    
-   
+
+
     <link rel='stylesheet' id='js_composer_front-css'
           href="{{asset('assets/frontend/plugins/js_composer/assets/css/js_composer.min.css?ver=6.5.0')}}"
           type='text/css' media='all' />
@@ -72,7 +72,7 @@
     <link rel='stylesheet' id='agencies-css'
           href="{{asset('assets/frontend/css/themes/style.css?ver=2.7')}}"
           type='text/css' media='all' />
-   
+
 
     <link rel='stylesheet' id='agencies-inline-css'
          href="{{asset('assets/frontend/inlinecss/agencies.css')}}"
@@ -129,7 +129,7 @@
     <link rel='stylesheet' id='agencies-loader-css'
          href="{{asset('assets/frontend/css/themes/css/loaders.css')}}"
           type='text/css' media='all' />
-  
+
     <link rel='stylesheet' id='agencies-wpsl-dtstyle-css'
         href="{{asset('assets/frontend/css/themes/css/store-locator.css')}}"
           type='text/css' media='all' />
@@ -143,7 +143,7 @@
         href="{{asset('assets/frontend/css/themes/css/custom.css')}}"
           type='text/css' media='all' />
 
-    <link rel='stylesheet' 
+    <link rel='stylesheet'
         href="{{asset('assets/frontend/inlinecss/style.css')}}"
           type='text/css' media='all' />
 
@@ -151,7 +151,7 @@
         href="{{asset('assets/frontend/inlinecss/kirki.css')}}"
           type='text/css' media='all' />
 
-    <link rel='stylesheet' 
+    <link rel='stylesheet'
         href="{{asset('assets/frontend/inlinecss/vs_custom.css')}}"
           type='text/css' media='all' />
 
@@ -168,7 +168,7 @@
             src="{{asset('assets/frontend/plugins/revslider/public/assets/js/rs6.min.js')}}"
             id='revmin-js'></script>
 
- 
+
     <script type='text/javascript'
             src="{{asset('assets/frontend/plugins/Ultimate_VC_Addons/assets/min-js/ultimate-params.min.js')}}"
             id='ultimate-vc-params-js'></script>
@@ -181,8 +181,8 @@
     <script type='text/javascript'
             src="{{asset('assets/frontend/css/themes/framework/js/modernizr.custom.js')}}"
             id='modernizr-custom-js'></script>
-   
-  
+
+
     <script type="text/javascript">function setREVStartSize(e) {
             //window.requestAnimationFrame(function() {
             window.RSIW = window.RSIW === undefined ? window.innerWidth : window.RSIW;
@@ -228,8 +228,8 @@
             }
             //});
         };</script>
-   
-    
+
+
     <noscript>
         <style>
             .wpb_animate_when_almost_visible {
@@ -243,7 +243,7 @@
 </head>
 
 <body
-    class="home {{request()->is('/') ? 'no-breadcrumb' : ''}} page-template-default page page-id-5 wp-embed-responsive theme-agencies  tribe-no-js layout-wide fullwidth-header default sticky-header standard-header header-with-topbar woo-type1 page-with-slider  wpb-js-composer js-comp-ver-6.5.0 vc_responsive">
+    class="home {{request()->is('/') ? 'no-breadcrumb' : ''}} {{request()->is('blog') ? 'page-template-tpl-blog' : ''}}  page-template-default page page-id-5 wp-embed-responsive theme-agencies  tribe-no-js layout-wide fullwidth-header default sticky-header standard-header header-with-topbar woo-type1 page-with-slider  wpb-js-composer js-comp-ver-6.5.0 vc_responsive">
 <div class="loader">
     <div class="loader-inner">
         <div class="dt-loading-text-with-icon"> - Loading- </div>
@@ -302,7 +302,7 @@
                                 <div class="dt-menu-toggle" id="dt-menu-toggle">
                                     Menu <span class="dt-menu-toggle-icon"></span>
                                 </div>
-                                
+
                                 <nav id="main-menu" class="menu-main-menu-container">
                                     <ul class="menu">
                                         <li id="menu-item-1770"
@@ -398,7 +398,7 @@
                                         <li id="menu-item-1769"
                                             class="{{request()->is('contact-us') ? 'current_page_item' : ''}} menu-item menu-item-type-post_type menu-item-object-page menu-item-depth-0 menu-links-with-arrow single menu-item-simple-parent ">
                                             <a href="contact-us">Contact Us</a></li>
-                                        
+
                                     </ul>
                                 </nav>
                                 <div class="menu-icons-wrapper">
@@ -423,7 +423,7 @@
 
                 @yield('slider')
 
-                
+
 
             </header><!-- **Header - End** -->
         </div><!-- **Header Wrapper - End** -->

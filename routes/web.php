@@ -36,6 +36,10 @@ Route::get('/contact-us', function () {
     return view('frontend.pages.contact-us');
 });
 
+Route::get('/blog', function () {
+    return view('frontend.blog.index');
+});
+
 Auth::routes();
 
 Auth::routes([

@@ -9,10 +9,9 @@
                                                 src="../wpengine.netdna-ssl.com/wp-content/themes/agencies/images/light-logo.png"
                                                 alt="light-logo" style="width: 50%;">
                                             <div class="vc_empty_space" style="height: 25px"><span class="vc_empty_space_inner"></span></div>
-                                            <p>Agency is a wordpress theme that is truly multi-purpose with our way of taking care your needs.</p>
+                                            <p>@if(!empty(@$setting_data->website_description)) {{@$setting_data->website_description}} @endif </p>
                                             <div class="vc_empty_space" style="height: 10px"><span class="vc_empty_space_inner"></span></div>
-                                            <p> The barrage of shortcodes that works in the pages, makes it the better choice for your business.
-                                            </p>
+                                           
                                             <div class="vc_empty_space" style="height: 16px"><span class="vc_empty_space_inner"></span></div>
                                             <div class='alignleft  dt-sc-subtitle-text'>STAY CONNECTED</div>
                                             <ul class='dt-sc-sociable  dt-simple-narrow'>
@@ -47,14 +46,13 @@
                                     <aside id="text-5" class="widget widget_text">
                                         <h3 class="widgettitle">Contact Us</h3>
                                         <div class="textwidget">
-                                            <div class='dt-sc-contact-info  '><span class='fa fa-home'> </span>71 Pilgrim Avenue, Chevy Chase,
-                                                <br>MD 20815</div>
+                                            <div class='dt-sc-contact-info  '><span class='fa fa-home'> </span>@if(!empty(@$setting_data->address)) {{@$setting_data->address}} @else Kathmandu, Nepal @endif </div>
                                             <div class='dt-sc-hr-invisible-xsmall '> </div>
-                                            <div class='dt-sc-contact-info  '><span class='fa fa-phone'> </span>(226) 906-2721<br>(671) 925-1352
+                                            <div class='dt-sc-contact-info  '><span class='fa fa-phone'> </span>@if(!empty(@$setting_data->phone)) {{@$setting_data->phone}} @else +977 1234567 @endif<br>@if(!empty(@$setting_data->mobile)) {{@$setting_data->mobile}} @else +977 1234567 @endif
                                             </div>
                                             <div class='dt-sc-hr-invisible-xsmall '> </div>
-                                            <div class='dt-sc-contact-info  '><span class='fa fa-envelope'> </span><a href="#">
-                                                    info@agency.com</a></div>
+                                            <div class='dt-sc-contact-info  '><span class='fa fa-envelope'> </span><a href="mailto:@if(!empty(@$setting_data->email)) {{@$setting_data->email}} @else example@gmail.com @endif">
+                                            @if(!empty(@$setting_data->email)) {{@$setting_data->email}} @else example@gmail.com @endif</a></div>
                                         </div>
                                     </aside>
                                 </div>
