@@ -10,8 +10,8 @@
     <script>document.documentElement.className = document.documentElement.className + ' yes-js js_active js'</script>
     <title>@yield('title')</title>
 
-    <link href=''
-          rel='shortcut icon' type='image/x-icon' />
+    <link rel="shortcut icon" type="image/x-icon" href="<?php if(@$setting_data->favicon){?>{{asset('/images/uploads/settings/'.@$setting_data->favicon)}}<?php }?>">
+
     <meta name='robots' content='max-image-preview:large' />
 
     <script type="text/javascript">
@@ -183,6 +183,17 @@
             src="{{asset('assets/frontend/css/themes/framework/js/modernizr.custom.js')}}"
             id='modernizr-custom-js'></script>
 
+
+   
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{@$setting_data->google_analytics}}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '{{@$setting_data->google_analytics}}');
+</script>
 
     <script type="text/javascript">function setREVStartSize(e) {
             //window.requestAnimationFrame(function() {
