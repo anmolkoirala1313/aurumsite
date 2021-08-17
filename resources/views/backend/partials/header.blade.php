@@ -21,7 +21,7 @@
 
     <link rel="stylesheet" href="{{asset('assets/backend/css/toastr.min.css')}}">
 
-    <link href="{{asset('assets/backend/css/sweetalert/sweetalert.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/backend/css/sweetalert.css')}}" rel="stylesheet">
     <title>@yield('title')</title>
 
 <!--[if lt IE 9]>

@@ -231,24 +231,6 @@
 @section('js')
 
     <script type="text/javascript">
-        @if($errors->has('success'))
-            toastr.options =
-            {
-                "closeButton" : true,
-                "progressBar" : true
-            }
-        toastr.error("{{ $errors->first('success') }}");
-        @endif
-
-        @if($errors->has('error'))
-            toastr.options =
-            {
-                "closeButton" : true,
-                "progressBar" : true
-            }
-        toastr.error("{{ $errors->first('error') }}");
-        @endif
-
         var loadFile = function(event) {
             var image = document.getElementById('image');
             var replacement = document.getElementById('current-img');
