@@ -251,6 +251,7 @@
                                  aria-labelledby="heading-sensitive-info"
                                  data-parent="#collapse-tabs-accordion">
                                 {{--  Tab content--}}
+                                {!! Form::open(['url'=>route('setting.imageupdate', @$settings->id),'method'=>'PUT','enctype'=>'multipart/form-data']) !!}
 
                                 <div class="row">
                                     {{-- main logo --}}
@@ -259,11 +260,9 @@
                                         <div class="card ctm-border-radius shadow-sm company-logo flex-fill grow">
                                             <div class="card-header">
                                                 <h4 class="card-title mb-0"> Main Logo</h4>
+                                                <span class="ctm-text-sm">*Please use 405 x 115px of image for main logo</span>
                                             </div>
                                             <div class="card-body">
-                                                <input type="hidden" name="website_name" value="{{@$settings->website_name}}">
-                                                <input type="hidden" name="website_description" value="{{@$settings->website_description}}">
-
                                                 <div class="row justify-content-center">
                                                     <div class="col-12 mb-4">
                                                         <div class="custom-file h-auto">
@@ -275,10 +274,6 @@
                                                             </div>
                                                             <img id="current-img" src="<?php if(!empty($settings->logo)){ echo '/images/uploads/settings/'.$settings->logo; } else{  echo '/images/uploads/default-placeholder.png'; } ?>"  alt="{{@$settings->website_name}}" class="default-image w-100">
                                                         </div>
-                                                    </div>
-
-                                                    <div class="text-center">
-                                                        <button type="submit" class="btn btn-theme ctm-border-radius text-white button-1">Update</button>
                                                     </div>
 
                                                 </div>
@@ -293,6 +288,8 @@
                                                 <div class="card ctm-border-radius shadow-sm grow flex-fill">
                                                     <div class="card-header">
                                                         <h4 class="card-title mb-0">White Logo</h4>
+                                                        <span class="ctm-text-sm">*Please use 405 x 115px of image for White logo</span>
+
                                                     </div>
                                                     <div class="card-body text-center">
 
@@ -317,7 +314,6 @@
                                                 <div class="card ctm-border-radius shadow-sm grow flex-fill">
                                                     <div class="card-header">
                                                         <h4 class="card-title d-inline-block mb-0">Favicon</h4>
-                                                        <span class="float-right"><a href="javascript:void(0)" class="text-primary" data-toggle="modal" data-target="#addNewType"> New Type</a></span>
                                                     </div>
                                                     <div class="card-body">
 
@@ -343,6 +339,12 @@
 
 
                                 </div>
+
+                                <div class="text-center mb-4">
+                                    <button type="submit" class="btn btn-theme ctm-border-radius text-white button-1">Update Images</button>
+                                </div>
+                                {!! Form::close() !!}
+
 
 
                                 {{--  End Tab content--}}

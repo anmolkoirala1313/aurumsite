@@ -62,7 +62,7 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
     Route::get('/settings', 'App\Http\Controllers\SettingController@index')->name('setting.index');
     Route::post('/settings', 'App\Http\Controllers\SettingController@store')->name('setting.store');
     Route::put('/settings/{id}', 'App\Http\Controllers\SettingController@update')->name('setting.update');
-    Route::put('/setting/{id}/images', 'App\Http\Controllers\UserController@imageupdate')->name('setting.imageupdate');
+    Route::put('/setting/{id}/images', 'App\Http\Controllers\SettingController@imageupdate')->name('setting.imageupdate');
 
     //End of General setting
 
