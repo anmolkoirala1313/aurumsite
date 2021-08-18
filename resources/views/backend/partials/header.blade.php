@@ -19,6 +19,8 @@
 
     <link rel="stylesheet" href="{{asset('assets/backend/css/style.css')}}">
 
+    <link rel="stylesheet" href="{{asset('assets/backend/css/jquery.dataTables.min.css')}}">
+
     <link rel="stylesheet" href="{{asset('assets/backend/css/toastr.min.css')}}">
 
     <link href="{{asset('assets/backend/css/sweetalert.css')}}" rel="stylesheet">

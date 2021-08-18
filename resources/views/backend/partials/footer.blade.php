@@ -24,6 +24,8 @@ s
 
 <script src="{{asset('assets/backend/js/toastr.min.js')}}"></script>
 
+<script src="{{asset('assets/backend/js/jquery.dataTables.min.js')}}"></script>
+
 <script src="{{asset('assets/backend/js/sweetalert.min.js')}}"></script>
 
 <script src="{{asset('assets/backend/js/form-validation.js')}}"></script>

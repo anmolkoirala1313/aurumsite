@@ -63,7 +63,16 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
     Route::post('/settings', 'App\Http\Controllers\SettingController@store')->name('setting.store');
     Route::put('/settings/{id}', 'App\Http\Controllers\SettingController@update')->name('setting.update');
     Route::put('/setting/{id}/images', 'App\Http\Controllers\SettingController@imageupdate')->name('setting.imageupdate');
-
     //End of General setting
 
+    //Blog categories
+
+    Route::get('/blog_category', 'App\Http\Controllers\BlogCategoryController@index')->name('blogcategory.index');
+    Route::get('/blog_category/create', 'App\Http\Controllers\BlogCategoryController@create')->name('blogcategory.create');
+    Route::post('/blog_category', 'App\Http\Controllers\BlogCategoryController@store')->name('blogcategory.store');
+    Route::put('/blog_category/{category}', 'App\Http\Controllers\BlogCategoryController@update')->name('blogcategory.update');
+    Route::delete('/blog_category/{category}', 'App\Http\Controllers\BlogCategoryController@destroy')->name('blogcategory.destroy');
+    Route::get('/blog_category/{category}/edit', 'App\Http\Controllers\BlogCategoryController@edit')->name('blogcategory.edit');
+
+    //End of Blog categories
 });
