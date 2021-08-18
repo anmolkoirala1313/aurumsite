@@ -141,7 +141,7 @@
 	
 	.nightclub-booking-form { float:left; clear:both; width:100%; margin:0px; padding:0px; }
 	.nightclub-booking-form p { margin-bottom:20px; float:left; clear:both; width:100%; position:relative; }
-	.nightclub-booking-form p.date:before, .nightclub-booking-form p.time:before { position:absolute; right:14px; top:9px; color:#ffffff; font-size:25px; font-family:FontAwesome; }
+	.nightclub-booking-form p.date:before, .nightclub-booking-form p.time:before { position:absolute; right:14px; top:9px; color:#ffffff; font-size:25px; font-family:'fontawesome'; }
 	.nightclub-booking-form p.date:before { content:"\f073"; }
 	.nightclub-booking-form p.time:before { content:"\f017"; }
 	.nightclub-booking-form p label { float:left; width:35%; padding:0px 10px 0px 0px;  color:#ffffff; font-size:16px; line-height:52px; }
@@ -231,7 +231,7 @@
 	
 	.wpcf7-form div.wpcf7-validation-errors, .wpcf7-form div.wpcf7-mail-sent-ok { clear: both; float: left; margin-left: 0; margin-right: 0; padding:15px 15px 15px 45px; width: 99%; box-sizing: border-box; }
 	.wpcf7-form div.wpcf7-validation-errors { background-color:#ffcccc; border:1px solid #ff9999; color:#d01313; position:relative; }
-	.wpcf7-form div.wpcf7-validation-errors:before, .wpcf7-form div.wpcf7-mail-sent-ok:before { top:15px; left:18px; font-family:FontAwesome; font-style:normal; font-weight:normal; text-decoration:inherit; font-size:20px; position:absolute; }
+	.wpcf7-form div.wpcf7-validation-errors:before, .wpcf7-form div.wpcf7-mail-sent-ok:before { top:15px; left:18px; font-family:'fontawesome'; font-style:normal; font-weight:normal; text-decoration:inherit; font-size:20px; position:absolute; }
 	.wpcf7-form div.wpcf7-validation-errors:before { content:"\f057"; color:#C54228; }
 	
 	.wpcf7-form div.wpcf7-mail-sent-ok { background-color:#eafac0; border:1px solid #b1cf67; color:#7ba411; position:relative; }
@@ -289,6 +289,13 @@
 	.dt-sc-sociable.filled li a.fa-facebook, .dt-sc-sociable.square li a.fa-facebook:hover,
 	.dt-sc-sociable.filled li.facebook a, .dt-sc-sociable.square li.facebook a:hover { background:#3162a2; }
 
+	.dt-sc-sociable.filled li a.fa-whatsapp, .dt-sc-sociable.square li a.fa-whatsapp:hover,
+	.dt-sc-sociable.filled li.whatsapp a, .dt-sc-sociable.square li.whatsapp a:hover { background:#25D366; }
+
+	.dt-sc-sociable.filled li a.fa-viber, .dt-sc-sociable.square li a.fa-viber:hover,
+	.dt-sc-sociable.filled li.viber a, .dt-sc-sociable.square li.viber a:hover { background:#665CAC; }
+
+	
 	.dt-sc-sociable.filled li a.fa-twitter, .dt-sc-sociable.square li a.fa-twitter:hover,
 	.dt-sc-sociable.filled li.twitter a, .dt-sc-sociable.square li.twitter a:hover { background:#2fb1eb; }	
 
@@ -361,7 +368,7 @@
 	.dt-sc-sociable.filled li:hover a, #footer .dt-sc-sociable.filled li a:hover,
 	.dt-sc-sociable.square li:hover a, #footer .dt-sc-sociable.square li a:hover { color:#fff; }
 
-	.dt-sc-sociable li a:before { font-family: "FontAwesome"; }
+	.dt-sc-sociable li a:before { font-family: "fontawesome"; }
 
 	.dt-sc-sociable li.delicious a:before { content: "\f1a5"; }
 	.dt-sc-sociable li.deviantart a:before { content: "\f1bd"; }
@@ -388,6 +395,8 @@
 	.dt-sc-sociable li.dribbble a:before { content: "\f17d"; }
 	.dt-sc-sociable li.instagram a:before { content: "\f16d"; }
 	.dt-sc-sociable li.facebook a:before { content: "\f09a"; }
+	.dt-sc-sociable li.whatsapp a:before { content: "\f232"; }
+	.dt-sc-sociable li.viber a:before { content: "\f409"; }
 	
 	.dt-sc-sociable.hexagon-with-border li, .dt-sc-sociable.hexagon-border li { position:relative; width:42px; height:25px; margin:14px 5px; border-left:solid 2px;  border-right:solid 2px; }
 	.dt-sc-sociable.hexagon-with-border li:before, .dt-sc-sociable.hexagon-with-border li:after, .dt-sc-sociable.hexagon-border li:before, .dt-sc-sociable.hexagon-border li:after { content:""; position:absolute; z-index:1; width:28px; height:28px; -webkit-transform:scaleY(0.5774) rotate(-45deg); -ms-transform:scaleY(0.5774) rotate(-45deg); transform:scaleY(0.5774) rotate(-45deg); background-color:inherit; left:5px; }
