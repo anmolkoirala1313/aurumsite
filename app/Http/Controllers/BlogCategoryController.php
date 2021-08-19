@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -25,7 +26,8 @@ class BlogCategoryController extends Controller
     public function index()
     {
         $categories = BlogCategory::all();
-        return view('backend.blog.category.index',compact('categories'));
+        $blogs      = Blog::all();
+        return view('backend.blog.category.index',compact('categories','blogs'));
     }
 
     /**
@@ -117,12 +119,12 @@ class BlogCategoryController extends Controller
     {
         $deletecategory  = BlogCategory::find($id);
         $rid             = $deletecategory->id;
-//        $checkblog       = $deletecategory->blogs()->get();
-//        if ($checkblog->count() > 0) {
-//            return 0;
-//        }else{
+        $checkblog       = $deletecategory->blogs()->get();
+        if ($checkblog->count() > 0) {
+            return 0;
+        }else{
             $deletecategory->delete();
-//        }
+        }
         return '#blog_category'.$rid;
     }
 }

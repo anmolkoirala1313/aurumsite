@@ -67,12 +67,26 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
 
     //Blog categories
 
-    Route::get('/blog_category', 'App\Http\Controllers\BlogCategoryController@index')->name('blogcategory.index');
-    Route::get('/blog_category/create', 'App\Http\Controllers\BlogCategoryController@create')->name('blogcategory.create');
-    Route::post('/blog_category', 'App\Http\Controllers\BlogCategoryController@store')->name('blogcategory.store');
-    Route::put('/blog_category/{category}', 'App\Http\Controllers\BlogCategoryController@update')->name('blogcategory.update');
-    Route::delete('/blog_category/{category}', 'App\Http\Controllers\BlogCategoryController@destroy')->name('blogcategory.destroy');
-    Route::get('/blog_category/{category}/edit', 'App\Http\Controllers\BlogCategoryController@edit')->name('blogcategory.edit');
+    Route::get('/blog-category', 'App\Http\Controllers\BlogCategoryController@index')->name('blogcategory.index');
+    Route::get('/blog-category/create', 'App\Http\Controllers\BlogCategoryController@create')->name('blogcategory.create');
+    Route::post('/blog-category', 'App\Http\Controllers\BlogCategoryController@store')->name('blogcategory.store');
+    Route::put('/blog-category/{category}', 'App\Http\Controllers\BlogCategoryController@update')->name('blogcategory.update');
+    Route::delete('/blog-category/{category}', 'App\Http\Controllers\BlogCategoryController@destroy')->name('blogcategory.destroy');
+    Route::get('/blog-category/{category}/edit', 'App\Http\Controllers\BlogCategoryController@edit')->name('blogcategory.edit');
 
     //End of Blog categories
+
+
+    //blog
+
+    Route::get('/blogs', 'App\Http\Controllers\BlogController@index')->name('blog.index');
+    Route::get('/blogs/create', 'App\Http\Controllers\BlogController@create')->name('blog.create');
+    Route::post('/blogs', 'App\Http\Controllers\BlogController@store')->name('blog.store');
+    Route::put('/blogs/{blogs}', 'App\Http\Controllers\BlogController@update')->name('blog.update');
+    Route::delete('/blogs/{blogs}', 'App\Http\Controllers\BlogController@destroy')->name('blog.destroy');
+    Route::get('/blogs/{blogs}/edit', 'App\Http\Controllers\BlogController@edit')->name('blog.edit');
+    Route::patch('/blogs/{id}/update', 'App\Http\Controllers\BlogController@updateStatus')->name('blog-status.update');
+
+    //End blog
+
 });
