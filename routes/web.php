@@ -13,9 +13,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
+
+Auth::routes();
+
+Auth::routes([
+    'reset' => false, // Password Reset Routes...
+    'verify' => false, // Email Verification Routes...
+]);
+
+Route::any('/register', function() {
+    abort(404);
+});
+
+Route::get('/categories', function () {
+    return redirect('/blog');
+});
+
+
 Route::get('/', function () {
     return view('welcome');
 });
+
 
 Route::get('/about', function () {
     return view('frontend.pages.aboutus');
@@ -37,16 +57,6 @@ Route::get('/contact-us', function () {
 });
 
 
-Auth::routes();
-
-Auth::routes([
-    'reset' => false, // Password Reset Routes...
-    'verify' => false, // Email Verification Routes...
-]);
-
-Route::get('/categories', function () {
-    return redirect('/blog');
-});
 
 //blog
 Route::get('blog/search/', 'App\Http\Controllers\FrontController@searchBlog')->name('searchBlog');

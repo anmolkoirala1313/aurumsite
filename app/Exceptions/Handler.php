@@ -4,6 +4,8 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use Illuminate\Auth\AuthenticationException;
+use Exception;
 
 class Handler extends ExceptionHandler
 {
@@ -37,5 +39,43 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+
+    
+    /**
+     * Report or log an exception.
+     *
+     * @param  \Exception  $exception
+     * @return void
+     */
+
+    public function report(Throwable $exception)
+    {
+        parent::report($exception);
+    }
+    
+     /**
+     * Render an exception into an HTTP response.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Exception  $exception
+     * @return \Illuminate\Http\Response
+     */
+
+    public function render($request, Throwable $exception)
+    {
+        if($this->isHttpException($exception)){
+            $code = $exception->getStatusCode();
+            $message = $exception->getMessage();
+            switch ($code){
+                case 404:
+                    return \Response::view('error.404',compact('message','code'),404);
+                    break;
+            }
+        }else{
+            return parent::render($request,$exception);
+
+        }
     }
 }
