@@ -31,6 +31,21 @@
             background: none !important;
             padding: 0 !important;
         }
+        .fa, .far, .fas {
+            font-family: 'FontAwesome' !important;
+        }
+        span.page-link.seperate-pagination-link {
+            background-color: unset;
+            color: #571F9C;
+        }
+
+        .active-category ul li.current:before {
+            content: "\f192";
+        }
+
+        .active-category li.current a {
+            color: #571F9C !important;
+        }
     </style>
 
     <link rel='stylesheet' id='wp-block-library-css'
@@ -406,7 +421,7 @@
                                             <a href="process">Process</a></li>
                                         <li id="menu-item-1779"
                                             class="{{request()->is('blog*') ? 'current_page_item' : ''}}  menu-item menu-item-type-post_type menu-item-object-page menu-item-depth-0 menu-links-with-arrow single menu-item-simple-parent ">
-                                            <a href="blog">Blog</a></li>
+                                            <a href="{{url('/blog')}}">Blog</a></li>
                                         <li id="menu-item-1769"
                                             class="{{request()->is('contact-us') ? 'current_page_item' : ''}} menu-item menu-item-type-post_type menu-item-object-page menu-item-depth-0 menu-links-with-arrow single menu-item-simple-parent ">
                                             <a href="contact-us">Contact Us</a></li>
@@ -418,12 +433,12 @@
                                                             class="dt-search-icon type1"> <span class="fa fa-search"> </span> </a>
                                         <div class="top-menu-search-container">
                                             <!-- **Searchform** -->
-                                            <form method="get" id="searchform" action="https://dtagency.wpengine.com/">
+                                            <form method="get" id="searchform" action="{{route('searchBlog')}}">
                                                 <input id="s" name="s" type="text" value="Enter Keyword" class="text_input"
                                                        onblur="if(this.value==''){this.value='Enter Keyword';}"
                                                        onfocus="if(this.value =='Enter Keyword') {this.value=''; }" />
                                                 <a href="javascript:void(0)" class="dt-search-icon"> <span class="fa fa-close"> </span> </a>
-                                                <input name="submit" type="submit" value="Go" />
+                                                <input name="submit" type="submit" />
                                             </form><!-- **Searchform - End** -->
                                         </div>
                                     </div>

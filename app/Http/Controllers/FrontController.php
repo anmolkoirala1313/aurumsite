@@ -24,17 +24,17 @@ class FrontController extends Controller
     public function blogs(){
         $bcategories = $this->bcategory->get();
         $allPosts = $this->blog->orderBy('title', 'asc')->where('status','publish')->paginate(6);
-        $latestPosts = $this->blog->orderBy('created_at', 'DESC')->where('status','publish')->take(3)->get();
+        $latestPosts = $this->blog->orderBy('created_at', 'DESC')->where('status','publish')->take(5)->get();
         return view('frontend.pages.blogs.index',compact('allPosts','latestPosts','bcategories'));
     }
 
     public function blogSingle($slug){
 
         $singleBlog = $this->blog->where('slug', $slug)->first();
-        $catid = $singleBlog->category_id;
-        $relatedBlogs = Blog::where('category_id', '=', $catid)->where('status','publish')->take(2)->get();
+        $catid = $singleBlog->blog_category_id;
+        $relatedBlogs = Blog::where('blog_category_id', '=', $catid)->where('status','publish')->take(2)->get();
         $bcategories = $this->bcategory->get();
-        $latestPosts = $this->blog->orderBy('created_at', 'DESC')->where('status','publish')->take(3)->get();
+        $latestPosts = $this->blog->orderBy('created_at', 'DESC')->where('status','publish')->take(5)->get();
         return view('frontend.pages.blogs.single',compact('singleBlog','relatedBlogs','bcategories','latestPosts'));
     }
 
@@ -42,9 +42,9 @@ class FrontController extends Controller
         $bcategory = $this->bcategory->where('slug', $slug)->first();
         $catid = $bcategory->id;
         $cat_name = $bcategory->name;
-        $allPosts = $this->blog->where('category_id', $catid)->where('status','publish')->orderBy('title', 'asc')->paginate(6);
+        $allPosts = $this->blog->where('blog_category_id', $catid)->where('status','publish')->orderBy('title', 'asc')->paginate(6);
         $bcategories = $this->bcategory->get();
-        $latestPosts = $this->blog->orderBy('created_at', 'DESC')->where('status','publish')->take(3)->get();
+        $latestPosts = $this->blog->orderBy('created_at', 'DESC')->where('status','publish')->take(5)->get();
         return view('frontend.pages.blogs.category',compact('allPosts','cat_name','latestPosts','bcategories'));
     }
 
@@ -57,7 +57,7 @@ class FrontController extends Controller
         $query = $request->s;
         $allPosts = $this->blog->where('title', 'LIKE', '%' . $query . '%')->where('status','publish')->orderBy('title', 'asc')->paginate(6);
         $bcategories = $this->bcategory->get();
-        $latestPosts = $this->blog->orderBy('created_at', 'DESC')->where('status','publish')->take(3)->get();
+        $latestPosts = $this->blog->orderBy('created_at', 'DESC')->where('status','publish')->take(5)->get();
 
         return view('frontend.pages.blogs.search',compact('allPosts','query','latestPosts','bcategories'));
     }

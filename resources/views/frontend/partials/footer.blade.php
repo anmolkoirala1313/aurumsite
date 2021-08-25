@@ -90,11 +90,13 @@
                 <script
                 type='text/javascript'> /* <![CDATA[ */var tribe_l10n_datatables = { "aria": { "sort_ascending": ": activate to sort column ascending", "sort_descending": ": activate to sort column descending" }, "length_menu": "Show _MENU_ entries", "empty_table": "No data available in table", "info": "Showing _START_ to _END_ of _TOTAL_ entries", "info_empty": "Showing 0 to 0 of 0 entries", "info_filtered": "(filtered from _MAX_ total entries)", "zero_records": "No matching records found", "search": "Search:", "all_selected_text": "All items on this page were selected. ", "select_all_link": "Select all pages", "clear_selection": "Clear Selection.", "pagination": { "all": "All", "next": "Next", "previous": "Previous" }, "select": { "rows": { "0": "", "_": ": Selected %d rows", "1": ": Selected 1 row" } }, "datepicker": { "dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], "dayNamesMin": ["S", "M", "T", "W", "T", "F", "S"], "monthNames": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], "monthNamesShort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], "nextText": "Next", "prevText": "Prev", "currentText": "Today", "closeText": "Done" } };/* ]]> */</script>
                 <script type="text/html" id="wpb-modifications"></script>
+                
                 <link rel="stylesheet" property="stylesheet" id="rs-icon-set-fa-icon-css"
                 href="{{asset('assets/frontend/plugins/revslider/public/assets/fonts/font-awesome/css/font-awesome.css')}}"
                 type="text/css" media="all" />
                 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400%2C600%7CMontserrat:700%2C400" rel="stylesheet"
                 property="stylesheet" media="all" type="text/css">
+                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
                 <script type="text/javascript">
                 if (typeof revslider_showDoubleJqueryError === "undefined") {
@@ -234,7 +236,6 @@
                 <script type='text/javascript'
                 src="{{asset('assets/frontend/plugins/js_composer/assets/lib/vc_waypoints/vc-waypoints.min.js')}}"
                 id='vc_waypoints-js'></script>
-                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
                
                 @yield('js')
 
