@@ -36,9 +36,6 @@ Route::get('/contact-us', function () {
     return view('frontend.pages.contact-us');
 });
 
-Route::get('/blog', function () {
-    return view('frontend.blog.index');
-});
 
 Auth::routes();
 
@@ -46,6 +43,20 @@ Auth::routes([
     'reset' => false, // Password Reset Routes...
     'verify' => false, // Email Verification Routes...
 ]);
+
+Route::get('/categories', function () {
+    return redirect('/blog');
+});
+
+//blog
+Route::get('blog/search/', 'App\Http\Controllers\FrontController@searchBlog')->name('searchBlog');
+
+Route::get('blog/{slug}','App\Http\Controllers\FrontController@blogSingle')->name('blog.single');
+Route::get('/blog/categories/{slug}', 'App\Http\Controllers\FrontController@blogCategories')->name('blog.category');
+Route::get('/blog', 'App\Http\Controllers\FrontController@blogs')->name('blog.frontend');
+//end blog
+
+
 
 Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');

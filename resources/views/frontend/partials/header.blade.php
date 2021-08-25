@@ -405,7 +405,7 @@
                                             class="{{request()->is('process') ? 'current_page_item' : ''}} menu-item menu-item-type-post_type menu-item-object-page menu-item-depth-0 menu-links-with-arrow single menu-item-simple-parent ">
                                             <a href="process">Process</a></li>
                                         <li id="menu-item-1779"
-                                            class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-depth-0 menu-links-with-arrow single menu-item-simple-parent ">
+                                            class="{{request()->is('blog*') ? 'current_page_item' : ''}}  menu-item menu-item-type-post_type menu-item-object-page menu-item-depth-0 menu-links-with-arrow single menu-item-simple-parent ">
                                             <a href="blog">Blog</a></li>
                                         <li id="menu-item-1769"
                                             class="{{request()->is('contact-us') ? 'current_page_item' : ''}} menu-item menu-item-type-post_type menu-item-object-page menu-item-depth-0 menu-links-with-arrow single menu-item-simple-parent ">
