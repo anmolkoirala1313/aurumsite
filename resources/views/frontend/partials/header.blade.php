@@ -271,11 +271,15 @@
 
 <body
     class="home {{request()->is('/') ? 'no-breadcrumb' : ''}} {{request()->is('blog') ? 'page-template-tpl-blog' : ''}}  page-template-default page page-id-5 wp-embed-responsive theme-agencies  tribe-no-js layout-wide fullwidth-header default sticky-header standard-header header-with-topbar woo-type1 page-with-slider  wpb-js-composer js-comp-ver-6.5.0 vc_responsive">
-<div class="loader">
-    <div class="loader-inner">
-        <div class="dt-loading-text-with-icon"> - Loading- </div>
+
+    @if(@$code=="404")
+    @else
+    <div class="loader">
+        <div class="loader-inner">
+            <div class="dt-loading-text-with-icon"> - Loading- </div>
+        </div>
     </div>
-</div>
+    @endif
 <!-- **Wrapper** -->
 <div class="wrapper">
     <div class="inner-wrapper">
