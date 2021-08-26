@@ -149,7 +149,7 @@
                                                             <div class="custom-file h-auto">
                                                                 <div class="avatar-upload">
                                                                     <div class="avatar-edit">
-                                                                        <input type="file" class="custom-file-input" hidden id="imageUpload" onchange="loadFile(event)" name="image" required>
+                                                                        <input type="file"  accept="image/png, image/jpeg" class="custom-file-input" hidden id="imageUpload" onchange="loadFile(event)" name="image" required>
                                                                         <label for="imageUpload"></label>
                                                                         <div class="invalid-feedback" style="position: absolute; width: 45px;">
                                                                             Please select a image.
@@ -262,13 +262,8 @@
                                             </div>
                                         </div>
                                     </div>
-
-
                                 </div>
-
-
                                 {{-- End of Tab content --}}
-
                             </div>
                         </div>
                     </div>
@@ -287,7 +282,6 @@
                                             <div class="card-header">
                                                 <h4 class="card-title mb-0">
                                                     Add Blog Category
-                                                    <a href="javascript:void(0)" class="float-right text-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                                 </h4>
                                             </div>
                                             {!! Form::open(['route' => 'blogcategory.store','method'=>'post','class'=>'needs-validation','novalidate'=>'']) !!}
@@ -609,8 +603,6 @@
                 console.error( err.stack );
             } );
 
-
-
     //necessary for switching tabs
         $(document).on('click','li.list-group-item a', function (e) {
             var t = $(this);
@@ -798,14 +790,9 @@
 
         });
 
-
     //end of blog
 
-
-
-
-
-        function statusupdate(url,status){
+    function statusupdate(url,status){
         $.ajax({
             headers: {
                 'X-CSRF-TOKEN': "{{ csrf_token() }}"

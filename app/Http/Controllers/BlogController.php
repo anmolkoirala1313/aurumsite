@@ -4,11 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\BlogCategory;
-use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-use Intervention\Image\ImageManagerStatic as Image;
+use Intervention\Image\Facades\Image;
 
 class BlogController extends Controller
 {
@@ -61,11 +60,11 @@ class BlogController extends Controller
             $image          = $request->file('image');
             $name           = uniqid().'_'.$image->getClientOriginalName();
             $path           = base_path().'/public/images/uploads/blog/';
-            $image_resize   = Image::make($image->getRealPath())->orientate();
-            $image_resize->resize(1170, 950, function ($constraint) {
+            $moved          = Image::make($image->getRealPath())->resize(1170, 795, function ($constraint) {
                 $constraint->aspectRatio(); //maintain image ratio
-            });
-            if ($image->move($path,$name)){
+            })->orientate()->save($path.$name);
+
+            if ($moved){
                 $data['image']=$name;
             }
         }
@@ -124,14 +123,14 @@ class BlogController extends Controller
         $oldimage                  = $blog->image;
 
         if (!empty($request->file('image'))){
-            $image =$request->file('image');
-            $name1 = uniqid().'_'.$image->getClientOriginalName();
-            $path = base_path().'/public/images/uploads/blog/'.$name1;
-            $image_resize = Image::make($image->getRealPath())->orientate();
-            $image_resize->resize(1770, 950, function ($constraint) {
+            $image     = $request->file('image');
+            $name1     = uniqid().'_'.$image->getClientOriginalName();
+            $path      = base_path().'/public/images/uploads/blog/';
+            $moved     = Image::make($image->getRealPath())->resize(1170, 795, function ($constraint) {
                 $constraint->aspectRatio(); //maintain image ratio
-            });
-            if ($image_resize->save($path,80)){
+            })->orientate()->save($path.$name1);
+
+            if ($moved){
                 $blog->image= $name1;
                 if (!empty($oldimage) && file_exists(public_path().'/images/uploads/blog/'.$oldimage)){
                     @unlink(public_path().'/images/uploads/blog/'.$oldimage);

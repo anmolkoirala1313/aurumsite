@@ -110,4 +110,16 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
 
     //End blog
 
+    //sliders
+
+    Route::get('/sliders', 'App\Http\Controllers\SliderController@index')->name('sliders.index');
+    Route::get('/sliders/create', 'App\Http\Controllers\SliderController@create')->name('sliders.create');
+    Route::post('/sliders', 'App\Http\Controllers\SliderController@store')->name('sliders.store');
+    Route::put('/sliders/{sliders}', 'App\Http\Controllers\SliderController@update')->name('sliders.update');
+    Route::delete('/sliders/{sliders}', 'App\Http\Controllers\SliderController@destroy')->name('sliders.destroy');
+    Route::get('/sliders/{sliders}/edit', 'App\Http\Controllers\SliderController@edit')->name('sliders.edit');
+    Route::patch('/sliders/{id}/update', 'App\Http\Controllers\SliderController@updateStatus')->name('sliders-status.update');
+
+//End sliders
+
 });

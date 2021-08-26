@@ -74,7 +74,7 @@
                                         <a href="#" class="text-dark p-4 last-slider-btn ctm-border-right"><span class="lnr lnr-star pr-0 pb-lg-2 font-23"></span><span class="">Reviews</span></a>
                                     </div>
                                     <div class="col-6 align-items-center shadow-none text-center">
-                                        <a href="#" class="text-dark p-4 ctm-border-right ctm-border-left"><span class="lnr lnr-rocket pr-0 pb-lg-2 font-23"></span><span class="">Reports</span></a>
+                                        <a href="{{route('sliders.index')}}" class="{{(Request::segment(2) == 'sliders') ? "text-white active":"text-dark"}} p-4 ctm-border-right ctm-border-left"><span class="lnr lnr-picture pr-0 pb-lg-2 font-23"></span><span class="">Sliders</span></a>
                                     </div>
                                     <div class="col-6 align-items-center shadow-none text-center">
                                         <a href="{{route('blogcategory.index')}}" class="{{(Request::segment(2) == 'blog-category') ? "text-white active":"text-dark"}} p-4 ctm-border-right"><span class="lnr lnr-book pr-0 pb-lg-2 font-23"></span><span class="">Blog</span></a>
