@@ -32,9 +32,6 @@ Route::get('/categories', function () {
 });
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 
 Route::get('/about', function () {
@@ -57,6 +54,7 @@ Route::get('/contact-us', function () {
 });
 
 
+Route::get('/', 'App\Http\Controllers\FrontController@index')->name('home');
 
 //blog
 Route::get('blog/search/', 'App\Http\Controllers\FrontController@searchBlog')->name('searchBlog');

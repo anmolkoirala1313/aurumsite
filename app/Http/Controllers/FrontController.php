@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\BlogCategory;
+use App\Models\Slider;
 
 use Illuminate\Http\Request;
 
@@ -13,14 +14,20 @@ class FrontController extends Controller
     protected $bcategory = null;
  
 
-    public function __construct(BlogCategory $bcategory,Blog $blog)
+    public function __construct(BlogCategory $bcategory,Blog $blog,Slider $slider)
     {
-      
         $this->bcategory = $bcategory;
         $this->blog = $blog;
-
+        $this->slider = $slider;
     }
 
+
+    public function index()
+    {
+        $sliders =$this->slider->where('status','active')->orderBy('created_at', 'asc')->get();
+        return view('welcome',compact('sliders'));
+
+    }
     public function blogs(){
         $bcategories = $this->bcategory->get();
         $allPosts = $this->blog->orderBy('title', 'asc')->where('status','publish')->paginate(6);

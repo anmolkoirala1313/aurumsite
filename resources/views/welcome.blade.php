@@ -2,52 +2,54 @@
 @section('title') Aurum @endsection
 @section('slider')
 
+@if(count($sliders) > 0)
     <div id="slider">
         <div class="dt-sc-main-slider" id="dt-sc-rev-slider">
-            <!-- START Home2 REVOLUTION SLIDER 6.3.3 -->
+            <!-- START Home2 REVOLUTION SLIDER -->
             <p class="rs-p-wp-fix"></p>
             <rs-module-wrap id="rev_slider_3_1_wrapper" data-source="gallery"
                             style="background:transparent;padding:0;margin:0px auto;margin-top:0;margin-bottom:0;max-width:;">
                 <rs-module id="rev_slider_3_1" style="" data-version="6.3.3">
                     <rs-slides>
+                    @foreach(@$sliders as $slider)
+
+                        @if(@$loop->index == 0)
                         <rs-slide data-key="rs-7" data-title="Slide"
-                                    data-thumb="{{asset('assets/frontend/images/06/agency-slider01-100x50.jpg')}}"
+                                    data-thumb="{{ asset('/images/uploads/sliders/thumb/thumb_'.$slider->slider_image) }}')}}"
                                     data-anim="ei:d;eo:d;s:d;t:incube-horizontal;sl:d;">
                                     <img
-                                        src="{{asset('assets/frontend/images/06/agency-slider01.jpg')}}"
-                                        title="Home" class="rev-slidebg" data-no-retina />
+                                        src="{{ asset('/images/uploads/sliders/'.$slider->slider_image) }}"
+                                        title="{{ucwords(@$slider->heading)}}" class="rev-slidebg" data-no-retina />
                                     
                                     <rs-layer id="slider-3-slide-7-layer-1" data-type="text" data-color="#ffffff" data-rsp_ch="on"
                                             data-xy="x:c;y:542px;" data-text="s:16;l:22;ls:2px;a:inherit;" data-frame_0="y:100%;tp:600;"
                                             data-frame_1="tp:600;e:power4.inOut;st:500;sp:2000;sR:500;"
                                             data-frame_999="o:0;tp:600;st:w;sR:6500;"
-                                            style="z-index:5;font-family:Open Sans;text-transform:uppercase;">A Team With Best
-                                        Organizational Skills
+                                            style="z-index:5;font-family:Open Sans;text-transform:uppercase;">{{ucwords(@$slider->subheading_one)}}
                                     </rs-layer>
                                     
                                     <rs-layer id="slider-3-slide-7-layer-2" data-type="text" data-color="#ffffff" data-rsp_ch="on"
                                             data-xy="x:c;y:582px;" data-text="s:60;l:60;ls:3px;fw:700;a:inherit;"
                                             data-frame_0="y:100%;tp:600;" data-frame_1="tp:600;e:power4.inOut;st:1500;sp:1500;sR:1500;"
                                             data-frame_999="o:0;tp:600;st:w;sR:6000;"
-                                            style="z-index:6;font-family:Montserrat;text-transform:uppercase;">We have the talent
+                                            style="z-index:6;font-family:Montserrat;text-transform:uppercase;">{{ucwords(@$slider->heading)}}
                                     </rs-layer>
                                     
                                     <rs-layer id="slider-3-slide-7-layer-3" data-type="text" data-color="#ffffff" data-rsp_ch="on"
                                             data-xy="x:c;y:677px;" data-text="s:30;l:22;fw:600;a:inherit;" data-frame_0="y:100%;tp:600;"
                                             data-frame_1="tp:600;e:power4.inOut;st:2500;sp:2000;sR:2500;"
-                                            data-frame_999="o:0;tp:600;st:w;sR:4500;" style="z-index:7;font-family:Open Sans;"><i
-                                            class="fa-phone"></i> &nbsp;(01) 114 336 321
+                                            data-frame_999="o:0;tp:600;st:w;sR:4500;" style="z-index:7;font-family:Open Sans;">{{ucwords(@$slider->subheading_two)}}
 
                                     </rs-layer>
                                     
-                                    <rs-layer id="slider-3-slide-7-layer-6" class="rev-btn" data-type="button"
+                                    <rs-layer id="slider-3-slide-7-layer-6" class="rev-btn" data-type="button" data-url="{{@$slider->button_one_link}}"
                                             data-color="rgba(255,255,255,1)" data-xy="x:c;xo:-96px;y:751px;"
                                             data-text="s:14;l:17;a:inherit;" data-padding="t:17;r:35;b:17;l:35;"
                                             data-frame_0="x:-150px;tp:600;" data-frame_1="tp:600;e:power4.inOut;st:3500;sp:1500;sR:3500;"
                                             data-frame_999="o:0;tp:600;st:w;sR:4000;"
                                             data-frame_hover="c:#000;bgc:#fff;boc:#000;bor:0px,0px,0px,0px;bos:solid;oX:50;oY:50;sp:0;e:none;"
                                             style="z-index:8;background-color:#571f9c;font-family:Montserrat;text-transform:uppercase;cursor:pointer;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
-                                        our service
+                                            {{ucwords(@$slider->button_one)}}
                                     </rs-layer>
                                     
                                     <rs-layer id="slider-3-slide-7-layer-7" class="rev-btn" data-type="button"
@@ -61,12 +63,12 @@
                                     </rs-layer>
                                     
                         </rs-slide>
-
+                        @elseif(@$loop->index == 1)
                         <rs-slide data-key="rs-8" data-title="Slide"
-                                    data-thumb="{{asset('assets/frontend/images/06/agency-slider02-100x50.jpg')}}"
+                                    data-thumb="{{ asset('/images/uploads/sliders/thumb/thumb_'.$slider->slider_image) }}')}}"
                                     data-anim="ei:d;eo:d;s:d;t:incube-horizontal;sl:d;">
                             <img
-                                src="{{asset('assets/frontend/images/06/agency-slider02.jpg')}}"
+                                src="{{ asset('/images/uploads/sliders/'.$slider->slider_image) }}')}}"
                                 title="Home" class="rev-slidebg" data-no-retina>
                             
                             <rs-layer id="slider-3-slide-8-layer-1" class="tp-shape tp-shapewrapper" data-type="shape"
@@ -114,7 +116,7 @@
                             </rs-layer>
                             
                         </rs-slide>
-
+                        @elseif(@$loop->index ==2)
                         <rs-slide data-key="rs-9" data-title="Slide"
                                     data-thumb="{{asset('assets/frontend/images/06/agency-slider03-100x50.jpg')}}"
                                     data-anim="ei:d;eo:d;s:d;t:incube-horizontal;sl:d;">
@@ -193,6 +195,9 @@
                             </rs-layer>
                             
                         </rs-slide>
+                        @endif
+                        @endforeach
+
                     </rs-slides>
                 </rs-module>
 
@@ -201,6 +206,7 @@
             <!-- END REVOLUTION SLIDER -->
         </div>
     </div>
+@endif
 
 @endsection
 @section('content')
