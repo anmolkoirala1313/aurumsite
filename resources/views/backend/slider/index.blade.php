@@ -124,14 +124,14 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label>Heading</label>
+                                        <label>Heading <span class="text-muted text-danger">*</span></label>
                                         <input type="text" class="form-control" name="heading" required>
                                         <div class="invalid-feedback">
                                             Please enter the slider heading.
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label>Sub Heading One</label>
+                                        <label>Sub Heading One <span class="text-muted text-danger">*</span></label>
                                         <input type="text" class="form-control" name="subheading_one" required>
                                         <div class="invalid-feedback">
                                             Please enter the slider subheading one.
@@ -151,7 +151,7 @@
                             <div class="card ctm-border-radius shadow-sm flex-fill">
                             <div class="card-header">
                                 <h4 class="card-title mb-0">
-                                    Slider Image
+                                    Slider Image <span class="text-muted text-danger">*</span>
                                 </h4>
                             </div>
                             <div class="card-body">
@@ -169,7 +169,7 @@
                                             </div>
                                             <img id="current-img" src="{{asset('/images/uploads/default-placeholder.png')}}" alt="slider image" class="w-100 current-img">
                                         </div>
-                                        <span class="ctm-text-sm">*use image minimum of 1920 x 150px for blog</span>
+                                        <span class="ctm-text-sm">*use image minimum of 1920 x 850px for blog</span>
                                     </div>
 
                                 </div>
@@ -188,14 +188,14 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label>Button one title</label>
+                                        <label>Button one title <span class="text-muted text-danger">*</span></label>
                                         <input type="text" class="form-control" name="button_one" required>
                                         <div class="invalid-feedback">
                                             Please enter button one title.
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label>Button one link</label>
+                                        <label>Button one link <span class="text-muted text-danger">*</span></label>
                                         <input type="text" class="form-control" name="button_one_link" required>
                                         <div class="invalid-feedback">
                                             Please enter the button one link.
@@ -254,14 +254,14 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label>Heading</label>
+                                        <label>Heading <span class="text-muted text-danger">*</span></label>
                                         <input type="text" class="form-control" name="heading" id="heading" required>
                                         <div class="invalid-feedback">
                                             Please enter the slider heading.
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label>Sub Heading One</label>
+                                        <label>Sub Heading One <span class="text-muted text-danger">*</span></label>
                                         <input type="text" class="form-control" name="subheading_one" id="subheading_one" required>
                                         <div class="invalid-feedback">
                                             Please enter the slider subheading one.
@@ -281,7 +281,7 @@
                             <div class="card ctm-border-radius shadow-sm flex-fill">
                                 <div class="card-header">
                                     <h4 class="card-title mb-0">
-                                        Slider Image
+                                        Slider Image <span class="text-muted text-danger">*</span>
                                     </h4>
                                 </div>
                                 <div class="card-body">
@@ -290,7 +290,7 @@
                                             <div class="custom-file h-auto">
                                                 <div class="avatar-upload">
                                                     <div class="avatar-edit">
-                                                        <input type="file" class="custom-file-input" hidden id="image-edit" onchange="loadeditFile(event)" name="slider_image" required>
+                                                        <input type="file" class="custom-file-input" hidden id="image-edit" onchange="loadeditFile(event)" name="slider_image">
                                                         <label for="image-edit"></label>
                                                         <div class="invalid-feedback" style="position: absolute; width: 45px;">
                                                             Please select a image.
@@ -299,7 +299,7 @@
                                                 </div>
                                                 <img id="current-edit-img" src="{{asset('/images/uploads/default-placeholder.png')}}" alt="slider image" class="w-100 current-img">
                                             </div>
-                                            <span class="ctm-text-sm">*use image minimum of 1920 x 150px for blog</span>
+                                            <span class="ctm-text-sm">*use image minimum of 1920 x 850px for blog</span>
                                         </div>
 
                                     </div>
@@ -318,14 +318,14 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label>Button one title</label>
+                                        <label>Button one title <span class="text-muted text-danger">*</span></label>
                                         <input type="text" class="form-control" name="button_one" id="button_one" required>
                                         <div class="invalid-feedback">
                                             Please enter button one title.
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label>Button one link</label>
+                                        <label>Button one link <span class="text-muted text-danger">*</span></label>
                                         <input type="text" class="form-control" name="button_one_link" id="button_one_link" required>
                                         <div class="invalid-feedback">
                                             Please enter the button one link.
@@ -454,9 +454,77 @@
                         console.log(response)
 
                     });
-            })
+            });
 
-        })
+        });
+
+        $(document).on('click','.status-update', function (e) {
+            e.preventDefault();
+            var status = $(this).attr('id');
+            var url = $(this).attr('hrm-update-action');
+            if(status == 'deactive'){
+                swal({
+                    title: "Are You Sure?",
+                    text: "Setting the slider status to de-active will prevent them from displaying. \n \n Set their status to Publish to enable the displaying feature!",
+                    type: "info",
+                    showCancelButton: true,
+                    closeOnConfirm: false,
+                    showLoaderOnConfirm: true,
+                }, function(){
+                    statusupdate(url,status);
+                });
+            }else{
+                statusupdate(url,status);
+            }
+
+        });
+
+        //end of blog
+
+        function statusupdate(url,status){
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                },
+                url: url,
+                type: "PATCH",
+                cache: false,
+                data:{
+                    status: status,
+                },
+                success: function(dataResult){
+                    if(dataResult == "yes"){
+                        swal("Success!", "Slider Status has been updated", "success");
+                        $(dataResult).remove();
+                        setTimeout(function() {
+                            window.location.reload();
+                        }, 2500);
+                    }else{
+                        swal({
+                            title: "Error!",
+                            text: "Failed to update slider status",
+                            type: "error",
+                            showCancelButton: true,
+                            closeOnConfirm: false,
+                            showLoaderOnConfirm: true,
+                        }, function(){
+                            //window.location.href = ""
+                            swal.close();
+                        })
+                    }
+                },
+                error: function() {
+                    swal({
+                        title: 'Blog Warning',
+                        text: "Error. Could not confirm the status of the slider.",
+                        type: "info",
+                        showCancelButton: true,
+                        closeOnConfirm: false,
+                        showLoaderOnConfirm: true,
+                    });
+                }
+            });
+        }
 
 
 

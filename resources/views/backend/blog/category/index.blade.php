@@ -101,14 +101,14 @@
 
                                                 <div class="card-body">
                                                     <div class="form-group mb-3">
-                                                        <label>Title</label>
+                                                        <label>Title <span class="text-muted text-danger">*</span></label>
                                                         <input type="text" class="form-control" id="title" name="title" required>
                                                         <div class="invalid-feedback">
                                                             Please enter the post title.
                                                         </div>
                                                     </div>
                                                     <div class="form-group mb-3">
-                                                        <label>Slug</label>
+                                                        <label>Slug <span class="text-muted text-danger">*</span></label>
                                                         <input type="text" class="form-control" name="slug" id="blog-slug" required>
                                                         <div class="invalid-feedback">
                                                             Please enter the post Slug.
@@ -116,7 +116,7 @@
                                                     </div>
 
                                                     <div class="form-group mb-3">
-                                                        <label>Summary</label>
+                                                        <label>Summary <span class="text-muted text-danger">*</span></label>
                                                         <textarea class="form-control" rows="6" name="excerpt" id="excerpt" required></textarea>
                                                         <div class="invalid-feedback">
                                                             Please enter the post summary.
@@ -124,7 +124,7 @@
                                                     </div>
 
                                                     <div class="form-group mb-3">
-                                                        <label>Description</label>
+                                                        <label>Description <span class="text-muted text-danger">*</span></label>
                                                         <textarea class="form-control" rows="6" name="description" id="editor" required></textarea>
                                                         <div class="invalid-feedback">
                                                             Please enter the post description.
@@ -139,7 +139,7 @@
                                             <div class="card ctm-border-radius shadow-sm grow flex-fill">
                                                 <div class="card-header">
                                                     <h4 class="card-title mb-0">
-                                                        Blog Post Details
+                                                        Blog Post Details <span class="text-muted text-danger">*</span>
                                                     </h4>
                                                 </div>
                                                 <div class="card-body">
@@ -164,7 +164,7 @@
                                                     </div>
 
                                                     <div class="form-group mb-3">
-                                                        <label>Category</label>
+                                                        <label>Category <span class="text-muted text-danger">*</span></label>
                                                         <select class="form-control" name="blog_category_id" required>
                                                             <option value disabled selected>Select Blog Category</option>
                                                             @if(!empty(@$categories))
@@ -288,14 +288,14 @@
 
                                             <div class="card-body">
                                                 <div class="form-group mb-3">
-                                                    <label>Category Name</label>
+                                                    <label>Category Name <span class="text-muted text-danger">*</span></label>
                                                     <input type="text" class="form-control" name="name" id="name" required>
                                                     <div class="invalid-feedback">
                                                         Please enter the category name.
                                                     </div>
                                                 </div>
                                                 <div class="form-group mb-3">
-                                                    <label>Slug</label>
+                                                    <label>Slug <span class="text-muted text-danger">*</span></label>
                                                     <input type="text" class="form-control" name="slug" id="slug" required>
                                                     <div class="invalid-feedback">
                                                         Please enter the category Slug.
@@ -382,14 +382,14 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title mb-3">Edit Blog Category</h4>
                     <div class="form-group mb-3">
-                        <label>Category Name</label>
+                        <label>Category Name <span class="text-muted text-danger">*</span></label>
                         <input type="text" class="form-control" name="name" id="update-name" required>
                         <div class="invalid-feedback">
                             Please enter the category name.
                         </div>
                     </div>
                     <div class="form-group mb-3">
-                        <label>Slug</label>
+                        <label>Slug <span class="text-muted text-danger">*</span></label>
                         <input type="text" class="form-control" name="slug" id="update-slug" required>
                         <div class="invalid-feedback">
                             Please enter the category Slug.
@@ -420,14 +420,14 @@
                     <h4 class="modal-title mb-3">Edit Blog Category</h4>
 
                     <div class="form-group mb-3">
-                        <label>Title</label>
+                        <label>Title <span class="text-muted text-danger">*</span></label>
                         <input type="text" class="form-control" name="title" id="edit-title" required>
                         <div class="invalid-feedback">
                             Please enter the post title.
                         </div>
                     </div>
                     <div class="form-group mb-3">
-                        <label>Slug</label>
+                        <label>Slug <span class="text-muted text-danger">*</span></label>
                         <input type="text" class="form-control" name="slug" id="blog-edit-slug" required>
                         <input type="hidden"  name="status" id="edit-status" required>
                         <div class="invalid-feedback">
@@ -436,7 +436,7 @@
                     </div>
 
                     <div class="form-group mb-3">
-                        <label>Summary</label>
+                        <label>Summary <span class="text-muted text-danger">*</span></label>
                         <textarea class="form-control" rows="6" name="excerpt" id="edit-excerpt" required></textarea>
                         <div class="invalid-feedback">
                             Please enter the post summary.
@@ -444,7 +444,7 @@
                     </div>
 
                     <div class="form-group mb-3">
-                        <label>Description</label>
+                        <label>Description <span class="text-muted text-danger">*</span></label>
                         <textarea class="form-control update-descp" rows="6" name="description" id="edit-editor" required></textarea>
                         <div class="invalid-feedback">
                             Please enter the post description.
@@ -471,7 +471,7 @@
                     </div>
 
                     <div class="form-group mb-3">
-                        <label>Category</label>
+                        <label>Category <span class="text-muted text-danger">*</span></label>
                         <select class="form-control" name="blog_category_id" id="edit-blog-cat" required>
                             <option value disabled>Select Blog Category</option>
                             @if(!empty(@$categories))

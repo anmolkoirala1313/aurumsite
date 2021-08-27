@@ -180,4 +180,17 @@ class SliderController extends Controller
         $deleteslider->delete();
         return '#slider_'.$rid;
     }
+
+    public function updateStatus(Request $request, $id){
+        $slider          = Slider::find($id);
+        $slider->status  = $request->status;
+        $status          = $slider->update();
+        if($status){
+            $confirmed = "yes";
+        }
+        else{
+            $confirmed = "no";
+        }
+        return response()->json($confirmed);
+    }
 }

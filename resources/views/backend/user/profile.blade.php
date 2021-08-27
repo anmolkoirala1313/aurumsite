@@ -145,21 +145,21 @@
                                                     {!! Form::open(['method'=>'put','route'=>['user.password'],'enctype'=>'multipart/form-data','class'=>'needs-validation','novalidate'=>'']) !!}
 
                                                     <div class="form-group">
-                                                        <label>Current Password</label>
+                                                        <label>Current Password <span class="text-muted text-danger">*</span></label>
                                                         <input type="password" class="form-control" placeholder="Current Password" name="current_password" required>
                                                         <div class="invalid-feedback">
                                                             Please enter your current password.
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label>New Password</label>
+                                                        <label>New Password <span class="text-muted text-danger">*</span></label>
                                                         <input type="password" class="form-control" placeholder="New Password" id="password" name="password" required>
                                                         <div class="invalid-feedback">
                                                             Please enter your new password.
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label>Repeat Password</label>
+                                                        <label>Repeat Password <span class="text-muted text-danger">*</span></label>
                                                         <input type="password" class="form-control" placeholder="Repeat Password" name="repeated_password" id="repeated_password" required>
                                                         <span class="ctm-text-sm" id="wrongpassword"></span>
                                                         <div class="invalid-feedback">
@@ -195,7 +195,7 @@
                 <h4 class="modal-title mb-3">Edit General Information</h4>
                 {!! Form::open(['method'=>'put','route'=>['user.update', $user->id],'enctype'=>'multipart/form-data','class'=>'needs-validation','novalidate'=>'']) !!}
                     <div class="form-group mb-3">
-                        <label>Name</label>
+                        <label>Name <span class="text-muted text-danger">*</span></label>
                         <input type="text" class="form-control" name="name" value="{{$user->name}}" required>
                         <div class="invalid-feedback">
                             Please enter your name.

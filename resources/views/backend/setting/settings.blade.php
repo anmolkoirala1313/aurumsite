@@ -90,14 +90,14 @@
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="form-group">
-                                                        <label>Title <span class="text-muted">*</span></label>
+                                                        <label>Title <span class="text-muted text-danger">*</span></label>
                                                         <input type="text" class="form-control" id="website_name" name="website_name" value="{{@$settings->website_name}}" required>
                                                         <div class="invalid-feedback">
                                                             Please enter a website title.
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label>Description <span class="text-muted">*</span></label>
+                                                        <label>Description <span class="text-muted text-danger">*</span></label>
                                                         <textarea class="form-control" rows="6" name="website_description" id="description" required>{{@$settings->website_description}}</textarea>
                                                         <div class="invalid-feedback">
                                                             Please enter a website description.
@@ -116,14 +116,14 @@
                                                 <div class="card-body">
 
                                                     <div class="form-group">
-                                                        <label>Email <span class="text-muted">*</span></label>
+                                                        <label>Email <span class="text-muted text-danger">*</span></label>
                                                         <input type="email" class="form-control" id="email" name="email" value="{{@$settings->email}}" required>
                                                         <div class="invalid-feedback">
                                                             Please enter an email.
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label>Address <span class="text-muted">*</span></label>
+                                                        <label>Address <span class="text-muted text-danger">*</span></label>
                                                         <input type="text" class="form-control" name="address" id="address" value="{{@$settings->address}}" required>
                                                         <div class="invalid-feedback">
                                                             Please enter an address.
@@ -133,15 +133,14 @@
 
                                                    <div class="form-row mx-n4">
                                                         <div class="form-group col-md-6 px-4">
-                                                            <label for="phone" class="text-heading">Phone<span class="text-muted">*</span></label>
+                                                            <label for="phone" class="text-heading">Phone <span class="text-muted text-danger">*</span></label>
                                                             <input type="text" class="form-control form-control-lg" id="phone" name="phone" value="{{@$settings->phone}}" required>
                                                             <div class="invalid-feedback">
                                                                 Please enter a phone number.
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-6 px-4">
-                                                            <label for="mobile" class="text-heading">Mobile<span
-                                                                    class="text-muted">*</span></label>
+                                                            <label for="mobile" class="text-heading">Mobile <span class="text-muted text-danger">*</span></label>
                                                             <input type="text" class="form-control form-control-lg" id="mobile" name="mobile" value="{{@$settings->mobile}}"  required>
                                                             <div class="invalid-feedback">
                                                                 Please enter a mobile number.
