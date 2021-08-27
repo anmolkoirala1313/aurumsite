@@ -15,7 +15,7 @@
 
                         @if(@$loop->index == 0)
                         <rs-slide data-key="rs-7" data-title="Slide"
-                                    data-thumb="{{ asset('/images/uploads/sliders/thumb/thumb_'.$slider->slider_image) }}')}}"
+                                    data-thumb="{{ asset('/images/uploads/sliders/thumb/thumb_'.$slider->slider_image) }}"
                                     data-anim="ei:d;eo:d;s:d;t:incube-horizontal;sl:d;">
                                     <img
                                         src="{{ asset('/images/uploads/sliders/'.$slider->slider_image) }}"
@@ -42,34 +42,40 @@
 
                                     </rs-layer>
                                     
-                                    <rs-layer id="slider-3-slide-7-layer-6" class="rev-btn" data-type="button" data-url="{{@$slider->button_one_link}}"
+                                    <rs-layer id="slider-3-slide-7-layer-6" class="rev-btn" data-type="button" 
+                                            data-actions='o:click;a:simplelink;target:_self;url:{{@$slider->button_one_link}};'
                                             data-color="rgba(255,255,255,1)" data-xy="x:c;xo:-96px;y:751px;"
                                             data-text="s:14;l:17;a:inherit;" data-padding="t:17;r:35;b:17;l:35;"
                                             data-frame_0="x:-150px;tp:600;" data-frame_1="tp:600;e:power4.inOut;st:3500;sp:1500;sR:3500;"
                                             data-frame_999="o:0;tp:600;st:w;sR:4000;"
                                             data-frame_hover="c:#000;bgc:#fff;boc:#000;bor:0px,0px,0px,0px;bos:solid;oX:50;oY:50;sp:0;e:none;"
-                                            style="z-index:8;background-color:#571f9c;font-family:Montserrat;text-transform:uppercase;cursor:pointer;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
-                                            {{ucwords(@$slider->button_one)}}
+                                            style="@if($slider->button_two && @$slider->button_two_link) @else left: 100px; @endif z-index:8;background-color:#571f9c;font-family:Montserrat;text-transform:uppercase;cursor:pointer;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+                                           {{ucwords(@$slider->button_one)}}
                                     </rs-layer>
                                     
+                                    @if($slider->button_two && @$slider->button_two_link)
                                     <rs-layer id="slider-3-slide-7-layer-7" class="rev-btn" data-type="button"
-                                            data-color="rgba(255,255,255,1)" data-xy="x:c;xo:95px;y:751px;" data-text="s:14;l:17;a:inherit;"
+                                            data-actions='o:click;a:simplelink;target:_self;url:{{@$slider->button_two_link}};'
+                                            data-color="rgba(255,255,255,1)" data-xy="x:c;xo:145px;y:751px;" data-text="s:14;l:17;a:inherit;"
                                             data-padding="t:15;r:35;b:15;l:35;" data-border="bos:solid;boc:#ffffff;bow:2px,2px,2px,2px;"
                                             data-frame_0="x:150px;tp:600;" data-frame_1="tp:600;e:power4.inOut;st:3500;sp:1500;sR:3500;"
                                             data-frame_999="o:0;tp:600;st:w;sR:4000;"
                                             data-frame_hover="c:#000;bgc:#fff;boc:#000;bor:0px,0px,0px,0px;bos:solid;bow:0,0,0,0;oX:50;oY:50;sp:0;e:none;"
                                             style="z-index:9;background-color:rgba(87,31,156,0);font-family:Montserrat;text-transform:uppercase;cursor:pointer;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
-                                        get a quote
+                                            {{ucwords(@$slider->button_two)}}
+
                                     </rs-layer>
+                                    @endif
+
                                     
                         </rs-slide>
                         @elseif(@$loop->index == 1)
                         <rs-slide data-key="rs-8" data-title="Slide"
-                                    data-thumb="{{ asset('/images/uploads/sliders/thumb/thumb_'.$slider->slider_image) }}')}}"
+                                    data-thumb="{{asset('/images/uploads/sliders/thumb/thumb_'.$slider->slider_image) }}"
                                     data-anim="ei:d;eo:d;s:d;t:incube-horizontal;sl:d;">
                             <img
-                                src="{{ asset('/images/uploads/sliders/'.$slider->slider_image) }}')}}"
-                                title="Home" class="rev-slidebg" data-no-retina>
+                                src="{{asset('/images/uploads/sliders/'.$slider->slider_image) }}"
+                                title="{{ucwords(@$slider->heading)}}" class="rev-slidebg" data-no-retina>
                             
                             <rs-layer id="slider-3-slide-8-layer-1" class="tp-shape tp-shapewrapper" data-type="shape"
                                         data-rsp_ch="on" data-xy="x:2px;y:b;" data-text="a:inherit;" data-dim="w:960px;h:430px;"
@@ -83,117 +89,106 @@
                                         data-xy="x:30px;y:507px;" data-text="s:16;l:22;ls:2px;fw:600;a:inherit;"
                                         data-frame_0="y:100%;tp:600;" data-frame_1="tp:600;e:power4.inOut;st:1500;sp:2000;sR:1500;"
                                         data-frame_999="o:0;tp:600;st:w;sR:5500;"
-                                        style="z-index:6;font-family:Open Sans;text-transform:uppercase;">#1 best agency Theme
+                                        style="z-index:6;font-family:Open Sans;text-transform:uppercase;">{{ucwords(@$slider->subheading_one)}}
                             </rs-layer>
                             
                             <rs-layer id="slider-3-slide-8-layer-3" data-type="text" data-color="#3f3f3f" data-rsp_ch="on"
                                         data-xy="x:30px;y:547px;" data-text="s:50;l:60;fw:700;a:inherit;"
                                         data-frame_0="x:175%;o:1;tp:600;" data-frame_0_mask="u:t;x:-100%;"
                                         data-frame_1="tp:600;e:power3.out;st:3000;sp:1500;sR:3000;" data-frame_1_mask="u:t;"
-                                        data-frame_999="o:0;tp:600;st:w;sR:4500;" style="z-index:7;font-family:Montserrat;">Creative
-                                Services<br>
-                                for your Company
+                                        data-frame_999="o:0;tp:600;st:w;sR:4500;" style="z-index:7;font-family:Montserrat;">{{ucwords(@$slider->heading)}}
+                            </rs-layer>
+
+                            <rs-layer id="slider-3-slide-8-layer-4" data-type="text" data-color="#777777" data-rsp_ch="on"
+                                            data-xy="x:30px;y:630px;" data-text="s:25;l:22;fw:600;a:inherit;" data-frame_0="y:100%;tp:600;"
+                                            data-frame_1="tp:600;e:power4.inOut;st:2500;sp:2000;sR:2500;"
+                                            data-frame_999="o:0;tp:600;st:w;sR:4500;" style="z-index:7;font-family:Open Sans;">{{ucwords(@$slider->subheading_two)}}
                             </rs-layer>
                             
-                            <rs-layer id="slider-3-slide-8-layer-4" class="rev-btn" data-type="button"
+                            <rs-layer id="slider-3-slide-8-layer-5" class="rev-btn" data-type="button"
+                                        data-actions='o:click;a:simplelink;target:_self;url:{{@$slider->button_one_link}};'
                                         data-color="rgba(255,255,255,1)" data-xy="x:30px;y:700px;" data-text="s:14;l:17;a:inherit;"
                                         data-padding="t:17;r:35;b:17;l:35;" data-frame_0="y:100px;tp:600;"
                                         data-frame_1="tp:600;e:power4.inOut;st:4000;sp:1500;sR:4000;"
                                         data-frame_999="o:0;tp:600;st:w;sR:3500;"
                                         data-frame_hover="c:#000;bgc:#fff;boc:#000;bor:0px,0px,0px,0px;bos:solid;oX:50;oY:50;sp:0;e:none;"
                                         style="z-index:8;background-color:#571f9c;font-family:Montserrat;text-transform:uppercase;cursor:pointer;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
-                                talk to us
+                                        {{ucwords(@$slider->button_one)}}
                             </rs-layer>
                             
-                            <rs-layer id="slider-3-slide-8-layer-5" class="rev-btn" data-type="button" data-color="#571f9c"
+                            @if($slider->button_two && @$slider->button_two_link)
+
+                            <rs-layer id="slider-3-slide-8-layer-6" class="rev-btn" data-type="button" data-color="#571f9c"
+                                        data-actions='o:click;a:simplelink;target:_self;url:{{@$slider->button_two_link}};'
                                         data-xy="x:212px;y:700px;" data-text="s:14;l:17;a:inherit;" data-padding="t:15;r:35;b:15;l:35;"
                                         data-border="bos:solid;boc:#571f9c;bow:2px,2px,2px,2px;" data-frame_0="y:100px;tp:600;"
                                         data-frame_1="tp:600;e:power4.inOut;st:5000;sp:1500;sR:5000;"
                                         data-frame_999="o:0;tp:600;st:w;sR:2500;"
                                         data-frame_hover="c:#fff;bgc:#571f9c;boc:#571f9c;bor:0px,0px,0px,0px;bos:solid;bow:2px,2px,2px,2px;oX:50;oY:50;sp:0;e:none;"
                                         style="z-index:9;background-color:rgba(87,31,156,0);font-family:Montserrat;text-transform:uppercase;cursor:pointer;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
-                                get a quote
+                                        {{ucwords(@$slider->button_two)}}
                             </rs-layer>
+                            @endif
                             
                         </rs-slide>
                         @elseif(@$loop->index ==2)
                         <rs-slide data-key="rs-9" data-title="Slide"
-                                    data-thumb="{{asset('assets/frontend/images/06/agency-slider03-100x50.jpg')}}"
+                                    data-thumb="{{asset('/images/uploads/sliders/thumb/thumb_'.$slider->slider_image) }}"
                                     data-anim="ei:d;eo:d;s:d;t:incube-horizontal;sl:d;">
                             <img
-                                src="{{asset('assets/frontend/images/06/agency-slider03.jpg')}}"
-                                title="Home" class="rev-slidebg" data-no-retina>
+                                src="{{asset('/images/uploads/sliders/'.$slider->slider_image) }}"
+                                title="{{ucwords(@$slider->heading)}}" class="rev-slidebg" data-no-retina>
                             
-                            <rs-layer id="slider-3-slide-9-layer-1" data-type="text" data-color="#ffffff" data-rsp_ch="on"
-                                        data-xy="x:c;xo:-191px;y:517px;" data-text="s:16;l:22;ls:2px;fw:600;a:inherit;"
-                                        data-frame_0="y:100%;tp:600;" data-frame_1="tp:600;e:power4.inOut;st:2500;sp:2000;sR:2500;"
-                                        data-frame_999="o:0;tp:600;st:w;sR:4500;"
-                                        style="z-index:5;font-family:Open Sans;text-transform:uppercase;">Reliability
-                            </rs-layer>
                             
                             <rs-layer id="slider-3-slide-9-layer-2" data-type="text" data-color="#ffffff" data-rsp_ch="on"
                                         data-xy="x:c;y:409px;" data-text="s:60;l:60;fw:700;a:inherit;" data-frame_0="x:175%;o:1;tp:600;"
                                         data-frame_0_mask="u:t;x:-100%;" data-frame_1="tp:600;e:power3.out;st:1500;sp:1500;sR:1500;"
                                         data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;st:w;sR:6000;"
-                                        style="z-index:6;font-family:Montserrat;">Simply the Best
+                                        style="z-index:6;font-family:Montserrat;">{{ucwords(@$slider->heading)}}
                             </rs-layer>
-                            <a id="slider-3-slide-9-layer-3" class="rs-layer rev-btn"
-                                href="https://themeforest.net/item/agencies-multipurpose-creative-agency-consultancy-theme/20068283?s_rank=1"
-                                target="_self" data-type="button" data-color="#ffffff" data-xy="x:c;y:592px;"
-                                data-text="s:14;l:17;a:inherit;" data-padding="t:15;r:35;b:15;l:35;"
-                                data-border="bos:solid;boc:#ffffff;bow:2px,2px,2px,2px;" data-frame_0="y:100%;tp:600;"
-                                data-frame_1="tp:600;e:power4.inOut;st:6000;sp:2000;sR:6000;"
-                                data-frame_999="o:0;tp:600;st:w;sR:1000;"
-                                data-frame_hover="c:#fff;bgc:#571f9c;boc:#571f9c;bor:0px,0px,0px,0px;bos:solid;bow:2px,2px,2px,2px;oX:50;oY:50;sp:0;e:none;"
-                                style="z-index:7;background-color:rgba(87,31,156,0);font-family:Montserrat;text-transform:uppercase;cursor:pointer;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">Purchase
-                                            Theme
-                                </a>
+                           
                             
                             <rs-layer id="slider-3-slide-9-layer-5" data-type="text" data-color="#ffffff" data-rsp_ch="on"
                                         data-xy="x:c;xo:5px;y:381px;" data-text="s:16;l:22;ls:2px;fw:600;a:inherit;"
                                         data-frame_0="y:100%;tp:600;" data-frame_1="tp:600;e:power4.inOut;st:500;sp:2000;sR:500;"
                                         data-frame_999="o:0;tp:600;st:w;sR:6500;"
-                                        style="z-index:8;font-family:Open Sans;text-transform:uppercase;">#1 Most Loved By Everyone
+                                        style="z-index:8;font-family:Open Sans;text-transform:uppercase;">{{ucwords(@$slider->subheading_one)}}
                             </rs-layer>
                             
-                            <rs-layer id="slider-3-slide-9-layer-7" data-type="text" data-color="#ffffff" data-rsp_ch="on"
-                                        data-xy="x:c;xo:-4px;y:517px;" data-text="s:16;l:22;ls:2px;fw:600;a:inherit;"
-                                        data-frame_0="y:100%;tp:600;" data-frame_1="tp:600;e:power4.inOut;st:3500;sp:2000;sR:3500;"
-                                        data-frame_999="o:0;tp:600;st:w;sR:3500;"
-                                        style="z-index:9;font-family:Open Sans;text-transform:uppercase;">Competence
+                            <rs-layer id="slider-3-slide-9-layer-6" data-type="text" data-color="#ffffff" data-rsp_ch="on"
+                                data-xy="x:c;xo:5px;y:515px;" data-text="s:25;l:22;ls:2px;fw:600;a:inherit;"
+                                data-frame_0="y:100%;tp:600;" data-frame_1="tp:600;e:power4.inOut;st:900;sp:2000;sR:900;"
+                                data-frame_999="o:0;tp:600;st:w;sR:4500;"
+                                style="z-index:5;font-family:Open Sans;text-transform:uppercase;">{{ucwords(@$slider->subheading_two)}}
                             </rs-layer>
-                            
-                            <rs-layer id="slider-3-slide-9-layer-8" data-type="text" data-color="#ffffff" data-rsp_ch="on"
-                                        data-xy="x:c;xo:205px;y:517px;" data-text="s:16;l:22;ls:2px;fw:600;a:inherit;"
-                                        data-frame_0="y:100%;tp:600;" data-frame_1="tp:600;e:power4.inOut;st:4500;sp:2000;sR:4500;"
-                                        data-frame_999="o:0;tp:600;st:w;sR:2500;"
-                                        style="z-index:10;font-family:Open Sans;text-transform:uppercase;">Accountability
-                            </rs-layer>
-                            
-                            <rs-layer id="slider-3-slide-9-layer-9" data-type="image" data-rsp_ch="on"
-                                        data-xy="x:334px;y:518px;" data-text="l:22;a:inherit;" data-dim="w:19px;h:23px;"
-                                        data-frame_0="tp:600;" data-frame_1="tp:600;st:5500;sp:1000;sR:5500;"
-                                        data-frame_999="o:0;tp:600;st:w;sR:2500;" style="z-index:11;"><img
-                                    src="{{asset('assets/frontend/images/06/bullet.png')}}"
-                                    width="19" height="23" data-no-retina>
-                            </rs-layer>
-                            
-                            <rs-layer id="slider-3-slide-9-layer-10" data-type="image" data-rsp_ch="on"
-                                        data-xy="x:511px;y:520px;" data-text="l:22;a:inherit;" data-dim="w:19px;h:23px;"
-                                        data-frame_0="tp:600;" data-frame_1="tp:600;st:5700;sp:1000;sR:5700;"
-                                        data-frame_999="o:0;tp:600;st:w;sR:2300;" style="z-index:12;"><img
-                                    src="{{asset('assets/frontend/images/06/bullet.png')}}"
-                                    width="19" height="23" data-no-retina>
-                            </rs-layer>
-                            
-                            <rs-layer id="slider-3-slide-9-layer-11" data-type="image" data-rsp_ch="on"
-                                        data-xy="x:698px;y:519px;" data-text="l:22;a:inherit;" data-dim="w:19px;h:23px;"
-                                        data-frame_0="tp:600;" data-frame_1="tp:600;st:5900;sp:1000;sR:5900;"
-                                        data-frame_999="o:0;tp:600;st:w;sR:2100;" style="z-index:13;"><img
-                                    src="{{asset('assets/frontend/images/06/bullet.png')}}"
-                                    width="19" height="23" data-no-retina>
-                            </rs-layer>
-                            
+
+                            <a id="slider-3-slide-9-layer-3" class="rs-layer rev-btn"
+                                href="{{@$slider->button_one_link}}"
+                                target="_self" data-type="button" data-color="#ffffff" data-xy="x:<?php if($slider->button_two && @$slider->button_two_link){ echo '430px'; }else{ echo 'c';}?>;y:592px;"
+                                data-text="s:14;l:17;a:inherit;" data-padding="t:15;r:35;b:15;l:35;"
+                                data-border="bos:solid;boc:#ffffff;bow:2px,2px,2px,2px;" data-frame_0="y:100%;tp:600;"
+                                data-frame_1="tp:600;e:power4.inOut;st:1250;sp:2000;sR:1250;"
+                                data-frame_999="o:0;tp:600;st:w;sR:1000;"
+                                data-frame_hover="c:#fff;bgc:#571f9c;boc:#571f9c;bor:0px,0px,0px,0px;bos:solid;bow:2px,2px,2px,2px;oX:50;oY:50;sp:0;e:none;"
+                                style="z-index:7;background-color:rgba(87,31,156,0);font-family:Montserrat;text-transform:uppercase;cursor:pointer;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+                                {{ucwords(@$slider->button_one)}}
+                                </a>
+
+                            @if($slider->button_two && @$slider->button_two_link)
+
+                                <a id="slider-3-slide-9-layer-7" class="rs-layer rev-btn"
+                                href="{{@$slider->button_two_link}}"
+                                target="_self" data-type="button" data-color="#ffffff" data-xy="x:630px;y:592px;"
+                                data-text="s:14;l:17;a:inherit;" data-padding="t:15;r:35;b:15;l:35;"
+                                data-border="bos:solid;boc:#ffffff;bow:2px,2px,2px,2px;" data-frame_0="y:100%;tp:600;"
+                                data-frame_1="tp:600;e:power4.inOut;st:1250;sp:2000;sR:1250;"
+                                data-frame_999="o:0;tp:600;st:w;sR:1000;"
+                                data-frame_hover="c:#fff;bgc:#571f9c;boc:#571f9c;bor:0px,0px,0px,0px;bos:solid;bow:2px,2px,2px,2px;oX:50;oY:50;sp:0;e:none;"
+                                style="z-index:7;background-color:rgba(87,31,156,0);font-family:Montserrat;text-transform:uppercase;cursor:pointer;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
+                                {{ucwords(@$slider->button_two)}}
+                                </a>
+                                @endif
+                           
                         </rs-slide>
                         @endif
                         @endforeach
