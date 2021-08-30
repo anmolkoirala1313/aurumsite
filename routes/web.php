@@ -131,10 +131,21 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
     Route::get('/service-category', 'App\Http\Controllers\ServiceCategoryController@index')->name('service-category.index');
     Route::get('/service-category/create', 'App\Http\Controllers\ServiceCategoryController@create')->name('service-category.create');
     Route::post('/service-category', 'App\Http\Controllers\ServiceCategoryController@store')->name('service-category.store');
-    Route::put('/service-category/{sliders}', 'App\Http\Controllers\ServiceCategoryController@update')->name('service-category.update');
-    Route::delete('/service-category/{sliders}', 'App\Http\Controllers\ServiceCategoryController@destroy')->name('service-category.destroy');
-    Route::get('/service-category/{sliders}/edit', 'App\Http\Controllers\ServiceCategoryController@edit')->name('service-category.edit');
+    Route::put('/service-category/{servicecat}', 'App\Http\Controllers\ServiceCategoryController@update')->name('service-category.update');
+    Route::delete('/service-category/{servicecat}', 'App\Http\Controllers\ServiceCategoryController@destroy')->name('service-category.destroy');
+    Route::get('/service-category/{servicecat}/edit', 'App\Http\Controllers\ServiceCategoryController@edit')->name('service-category.edit');
 
     //End of service category
+
+    //Testimonials
+
+    Route::get('/testimonials', 'App\Http\Controllers\TestimonialController@index')->name('testimonials.index');
+    Route::get('/testimonials/create', 'App\Http\Controllers\TestimonialController@create')->name('testimonials.create');
+    Route::post('/testimonials', 'App\Http\Controllers\TestimonialController@store')->name('testimonials.store');
+    Route::put('/testimonials/{testimonials}', 'App\Http\Controllers\TestimonialController@update')->name('testimonials.update');
+    Route::delete('/testimonials/{testimonials}', 'App\Http\Controllers\TestimonialController@destroy')->name('testimonials.destroy');
+    Route::get('/testimonials/{testimonials}/edit', 'App\Http\Controllers\TestimonialController@edit')->name('testimonials.edit');
+
+    //End of Testimonials
 
 });

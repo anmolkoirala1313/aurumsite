@@ -1,5 +1,5 @@
 @extends('backend.layouts.master')
-@section('title') Service Category @endsection
+@section('title') Testimonials @endsection
 @section('css')
 
     <style>
@@ -18,148 +18,88 @@
             border-radius: 10px;
         }
 
-        #cat-img{
+        #testimonial-img{
             border: 6px solid #f3f3f3;
             border-radius: 10px;
         }
+
+        .image-size{
+            width: 130px;
+            height: 130px;
+        }
+
         /*end for image*/
 
-        /*for dropdown list design*/
+        /*for testimonial viewing*/
 
-        .list > ul {
-            list-style-type: none;
-        }
-        .list > ol {
-            list-style-type: none;
-            padding-left: 0px;
-        }
 
-        .list > ul > li {
-            display: block;
-        }
-        .list > ol > li {
-            display: block;
-        }
-
-        .list > ul > li:nth-child(3) ~ li {
-            padding: 0;
-            opacity: 0;
-            max-height: 0;
+        .hideContent {
             overflow: hidden;
-            transition: 0.5s ease;
-            box-sizing: padding-box;
+            line-height: 1em;
+            height: 5em;
         }
 
-        .list > ol > li:nth-child(3) ~ li {
-            padding: 0;
-            opacity: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: 0.5s ease;
-            box-sizing: padding-box;
+        .showContent {
+            line-height: 1em;
+            height: auto;
         }
-
-        .list > ul > li ~ li.visible {
-            opacity: 1;
-            max-height: 50px;
-        }
-        .list > ol > li ~ li.visible {
-            opacity: 1;
-            max-height: 50px;
-        }
-
-        /* ADDITIONAL STYLES */
-
-        div.list {
-            width: 256px;
-            margin: auto;
-            display: flex;
-            background: #fff;
-            border-radius: 8px;
-            padding: 12px 16px;
-            flex-direction: column;
-            border: 1px solid #ccc;
-        }
-
-        div.list ~ div.list {
-            margin-top: 16px;
-        }
-
-        .list > ul > li,
-        .list > ul > li ~ li.visible {
-            padding: 8px 0;
-        }
-        .list > ol > li,
-        .list > ol > li ~ li.visible {
-            padding: 8px 0;
-        }
-
-        .list > ul > li ~ li {
-            box-shadow: 0 -1px 0 #eee;
-        }
-        .list > ol > li ~ li {
-            box-shadow: 0 -1px 0 #eee;
-        }
-
-        .dropdown-button {
-            border: 0;
-            color: white;
-            padding: 8px;
-            outline: none;
-            cursor: pointer;
-            border-radius: 4px;
-            margin-bottom: 4px;
-            background: #00c7bd;
-        }
-
-        .dropdown-button:hover {
-            background: #00b8ae;
+        .showContent{
+            height: auto;
         }
 
 
+        .para-text {
+            padding: 10px 0;
+        }
+        .show-more {
+            padding: 10px 0;
+        }
+
+        /*end of testimonial viewing*/
     </style>
 @endsection
 @section('content')
 
     <div class="col-xl-9 col-lg-8 col-md-12">
 
-        {!! Form::open(['route' => 'service-category.store','method'=>'post','class'=>'needs-validation','novalidate'=>'','enctype'=>'multipart/form-data']) !!}
+        {!! Form::open(['route' => 'testimonials.store','method'=>'post','class'=>'needs-validation','novalidate'=>'','enctype'=>'multipart/form-data']) !!}
         <div class="row">
             <div class="col-md-6">
                 <div class="card ctm-border-radius shadow-sm grow flex-fill">
                     <div class="card-header">
                         <h4 class="card-title mb-0">
-                            Service Category Details
+                            Testimonial Details
                         </h4>
                     </div>
 
                     <div class="card-body">
+
                         <div class="form-group mb-3">
-                            <label>Category Name <span class="text-muted text-danger">*</span></label>
-                            <input type="text" class="form-control" name="name" required>
+                            <label>Title <span class="text-muted text-danger">*</span></label>
+                            <input type="text" class="form-control" name="title" required>
                             <div class="invalid-feedback">
-                                Please enter the category name.
+                                Please enter the name of testimonial provider
                             </div>
+                            <span class="ctm-text-sm">* Name of testimonial provider</span>
                         </div>
 
                         <div class="form-group mb-3">
-                            <label>Short Description </label>
-                            <textarea class="form-control" rows="6" name="short_description" ></textarea>
+                            <label> Subtitle </label>
+                            <input type="text" class="form-control" name="subtitle">
                             <div class="invalid-feedback">
-                                Please write the short description about service category.
+                                Please enter the name of company or designation of testimonial provider.
                             </div>
+                            <span class="ctm-text-sm">* Name of company or designation of testimonial provider</span>
                         </div>
 
                         <div class="form-group mb-3">
-                            <label>Category list <span class="text-muted text-danger">*</span></label>
-                            <textarea class="form-control" rows="8" name="list" id="editor" required></textarea>
-                            <span class="ctm-text-sm">* Use bullet and numbering to write the list from the options.</span>
+                            <label>Testimonial list <span class="text-muted text-danger">*</span></label>
+                            <textarea class="form-control" rows="8" name="testimonial" id="editor" required></textarea>
                             <div class="invalid-feedback">
-                                Please enter the post description.
+                                Please enter the testimonial.
                             </div>
                         </div>
                     </div>
-
 
                 </div>
             </div>
@@ -167,7 +107,7 @@
                 <div class="card ctm-border-radius shadow-sm grow flex-fill">
                     <div class="card-header">
                         <h4 class="card-title mb-0">
-                            Service Category Image <span class="text-muted text-danger">*</span>
+                            Testimonial Image <span class="text-muted text-danger">*</span>
                         </h4>
                     </div>
                     <div class="card-body">
@@ -177,7 +117,7 @@
                                 <div class="custom-file h-auto">
                                     <div class="avatar-upload">
                                         <div class="avatar-edit">
-                                            <input type="file"  accept="image/png, image/jpeg" class="custom-file-input" hidden id="imageUpload" onchange="loadFile(event)" name="image" required>
+                                            <input type="file"  accept="image/png, image/jpeg" class="custom-file-input" hidden id="imageUpload" onchange="loadFile(event)" name="image">
                                             <label for="imageUpload"></label>
                                             <div class="invalid-feedback" style="position: absolute; width: 45px;">
                                                 Please select a image.
@@ -186,12 +126,12 @@
                                     </div>
                                     <img id="current-img" src="{{asset('/images/uploads/default-placeholder.png')}}" alt="blog_image" class="w-100 current-img">
                                 </div>
-                                <span class="ctm-text-sm">*use image minimum of 1170 x 795px for Category</span>
+                                <span class="ctm-text-sm">*use image minimum of 120 x 120px for Category</span>
                             </div>
                         </div>
 
                         <div class="text-center">
-                            <button type="submit" class="btn btn-theme button-1 text-white ctm-border-radius mt-4" >Add Category</button>
+                            <button type="submit" class="btn btn-theme button-1 text-white ctm-border-radius mt-4" >Add Testimonial</button>
                         </div>
 
                     </div>
@@ -203,52 +143,61 @@
 
         <div class="row">
             <div class="col-md-12">
+
+
                 <div class="company-doc">
                     <div class="card ctm-border-radius shadow-sm grow">
                         <div class="card-header">
                             <h4 class="card-title d-inline-block mb-0">
-                                Service Category List
+                                Testimonial List
                             </h4>
                         </div>
                         <div class="card-body">
                             <div class="employee-office-table">
                                 <div class="table-responsive">
-                                    <table id="cat-index" class="table custom-table">
+                                    <table id="testimonial-index" class="table custom-table">
                                         <thead>
                                         <tr>
-                                            <th>Category Image</th>
-                                            <th>Name</th>
-                                            <th>Short Description</th>
-                                            <th>List</th>
+                                            <th>Testimonial Image</th>
+                                            <th>Title</th>
+                                            <th>Subtitle</th>
+{{--                                            <th>Testimonial</th>--}}
                                             <th class="text-right">Action</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @if(@$categories)
-                                            @foreach($categories as  $category)
+                                        @if(@$testimonials)
+                                            @foreach($testimonials as  $testimonial)
                                                 <tr>
                                                     <td class="align-middle pt-6 pb-4 px-6">
                                                         <div class="avatar-upload">
                                                             <div class="blog-preview">
-                                                                <img id="cat-img" src="{{asset('/images/uploads/service_categories/'.$category->image)}}" />
+                                                                <img id="testimonial-img" src="<?php if(!empty($testimonial->image)){ echo '/images/uploads/testimonials/'.$testimonial->image; } else{  echo '/images/uploads/profiles/default-profile.png'; } ?>" alt="{{$testimonial->title}}" class="{{!empty($testimonial->image) ? '':'image-size'}}">
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td>{{$category->name}}</td>
-                                                    <td>{{$category->short_description}}</td>
-                                                    <td>
-                                                        <div class="list">
-                                                            {!! $category->list !!}
-                                                            <button class="dropdown-button" value="1" data-show="More" data-hide="Less">More</button>
-                                                        </div>
-                                                    </td>
+                                                    <td>{{$testimonial->title}}</td>
+                                                    <td>{{(!empty($testimonial->subtitle)) ? $testimonial->subtitle:"N/A"}}</td>
+{{--                                                    <td>--}}
+
+{{--                                                        <div class="text-container">--}}
+{{--                                                            <div class="content hideContent" id="mytextdiv">--}}
+{{--                                                              {!! $testimonial->testimonial !!}--}}
+
+
+{{--                                                            </div>--}}
+{{--                                                            <div class="show-more">--}}
+{{--                                                                <a class="btn btn-white btn-sm click-me">Show more</a>--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                    </td>--}}
                                                     <td class="text-right">
                                                         <div class="dropdown action-label drop-active">
                                                             <a href="javascript:void(0)" class="btn btn-white btn-sm" data-toggle="dropdown" aria-expanded="false"> <span class="lnr lnr-cog"></span>
                                                             </a>
                                                             <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 31px, 0px);">
-                                                                <a class="dropdown-item action-edit" href="#" hrm-update-action="{{route('service-category.update',$category->id)}}" hrm-edit-action="{{route('service-category.edit',$category->id)}}"> Edit </a>
-                                                                <a class="dropdown-item action-delete" href="#" hrm-delete-per-action="{{route('service-category.destroy',$category->id)}}"> Delete </a>
+                                                                <a class="dropdown-item action-edit" href="#" hrm-update-action="{{route('testimonials.update',$testimonial->id)}}" hrm-edit-action="{{route('testimonials.edit',$testimonial->id)}}"> Edit </a>
+                                                                <a class="dropdown-item action-delete" href="#" hrm-delete-per-action="{{route('testimonials.destroy',$testimonial->id)}}"> Delete </a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -266,52 +215,57 @@
         </div>
     </div>
 
-    <div class="modal fade bd-example-modal-lg" id="editCat">
+
+
+    <div class="modal fade bd-example-modal-lg" id="editTestimonial">
         <form action="#" method="post" id="deleted-form" >
             {{csrf_field()}}
             <input name="_method" type="hidden" value="DELETE">
         </form>
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
-                {!! Form::open(['method'=>'PUT','class'=>'needs-validation updateservicecat','novalidate'=>'','enctype'=>'multipart/form-data']) !!}
+                {!! Form::open(['method'=>'PUT','class'=>'needs-validation updatetestimonial','novalidate'=>'','enctype'=>'multipart/form-data']) !!}
 
                 <div class="modal-body">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title mb-3">Edit Service Category</h4>
+                    <h4 class="modal-title mb-3">Edit Testimonial</h4>
 
                     <div class="row">
                         <div class="col-md-7">
                             <div class="card ctm-border-radius shadow-sm flex-fill">
                                 <div class="card-header">
                                     <h4 class="card-title mb-0">
-                                        Service Category Details
+                                        Testimonial Details
                                     </h4>
                                 </div>
                                 <div class="card-body">
+
                                     <div class="form-group mb-3">
-                                        <label>Category Name <span class="text-muted text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="name" id="name" required>
+                                        <label>Title <span class="text-muted text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="title" id="title" required>
                                         <div class="invalid-feedback">
-                                            Please enter the category name.
+                                            Please enter the name of testimonial provider.
                                         </div>
+                                        <span class="ctm-text-sm">* Name of testimonial provider</span>
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label>Short Description </label>
-                                        <textarea class="form-control" rows="6" name="short_description" id="short_description" ></textarea>
+                                        <label> Subtitle </label>
+                                        <input type="text" class="form-control" name="subtitle" id="subtitle">
                                         <div class="invalid-feedback">
-                                            Please write the short description about service category.
+                                            Please enter the name of company or designation of testimonial provider.
                                         </div>
+                                        <span class="ctm-text-sm">* Name of company or designation of testimonial provider</span>
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label>Category list <span class="text-muted text-danger">*</span></label>
-                                        <textarea class="form-control" rows="8" name="list" id="edit-editor" required></textarea>
-                                        <span class="ctm-text-sm">* Use bullet and numbering to write the list from the options.</span>
+                                        <label>Testimonial <span class="text-muted text-danger">*</span></label>
+                                        <textarea class="form-control" rows="8" name="testimonial" id="edit-editor" required></textarea>
                                         <div class="invalid-feedback">
-                                            Please enter the post description.
+                                            Please enter the testimonial.
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -319,7 +273,7 @@
                             <div class="card ctm-border-radius shadow-sm flex-fill">
                                 <div class="card-header">
                                     <h4 class="card-title mb-0">
-                                        Service Category Image <span class="text-muted text-danger">*</span>
+                                        Testimonial Image <span class="text-muted text-danger">*</span>
                                     </h4>
                                 </div>
                                 <div class="card-body">
@@ -335,9 +289,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <img id="current-edit-img" src="{{asset('/images/uploads/default-placeholder.png')}}" alt="category_image" class="w-100 current-img">
+                                                <img id="current-edit-img" src="{{asset('/images/uploads/profiles/default-profile.png')}}" alt="testimonial_image" class="w-100 current-img">
                                             </div>
-                                            <span class="ctm-text-sm">*use image minimum of 1170 x 785px for Category</span>
+                                            <span class="ctm-text-sm">*use image minimum of 120 x 120px for Category</span>
                                         </div>
 
                                     </div>
@@ -362,6 +316,7 @@
 
 @section('js')
     <script src="{{asset('assets/backend/plugins/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{asset('assets/backend/js/jquery-ui.min.js')}}"></script>
 
     <script type="text/javascript">
 
@@ -378,14 +333,21 @@
         };
 
 
+
+
         $(document).ready(function () {
-            $('#cat-index').DataTable({
+
+            $('#testimonial-index').DataTable({
                 paging: true,
                 searching: true,
                 ordering:  true,
                 lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
             });
 
+            //breaking the line after 45 words for testimonial div
+            // var text = $("#mytextdiv").html();
+            // var newtext = text.match(/.{1,45}/g).join("<br/>");
+            // $("#mytextdiv").html(newtext);
 
 
             ClassicEditor
@@ -436,6 +398,22 @@
 
         });
 
+        // $(".click-me").on("click", function() {
+        //     var $this = $(this);
+        //     var $content = $this.parent().prev("div.content");
+        //     var linkText = $this.text().toUpperCase();
+        //
+        //     if(linkText === "SHOW MORE"){
+        //         linkText = "Show less";
+        //         $content.switchClass("hideContent", "showContent", 500);
+        //     } else {
+        //         linkText = "Show more";
+        //         $content.switchClass("showContent", "hideContent", 500);
+        //     };
+        //
+        //     $this.text(linkText);
+        // });
+
         $(document).on('click','.action-edit', function (e) {
             e.preventDefault();
             var url =  $(this).attr('hrm-edit-action');
@@ -450,12 +428,16 @@
                 dataType: 'json',
                 success: function(dataResult){
                     // $('#id').val(data.id);
-                    $("#editCat").modal("toggle");
-                    $('#name').attr('value',dataResult.name);
-                    $('#short_description').text(dataResult.short_description);
-                    editor.setData( dataResult.list );
-                    $('#current-edit-img').attr("src",'/images/uploads/service_categories/'+dataResult.image );
-                    $('.updateservicecat').attr('action',action);
+                    $("#editTestimonial").modal("toggle");
+                    $('#title').attr('value',dataResult.title);
+                    $('#subtitle').attr('value',dataResult.subtitle);
+                    editor.setData( dataResult.testimonial );
+                    if(dataResult.image == null){
+                        $('#current-edit-img').attr("src",'/images/uploads/profiles/default-profile.png' );
+                    }else{
+                        $('#current-edit-img').attr("src",'/images/uploads/testimonials/'+dataResult.image );
+                    }
+                    $('.updatetestimonial').attr('action',action);
 
                 },
                 error: function(error){
@@ -482,7 +464,7 @@
             }, function(){
                 $.post( $url, form_data)
                     .done(function(response) {
-                        swal("Deleted!", "Service Category Deleted Successfully", "success");
+                        swal("Deleted!", "Testimonial Deleted Successfully", "success");
                         $(response).remove();
                         setTimeout(function() {
                             window.location.reload();
@@ -496,30 +478,6 @@
                     });
             });
 
-        });
-
-        document.addEventListener("DOMContentLoaded", function() {
-            this.querySelectorAll("div.list").forEach(list => {
-                list.querySelector("button").addEventListener("click", function() {
-                    let blocks = list.querySelectorAll("li");
-                    switch(this.value) {
-                        case "1":
-                            blocks.forEach(block => {
-                                if (!block.offsetHeight) block.classList.add("visible");
-                            });
-                            this.value = 0;
-                            this.innerText = this.dataset.hide;
-                            break;
-                        case "0":
-                            blocks.forEach(block => {
-                                block.classList.remove("visible");
-                            });
-                            this.value = 1;
-                            this.innerText = this.dataset.show;
-                            break;
-                    }
-                });
-            });
         });
 
     </script>

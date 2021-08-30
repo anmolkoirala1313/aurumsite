@@ -68,7 +68,7 @@
                                         <a href="#" class="text-dark p-4 ctm-border-right"><span class="lnr lnr-calendar-full pr-0 pb-lg-2 font-23"></span><span class="">Calendar</span></a>
                                     </div>
                                     <div class="col-6 align-items-center shadow-none text-center">
-                                        <a href="#" class="text-dark p-4 ctm-border-right ctm-border-left"><span class="lnr lnr-briefcase pr-0 pb-lg-2 font-23"></span><span class="">Leave</span></a>
+                                        <a href="{{route('testimonials.index')}}" class="{{(Request::segment(2) == 'testimonials') ? "text-white active":"text-dark"}} p-4 ctm-border-right ctm-border-left"><span class="lnr lnr-star-half pr-0 pb-lg-2 font-23"></span><span class="">Testimonials</span></a>
                                     </div>
                                     <div class="col-6 align-items-center shadow-none text-center">
                                         <a id="service-cat" href="{{route('service-category.index')}}" class="{{(Request::segment(2) == 'service-category') ? "text-white active":"text-dark"}} p-4 last-slider-btn ctm-border-right" title="Service Category"><span class="lnr lnr-tag pr-0 pb-lg-2 font-23"></span><span class="">Category</span></a>
