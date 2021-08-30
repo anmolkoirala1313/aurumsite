@@ -56,6 +56,12 @@ Route::get('/contact-us', function () {
 
 Route::get('/', 'App\Http\Controllers\FrontController@index')->name('home');
 
+//service category
+
+Route::get('/service', 'App\Http\Controllers\FrontController@services')->name('service.frontend');
+
+Route::get('service/{slug}','App\Http\Controllers\FrontController@serviceSingle')->name('service.single');
+
 //blog
 Route::get('blog/search/', 'App\Http\Controllers\FrontController@searchBlog')->name('searchBlog');
 

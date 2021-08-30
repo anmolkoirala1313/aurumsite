@@ -419,7 +419,7 @@
                                             <a href="team">Team</a></li>
                                         <li id="menu-item-7641"
                                             class="{{request()->is('service') ? 'current_page_item' : ''}} menu-item menu-item-type-post_type menu-item-object-page menu-item-depth-0 menu-links-with-arrow single menu-item-simple-parent ">
-                                            <a href="service">Services</a></li>
+                                            <a href="{{url('/service')}}">Services</a></li>
                                         <li id="menu-item-1779"
                                             class="{{request()->is('process') ? 'current_page_item' : ''}} menu-item menu-item-type-post_type menu-item-object-page menu-item-depth-0 menu-links-with-arrow single menu-item-simple-parent ">
                                             <a href="process">Process</a></li>

@@ -828,211 +828,67 @@
                             </div>
                         </div>
                     </div>
-                    <div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true"
-                            class="vc_row wpb_row vc_row-fluid vc_row-no-padding">
-                        <div class="wpb_column vc_column_container vc_col-sm-12">
-                            <div class="vc_column-inner ">
-                                <div class="wpb_wrapper">
-                                    <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="bounceInDown"
-                                            data-animation-delay="1.7" data-animation-duration="1" data-animation-iteration="1"
-                                            style="opacity:0;" data-opacity_start_effect="">
-                                        <div class='aligncenter  dt-sc-subtitle-text'>THE BEST PICKS</div>
-                                        <div class="ult-spacer spacer-6107b9a4c71e8" data-id="6107b9a4c71e8" data-height="10"
-                                                data-height-mobile="10" data-height-tab="10" data-height-tab-portrait=""
-                                                data-height-mobile-landscape="" style="clear:both;display:block;"></div>
-                                        <h2 style="font-size: 60px;line-height: 50px;text-align: center" class="vc_custom_heading">
-                                            <strong>Our Gallery</strong></h2>
-                                    </div>
-                                    <div class="ult-spacer spacer-6107b9a4c730b" data-id="6107b9a4c730b" data-height="60"
-                                            data-height-mobile="35" data-height-tab="45" data-height-tab-portrait="45"
-                                            data-height-mobile-landscape="35" style="clear:both;display:block;"></div>
-                                    <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="fadeInUp"
-                                            data-animation-delay="1.7" data-animation-duration="1" data-animation-iteration="1"
-                                            style="opacity:0;" data-opacity_start_effect="">
-                                        <div class="dt-sc-portfolio-container no-space">
-                                            <div id="dt_portfolios-7425" class="type1 no-space portfolio column dt-sc-one-fourth first">
-                                                <figure> <img
-                                                        src="{{asset('assets/frontend/images/01/gallery3.jpg')}}"
-                                                        alt="Cras tristique purus non lacus" title="Cras tristique purus non lacus" />
-                                                    <div class="image-overlay">
-                                                        <div class="links"><a title="Cras tristique purus non lacus"
-                                                                                href="https://dtagency.wpengine.com/dt_portfolios/cras-tristique-purus-non-lacus/"><span
-                                                                    class="icon icon-linked"> </span></a><a title="Cras tristique purus non lacus"
-                                                                                                            data-gal="prettyPhoto[gallery]"
-                                                                                                            href="{{asset('assets/frontend/images/01/gallery3.jpg')}}">
-                                                                <span class="icon icon-search"> </span> </a></div>
-                                                        <div class="image-overlay-details">
-                                                            <h2><a title="Cras tristique purus non lacus"
-                                                                    href="https://dtagency.wpengine.com/dt_portfolios/cras-tristique-purus-non-lacus/">Cras
-                                                                    tristique purus non lacus</a></h2>
-                                                            <p class='categories'><a
-                                                                    href="https://dtagency.wpengine.com/portfolio_entries/animation/"
-                                                                    rel="tag">Animation</a></p>
-                                                        </div>
+                    @if(count($service_categories) > 0)
+                    
+                        <div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true"
+                                class="vc_row wpb_row vc_row-fluid vc_row-no-padding">
+                            <div class="wpb_column vc_column_container vc_col-sm-12">
+                                <div class="vc_column-inner ">
+                                    <div class="wpb_wrapper">
+                                        <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="bounceInDown"
+                                                data-animation-delay="1.7" data-animation-duration="1" data-animation-iteration="1"
+                                                style="opacity:0;" data-opacity_start_effect="">
+                                            <div class='aligncenter  dt-sc-subtitle-text'>THE BEST SERVICE</div>
+                                            <div class="ult-spacer spacer-6107b9a4c71e8" data-id="6107b9a4c71e8" data-height="10"
+                                                    data-height-mobile="10" data-height-tab="10" data-height-tab-portrait=""
+                                                    data-height-mobile-landscape="" style="clear:both;display:block;"></div>
+                                            <h2 style="font-size: 60px;line-height: 50px;text-align: center" class="vc_custom_heading">
+                                                <strong>Our Category</strong></h2>
+                                        </div>
+                                        <div class="ult-spacer spacer-6107b9a4c730b" data-id="6107b9a4c730b" data-height="60"
+                                                data-height-mobile="35" data-height-tab="45" data-height-tab-portrait="45"
+                                                data-height-mobile-landscape="35" style="clear:both;display:block;"></div>
+                                        <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="fadeInUp"
+                                                data-animation-delay="1.7" data-animation-duration="1" data-animation-iteration="1"
+                                                style="opacity:0;" data-opacity_start_effect="">
+                                            <div class="dt-sc-portfolio-container no-space">
+                                                @foreach(@$service_categories as $service_category)
+
+                                                    
+                                                    <div id="dt_portfolios-7425" class="type1 no-space portfolio column dt-sc-one-fourth @if(@$loop->index == 0) first @endif">
+                                                        <figure> <img
+                                                                src="{{asset('assets/frontend/images/01/gallery3.jpg')}}"
+                                                                alt="Cras tristique purus non lacus" title="Cras tristique purus non lacus" />
+                                                            <div class="image-overlay">
+                                                                <div class="links"><a title="Cras tristique purus non lacus"
+                                                                                        href="https://dtagency.wpengine.com/dt_portfolios/cras-tristique-purus-non-lacus/"><span
+                                                                            class="icon icon-linked"> </span></a><a title="Cras tristique purus non lacus"
+                                                                                                                    data-gal="prettyPhoto[gallery]"
+                                                                                                                    href="{{asset('assets/frontend/images/01/gallery3.jpg')}}">
+                                                                        <span class="icon icon-search"> </span> </a></div>
+                                                                <div class="image-overlay-details">
+                                                                    <h2><a title="Cras tristique purus non lacus"
+                                                                            href="https://dtagency.wpengine.com/dt_portfolios/cras-tristique-purus-non-lacus/">Cras
+                                                                            tristique purus non lacus</a></h2>
+                                                                    <p class='categories'><a
+                                                                            href="https://dtagency.wpengine.com/portfolio_entries/animation/"
+                                                                            rel="tag">Animation</a></p>
+                                                                </div>
+                                                            </div>
+                                                        </figure>
                                                     </div>
-                                                </figure>
-                                            </div>
-                                            <div id="dt_portfolios-7424" class="type1 no-space portfolio column dt-sc-one-fourth">
-                                                <figure> <img
-                                                        src="{{asset('assets/frontend/images/01/gallery8.jpg')}}"
-                                                        alt="Duis fermentum felis" title="Duis fermentum felis" />
-                                                    <div class="image-overlay">
-                                                        <div class="links"><a title="Duis fermentum felis"
-                                                                                href="https://dtagency.wpengine.com/dt_portfolios/duis-fermentum-felis/"><span
-                                                                    class="icon icon-linked"> </span></a><a title="Duis fermentum felis"
-                                                                                                            data-gal="prettyPhoto[gallery]"
-                                                                                                            href="{{asset('assets/frontend/images/01/gallery8.jpg')}}">
-                                                                <span class="icon icon-search"> </span> </a></div>
-                                                        <div class="image-overlay-details">
-                                                            <h2><a title="Duis fermentum felis"
-                                                                    href="https://dtagency.wpengine.com/dt_portfolios/duis-fermentum-felis/">Duis
-                                                                    fermentum felis</a></h2>
-                                                            <p class='categories'><a
-                                                                    href="https://dtagency.wpengine.com/portfolio_entries/web-design/" rel="tag">Web
-                                                                    Design</a></p>
-                                                        </div>
-                                                    </div>
-                                                </figure>
-                                            </div>
-                                            <div id="dt_portfolios-7423" class="type1 no-space portfolio column dt-sc-one-fourth">
-                                                <figure> <img
-                                                        src="{{asset('assets/frontend/images/01/gallery6-1.jpg')}}"
-                                                        alt="Quisque id maximus leo" title="Quisque id maximus leo" />
-                                                    <div class="image-overlay">
-                                                        <div class="links"><a title="Quisque id maximus leo"
-                                                                                href="dt_portfolios/quisque-id-maximus-leo/index.html"><span
-                                                                    class="icon icon-linked"> </span></a><a title="Quisque id maximus leo"
-                                                                                                            data-gal="prettyPhoto[gallery]"
-                                                                                                            href="{{asset('assets/frontend/images/01/gallery6-1.jpg')}}">
-                                                                <span class="icon icon-search"> </span> </a></div>
-                                                        <div class="image-overlay-details">
-                                                            <h2><a title="Quisque id maximus leo"
-                                                                    href="dt_portfolios/quisque-id-maximus-leo/index.html">Quisque id maximus leo</a>
-                                                            </h2>
-                                                            <p class='categories'><a href="portfolio_entries/development/index.html"
-                                                                                        rel="tag">Development</a></p>
-                                                        </div>
-                                                    </div>
-                                                </figure>
-                                            </div>
-                                            <div id="dt_portfolios-7422" class="type1 no-space portfolio column dt-sc-one-fourth">
-                                                <figure> <img
-                                                        src="{{asset('assets/frontend/images/01/gallery1.jpg')}}"
-                                                        alt="Proin venenatis felis" title="Proin venenatis felis" />
-                                                    <div class="image-overlay">
-                                                        <div class="links"><a title="Proin venenatis felis"
-                                                                                href="https://dtagency.wpengine.com/dt_portfolios/proin-venenatis-felis/"><span
-                                                                    class="icon icon-linked"> </span></a><a title="Proin venenatis felis"
-                                                                                                            data-gal="prettyPhoto[gallery]"
-                                                                                                            href="{{asset('assets/frontend/images/01/gallery1.jpg')}}">
-                                                                <span class="icon icon-search"> </span> </a></div>
-                                                        <div class="image-overlay-details">
-                                                            <h2><a title="Proin venenatis felis"
-                                                                    href="https://dtagency.wpengine.com/dt_portfolios/proin-venenatis-felis/">Proin
-                                                                    venenatis felis</a></h2>
-                                                            <p class='categories'><a
-                                                                    href="https://dtagency.wpengine.com/portfolio_entries/photography/"
-                                                                    rel="tag">Photography</a></p>
-                                                        </div>
-                                                    </div>
-                                                </figure>
-                                            </div>
-                                            <div id="dt_portfolios-7421" class="type1 no-space portfolio column dt-sc-one-fourth first">
-                                                <figure> <img
-                                                        src="{{asset('assets/frontend/images/01/gallery2.jpg')}}"
-                                                        alt="Aenean vitae enim rhoncus" title="Aenean vitae enim rhoncus" />
-                                                    <div class="image-overlay">
-                                                        <div class="links"><a title="Aenean vitae enim rhoncus"
-                                                                                href="https://dtagency.wpengine.com/dt_portfolios/aenean-vitae-enim-rhoncus/"><span
-                                                                    class="icon icon-linked"> </span></a><a title="Aenean vitae enim rhoncus"
-                                                                                                            data-gal="prettyPhoto[gallery]"
-                                                                                                            href="{{asset('assets/frontend/images/01/gallery2.jpg')}}">
-                                                                <span class="icon icon-search"> </span> </a></div>
-                                                        <div class="image-overlay-details">
-                                                            <h2><a title="Aenean vitae enim rhoncus"
-                                                                    href="https://dtagency.wpengine.com/dt_portfolios/aenean-vitae-enim-rhoncus/">Aenean
-                                                                    vitae enim rhoncus</a></h2>
-                                                            <p class='categories'><a
-                                                                    href="https://dtagency.wpengine.com/portfolio_entries/web-design/" rel="tag">Web
-                                                                    Design</a></p>
-                                                        </div>
-                                                    </div>
-                                                </figure>
-                                            </div>
-                                            <div id="dt_portfolios-7420" class="type1 no-space portfolio column dt-sc-one-fourth">
-                                                <figure> <img
-                                                        src="{{asset('assets/frontend/images/01/gallery7.jpg')}}"
-                                                        alt="Donec in maximus augue" title="Donec in maximus augue" />
-                                                    <div class="image-overlay">
-                                                        <div class="links"><a title="Donec in maximus augue"
-                                                                                href="https://dtagency.wpengine.com/dt_portfolios/donec-in-maximus-augue/"><span
-                                                                    class="icon icon-linked"> </span></a><a title="Donec in maximus augue"
-                                                                                                            data-gal="prettyPhoto[gallery]"
-                                                                                                            href="{{asset('assets/frontend/images/01/gallery7.jpg')}}">
-                                                                <span class="icon icon-search"> </span> </a></div>
-                                                        <div class="image-overlay-details">
-                                                            <h2><a title="Donec in maximus augue"
-                                                                    href="https://dtagency.wpengine.com/dt_portfolios/donec-in-maximus-augue/">Donec
-                                                                    in maximus augue</a></h2>
-                                                            <p class='categories'><a
-                                                                    href="https://dtagency.wpengine.com/portfolio_entries/photography/"
-                                                                    rel="tag">Photography</a></p>
-                                                        </div>
-                                                    </div>
-                                                </figure>
-                                            </div>
-                                            <div id="dt_portfolios-7419" class="type1 no-space portfolio column dt-sc-one-fourth">
-                                                <figure> <img
-                                                        src="{{asset('assets/frontend/images/01/gallery10.jpg')}}"
-                                                        alt="Vestibulum pellentesque metus" title="Vestibulum pellentesque metus" />
-                                                    <div class="image-overlay">
-                                                        <div class="links"><a title="Vestibulum pellentesque metus"
-                                                                                href="https://dtagency.wpengine.com/dt_portfolios/vestibulum-pellentesque-metus/"><span
-                                                                    class="icon icon-linked"> </span></a><a title="Vestibulum pellentesque metus"
-                                                                                                            data-gal="prettyPhoto[gallery]"
-                                                                                                            href="{{asset('assets/frontend/images/01/gallery10.jpg')}}">
-                                                                <span class="icon icon-search"> </span> </a></div>
-                                                        <div class="image-overlay-details">
-                                                            <h2><a title="Vestibulum pellentesque metus"
-                                                                    href="https://dtagency.wpengine.com/dt_portfolios/vestibulum-pellentesque-metus/">Vestibulum
-                                                                    pellentesque metus</a></h2>
-                                                            <p class='categories'><a
-                                                                    href="https://dtagency.wpengine.com/portfolio_entries/logo-design/" rel="tag">Logo
-                                                                    Design</a></p>
-                                                        </div>
-                                                    </div>
-                                                </figure>
-                                            </div>
-                                            <div id="dt_portfolios-7418" class="type1 no-space portfolio column dt-sc-one-fourth">
-                                                <figure> <img
-                                                        src="{{asset('assets/frontend/images/01/gallery5.jpg')}}"
-                                                        alt="Nulla rhoncus efficitur augue" title="Nulla rhoncus efficitur augue" />
-                                                    <div class="image-overlay">
-                                                        <div class="links"><a title="Nulla rhoncus efficitur augue"
-                                                                                href="https://dtagency.wpengine.com/dt_portfolios/nulla-rhoncus-efficitur-augue/"><span
-                                                                    class="icon icon-linked"> </span></a><a title="Nulla rhoncus efficitur augue"
-                                                                                                            data-gal="prettyPhoto[gallery]"
-                                                                                                            href="{{asset('assets/frontend/images/01/gallery5.jpg')}}">
-                                                                <span class="icon icon-search"> </span> </a></div>
-                                                        <div class="image-overlay-details">
-                                                            <h2><a title="Nulla rhoncus efficitur augue"
-                                                                    href="https://dtagency.wpengine.com/dt_portfolios/nulla-rhoncus-efficitur-augue/">Nulla
-                                                                    rhoncus efficitur augue</a></h2>
-                                                            <p class='categories'><a href="portfolio_entries/development/index.html"
-                                                                                        rel="tag">Development</a></p>
-                                                        </div>
-                                                    </div>
-                                                </figure>
+                                                @endforeach
                                             </div>
                                         </div>
+                                        <div class="ult-spacer spacer-6107b9a4cab7c" data-id="6107b9a4cab7c" data-height="90"
+                                                data-height-mobile="60" data-height-tab="75" data-height-tab-portrait="75"
+                                                data-height-mobile-landscape="60" style="clear:both;display:block;"></div>
                                     </div>
-                                    <div class="ult-spacer spacer-6107b9a4cab7c" data-id="6107b9a4cab7c" data-height="90"
-                                            data-height-mobile="60" data-height-tab="75" data-height-tab-portrait="75"
-                                            data-height-mobile-landscape="60" style="clear:both;display:block;"></div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
+
                     <div class="vc_row-full-width vc_clearfix"></div>
                     <div class="vc_row wpb_row vc_row-fluid">
                         <div class="wpb_column vc_column_container vc_col-sm-12">
