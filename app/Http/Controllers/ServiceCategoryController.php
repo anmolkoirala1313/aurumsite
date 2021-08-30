@@ -55,7 +55,7 @@ class ServiceCategoryController extends Controller
             $image        = $request->file('image');
             $name         = uniqid().'_'.$image->getClientOriginalName();
             $path         = base_path().'/public/images/uploads/service_categories/';
-            $moved        = Image::make($image->getRealPath())->resize(1170, 785)->orientate()->save($path.$name);
+            $moved        = Image::make($image->getRealPath())->resize(1170, 795)->orientate()->save($path.$name);
             if ($moved){
                 $data['image']= $name;
             }

@@ -186,7 +186,7 @@
                                     </div>
                                     <img id="current-img" src="{{asset('/images/uploads/default-placeholder.png')}}" alt="blog_image" class="w-100 current-img">
                                 </div>
-                                <span class="ctm-text-sm">*use image minimum of 1170 x 785px for Category</span>
+                                <span class="ctm-text-sm">*use image minimum of 1170 x 795px for Category</span>
                             </div>
                         </div>
 
