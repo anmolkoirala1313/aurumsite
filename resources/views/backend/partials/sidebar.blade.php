@@ -13,9 +13,9 @@
                                                 <div class="custom-breadcrumb">
                                                     <ol class="breadcrumb no-bg-color d-inline-block p-0 m-0 mb-2">
                                                         <li class="breadcrumb-item d-inline-block"><a href="{{route('dashboard')}}" class="text-dark">Home</a></li>
-                                                        <li class="breadcrumb-item d-inline-block active">{{ucfirst(Request::segment(2))}}</li>
+                                                        <li class="breadcrumb-item d-inline-block active">{{str_replace('-',' ',ucfirst(Request::segment(2)))}}</li>
                                                     </ol>
-                                                    <h4 class="text-dark">{{ucfirst(Request::segment(2))}}</h4>
+                                                    <h4 class="text-dark">{{str_replace('-',' ',ucfirst(Request::segment(2)))}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -71,7 +71,7 @@
                                         <a href="#" class="text-dark p-4 ctm-border-right ctm-border-left"><span class="lnr lnr-briefcase pr-0 pb-lg-2 font-23"></span><span class="">Leave</span></a>
                                     </div>
                                     <div class="col-6 align-items-center shadow-none text-center">
-                                        <a href="#" class="text-dark p-4 last-slider-btn ctm-border-right"><span class="lnr lnr-star pr-0 pb-lg-2 font-23"></span><span class="">Reviews</span></a>
+                                        <a id="service-cat" href="{{route('service-category.index')}}" class="{{(Request::segment(2) == 'service-category') ? "text-white active":"text-dark"}} p-4 last-slider-btn ctm-border-right" title="Service Category"><span class="lnr lnr-tag pr-0 pb-lg-2 font-23"></span><span class="">Category</span></a>
                                     </div>
                                     <div class="col-6 align-items-center shadow-none text-center">
                                         <a href="{{route('sliders.index')}}" class="{{(Request::segment(2) == 'sliders') ? "text-white active":"text-dark"}} p-4 ctm-border-right ctm-border-left"><span class="lnr lnr-picture pr-0 pb-lg-2 font-23"></span><span class="">Sliders</span></a>

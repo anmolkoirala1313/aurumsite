@@ -242,7 +242,7 @@
 
                 <div class="modal-body">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title mb-3">Add Slider</h4>
+                    <h4 class="modal-title mb-3">Update Slider</h4>
 
                     <div class="row">
                         <div class="col-md-7">

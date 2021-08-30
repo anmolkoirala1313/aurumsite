@@ -118,6 +118,17 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
     Route::get('/sliders/{sliders}/edit', 'App\Http\Controllers\SliderController@edit')->name('sliders.edit');
     Route::patch('/sliders/{id}/update', 'App\Http\Controllers\SliderController@updateStatus')->name('sliders-status.update');
 
-//End sliders
+    //End sliders
+
+    //service category
+
+    Route::get('/service-category', 'App\Http\Controllers\ServiceCategoryController@index')->name('service-category.index');
+    Route::get('/service-category/create', 'App\Http\Controllers\ServiceCategoryController@create')->name('service-category.create');
+    Route::post('/service-category', 'App\Http\Controllers\ServiceCategoryController@store')->name('service-category.store');
+    Route::put('/service-category/{sliders}', 'App\Http\Controllers\ServiceCategoryController@update')->name('service-category.update');
+    Route::delete('/service-category/{sliders}', 'App\Http\Controllers\ServiceCategoryController@destroy')->name('service-category.destroy');
+    Route::get('/service-category/{sliders}/edit', 'App\Http\Controllers\ServiceCategoryController@edit')->name('service-category.edit');
+
+    //End of service category
 
 });

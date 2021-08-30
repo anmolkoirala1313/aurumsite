@@ -30,6 +30,10 @@
 <script src="{{asset('assets/backend/js/form-validation.js')}}"></script>
 
 <script type="text/javascript">
+    $(function() {
+        $( '#service-cat' ).tooltip();
+    });
+
     @if(Session::has('success'))
         toastr.options =
         {

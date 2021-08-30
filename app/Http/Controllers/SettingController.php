@@ -4,11 +4,9 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Setting;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-use Intervention\Image\ImageManagerStatic as Image;
 
 class SettingController extends Controller
 {

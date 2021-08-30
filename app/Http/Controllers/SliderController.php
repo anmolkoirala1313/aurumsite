@@ -127,9 +127,6 @@ class SliderController extends Controller
         $oldimage                    = $slider->slider_image;
         $thumbimage                  = 'thumb_'.$slider->slider_image;
 
-
-
-
         if (!empty($request->file('slider_image'))){
             $image               =  $request->file('slider_image');
             $name1               = uniqid().'_'.$image->getClientOriginalName();
