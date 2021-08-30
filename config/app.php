@@ -176,7 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-
+        DougSisk\CountryState\CountryStateServiceProvider::class,
         App\Providers\WebsiteServiceProvider::class,
 
 
