@@ -30,32 +30,46 @@
 
         /*end for image*/
 
-        /*for testimonial viewing*/
+        /*for testimonial viewing, more and less*/
 
+        .wrapper {
+            width: 400px;
+        }
 
-        .hideContent {
+        .desc-wrapper {
+            margin: 0 auto;
+            margin-bottom: 15px;
+            max-height: 80px;
             overflow: hidden;
-            line-height: 1em;
-            height: 5em;
         }
 
-        .showContent {
-            line-height: 1em;
-            height: auto;
-        }
-        .showContent{
-            height: auto;
+        .more-info {
+            /* Hide more info to begin with and reveal if text inside desc is too long*/
+            display: none;
         }
 
-
-        .para-text {
-            padding: 10px 0;
+        /* Only display 'more' to begin with */
+        .more-info .less,
+        .more-info.expand .more {
+            display: none;
         }
-        .show-more {
-            padding: 10px 0;
+        .more-info.expand .less {
+            display: inline;
         }
 
-        /*end of testimonial viewing*/
+        /* Misc, just to make things look a bit prettier */
+        .more-info:focus {
+            outline: none;
+        }
+        span.glyphicon {
+            margin-left: 3px;
+        }
+
+        .table-responsive {
+            white-space: inherit !important;
+        }
+
+        /*end of testimonial viewing, more and less*/
     </style>
 @endsection
 @section('content')
@@ -143,8 +157,6 @@
 
         <div class="row">
             <div class="col-md-12">
-
-
                 <div class="company-doc">
                     <div class="card ctm-border-radius shadow-sm grow">
                         <div class="card-header">
@@ -161,7 +173,7 @@
                                             <th>Testimonial Image</th>
                                             <th>Title</th>
                                             <th>Subtitle</th>
-{{--                                            <th>Testimonial</th>--}}
+                                            <th>Testimonial</th>
                                             <th class="text-right">Action</th>
                                         </tr>
                                         </thead>
@@ -178,19 +190,18 @@
                                                     </td>
                                                     <td>{{$testimonial->title}}</td>
                                                     <td>{{(!empty($testimonial->subtitle)) ? $testimonial->subtitle:"N/A"}}</td>
-{{--                                                    <td>--}}
+                                                    <td>
+                                                        <div class="wrapper well">
+                                                            <div class="desc-wrapper">
+                                                                <p class="desc">{!! strip_tags($testimonial->testimonial) !!}</p>
+                                                            </div>
+                                                            <button class="more-info btn btn-theme button-1 text-white">
+                                                                <span class="more">More</span>
+                                                                <span class="less">Less</span>
+                                                            </button>
 
-{{--                                                        <div class="text-container">--}}
-{{--                                                            <div class="content hideContent" id="mytextdiv">--}}
-{{--                                                              {!! $testimonial->testimonial !!}--}}
-
-
-{{--                                                            </div>--}}
-{{--                                                            <div class="show-more">--}}
-{{--                                                                <a class="btn btn-white btn-sm click-me">Show more</a>--}}
-{{--                                                            </div>--}}
-{{--                                                        </div>--}}
-{{--                                                    </td>--}}
+                                                            </div>
+                                                    </td>
                                                     <td class="text-right">
                                                         <div class="dropdown action-label drop-active">
                                                             <a href="javascript:void(0)" class="btn btn-white btn-sm" data-toggle="dropdown" aria-expanded="false"> <span class="lnr lnr-cog"></span>
@@ -336,19 +347,13 @@
 
 
         $(document).ready(function () {
-
+            showHidetext();
             $('#testimonial-index').DataTable({
                 paging: true,
                 searching: true,
                 ordering:  true,
                 lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
             });
-
-            //breaking the line after 45 words for testimonial div
-            // var text = $("#mytextdiv").html();
-            // var newtext = text.match(/.{1,45}/g).join("<br/>");
-            // $("#mytextdiv").html(newtext);
-
 
             ClassicEditor
                 .create( document.querySelector( '#editor' ), {
@@ -397,22 +402,6 @@
 
 
         });
-
-        // $(".click-me").on("click", function() {
-        //     var $this = $(this);
-        //     var $content = $this.parent().prev("div.content");
-        //     var linkText = $this.text().toUpperCase();
-        //
-        //     if(linkText === "SHOW MORE"){
-        //         linkText = "Show less";
-        //         $content.switchClass("hideContent", "showContent", 500);
-        //     } else {
-        //         linkText = "Show more";
-        //         $content.switchClass("showContent", "hideContent", 500);
-        //     };
-        //
-        //     $this.text(linkText);
-        // });
 
         $(document).on('click','.action-edit', function (e) {
             e.preventDefault();
@@ -479,6 +468,36 @@
             });
 
         });
+
+        function showHidetext(){
+            var descMinHeight = 80;
+            var desc = $('.desc');
+            var descWrapper = $('.desc-wrapper');
+
+            // show more button if desc too long
+            if (desc.height() > descWrapper.height()) {
+                $('.more-info').show();
+            }
+
+            // When clicking more/less button
+            $('.more-info').click(function() {
+
+                var fullHeight = $('.desc').height();
+
+                if ($(this).hasClass('expand')) {
+                    // contract
+                    $('.desc-wrapper').animate({'height': descMinHeight}, 'slow');
+                }
+                else {
+                    // expand
+                    $('.desc-wrapper').css({'height': descMinHeight, 'max-height': 'none'}).animate({'height': fullHeight}, 'slow');
+                }
+
+                $(this).toggleClass('expand');
+                return false;
+            });
+
+        }
 
     </script>
 @endsection

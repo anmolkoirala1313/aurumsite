@@ -110,22 +110,7 @@
         .list > ol > li ~ li {
             box-shadow: 0 -1px 0 #eee;
         }
-
-        .dropdown-button {
-            border: 0;
-            color: white;
-            padding: 8px;
-            outline: none;
-            cursor: pointer;
-            border-radius: 4px;
-            margin-bottom: 4px;
-            background: #00c7bd;
-        }
-
-        .dropdown-button:hover {
-            background: #00b8ae;
-        }
-
+        /* end of dropdown list design */
 
     </style>
 @endsection
@@ -257,7 +242,7 @@
                                                     <td>
                                                         <div class="list">
                                                             {!! $category->list !!}
-                                                            <button class="dropdown-button" value="1" data-show="More" data-hide="Less">More</button>
+                                                            <button class="btn btn-theme button-1 text-white" value="1" data-show="More" data-hide="Less">More</button>
                                                         </div>
                                                     </td>
                                                     <td class="text-right">
