@@ -20,29 +20,29 @@
                                     <img
                                         src="{{ asset('/images/uploads/sliders/'.$slider->slider_image) }}"
                                         title="{{ucwords(@$slider->heading)}}" class="rev-slidebg" data-no-retina />
-                                    
+
                                     <rs-layer id="slider-3-slide-7-layer-1" data-type="text" data-color="#ffffff" data-rsp_ch="on"
                                             data-xy="x:c;y:542px;" data-text="s:16;l:22;ls:2px;a:inherit;" data-frame_0="y:100%;tp:600;"
                                             data-frame_1="tp:600;e:power4.inOut;st:500;sp:2000;sR:500;"
                                             data-frame_999="o:0;tp:600;st:w;sR:6500;"
                                             style="z-index:5;font-family:Open Sans;text-transform:uppercase;">{{ucwords(@$slider->subheading_one)}}
                                     </rs-layer>
-                                    
+
                                     <rs-layer id="slider-3-slide-7-layer-2" data-type="text" data-color="#ffffff" data-rsp_ch="on"
                                             data-xy="x:c;y:582px;" data-text="s:60;l:60;ls:3px;fw:700;a:inherit;"
                                             data-frame_0="y:100%;tp:600;" data-frame_1="tp:600;e:power4.inOut;st:1500;sp:1500;sR:1500;"
                                             data-frame_999="o:0;tp:600;st:w;sR:6000;"
                                             style="z-index:6;font-family:Montserrat;text-transform:uppercase;">{{ucwords(@$slider->heading)}}
                                     </rs-layer>
-                                    
+
                                     <rs-layer id="slider-3-slide-7-layer-3" data-type="text" data-color="#ffffff" data-rsp_ch="on"
                                             data-xy="x:c;y:677px;" data-text="s:30;l:22;fw:600;a:inherit;" data-frame_0="y:100%;tp:600;"
                                             data-frame_1="tp:600;e:power4.inOut;st:2500;sp:2000;sR:2500;"
                                             data-frame_999="o:0;tp:600;st:w;sR:4500;" style="z-index:7;font-family:Open Sans;">{{ucwords(@$slider->subheading_two)}}
 
                                     </rs-layer>
-                                    
-                                    <rs-layer id="slider-3-slide-7-layer-6" class="rev-btn" data-type="button" 
+
+                                    <rs-layer id="slider-3-slide-7-layer-6" class="rev-btn" data-type="button"
                                             data-actions='o:click;a:simplelink;target:_self;url:{{@$slider->button_one_link}};'
                                             data-color="rgba(255,255,255,1)" data-xy="x:c;xo:-96px;y:751px;"
                                             data-text="s:14;l:17;a:inherit;" data-padding="t:17;r:35;b:17;l:35;"
@@ -52,7 +52,7 @@
                                             style="@if($slider->button_two && @$slider->button_two_link) @else left: 100px; @endif z-index:8;background-color:#571f9c;font-family:Montserrat;text-transform:uppercase;cursor:pointer;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                                            {{ucwords(@$slider->button_one)}}
                                     </rs-layer>
-                                    
+
                                     @if($slider->button_two && @$slider->button_two_link)
                                     <rs-layer id="slider-3-slide-7-layer-7" class="rev-btn" data-type="button"
                                             data-actions='o:click;a:simplelink;target:_self;url:{{@$slider->button_two_link}};'
@@ -67,7 +67,7 @@
                                     </rs-layer>
                                     @endif
 
-                                    
+
                         </rs-slide>
                         @elseif(@$loop->index == 1)
                         <rs-slide data-key="rs-8" data-title="Slide"
@@ -76,7 +76,7 @@
                             <img
                                 src="{{asset('/images/uploads/sliders/'.$slider->slider_image) }}"
                                 title="{{ucwords(@$slider->heading)}}" class="rev-slidebg" data-no-retina>
-                            
+
                             <rs-layer id="slider-3-slide-8-layer-1" class="tp-shape tp-shapewrapper" data-type="shape"
                                         data-rsp_ch="on" data-xy="x:2px;y:b;" data-text="a:inherit;" data-dim="w:960px;h:430px;"
                                         data-basealign="slide" data-frame_0="x:175%;o:1;tp:600;" data-frame_0_mask="u:t;x:-100%;"
@@ -84,14 +84,14 @@
                                         data-frame_999="o:0;tp:600;st:w;sR:7000;"
                                         style="z-index:5;background-color:rgba(255,255,255,0.9);">
                             </rs-layer>
-                            
+
                             <rs-layer id="slider-3-slide-8-layer-2" data-type="text" data-color="#777777" data-rsp_ch="on"
                                         data-xy="x:30px;y:507px;" data-text="s:16;l:22;ls:2px;fw:600;a:inherit;"
                                         data-frame_0="y:100%;tp:600;" data-frame_1="tp:600;e:power4.inOut;st:1500;sp:2000;sR:1500;"
                                         data-frame_999="o:0;tp:600;st:w;sR:5500;"
                                         style="z-index:6;font-family:Open Sans;text-transform:uppercase;">{{ucwords(@$slider->subheading_one)}}
                             </rs-layer>
-                            
+
                             <rs-layer id="slider-3-slide-8-layer-3" data-type="text" data-color="#3f3f3f" data-rsp_ch="on"
                                         data-xy="x:30px;y:547px;" data-text="s:50;l:60;fw:700;a:inherit;"
                                         data-frame_0="x:175%;o:1;tp:600;" data-frame_0_mask="u:t;x:-100%;"
@@ -104,7 +104,7 @@
                                             data-frame_1="tp:600;e:power4.inOut;st:2500;sp:2000;sR:2500;"
                                             data-frame_999="o:0;tp:600;st:w;sR:4500;" style="z-index:7;font-family:Open Sans;">{{ucwords(@$slider->subheading_two)}}
                             </rs-layer>
-                            
+
                             <rs-layer id="slider-3-slide-8-layer-5" class="rev-btn" data-type="button"
                                         data-actions='o:click;a:simplelink;target:_self;url:{{@$slider->button_one_link}};'
                                         data-color="rgba(255,255,255,1)" data-xy="x:30px;y:700px;" data-text="s:14;l:17;a:inherit;"
@@ -115,7 +115,7 @@
                                         style="z-index:8;background-color:#571f9c;font-family:Montserrat;text-transform:uppercase;cursor:pointer;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;">
                                         {{ucwords(@$slider->button_one)}}
                             </rs-layer>
-                            
+
                             @if($slider->button_two && @$slider->button_two_link)
 
                             <rs-layer id="slider-3-slide-8-layer-6" class="rev-btn" data-type="button" data-color="#571f9c"
@@ -129,7 +129,7 @@
                                         {{ucwords(@$slider->button_two)}}
                             </rs-layer>
                             @endif
-                            
+
                         </rs-slide>
                         @elseif(@$loop->index ==2)
                         <rs-slide data-key="rs-9" data-title="Slide"
@@ -138,23 +138,23 @@
                             <img
                                 src="{{asset('/images/uploads/sliders/'.$slider->slider_image) }}"
                                 title="{{ucwords(@$slider->heading)}}" class="rev-slidebg" data-no-retina>
-                            
-                            
+
+
                             <rs-layer id="slider-3-slide-9-layer-2" data-type="text" data-color="#ffffff" data-rsp_ch="on"
                                         data-xy="x:c;y:409px;" data-text="s:60;l:60;fw:700;a:inherit;" data-frame_0="x:175%;o:1;tp:600;"
                                         data-frame_0_mask="u:t;x:-100%;" data-frame_1="tp:600;e:power3.out;st:1500;sp:1500;sR:1500;"
                                         data-frame_1_mask="u:t;" data-frame_999="o:0;tp:600;st:w;sR:6000;"
                                         style="z-index:6;font-family:Montserrat;">{{ucwords(@$slider->heading)}}
                             </rs-layer>
-                           
-                            
+
+
                             <rs-layer id="slider-3-slide-9-layer-5" data-type="text" data-color="#ffffff" data-rsp_ch="on"
                                         data-xy="x:c;xo:5px;y:381px;" data-text="s:16;l:22;ls:2px;fw:600;a:inherit;"
                                         data-frame_0="y:100%;tp:600;" data-frame_1="tp:600;e:power4.inOut;st:500;sp:2000;sR:500;"
                                         data-frame_999="o:0;tp:600;st:w;sR:6500;"
                                         style="z-index:8;font-family:Open Sans;text-transform:uppercase;">{{ucwords(@$slider->subheading_one)}}
                             </rs-layer>
-                            
+
                             <rs-layer id="slider-3-slide-9-layer-6" data-type="text" data-color="#ffffff" data-rsp_ch="on"
                                 data-xy="x:c;xo:5px;y:515px;" data-text="s:25;l:22;ls:2px;fw:600;a:inherit;"
                                 data-frame_0="y:100%;tp:600;" data-frame_1="tp:600;e:power4.inOut;st:900;sp:2000;sR:900;"
@@ -188,7 +188,7 @@
                                 {{ucwords(@$slider->button_two)}}
                                 </a>
                                 @endif
-                           
+
                         </rs-slide>
                         @endif
                         @endforeach
@@ -196,7 +196,7 @@
                     </rs-slides>
                 </rs-module>
 
-               
+
             </rs-module-wrap>
             <!-- END REVOLUTION SLIDER -->
         </div>
@@ -828,8 +828,9 @@
                             </div>
                         </div>
                     </div>
+
                     @if(count($service_categories) > 0)
-                    
+
                         <div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true"
                                 class="vc_row wpb_row vc_row-fluid vc_row-no-padding">
                             <div class="wpb_column vc_column_container vc_col-sm-12">
@@ -843,7 +844,7 @@
                                                     data-height-mobile="10" data-height-tab="10" data-height-tab-portrait=""
                                                     data-height-mobile-landscape="" style="clear:both;display:block;"></div>
                                             <h2 style="font-size: 60px;line-height: 50px;text-align: center" class="vc_custom_heading">
-                                                <strong>Our Category</strong></h2>
+                                                <strong><a href="{{url('/services')}}">Our Category</a></strong></h2>
                                         </div>
                                         <div class="ult-spacer spacer-6107b9a4c730b" data-id="6107b9a4c730b" data-height="60"
                                                 data-height-mobile="35" data-height-tab="45" data-height-tab-portrait="45"
@@ -854,25 +855,21 @@
                                             <div class="dt-sc-portfolio-container no-space">
                                                 @foreach(@$service_categories as $service_category)
 
-                                                    
-                                                    <div id="dt_portfolios-7425" class="type1 no-space portfolio column dt-sc-one-fourth @if(@$loop->index == 0) first @endif">
+                                                    <div id="dt_portfolios-7425" class="type1 no-space portfolio column dt-sc-one-fourth @if(@$loop->index == 0 || @$loop->index == 4 || @$loop->index == 8 ) first @endif">
                                                         <figure> <img
-                                                                src="{{asset('assets/frontend/images/01/gallery3.jpg')}}"
-                                                                alt="Cras tristique purus non lacus" title="Cras tristique purus non lacus" />
+                                                                src="{{ asset('/images/uploads/service_categories/'.$service_category->image) }}"
+                                                                alt="{{ucwords(@$service_category->name)}}" title="{{ucwords(@$service_category->name)}}" />
                                                             <div class="image-overlay">
-                                                                <div class="links"><a title="Cras tristique purus non lacus"
-                                                                                        href="https://dtagency.wpengine.com/dt_portfolios/cras-tristique-purus-non-lacus/"><span
-                                                                            class="icon icon-linked"> </span></a><a title="Cras tristique purus non lacus"
+                                                                <div class="links"><a title="{{ucwords(@$service_category->name)}}"
+                                                                                        href=""><span
+                                                                            class="icon icon-linked"> </span></a><a title="{{ucwords(@$service_category->name)}}"
                                                                                                                     data-gal="prettyPhoto[gallery]"
-                                                                                                                    href="{{asset('assets/frontend/images/01/gallery3.jpg')}}">
+                                                                                                                    href="{{ asset('/images/uploads/service_categories/'.$service_category->image) }}">
                                                                         <span class="icon icon-search"> </span> </a></div>
                                                                 <div class="image-overlay-details">
-                                                                    <h2><a title="Cras tristique purus non lacus"
-                                                                            href="https://dtagency.wpengine.com/dt_portfolios/cras-tristique-purus-non-lacus/">Cras
-                                                                            tristique purus non lacus</a></h2>
-                                                                    <p class='categories'><a
-                                                                            href="https://dtagency.wpengine.com/portfolio_entries/animation/"
-                                                                            rel="tag">Animation</a></p>
+                                                                    <h2><a title="{{ucwords(@$service_category->name)}}"
+                                                                            href="">{{ucwords(@$service_category->name)}}</a></h2>
+
                                                                 </div>
                                                             </div>
                                                         </figure>
@@ -888,6 +885,80 @@
                             </div>
                         </div>
                     @endif
+
+
+
+                    @if(count($testimonials) > 0)
+
+                    <div class="vc_row-full-width vc_clearfix"></div>
+                    <div class="vc_row wpb_row vc_row-fluid">
+                        <div class="wpb_column vc_column_container vc_col-sm-12">
+                            <div class="vc_column-inner ">
+                                <div class="wpb_wrapper">
+                                    <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="bounceInDown"
+                                            data-animation-delay="0.5" data-animation-duration="1" data-animation-iteration="1"
+                                            style="opacity:0;" data-opacity_start_effect="">
+                                        <div class='aligncenter  dt-sc-subtitle-text'>OUR NEWS &amp; STORIES</div>
+                                        <div class="ult-spacer spacer-6107b9a4cb018" data-id="6107b9a4cb018" data-height="10"
+                                                data-height-mobile="10" data-height-tab="10" data-height-tab-portrait=""
+                                                data-height-mobile-landscape="" style="clear:both;display:block;"></div>
+                                        <h2 style="font-size: 60px;line-height: 50px;text-align: center" class="vc_custom_heading">
+                                            <strong>Testimonials</strong></h2>
+                                    </div>
+                                   
+                                    <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="fadeInUp"
+                                            data-animation-delay="0.8" data-animation-duration="1" data-animation-iteration="1"
+                                            style="opacity:0;" data-opacity_start_effect="">
+                                       
+                                            <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid">
+                                                <div class="wpb_column vc_column_container vc_col-sm-12">
+                                                    <div class="vc_column-inner ">
+                                                        <div class="wpb_wrapper">
+                                                        <div class='dt-sc-hr-invisible-small '> </div>
+                                                        <div class='dt-sc-testimonial-wrapper carousel_items type6 ' data-animation='scroll'>
+                                                            <ul class="dt-sc-testimonial-carousel">
+                                                            @foreach(@$testimonials as $testimonial)
+
+                                                                <li>
+                                                                    <div class='dt-sc-testimonial type6 '>
+                                                                    <div class="dt-sc-testimonial-author"><span><img width="120" height="120"
+                                                                            src="<?php if(@$testimonial->image){?>{{asset('/images/uploads/testimonials/'.@$testimonial->image)}}<?php }?>"
+                                                                            class="attachment-full" alt="" loading="lazy"
+                                                                            srcset="<?php if(@$testimonial->image){?>{{asset('/images/uploads/testimonials/'.@$testimonial->image)}}<?php }?> 120w, <?php if(@$testimonial->image){?>{{asset('/images/uploads/testimonials/'.@$testimonial->image)}}<?php }?> 100w"
+                                                                            sizes="(max-width: 120px) 100vw, 120px" /></span><cite>{{ucwords(@$testimonial->title)}}<small>{{ucwords(@$testimonial->subtitle)}}
+                                                                        </small></cite></div>
+                                                                    <div class="dt-sc-testimonial-quote">
+                                                                        <blockquote> <q> {!! @$testimonial->testimonial !!}</q> </blockquote>
+                                                                    </div>
+                                                                    </div>
+                                                                </li>
+                                                            @endforeach
+                                                            
+                                                            </ul>
+                                                            <div class="carousel-arrows"> <a href="#" class="testimonial-prev"> </a> <a href="#"
+                                                                class="testimonial-next"> </a></div>
+                                                        </div>
+                                                        <div class='dt-sc-clear '> </div>
+                                                        <div class='dt-sc-hr-invisible-small '> </div>
+                                                        <div class='dt-sc-hr-invisible-small '> </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                    <div class="ult-spacer spacer-6107b9a4cfa98" data-id="6107b9a4cfa98" data-height="50"
+                                            data-height-mobile="15" data-height-tab="35" data-height-tab-portrait="35"
+                                            data-height-mobile-landscape="15" style="clear:both;display:block;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                  @endif
+
+
+                    
+                    @if(count($latestPosts) > 0)
 
                     <div class="vc_row-full-width vc_clearfix"></div>
                     <div class="vc_row wpb_row vc_row-fluid">
@@ -911,126 +982,35 @@
                                             data-animation-delay="0.8" data-animation-duration="1" data-animation-iteration="1"
                                             style="opacity:0;" data-opacity_start_effect="">
                                         <div class='tpl-blog-holder apply-isotope'>
-                                            <div class='column dt-sc-one-third first'>
-                                                <article id="post-1"
+                                        @foreach(@$latestPosts as $post)
+                                            <div class='column dt-sc-one-third @if(@$loop->index == 0) first @endif'>
+                                                <article id="post-{{@$loop->iteration}}"
                                                             class="blog-entry  format-standard post-1 post type-post status-publish has-post-thumbnail hentry category-news category-technical tag-blog">
-                                                    <div class="entry-thumb"> <a href="planning-on-the-strategy-from-figures/index.html"><img
+                                                    <div class="entry-thumb"> <a href="{{route('blog.single',$post->slug)}}"><img
                                                                 width="1170" height="795"
-                                                                src="{{asset('assets/frontend/images/06/blog1.jpg')}}"
+                                                                src="<?php if(@$post->image){?>{{asset('/images/uploads/blog/'.@$post->image)}}<?php }?>"
                                                                 class="attachment-full size-full wp-post-image" alt="" loading="lazy"
-                                                                srcset="{{asset('assets/frontend/images/06/blog1.jpg')}} 1170w, {{asset('assets/frontend/images/06/blog1-600x408.jpg')}} 600w, {{asset('assets/frontend/images/06/blog1-300x204.jpg')}} 300w, {{asset('assets/frontend/images/06/blog1-768x522.jpg.jpg')}} 768w, {{asset('assets/frontend/images/06/blog1-1024x696.jpg')}} 1024w"
+                                                                srcset="<?php if(@$post->image){?>{{asset('/images/uploads/blog/'.@$post->image)}}<?php }?> 1170w, <?php if(@$post->image){?>{{asset('/images/uploads/blog/'.@$post->image)}}<?php }?> 600w, <?php if(@$post->image){?>{{asset('/images/uploads/blog/'.@$post->image)}}<?php }?> 300w, <?php if(@$post->image){?>{{asset('/images/uploads/blog/'.@$post->image)}}<?php }?> 768w, <?php if(@$post->image){?>{{asset('/images/uploads/blog/'.@$post->image)}}<?php }?> 1024w"
                                                                 sizes="(max-width: 1170px) 100vw, 1170px" /></a>
                                                         <div class="entry-format hidden"> <a class="ico-format" href="#"></a> </div>
                                                     </div>
                                                     <div class="entry-details">
                                                         <div class="entry-meta ">
-                                                            <div class="date ">Posted on 18 Jun 2015 </div>
-                                                            <div class="comments ">/ <a class="comments"
-                                                                                        href="planning-on-the-strategy-from-figures/index.html#respond"> <i
-                                                                        class="pe-icon pe-chat"></i> 0 Comments</a> </div>
-                                                            <div class="author "> / <i class="pe-icon pe-user"> </i> <a
-                                                                    href="author/admin/index.html">admin</a> </div>
+                                                            <div class="date ">Posted on {{date('j ',strtotime(@$post->created_at))}}{{date('M Y',strtotime(@$post->created_at))}} </div>
+                                                            
                                                         </div>
                                                         <div class="entry-title">
-                                                            <h4><a href="planning-on-the-strategy-from-figures/index.html">Planning on the
-                                                                    strategy from figures</a></h4>
+                                                            <h4><a href="{{route('blog.single',$post->slug)}}">{{ucwords($post->title)}}</a></h4>
                                                         </div>
                                                         <div class="entry-body">
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tincidunt nunc
-                                                                lorem, nec faucibus mi facilisis eget. Mauris laoreet, nisl id...</p>
+                                                            <p>{{ucfirst(Str::limit($post->excerpt, 85))}}...</p>
                                                         </div>
-                                                        <div class="entry-meta-data hidden">
-                                                            <p class="tags hidden"> <i class="pe-icon pe-ticket"> </i><a
-                                                                    href="https://dtagency.wpengine.com/tag/blog/">blog</a></p>
-                                                            <p class="category hidden"> <i class="pe-icon pe-network"> </i><a
-                                                                    href="https://dtagency.wpengine.com/category/news/">News</a>, <a
-                                                                    href="https://dtagency.wpengine.com/category/technical/">Technical</a></p>
-                                                        </div><a href="planning-on-the-strategy-from-figures/index.html" target='_self' title=''
+                                                       <a href="{{route('blog.single',$post->slug)}}" target='_self' title=''
                                                                     class='dt-sc-button   small   filled  dt-sc-readmore-link'> Continue Reading </a>
                                                     </div>
                                                 </article>
                                             </div>
-                                            <div class='column dt-sc-one-third'>
-                                                <article id="post-87"
-                                                            class="blog-entry  format-standard post-87 post type-post status-publish format-gallery has-post-thumbnail hentry category-uncategorized tag-business post_format-post-format-gallery">
-                                                    <div class="entry-thumb"> <a
-                                                            href="https://dtagency.wpengine.com/brainstorming-is-our-routine-methodology/"><img
-                                                                width="1170" height="795"
-                                                                src="{{asset('assets/frontend/images/06/blog2-1.jpg')}}"
-                                                                class="attachment-full size-full wp-post-image" alt="" loading="lazy"
-                                                                srcset="{{asset('assets/frontend/images/06/blog2-1.jpg')}} 1170w, {{asset('assets/frontend/images/06/blog2-1-600x408.jpg')}} 600w, {{asset('assets/frontend/images/06/blog2-1-300x204.jpg')}} 300w, {{asset('assets/frontend/images/06/blog2-1.jpg')}}-768x522.jpg 768w, {{asset('assets/frontend/images/06/blog2-1-1024x696.jpg')}} 1024w"
-                                                                sizes="(max-width: 1170px) 100vw, 1170px" /></a>
-                                                        <div class="entry-format hidden"> <a class="ico-format" href="#"></a> </div>
-                                                    </div>
-                                                    <div class="entry-details">
-                                                        <div class="entry-meta ">
-                                                            <div class="date ">Posted on 18 Jun 2015 </div>
-                                                            <div class="comments ">/ <a class="comments"
-                                                                                        href="https://dtagency.wpengine.com/brainstorming-is-our-routine-methodology//#respond">
-                                                                    <i class="pe-icon pe-chat"></i> 0 Comments</a> </div>
-                                                            <div class="author "> / <i class="pe-icon pe-user"> </i> <a
-                                                                    href="author/admin/index.html">admin</a> </div>
-                                                        </div>
-                                                        <div class="entry-title">
-                                                            <h4><a
-                                                                    href="https://dtagency.wpengine.com/brainstorming-is-our-routine-methodology/">Brainstorming
-                                                                    is our routine methodology</a></h4>
-                                                        </div>
-                                                        <div class="entry-body">
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tincidunt nunc
-                                                                lorem, nec faucibus mi facilisis eget. Mauris laoreet, nisl id...</p>
-                                                        </div>
-                                                        <div class="entry-meta-data hidden">
-                                                            <p class="tags hidden"> <i class="pe-icon pe-ticket"> </i><a
-                                                                    href="https://dtagency.wpengine.com/tag/business/">Business</a></p>
-                                                            <p class="category hidden"> <i class="pe-icon pe-network"> </i><a
-                                                                    href="https://dtagency.wpengine.com/category/uncategorized/">Uncategorized</a></p>
-                                                        </div><a href="https://dtagency.wpengine.com/brainstorming-is-our-routine-methodology/"
-                                                                    target='_self' title='' class='dt-sc-button   small   filled  dt-sc-readmore-link'>
-                                                            Continue Reading </a>
-                                                    </div>
-                                                </article>
-                                            </div>
-                                            <div class='column dt-sc-one-third'>
-                                                <article id="post-7508"
-                                                            class="blog-entry  format-standard post-7508 post type-post status-publish format-quote has-post-thumbnail hentry category-magazine category-news tag-creative post_format-post-format-quote">
-                                                    <div class="entry-thumb"> <a href="tete-a-tete-over-a-coffee-with-clients/index.html"><img
-                                                                width="1170" height="795"
-                                                                src="{{asset('assets/frontend/images/06/blog3.jpg')}}"
-                                                                class="attachment-full size-full wp-post-image" alt="" loading="lazy"
-                                                                srcset="{{asset('assets/frontend/images/06/blog3.jpg')}} 1170w, {{asset('assets/frontend/images/06/blog3-600x408.jpg')}} 600w, {{asset('assets/frontend/images/06/blog3-300x204.jpg')}} 300w, {{asset('assets/frontend/images/06/blog3-768x522.jpg')}} 768w, {{asset('assets/frontend/images/06/blog3-1024x696.jpg')}} 1024w"
-                                                                sizes="(max-width: 1170px) 100vw, 1170px" /></a>
-                                                        <div class="entry-format hidden"> <a class="ico-format" href="#"></a> </div>
-                                                    </div>
-                                                    <div class="entry-details">
-                                                        <div class="entry-meta ">
-                                                            <div class="date ">Posted on 18 Jun 2015 </div>
-                                                            <div class="comments ">/ <a class="comments"
-                                                                                        href="tete-a-tete-over-a-coffee-with-clients/index.html#respond"> <i
-                                                                        class="pe-icon pe-chat"></i> 0 Comments</a> </div>
-                                                            <div class="author "> / <i class="pe-icon pe-user"> </i> <a
-                                                                    href="author/admin/index.html">admin</a> </div>
-                                                        </div>
-                                                        <div class="entry-title">
-                                                            <h4><a href="tete-a-tete-over-a-coffee-with-clients/index.html">Tête-à-tête over a
-                                                                    coffee with clients</a></h4>
-                                                        </div>
-                                                        <div class="entry-body">
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tincidunt nunc
-                                                                lorem, nec faucibus mi facilisis eget. Mauris laoreet, nisl id...</p>
-                                                        </div>
-                                                        <div class="entry-meta-data hidden">
-                                                            <p class="tags hidden"> <i class="pe-icon pe-ticket"> </i><a
-                                                                    href="tag/creative/index.html">Creative</a></p>
-                                                            <p class="category hidden"> <i class="pe-icon pe-network"> </i><a
-                                                                    href="category/magazine/index.html">magazine</a>, <a
-                                                                    href="https://dtagency.wpengine.com/category/news/">News</a></p>
-                                                        </div><a href="tete-a-tete-over-a-coffee-with-clients/index.html" target='_self'
-                                                                    title='' class='dt-sc-button   small   filled  dt-sc-readmore-link'> Continue Reading
-                                                        </a>
-                                                    </div>
-                                                </article>
-                                            </div>
+                                        @endforeach
                                         </div>
                                     </div>
                                     <div class="ult-spacer spacer-6107b9a4cfa98" data-id="6107b9a4cfa98" data-height="50"
@@ -1040,73 +1020,10 @@
                             </div>
                         </div>
                     </div>
-                    <div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true"
-                            class="vc_row wpb_row vc_row-fluid vc_row-no-padding">
-                        <div class="wpb_column vc_column_container vc_col-sm-4">
-                            <div class="vc_column-inner ">
-                                <div class="wpb_wrapper">
-                                    <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="fadeIn"
-                                            data-animation-delay="0.5" data-animation-duration="1" data-animation-iteration="1"
-                                            style="opacity:0;" data-opacity_start_effect="">
-                                        <div class='dt-sc-icon-box type12 '>
-                                            <div class="icon-wrapper"><img width="160" height="160"
-                                                                            src="{{asset('assets/frontend/images/05/icon-question.png')}}"
-                                                                            class="attachment-full" alt="icon-question" loading="lazy"
-                                                                            srcset="{{asset('assets/frontend/images/05/icon-question.png')}} 160w, {{asset('assets/frontend/images/05/icon-question-100x100.png')}} 100w, {{asset('assets/frontend/images/05/icon-question-150x150.png')}} 150w"
-                                                                            sizes="(max-width: 160px) 100vw, 160px" /></div>
-                                            <div class="icon-content">
-                                                <h4>Get your <strong>Clarifications</strong></h4>
-                                                <p>Using our 24/7 knowledgebase, forum &amp; comments get clarified.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="wpb_column vc_column_container vc_col-sm-4">
-                            <div class="vc_column-inner ">
-                                <div class="wpb_wrapper">
-                                    <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="fadeIn"
-                                            data-animation-delay="0.8" data-animation-duration="1" data-animation-iteration="1"
-                                            style="opacity:0;" data-opacity_start_effect="">
-                                        <div class='dt-sc-icon-box type12 '>
-                                            <div class="icon-wrapper"><img width="160" height="160"
-                                                                            src="{{asset('assets/frontend/images/05/icon-support.png')}}"
-                                                                            class="attachment-full" alt="icon-support" loading="lazy"
-                                                                            srcset="{{asset('assets/frontend/images/05/icon-support.png')}} 160w, {{asset('assets/frontend/images/05/icon-support-100x100.png')}} 100w, {{asset('assets/frontend/images/05/icon-support-150x150.png')}} 150w"
-                                                                            sizes="(max-width: 160px) 100vw, 160px" /></div>
-                                            <div class="icon-content">
-                                                <h4>Legendary <strong> Support </strong></h4>
-                                                <p>Get your doubts cleared using our email support, phone or knowledgebase.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="wpb_column vc_column_container vc_col-sm-4">
-                            <div class="vc_column-inner ">
-                                <div class="wpb_wrapper">
-                                    <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="fadeIn"
-                                            data-animation-delay="1.1" data-animation-duration="1" data-animation-iteration="1"
-                                            style="opacity:0;" data-opacity_start_effect="">
-                                        <div class='dt-sc-icon-box type12 '>
-                                            <div class="icon-wrapper"><img width="160" height="160"
-                                                                            src="{{asset('assets/frontend/images/05/icon-package.png')}}"
-                                                                            class="attachment-full" alt="icon-package" loading="lazy"
-                                                                            srcset="{{asset('assets/frontend/images/05/icon-package.png')}} 160w, {{asset('assets/frontend/images/05/icon-package-100x100.png.png')}} 100w, {{asset('assets/frontend/images/05/icon-package-150x150.png')}} 150w"
-                                                                            sizes="(max-width: 160px) 100vw, 160px" /></div>
-                                            <div class="icon-content">
-                                                <h4>Maintenance <strong> Package </strong></h4>
-                                                <p>We offer annual maintenance packages for different needs.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endif
+
                     <div class="vc_row-full-width vc_clearfix"></div>
+
                 </div><!-- #post-5 -->
             </section><!-- **Primary - End** -->
         </div><!-- **Container - End** -->
@@ -1173,7 +1090,7 @@
             document.getElementsByTagName('head')[0].appendChild(htmlDiv.childNodes[0]);
         }
     </script>
-    
+
     <script>
         var htmlDivCss = unescape("%0A%0A%0A");
         var htmlDiv = document.getElementById('rs-plugin-settings-inline-css');

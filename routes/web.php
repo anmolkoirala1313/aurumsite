@@ -42,9 +42,7 @@ Route::get('/team', function () {
     return view('frontend.pages.team');
 });
 
-Route::get('/service', function () {
-    return view('frontend.pages.service');
-});
+
 Route::get('/process', function () {
     return view('frontend.pages.process');
 });
@@ -58,9 +56,9 @@ Route::get('/', 'App\Http\Controllers\FrontController@index')->name('home');
 
 //service category
 
-Route::get('/service', 'App\Http\Controllers\FrontController@services')->name('service.frontend');
+Route::get('/services', 'App\Http\Controllers\FrontController@services')->name('service.frontend');
 
-Route::get('service/{slug}','App\Http\Controllers\FrontController@serviceSingle')->name('service.single');
+Route::get('services/{slug}','App\Http\Controllers\FrontController@serviceSingle')->name('service.single');
 
 //blog
 Route::get('blog/search/', 'App\Http\Controllers\FrontController@searchBlog')->name('searchBlog');

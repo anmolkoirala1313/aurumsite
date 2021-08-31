@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title') Service | Aurum @endsection
+@section('title') Services | Aurum @endsection
 @section('content')
 
 <!-- **Main** -->
@@ -9,7 +9,7 @@
         <div class="main-title-section">
             <h1>Services</h1>
         </div>
-        <div class="breadcrumb"><a href="../index.html">Home</a><span class="fa default"></span><span
+        <div class="breadcrumb"><a href="/">Home</a><span class="fa default"></span><span
             class="current">Services</span></div>
         </div>
     </section> <!-- ** Container ** -->
