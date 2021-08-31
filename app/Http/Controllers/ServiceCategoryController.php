@@ -47,6 +47,7 @@ class ServiceCategoryController extends Controller
     {
         $data=[
             'name'                => $request->input('name'),
+            'slug'                => $request->input('slug'),
             'short_description'   => $request->input('short_description'),
             'list'                => $request->input('list'),
             'created_by'          => Auth::user()->id,
@@ -105,6 +106,7 @@ class ServiceCategoryController extends Controller
     {
         $cat                      =  ServiceCategory::find($id);
         $cat->name                =  $request->input('name');
+        $cat->slug                =  $request->input('slug');
         $cat->short_description   =  $request->input('short_description');
         $cat->list                =  $request->input('list');
         $oldimage                 = $cat->image;

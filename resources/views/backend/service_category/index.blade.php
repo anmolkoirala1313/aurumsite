@@ -26,17 +26,25 @@
 
         /*for dropdown list design*/
 
+        .table-responsive {
+            white-space: inherit !important;
+        }
+
         .list > ul {
             list-style-type: none;
+            width:220px
         }
         .list > ol {
             list-style-type: none;
             padding-left: 0px;
+            width:220px
         }
 
         .list > ul > li {
             display: block;
+            word-wrap: break-word;
         }
+
         .list > ol > li {
             display: block;
         }
@@ -61,11 +69,11 @@
 
         .list > ul > li ~ li.visible {
             opacity: 1;
-            max-height: 50px;
+            max-height: 70px;
         }
         .list > ol > li ~ li.visible {
             opacity: 1;
-            max-height: 50px;
+            max-height: 70px;
         }
 
         /* ADDITIONAL STYLES */
@@ -81,6 +89,7 @@
             border: 1px solid #ccc;
         }
 
+
         div.list ~ div.list {
             margin-top: 16px;
         }
@@ -88,6 +97,7 @@
         .list > ul > li,
         .list > ul > li ~ li.visible {
             padding: 8px 0;
+
         }
         .list > ol > li,
         .list > ol > li ~ li.visible {
@@ -136,9 +146,17 @@
                     <div class="card-body">
                         <div class="form-group mb-3">
                             <label>Category Name <span class="text-muted text-danger">*</span></label>
-                            <input type="text" class="form-control" name="name" required>
+                            <input type="text" class="form-control" name="name" id="catname" required>
                             <div class="invalid-feedback">
                                 Please enter the category name.
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label>Category Slug <span class="text-muted text-danger">*</span></label>
+                            <input type="text" class="form-control" name="slug" id="catslug"  required>
+                            <div class="invalid-feedback">
+                                Please enter the category slug.
                             </div>
                         </div>
 
@@ -297,6 +315,14 @@
                                     </div>
 
                                     <div class="form-group mb-3">
+                                        <label>Category Slug <span class="text-muted text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="slug" id="slug" required>
+                                        <div class="invalid-feedback">
+                                            Please enter the category name.
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group mb-3">
                                         <label>Short Description </label>
                                         <textarea class="form-control" rows="6" name="short_description" id="short_description" ></textarea>
                                         <div class="invalid-feedback">
@@ -377,6 +403,22 @@
             replacement.src = URL.createObjectURL(event.target.files[0]);
         };
 
+        $("#catname").keyup(function(){
+            var Text = $(this).val();
+            Text = Text.toLowerCase();
+            var regExp = /\s+/g;
+            Text = Text.replace(regExp,'-');
+            $("#catslug").val(Text);
+        });
+
+        $("#name").keyup(function(){
+            var Text = $(this).val();
+            Text = Text.toLowerCase();
+            var regExp = /\s+/g;
+            Text = Text.replace(regExp,'-');
+            $("#slug").val(Text);
+        });
+
 
         $(document).ready(function () {
             $('#cat-index').DataTable({
@@ -385,6 +427,7 @@
                 ordering:  true,
                 lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
             });
+
 
 
 
@@ -452,6 +495,7 @@
                     // $('#id').val(data.id);
                     $("#editCat").modal("toggle");
                     $('#name').attr('value',dataResult.name);
+                    $('#slug').attr('value',dataResult.slug);
                     $('#short_description').text(dataResult.short_description);
                     editor.setData( dataResult.list );
                     $('#current-edit-img').attr("src",'/images/uploads/service_categories/'+dataResult.image );
