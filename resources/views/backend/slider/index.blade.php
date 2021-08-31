@@ -189,7 +189,7 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label>Button one title <span class="text-muted text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="button_one" required>
+                                        <input type="text" maxlength="12" class="form-control" name="button_one" required>
                                         <div class="invalid-feedback">
                                             Please enter button one title.
                                         </div>
@@ -203,7 +203,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Button Two</label>
-                                        <input type="text" class="form-control" name="button_two">
+                                        <input type="text" maxlength="12" class="form-control" name="button_two">
                                         <div class="invalid-feedback">
                                             Please enter the button two title.
                                         </div>
@@ -319,7 +319,7 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label>Button one title <span class="text-muted text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="button_one" id="button_one" required>
+                                        <input type="text" maxlength="12" class="form-control" name="button_one" id="button_one" required>
                                         <div class="invalid-feedback">
                                             Please enter button one title.
                                         </div>
@@ -333,7 +333,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Button Two</label>
-                                        <input type="text" class="form-control" name="button_two" id="button_two">
+                                        <input type="text" maxlength="12" class="form-control" name="button_two" id="button_two">
                                         <div class="invalid-feedback">
                                             Please enter the button two title.
                                         </div>
