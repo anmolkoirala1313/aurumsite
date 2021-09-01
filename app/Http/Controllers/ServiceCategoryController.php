@@ -141,12 +141,12 @@ class ServiceCategoryController extends Controller
      */
     public function destroy($id)
     {
-        $deleteslider       = ServiceCategory::find($id);
-        $rid                = $deleteslider->id;
-        if (!empty($deleteslider->image) && file_exists(public_path().'/images/uploads/service_categories/'.$deleteslider->image)){
-            @unlink(public_path().'/images/uploads/service_categories/'.$deleteslider->image);
+        $delete             = ServiceCategory::find($id);
+        $rid                = $delete->id;
+        if (!empty($delete->image) && file_exists(public_path().'/images/uploads/service_categories/'.$delete->image)){
+            @unlink(public_path().'/images/uploads/service_categories/'.$delete->image);
         }
-        $deleteslider->delete();
+        $delete->delete();
         return '#category_'.$rid;
     }
 }

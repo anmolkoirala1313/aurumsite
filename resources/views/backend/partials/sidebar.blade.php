@@ -59,13 +59,13 @@
                                         <a href="{{route('dashboard')}}" class="{{(Request::segment(2) == 'dashboard') ? "text-white active":"text-dark"}} p-4 first-slider-btn ctm-border-right ctm-border-left ctm-border-top"><span class="lnr lnr-home pr-0 pb-lg-2 font-23"></span><span class="">Dashboard</span></a>
                                     </div>
                                     <div class="col-6 align-items-center shadow-none text-center">
-                                        <a href="#" class="text-dark p-4 second-slider-btn ctm-border-right ctm-border-top"><span class="lnr lnr-users pr-0 pb-lg-2 font-23"></span><span class="">Employees</span></a>
+                                        <a href="#" class="text-dark p-4 second-slider-btn ctm-border-right ctm-border-top"><span class="lnr lnr-user pr-0 pb-lg-2 font-23"></span><span class="">Employees</span></a>
                                     </div>
                                     <div class="col-6 align-items-center shadow-none text-center">
                                         <a href="#" class="text-dark p-4 ctm-border-right ctm-border-left"><span class="lnr lnr-apartment pr-0 pb-lg-2 font-23"></span><span class="">Company</span></a>
                                     </div>
                                     <div class="col-6 align-items-center shadow-none text-center">
-                                        <a href="#" class="text-dark p-4 ctm-border-right"><span class="lnr lnr-calendar-full pr-0 pb-lg-2 font-23"></span><span class="">Calendar</span></a>
+                                        <a href="{{route('clients.index')}}" class="{{(Request::segment(2) == 'clients') ? "text-white active":"text-dark"}} p-4 ctm-border-right"><span class="lnr lnr-users pr-0 pb-lg-2 font-23"></span><span class="">Clients</span></a>
                                     </div>
                                     <div class="col-6 align-items-center shadow-none text-center">
                                         <a href="{{route('testimonials.index')}}" class="{{(Request::segment(2) == 'testimonials') ? "text-white active":"text-dark"}} p-4 ctm-border-right ctm-border-left"><span class="lnr lnr-star-half pr-0 pb-lg-2 font-23"></span><span class="">Testimonials</span></a>

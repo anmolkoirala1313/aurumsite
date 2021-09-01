@@ -146,4 +146,15 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
 
     //End of Testimonials
 
+    //clients
+
+    Route::get('/clients', 'App\Http\Controllers\ClientController@index')->name('clients.index');
+    Route::get('/clients/create', 'App\Http\Controllers\ClientController@create')->name('clients.create');
+    Route::post('/clients', 'App\Http\Controllers\ClientController@store')->name('clients.store');
+    Route::put('/clients/{clients}', 'App\Http\Controllers\ClientController@update')->name('clients.update');
+    Route::delete('/clients/{clients}', 'App\Http\Controllers\ClientController@destroy')->name('clients.destroy');
+    Route::get('/clients/{clients}/edit', 'App\Http\Controllers\ClientController@edit')->name('clients.edit');
+
+    //End of clients
+
 });
