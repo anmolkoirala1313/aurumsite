@@ -41,12 +41,14 @@ class FrontController extends Controller
     }
 
     public function services(){
-
-        return view('frontend.pages.services.index');
+        $service_categories =$this->S_category->orderBy('name', 'asc')->get();
+        return view('frontend.pages.services.index',compact('service_categories'));
     }
 
     public function serviceSingle($slug){
-        return view('frontend.pages.services.single');
+        $singleService = $this->S_category->where('slug', $slug)->first();
+        $service_categories = $this->S_category->orderBy('name', 'asc')->get();
+        return view('frontend.pages.services.single',compact('singleService','service_categories'));
     }
 
     public function blogs(){

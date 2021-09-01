@@ -56,6 +56,7 @@ Route::get('/', 'App\Http\Controllers\FrontController@index')->name('home');
 
 //service category
 
+Route::get('/clients', 'App\Http\Controllers\FrontController@clients')->name('client.frontend');
 Route::get('/services', 'App\Http\Controllers\FrontController@services')->name('service.frontend');
 
 Route::get('services/{slug}','App\Http\Controllers\FrontController@serviceSingle')->name('service.single');

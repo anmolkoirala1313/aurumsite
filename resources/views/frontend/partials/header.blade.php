@@ -337,79 +337,9 @@
                                 <nav id="main-menu" class="menu-main-menu-container">
                                     <ul class="menu">
                                         <li id="menu-item-1770"
-                                         class="{{request()->is('/') ? 'current_page_item' : ''}} menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-5  menu-item-has-children menu-item-depth-0 menu-links-with-arrow single menu-item-megamenu-parent  megamenu-4-columns-group">
+                                         class="{{request()->is('/') ? 'current_page_item' : ''}} menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-5   menu-item-depth-0 menu-links-with-arrow single">
                                             <a href="/">Home</a>
-                                            <div class='megamenu-child-container '>
-
-                                                <ul class="sub-menu ">
-                                                    <li id="menu-item-9582"
-                                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-depth-1"></li>
-                                                    <li id="menu-item-9605"
-                                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-depth-1">
-                                                        <a href="blog/blog-medium//">Our News</a>
-                                                        <ul class="sub-menu ">
-                                                            <li id="menu-item-9604"
-                                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-depth-2"><a
-                                                                    href="blog//">Default Style</a></li>
-                                                            <li id="menu-item-7428"
-                                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-depth-2"><a
-                                                                    href="blog/blog-date-left//">Date Left Style</a></li>
-                                                            <li id="menu-item-7427"
-                                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-depth-2"><a
-                                                                    href="blog/blog-date-and-author-left//">Date &#038; Author Left Style</a>
-                                                            </li>
-                                                            <li id="menu-item-7429"
-                                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-depth-2"><a
-                                                                    href="blog/blog-medium//">Medium Style</a></li>
-                                                            <li id="menu-item-7430"
-                                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-depth-2"><a
-                                                                    href="blog/blog-medium-highlight//">Medium Highlight Style</a></li>
-                                                            <li id="menu-item-7431"
-                                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-depth-2"><a
-                                                                    href="blog/blog-medium-skin-highlight//">Medium Skin Highlight Style</a>
-                                                            </li>
-                                                            <li id="menu-item-9617"
-                                                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-depth-2"><a
-                                                                    href="https://dtagency.wpengine.com/integer-at-diam-gravida-fringilla-nibh-preti-purus/">News
-                                                                    Detail (Single)</a></li>
-                                                        </ul>
-                                                        <a class="dt-menu-expand" href="javascript:void(0)">+</a>
-                                                    </li>
-                                                    <li id="menu-item-9231"
-                                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-depth-1">
-                                                        <a href="https://dtagency.wpengine.com/event-shortcodes/">Our Events</a>
-                                                        <ul class="sub-menu ">
-                                                            <li id="menu-item-9233"
-                                                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-depth-2"><a
-                                                                    href="events/list//">Events List</a></li>
-                                                            <li id="menu-item-9232"
-                                                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-depth-2"><a
-                                                                    href="events//">Events Month</a></li>
-                                                            <li id="menu-item-9234"
-                                                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-depth-2"><a
-                                                                    href="events/week//">Events Week</a></li>
-                                                            <li id="menu-item-9235"
-                                                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-depth-2"><a
-                                                                    href="events/today//">Events Day</a></li>
-                                                            <li id="menu-item-9236"
-                                                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-depth-2"><a
-                                                                    href="events/map//">Events Map</a></li>
-                                                            <li id="menu-item-9238"
-                                                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-depth-2"><a
-                                                                    href="events/photo//">Events Photo</a></li>
-                                                            <li id="menu-item-9223"
-                                                                class="menu-item menu-item-type-post_type menu-item-object-tribe_events menu-item-depth-2">
-                                                                <a href="event/latest-trends-in-the-web-and-app-design//">Event Detail</a>
-                                                            </li>
-                                                        </ul>
-                                                        <a class="dt-menu-expand" href="javascript:void(0)">+</a>
-                                                    </li>
-                                                    <li id="menu-item-9583"
-                                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-depth-1"></li>
-                                                </ul>
-                                                <a class="dt-menu-expand" href="javascript:void(0)">+</a>
-                                            </div>
-                                            <a class="dt-menu-expand" href="javascript:void(0)">+</a>
+                                     
                                         </li>
                                         <li id="menu-item-1768"
                                             class="{{request()->is('about') ? 'current_page_item' : ''}} menu-item menu-item-type-post_type menu-item-object-page menu-item-depth-0 menu-links-with-arrow single menu-item-simple-parent ">

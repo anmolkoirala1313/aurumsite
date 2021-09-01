@@ -428,7 +428,9 @@
                             'undo', 'redo'
                         ],
                         shouldNotGroupWhenFull: false,
-                    }
+        
+                    },
+                    
 
                 } )
                 .then( editor => {
@@ -438,7 +440,7 @@
                     console.error( err.stack );
                 } );
 
-
+            
             ClassicEditor
                 .create( document.querySelector( '#edit-editor' ), {
                     toolbar : {
@@ -451,11 +453,16 @@
                             'undo', 'redo'
                         ],
                         shouldNotGroupWhenFull: false,
-                    }
+                    },
+                   
 
                 } )
+    
+                    // Object styles
+                   
                 .then( editor => {
                     window.editor = editor;
+                    
                 } )
                 .catch( err => {
                     console.error( err.stack );
@@ -463,6 +470,8 @@
 
 
         });
+
+                
 
         $(document).on('click','.action-edit', function (e) {
             e.preventDefault();

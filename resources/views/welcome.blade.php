@@ -861,14 +861,14 @@
                                                                 alt="{{ucwords(@$service_category->name)}}" title="{{ucwords(@$service_category->name)}}" />
                                                             <div class="image-overlay">
                                                                 <div class="links"><a title="{{ucwords(@$service_category->name)}}"
-                                                                                        href=""><span
+                                                                                        href="{{route('service.single',$service_category->slug)}}"><span
                                                                             class="icon icon-linked"> </span></a><a title="{{ucwords(@$service_category->name)}}"
                                                                                                                     data-gal="prettyPhoto[gallery]"
                                                                                                                     href="{{ asset('/images/uploads/service_categories/'.$service_category->image) }}">
                                                                         <span class="icon icon-search"> </span> </a></div>
                                                                 <div class="image-overlay-details">
                                                                     <h2><a title="{{ucwords(@$service_category->name)}}"
-                                                                            href="">{{ucwords(@$service_category->name)}}</a></h2>
+                                                                            href="{{route('service.single',$service_category->slug)}}">{{ucwords(@$service_category->name)}}</a></h2>
 
                                                                 </div>
                                                             </div>
@@ -898,7 +898,7 @@
                                     <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="bounceInDown"
                                             data-animation-delay="0.5" data-animation-duration="1" data-animation-iteration="1"
                                             style="opacity:0;" data-opacity_start_effect="">
-                                        <div class='aligncenter  dt-sc-subtitle-text'>OUR NEWS &amp; STORIES</div>
+                                        <div class='aligncenter  dt-sc-subtitle-text'>OUR CLIENTS </div>
                                         <div class="ult-spacer spacer-6107b9a4cb018" data-id="6107b9a4cb018" data-height="10"
                                                 data-height-mobile="10" data-height-tab="10" data-height-tab-portrait=""
                                                 data-height-mobile-landscape="" style="clear:both;display:block;"></div>
