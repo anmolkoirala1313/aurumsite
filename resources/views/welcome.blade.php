@@ -886,6 +886,47 @@
                         </div>
                     @endif
 
+                    @if(count($clients) > 0)
+                    <div class="vc_row-full-width vc_clearfix"></div>
+                    <div class="vc_row wpb_row vc_row-fluid">
+                        <div class="wpb_column vc_column_container vc_col-sm-12">
+                            <div class="vc_column-inner ">
+                                <div class="wpb_wrapper">
+                                <div class="wpb_text_column wpb_content_element  vc_custom_1453795421005 aligncenter">
+                                    <div class="wpb_wrapper">
+                                        <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="bounceInDown"
+                                                data-animation-delay="0.5" data-animation-duration="1" data-animation-iteration="1"
+                                                style="opacity:0;" data-opacity_start_effect="">
+                                            <div class='aligncenter  dt-sc-subtitle-text'>OUR VALUEABLE </div>
+                                            <div class="ult-spacer spacer-6107b9a4cb018" data-id="6107b9a4cb018" data-height="10"
+                                                    data-height-mobile="10" data-height-tab="10" data-height-tab-portrait=""
+                                                    data-height-mobile-landscape="" style="clear:both;display:block;"></div>
+                                            <h2 style="font-size: 60px;line-height: 50px;text-align: center" class="vc_custom_heading">
+                                                <strong>Clients</strong></h2>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class='dt-sc-hr-invisible-small '> </div>
+                                <div class='dt-sc-hr-invisible-xsmall '> </div>
+                                <div class="dt-sc-partners-carousel-wrapper" data-scroll="3" data-visible="5">
+                                    <ul class='dt-sc-partners-carousel'>
+                                        @foreach(@$clients as $client)
+                                        
+                                            <li><img width="95" height="125"
+                                                src="<?php if(@$client->image){?>{{asset('/images/uploads/clients/'.@$client->image)}}<?php }?>"
+                                                class="attachment-full" alt="" loading="lazy" /></li>
+                                        @endforeach
+                                    </ul>
+                                    <div class="carousel-arrows"><a href="#" class="partners-prev"> </a><a href="#"
+                                        class="partners-next"> </a></div>
+                                </div>
+                                <div class='dt-sc-hr-invisible-large '> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
 
 
                     @if(count($testimonials) > 0)

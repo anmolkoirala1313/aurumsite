@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\BlogCategory;
+use App\Models\Client;
 use App\Models\ServiceCategory;
 use App\Models\Slider;
 use App\Models\Testimonial;
@@ -17,15 +18,18 @@ class FrontController extends Controller
     protected $slider = null;
     protected $S_category = null;
     protected $testimonial = null;
+    protected $client = null;
+    
  
 
-    public function __construct(BlogCategory $bcategory,Blog $blog,Slider $slider,ServiceCategory $S_category,Testimonial $testimonial)
+    public function __construct(BlogCategory $bcategory,Blog $blog,Slider $slider,ServiceCategory $S_category,Testimonial $testimonial,Client $client)
     {
         $this->bcategory = $bcategory;
         $this->blog = $blog;
         $this->slider = $slider;
         $this->S_category = $S_category;
         $this->testimonial = $testimonial;
+        $this->client = $client;
         
     }
 
@@ -36,7 +40,9 @@ class FrontController extends Controller
         $sliders =$this->slider->where('status','active')->orderBy('created_at', 'asc')->get();
         $service_categories =$this->S_category->orderBy('name', 'asc')->get();
         $testimonials =$this->testimonial->orderBy('title', 'asc')->get();
-        return view('welcome',compact('sliders','service_categories','latestPosts','testimonials'));
+        $clients =$this->client->orderBy('created_at', 'asc')->get();
+
+        return view('welcome',compact('sliders','service_categories','latestPosts','testimonials','clients'));
 
     }
 

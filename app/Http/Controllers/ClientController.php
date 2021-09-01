@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Clients;
+use App\Models\Client;
 use Illuminate\Http\Request;
 use CountryState;
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +25,7 @@ class ClientController extends Controller
 
     public function index()
     {
-        $clients        = Clients::all();
+        $clients        = Client::all();
         $countries      = CountryState::getCountries();
         return view('backend.clients.index',compact('clients','countries'));
     }
@@ -62,7 +62,7 @@ class ClientController extends Controller
                 $data['image']= $name;
             }
         }
-        $clients = Clients::create($data);
+        $clients = Client::create($data);
         if($clients){
             Session::flash('success','Client Created Successfully');
         }
@@ -91,7 +91,7 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        $edit           = Clients::find($id);
+        $edit           = Client::find($id);
         $countries      = CountryState::getCountries();
         return response()->json(["edit"=>$edit,"countries"=>$countries]);
     }
@@ -105,7 +105,7 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $clients                     =  Clients::find($id);
+        $clients                     =  Client::find($id);
         $clients->country            =  $request->input('country');
         $clients->link               =  $request->input('link');
         $oldimage                    = $clients->image;
@@ -140,7 +140,7 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        $delete       = Clients::find($id);
+        $delete       = Client::find($id);
         $rid          = $delete->id;
         if (!empty($delete->image) && file_exists(public_path().'/images/uploads/clients/'.$delete->image)){
             @unlink(public_path().'/images/uploads/clients/'.$delete->image);
