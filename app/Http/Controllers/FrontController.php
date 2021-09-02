@@ -8,6 +8,7 @@ use App\Models\Client;
 use App\Models\ServiceCategory;
 use App\Models\Slider;
 use App\Models\Testimonial;
+use CountryState;
 
 use Illuminate\Http\Request;
 
@@ -40,10 +41,19 @@ class FrontController extends Controller
         $sliders =$this->slider->where('status','active')->orderBy('created_at', 'asc')->get();
         $service_categories =$this->S_category->orderBy('name', 'asc')->get();
         $testimonials =$this->testimonial->orderBy('title', 'asc')->get();
+        $client_groups =$this->client->orderBy('created_at', 'asc')->get()->groupBy('country');
         $clients =$this->client->orderBy('created_at', 'asc')->get();
+        $countries          = CountryState::getCountries();
 
-        return view('welcome',compact('sliders','service_categories','latestPosts','testimonials','clients'));
+        return view('welcome',compact('sliders','service_categories','latestPosts','testimonials','countries','client_groups','clients'));
 
+    }
+
+    public function clients(){
+        $client_groups =$this->client->orderBy('created_at', 'asc')->get()->groupBy('country');
+        $countries          = CountryState::getCountries();
+
+        return view('frontend.pages.clients',compact('client_groups','countries'));
     }
 
     public function services(){

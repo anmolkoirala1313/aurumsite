@@ -299,6 +299,50 @@ jQuery(document).ready(function($){
 		//Blog Template End
 		
 		//Portfolio Template : Sorting
+		// var $container = $('.dt-sc-portfolio-container');
+		// if( $container.length) {
+		// 	var $width = $container.hasClass("no-space") ? 0 : 20;
+			
+		// 	$container.isotope({
+		// 		filter: '*',
+		// 		masonry: { gutter: $width },
+		// 		animationOptions: { duration: 750, easing: 'linear', queue: false  }
+		// 	});
+		// }//Isotope End
+		
+		// if($("div.dt-sc-portfolio-sorting").length){
+			
+		// 	$("div.dt-sc-portfolio-sorting a").on('click',function(){
+		// 		$("div.dt-sc-portfolio-sorting a").removeClass("active-sort");
+		// 		var $width = $container.hasClass("no-space") ? 0 : 20;
+		// 		var selector = $(this).attr('data-filter');
+		// 		$(this).addClass("active-sort");
+
+		// 		$('.dt-sc-portfolio-container').isotope({
+		// 			filter: selector,
+		// 			masonry: { gutter: $width },
+		// 			animationOptions: { duration:750, easing: 'linear',  queue: false }
+		// 		});
+
+		// 		return false;
+		// 	});
+		// }
+		//Portfolio Template : Sorting End
+		
+		//Gallery Post Slider
+		if( ($("ul.entry-gallery-post-slider").length) && ( $("ul.entry-gallery-post-slider li").length > 1 ) ){
+			$("ul.entry-gallery-post-slider").bxSlider({auto:false, video:true, useCSS:false, pager:'', autoHover:true, adaptiveHeight:true});
+		}
+		
+		//Blog Template
+		if( $(".apply-isotope").length ) {
+			$(".apply-isotope").isotope({itemSelector : '.column',transformsEnabled:false,masonry: { gutter: 20} });
+		}
+	});
+
+	
+	if($('body').hasClass('dt-sc-portfolio-container')) {
+	//Portfolio Template : Sorting
 		var $container = $('.dt-sc-portfolio-container');
 		if( $container.length) {
 			var $width = $container.hasClass("no-space") ? 0 : 20;
@@ -327,19 +371,9 @@ jQuery(document).ready(function($){
 				return false;
 			});
 		}
-		//Portfolio Template : Sorting End
-		
-		//Gallery Post Slider
-		if( ($("ul.entry-gallery-post-slider").length) && ( $("ul.entry-gallery-post-slider li").length > 1 ) ){
-			$("ul.entry-gallery-post-slider").bxSlider({auto:false, video:true, useCSS:false, pager:'', autoHover:true, adaptiveHeight:true});
-		}
-		
-		//Blog Template
-		if( $(".apply-isotope").length ) {
-			$(".apply-isotope").isotope({itemSelector : '.column',transformsEnabled:false,masonry: { gutter: 20} });
-		}
-	});
-
+	}
+	//Portfolio Template : Sorting End
+	
 	$(".dt-like-this").on('click',function(){
 
 		var el = jQuery(this);

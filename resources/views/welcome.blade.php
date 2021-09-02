@@ -902,20 +902,21 @@
                                                     data-height-mobile="10" data-height-tab="10" data-height-tab-portrait=""
                                                     data-height-mobile-landscape="" style="clear:both;display:block;"></div>
                                             <h2 style="font-size: 60px;line-height: 50px;text-align: center" class="vc_custom_heading">
-                                                <strong>Clients</strong></h2>
+                                                <a href="{{url('/clients')}}"><strong>Clients</strong></a></h2>
                                         </div>
 
                                     </div>
                                 </div>
                                 <div class='dt-sc-hr-invisible-small '> </div>
                                 <div class='dt-sc-hr-invisible-xsmall '> </div>
+                                
                                 <div class="dt-sc-partners-carousel-wrapper" data-scroll="3" data-visible="5">
                                     <ul class='dt-sc-partners-carousel'>
                                         @foreach(@$clients as $client)
                                         
-                                            <li><img width="95" height="125"
+                                            <li><a href="{{@$client->link}}" @if(@$client->link) target="_blank"  @endif > <img width="155" height="125"
                                                 src="<?php if(@$client->image){?>{{asset('/images/uploads/clients/'.@$client->image)}}<?php }?>"
-                                                class="attachment-full" alt="" loading="lazy" /></li>
+                                                class="attachment-full" alt="" loading="lazy" /></a></li>
                                         @endforeach
                                     </ul>
                                     <div class="carousel-arrows"><a href="#" class="partners-prev"> </a><a href="#"
