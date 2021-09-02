@@ -57,13 +57,20 @@
                             Images Information</a>
                     </li>
                     @endif
+
+                    <li class="list-group-item text-center button-6">
+                        <a class="in-active"
+                           id="award-info-tab" data-toggle="pill" data-number="" href="#award-info" role="tab"
+                           aria-controls="media" aria-selected="false">
+                            Award Section</a>
+                    </li>
                 </ul>
             </div>
 
 
             <div class="tab-content shadow-none p-0">
 
-                <div id="collapse-tabs-accordion">
+            <div id="collapse-tabs-accordion">
                     <div class="tab-pane tab-pane-parent show active px-0" id="general-info"
                          role="tabpanel" aria-labelledby="general-info-tab">
                         <div class="bg-transparent border-0">
@@ -352,7 +359,180 @@
                     </div>
 
                     @endif
+
+                <div class="tab-pane tab-pane-parent fade px-0" id="award-info" role="tabpanel"
+                     aria-labelledby="award-info-tab">
+                    <div class="bg-transparent border-0">
+                        <div id="sensitive-info-collapse" class="collapse show collapsible"
+                             aria-labelledby="heading-sensitive-info"
+                             data-parent="#collapse-tabs-accordion">
+                            {{--  Tab content--}}
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="card ctm-border-radius shadow-sm grow flex-fill">
+                                            <div class="card-header">
+                                                <h4 class="card-title mb-0">
+                                                    Add Award Details
+                                                </h4>
+                                            </div>
+                                            {!! Form::open(['route' => 'awards.store','method'=>'post','class'=>'needs-validation','novalidate'=>'','enctype'=>'multipart/form-data']) !!}
+
+                                            <div class="card-body">
+                                                <div class="form-group mb-3">
+                                                    <label>Title </label>
+                                                    <input type="text" class="form-control" name="name" >
+                                                    <div class="invalid-feedback">
+                                                        Please enter the title.
+                                                    </div>
+                                                </div>
+
+                                                <div class="row justify-content-center">
+                                                    <div class="col-9 mb-4">
+                                                        <div class="custom-file h-auto">
+                                                            <div class="avatar-upload">
+                                                                <div class="avatar-edit">
+                                                                    <input type="file" class="custom-file-input" hidden id="award-image" onchange="loadawardFile(event)" name="image">
+                                                                    <label for="award-image"></label>
+                                                                    <div class="invalid-feedback" style="position: absolute; width: 45px;">
+                                                                        Please select a image.
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <img id="current-award-img" src="{{asset('/images/uploads/default-placeholder.png')}}" alt="awardimage_placeholder" class="w-100 current-img">
+                                                        </div>
+                                                        <span class="ctm-text-sm">*use image minimum of 200 x 200px for award</span>
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div class="text-center mt-3">
+                                                    <button type="submit" class="btn btn-theme text-white ctm-border-radius button-1">Add Award</button>
+                                                </div>
+                                            </div>
+
+                                            {!! Form::close() !!}
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card ctm-border-radius shadow-sm grow flex-fill">
+                                            <div class="card-header">
+                                                <h4 class="card-title mb-0">
+                                                    Award List
+                                                </h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="employee-office-table">
+                                                    <div class="table-responsive">
+                                                        <table id="awards-index" class="table custom-table">
+                                                            <thead>
+                                                            <tr>
+                                                                <th>Award Image</th>
+                                                                <th>Name</th>
+                                                                <th class="text-right">Action</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            @if(!empty($awards))
+                                                                @foreach($awards as  $award)
+                                                                    <tr>
+                                                                        <td class="align-middle pt-6 pb-4 px-6">
+                                                                            <div class="avatar-upload">
+                                                                                <div class="blog-preview">
+                                                                                    <img id="default-image" src="{{asset('/images/uploads/awards/'.$award->image)}}"  class="default-image"/>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>{{ (!empty($award->name))   ?  $award->name:"Not Set"  }}</td>
+                                                                        <td class="text-right">
+                                                                            <div class="dropdown action-label drop-active">
+                                                                                <a href="javascript:void(0)" class="btn btn-white btn-sm" data-toggle="dropdown" aria-expanded="false"> <span class="lnr lnr-cog"></span>
+                                                                                </a>
+                                                                                <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 31px, 0px);">
+                                                                                    <a class="dropdown-item action-award-edit" href="#" hrm-update-action="{{route('awards.update',$award->id)}}" hrm-edit-action="{{route('awards.edit',$award->id)}}"> Edit </a>
+                                                                                    <a class="dropdown-item action-award-delete" href="#" hrm-delete-per-action="{{route('awards.destroy',$award->id)}}"> Delete </a>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </td>
+                                                                    </tr>
+                                                                @endforeach
+                                                            @endif
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            {{--  End Tab content--}}
+                        </div>
+                    </div>
                 </div>
+
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade bd-example-modal-sm" id="editAwards">
+        <form action="#" method="post" id="deleted-form" >
+            {{csrf_field()}}
+            <input name="_method" type="hidden" value="DELETE">
+        </form>
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content">
+                {!! Form::open(['method'=>'PUT','class'=>'needs-validation updateawards','novalidate'=>'','enctype'=>'multipart/form-data']) !!}
+
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title mb-3">Update Slider</h4>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group mb-3">
+                                <label>Title </label>
+                                <input type="text" class="form-control" name="name" id="award_name">
+                                <div class="invalid-feedback">
+                                    Please enter the title.
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-center">
+                        <div class="col-9 mb-4">
+                            <div class="custom-file h-auto">
+                                <div class="avatar-upload">
+                                    <div class="avatar-edit">
+                                        <input type="file" class="custom-file-input" hidden id="award-edit-image" onchange="loadawardeditFile(event)" name="image">
+                                        <label for="award-edit-image"></label>
+                                        <div class="invalid-feedback" style="position: absolute; width: 45px;">
+                                            Please select a image.
+                                        </div>
+                                    </div>
+                                </div>
+                                <img id="edit-award-img" src="{{asset('/images/uploads/default-placeholder.png')}}" alt="award_image_placeholder" class="w-100 current-img">
+                            </div>
+                            <span class="ctm-text-sm">*use image minimum of 200 x 200px for award</span>
+                        </div>
+
+                    </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mb-3">
+                        <button type="submit" class="btn btn-theme button-1 text-white ctm-border-radius mt-4">Update</button>
+                    </div>
+                </div>
+
+                {!! Form::close() !!}
+
             </div>
         </div>
     </div>
@@ -382,7 +562,27 @@
             replacement.src = URL.createObjectURL(event.target.files[0]);
         };
 
+        var loadawardFile = function(event) {
+                var image = document.getElementById('award-image');
+                var replacement = document.getElementById('current-award-img');
+                replacement.src = URL.createObjectURL(event.target.files[0]);
+            };
 
+        var loadawardeditFile = function(event) {
+            var image = document.getElementById('award-edit-image');
+            var replacement = document.getElementById('edit-award-img');
+            replacement.src = URL.createObjectURL(event.target.files[0]);
+        };
+
+        $(document).ready(function () {
+            $('#awards-index').DataTable({
+                paging: true,
+                searching: true,
+                ordering:  true,
+                lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+            });
+
+        });
 
         //necessary for switching tabs
         $(document).on('click','li.list-group-item a', function (e) {
@@ -403,6 +603,68 @@
                 //if the tab has active class, remove the class fade
                 $(id).removeClass('fade');
             }
+        });
+
+        $(document).on('click','.action-award-edit', function (e) {
+            e.preventDefault();
+            var url =  $(this).attr('hrm-edit-action');
+            // console.log(action)
+            var id=$(this).attr('id');
+            var action = $(this).attr('hrm-update-action');
+
+            $.ajax({
+                url: $(this).attr('hrm-edit-action'),
+                type: "GET",
+                cache: false,
+                dataType: 'json',
+                success: function(dataResult){
+                    // $('#id').val(data.id);
+                    $("#editAwards").modal("toggle");
+                    if(dataResult.name !== null){
+                        $('#award_name').attr('value',dataResult.name);
+                    }
+                    $('#edit-award-img').attr("src",'/images/uploads/awards/'+dataResult.image);
+                    $('.updateawards').attr('action',action);
+
+                },
+                error: function(error){
+                    console.log(error)
+                }
+            });
+        });
+
+        $(document).on('click','.action-award-delete', function (e) {
+            e.preventDefault();
+            var form = $('#deleted-form');
+            var action = $(this).attr('hrm-delete-per-action');
+            form.attr('action',$(this).attr('hrm-delete-per-action'));
+            $url = form.attr('action');
+            var form_data = form.serialize();
+            // $('.deleterole').attr('action',action);
+            swal({
+                title: "Are You Sure?",
+                text: "You will not be able to recover this",
+                type: "info",
+                showCancelButton: true,
+                closeOnConfirm: false,
+                showLoaderOnConfirm: true,
+            }, function(){
+                $.post( $url, form_data)
+                    .done(function(response) {
+                        swal("Deleted!", "Award detaol deleted successfully", "success");
+                        $(response).remove();
+                        setTimeout(function() {
+                            window.location.reload();
+                        }, 2500);
+
+
+                    })
+                    .fail(function(response){
+                        console.log(response)
+
+                    });
+            });
+
         });
 
     </script>

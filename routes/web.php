@@ -158,4 +158,15 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
 
     //End of clients
 
+    //clients
+
+    Route::get('/awards', 'App\Http\Controllers\AwardController@index')->name('awards.index');
+    Route::get('/awards/create', 'App\Http\Controllers\AwardController@create')->name('awards.create');
+    Route::post('/awards', 'App\Http\Controllers\AwardController@store')->name('awards.store');
+    Route::put('/awards/{awards}', 'App\Http\Controllers\AwardController@update')->name('awards.update');
+    Route::delete('/awards/{awards}', 'App\Http\Controllers\AwardController@destroy')->name('awards.destroy');
+    Route::get('/awards/{awards}/edit', 'App\Http\Controllers\AwardController@edit')->name('awards.edit');
+
+    //End of clients
+
 });
