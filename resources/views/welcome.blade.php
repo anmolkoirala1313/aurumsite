@@ -1,5 +1,19 @@
 @extends('frontend.layouts.master')
 @section('title') Aurum @endsection
+
+@section('styles')
+<style>
+    .slick-custom-background{
+        margin: 0px !important;
+        background-color: #f6f6f6 !important;
+        border-radius: 10px !important;
+    }
+    
+    #ult-carousel-18361286996107b7834a609 .slick-slide {
+        margin: 0 15px;
+    }
+</style>
+@endsection
 @section('slider')
 
 @if(count($sliders) > 0)
@@ -386,171 +400,7 @@
                         </div>
                     </div>
                     <div class="vc_row-full-width vc_clearfix"></div><!-- Row Backgrounds -->
-                    <div class="upb_bg_img"
-                            data-ultimate-bg="{{asset('assets/frontend/images/05/custom-bg-parallax.png')}}"
-                            data-ultimate-bg-style="vcpb-fs-jquery" data-bg-img-repeat="repeat" data-bg-img-size="cover"
-                            data-bg-img-position="" data-parallx_sense="30" data-bg-override="0" data-bg_img_attach="scroll"
-                            data-upb-overlay-color="" data-upb-bg-animation="" data-fadeout="" data-fadeout-percentage="30"
-                            data-parallax-content="" data-parallax-content-sense="30" data-row-effect-mobile-disable="true"
-                            data-img-parallax-mobile-disable="true" data-rtl="false" data-custom-vc-row="" data-vc="6.5.0"
-                            data-is_old_vc="" data-theme-support="" data-overlay="false" data-overlay-color=""
-                            data-overlay-pattern="" data-overlay-pattern-opacity="" data-overlay-pattern-size=""></div>
-                    <div class="vc_row wpb_row vc_row-fluid dt-sc-centered-border-columns">
-                        <div class="wpb_column vc_column_container vc_col-sm-12">
-                            <div class="vc_column-inner ">
-                                <div class="wpb_wrapper">
-                                    <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="bounceInDown"
-                                            data-animation-delay="0.5" data-animation-duration="1" data-animation-iteration="1"
-                                            style="opacity:0;" data-opacity_start_effect="">
-                                        <div class='aligncenter  dt-sc-subtitle-text'>
-                                            <p>ALL THESE SERVICES FOR YOU</p>
-                                        </div>
-                                        <div class="ult-spacer spacer-6107b9a4c07fb" data-id="6107b9a4c07fb" data-height="10"
-                                                data-height-mobile="10" data-height-tab="10" data-height-tab-portrait=""
-                                                data-height-mobile-landscape="" style="clear:both;display:block;"></div>
-                                        <h2 style="font-size: 60px;line-height: 50px;text-align: center" class="vc_custom_heading">
-                                            <strong>The Best Services</strong></h2>
-                                    </div>
-                                    <div class="ult-spacer spacer-6107b9a4c0922" data-id="6107b9a4c0922" data-height="75"
-                                            data-height-mobile="45" data-height-tab="60" data-height-tab-portrait="60"
-                                            data-height-mobile-landscape="45" style="clear:both;display:block;"></div>
-                                    <div class="vc_row wpb_row vc_inner vc_row-fluid first">
-                                        <div class="wpb_column vc_column_container vc_col-sm-4">
-                                            <div class="vc_column-inner vc_custom_1493875964566">
-                                                <div class="wpb_wrapper">
-                                                    <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="fadeIn"
-                                                            data-animation-delay="0.8" data-animation-duration="1" data-animation-iteration="1"
-                                                            style="opacity:0;" data-opacity_start_effect="">
-                                                        <div class='dt-sc-icon-box type14 '>
-                                                            <div class="icon-wrapper"><img width="104" height="104"
-                                                                                            src="{{asset('assets/frontend/images/05/icon-stats-counter.png')}}"
-                                                                                            class="attachment-full" alt="icon-stats-counter" loading="lazy"
-                                                                                            srcset="{{asset('assets/frontend/images/05/icon-stats-counter.png')}} 104w, {{asset('assets/frontend/images/05/icon-stats-counter-100x100.png')}} 100w"
-                                                                                            sizes="(max-width: 104px) 100vw, 104px" /></div>
-                                                            <div class="icon-content">
-                                                                <h4>Track <strong> Record</strong></h4>
-                                                                <p>Consistent track record of clients both big and SMEs</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="wpb_column vc_column_container vc_col-sm-4">
-                                            <div class="vc_column-inner vc_custom_1493819054764">
-                                                <div class="wpb_wrapper">
-                                                    <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="fadeIn"
-                                                            data-animation-delay="2.0" data-animation-duration="1" data-animation-iteration="1"
-                                                            style="opacity:0;" data-opacity_start_effect="">
-                                                        <div class='dt-sc-icon-box type14 '>
-                                                            <div class="icon-wrapper"><img width="104" height="104"
-                                                                                            src="{{asset('assets/frontend/images/05/icon-analyze.png')}}"
-                                                                                            class="attachment-full" alt="icon-analyze" loading="lazy"
-                                                                                            srcset="{{asset('assets/frontend/images/05/icon-analyze.png')}} 104w, {{asset('assets/frontend/images/05/icon-analyze-100x100.png')}} 100w"
-                                                                                            sizes="(max-width: 104px) 100vw, 104px" /></div>
-                                                            <div class="icon-content">
-                                                                <h4>Exponential <strong> Growth</strong></h4>
-                                                                <p>Our recommendations ensures rapid expansion of business.</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="wpb_column vc_column_container vc_col-sm-4">
-                                            <div class="vc_column-inner vc_custom_1493876017970">
-                                                <div class="wpb_wrapper">
-                                                    <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="fadeIn"
-                                                            data-animation-delay="1.4" data-animation-duration="1" data-animation-iteration="1"
-                                                            style="opacity:0;" data-opacity_start_effect="">
-                                                        <div class='dt-sc-icon-box type14 '>
-                                                            <div class="icon-wrapper"><img width="104" height="104"
-                                                                                            src="{{asset('assets/frontend/images/05/icon-video-play.png')}}"
-                                                                                            class="attachment-full" alt="icon-video-play" loading="lazy"
-                                                                                            srcset="{{asset('assets/frontend/images/05/icon-video-play.png')}} 104w, {{asset('assets/frontend/images/05/icon-video-play-100x100.png')}} 100w"
-                                                                                            sizes="(max-width: 104px) 100vw, 104px" /></div>
-                                                            <div class="icon-content">
-                                                                <h4>Brand <strong> Equity</strong></h4>
-                                                                <p>The brands have exceptional premium value of equity</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="vc_row wpb_row vc_inner vc_row-fluid last">
-                                        <div class="wpb_column vc_column_container vc_col-sm-4">
-                                            <div class="vc_column-inner vc_custom_1493876054400">
-                                                <div class="wpb_wrapper">
-                                                    <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="fadeIn"
-                                                            data-animation-delay="2.3" data-animation-duration="1" data-animation-iteration="1"
-                                                            style="opacity:0;" data-opacity_start_effect="">
-                                                        <div class='dt-sc-icon-box type14 '>
-                                                            <div class="icon-wrapper"><img width="104" height="104"
-                                                                                            src="{{asset('assets/frontend/images/05/icon-edit-cogs.png')}}"
-                                                                                            class="attachment-full" alt="icon-edit-cogs" loading="lazy"
-                                                                                            srcset="{{asset('assets/frontend/images/05/icon-edit-cogs.png')}} 104w, {{asset('assets/frontend/images/05/icon-edit-cogs-100x100.png')}} 100w"
-                                                                                            sizes="(max-width: 104px) 100vw, 104px" /></div>
-                                                            <div class="icon-content">
-                                                                <h4>Trusted <strong> by leaders</strong></h4>
-                                                                <p>The leaders&#8217; trust in us empowers our operations.</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="wpb_column vc_column_container vc_col-sm-4">
-                                            <div class="vc_column-inner vc_custom_1493819054764">
-                                                <div class="wpb_wrapper">
-                                                    <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="fadeIn"
-                                                            data-animation-delay="1.1" data-animation-duration="1" data-animation-iteration="1"
-                                                            style="opacity:0;" data-opacity_start_effect="">
-                                                        <div class='dt-sc-icon-box type14 '>
-                                                            <div class="icon-wrapper"><img width="104" height="104"
-                                                                                            src="{{asset('assets/frontend/images/05/icon-certified-batch.png')}}"
-                                                                                            class="attachment-full" alt="icon-certified-batch" loading="lazy"
-                                                                                            srcset="{{asset('assets/frontend/images/05/icon-certified-batch.png')}} 104w, {{asset('assets/frontend/images/05/icon-certified-batch-100x100.png')}} 100w"
-                                                                                            sizes="(max-width: 104px) 100vw, 104px" /></div>
-                                                            <div class="icon-content">
-                                                                <h4>Diverse <strong>Portfolio</strong></h4>
-                                                                <p>Our range of clients encompasses the big &amp; the small.</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="wpb_column vc_column_container vc_col-sm-4">
-                                            <div class="vc_column-inner vc_custom_1493876043193">
-                                                <div class="wpb_wrapper">
-                                                    <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="fadeIn"
-                                                            data-animation-delay="1.7" data-animation-duration="1" data-animation-iteration="1"
-                                                            style="opacity:0;" data-opacity_start_effect="">
-                                                        <div class='dt-sc-icon-box type14 '>
-                                                            <div class="icon-wrapper"><img width="104" height="104"
-                                                                                            src="{{asset('assets/frontend/images/05/icon-zoom-eye.png')}}"
-                                                                                            class="attachment-full" alt="icon-zoom-eye" loading="lazy"
-                                                                                            srcset="{{asset('assets/frontend/images/05/icon-zoom-eye.png')}} 104w, {{asset('assets/frontend/images/05/icon-zoom-eye-100x100.png')}} 100w"
-                                                                                            sizes="(max-width: 104px) 100vw, 104px" /></div>
-                                                            <div class="icon-content">
-                                                                <h4>Pioneers<strong>in Consultancy </strong></h4>
-                                                                <p>We pioneered the agency concept by launching our own unit.</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="ult-spacer spacer-6107b9a4c2998" data-id="6107b9a4c2998" data-height="80"
-                                            data-height-mobile="16" data-height-tab="80" data-height-tab-portrait="80"
-                                            data-height-mobile-landscape="16" style="clear:both;display:block;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                 
                     <div class="vc_row wpb_row vc_row-fluid dt-sc-custom-bg left-bg-diamond-shape right-bg-circle-shape">
                         <div class="wpb_column vc_column_container vc_col-sm-12">
                             <div class="vc_column-inner ">
@@ -597,7 +447,7 @@
                                             class="dt-sc-three-fifth rs_col-sm-12 wpb_column vc_column_container vc_col-sm-8 vc_col-lg-8 vc_col-md-12">
                                             <div class="vc_column-inner vc_custom_1494982255920">
                                                 <div class="wpb_wrapper">
-                                                    <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="zoomInDown"
+                                                    <!-- <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="zoomInDown"
                                                             data-animation-delay="1.1" data-animation-duration="1" data-animation-iteration="1"
                                                             style="opacity:0;" data-opacity_start_effect="">
                                                         <div
@@ -612,7 +462,50 @@
                                                                                                                                 sizes="(max-width: 600px) 100vw, 600px" /></div>
                                                             </figure>
                                                         </div>
+                                                    </div> -->
+                                                    @if(count($awards) >= 2)
+
+                                                    <div id="ult-carousel-18361286996107b7834a609" class="ult-carousel-wrapper   ult_horizontal"
+                                                        data-gutter="15" data-rtl="false">
+                                                        <div class="ult-carousel-20935043566107b7834a5d4 ">
+                                                        
+                                                        @foreach(@$awards as $award)
+                                                            <div class="ult-item-wrap" data-animation="animated no-animation">
+                                                                <div class="vc_row wpb_row vc_inner vc_row-fluid vc_custom_1494067265881 slick-custom-background vc_row-has-fill">
+                                                                <div class="ult-item-wrap" data-animation="animated no-animation">
+                                                                    <div class="wpb_column vc_column_container vc_col-sm-12">
+                                                                    <div class="vc_column-inner ">
+                                                                        <div class="wpb_wrapper">
+                                                                        <div class="ult-item-wrap" data-animation="animated no-animation">
+                                                                            <div class="ult-spacer spacer-6107b7834aee7" data-id="6107b7834aee7"
+                                                                            data-height="50" data-height-mobile="50" data-height-tab="50"
+                                                                            data-height-tab-portrait="" data-height-mobile-landscape=""
+                                                                            style="clear:both;display:block;"></div>
+                                                                        </div>
+                                                                        <div class="ult-item-wrap" data-animation="animated no-animation"><img width="200"
+                                                                            height="200"
+                                                                            src="{{asset('/images/uploads/awards/'.$award->image) }}"
+                                                                            class="aligncenter attachment-full" alt="award" loading="lazy" /></div>
+                                                                        <div class="ult-item-wrap" data-animation="animated no-animation">
+                                                                            <div class="ult-spacer spacer-6107b7834b6c6" data-id="6107b7834b6c6"
+                                                                            data-height="50" data-height-mobile="50" data-height-tab="50"
+                                                                            data-height-tab-portrait="" data-height-mobile-landscape=""
+                                                                            style="clear:both;display:block;"></div>
+                                                                        </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    </div>
+                                                                </div>
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+                                                        
+                                                        </div>
                                                     </div>
+                                                    @endif
+                                                    
+
+
                                                 </div>
                                             </div>
                                         </div>
@@ -1144,4 +1037,38 @@
             document.getElementsByTagName('head')[0].appendChild(htmlDiv.childNodes[0]);
         }
     </script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+    if (typeof jQuery('.ult-carousel-20935043566107b7834a5d4').slick == "function") {
+        $('.ult-carousel-20935043566107b7834a5d4').slick({
+        dots: false, autoplay: true, autoplaySpeed: 5000, speed: 300, infinite: true, arrows: false, slidesToScroll: 1, slidesToShow: 2, swipe: true, draggable: true, touchMove: true, pauseOnHover: true, pauseOnFocus: false, responsive: [
+            {
+            breakpoint: 1026,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+            }
+            },
+            {
+            breakpoint: 1025,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1
+            }
+            },
+            {
+            breakpoint: 760,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+            }
+            }
+        ], pauseOnDotsHover: true, customPaging: function (slider, i) {
+            return '<i type="button" style= "color:#333333;" class="ultsl-record" data-role="none"></i>';
+        },
+        });
+    }
+    });
+</script>
 @endsection

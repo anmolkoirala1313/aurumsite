@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Award;
 use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\Client;
@@ -20,10 +21,11 @@ class FrontController extends Controller
     protected $S_category = null;
     protected $testimonial = null;
     protected $client = null;
+    protected $award = null;
     
  
 
-    public function __construct(BlogCategory $bcategory,Blog $blog,Slider $slider,ServiceCategory $S_category,Testimonial $testimonial,Client $client)
+    public function __construct(BlogCategory $bcategory,Blog $blog,Slider $slider,ServiceCategory $S_category,Testimonial $testimonial,Client $client,Award $award)
     {
         $this->bcategory = $bcategory;
         $this->blog = $blog;
@@ -31,6 +33,7 @@ class FrontController extends Controller
         $this->S_category = $S_category;
         $this->testimonial = $testimonial;
         $this->client = $client;
+        $this->award = $award;
         
     }
 
@@ -43,9 +46,10 @@ class FrontController extends Controller
         $testimonials =$this->testimonial->orderBy('title', 'asc')->get();
         $client_groups =$this->client->orderBy('created_at', 'asc')->get()->groupBy('country');
         $clients =$this->client->orderBy('created_at', 'asc')->get();
-        $countries          = CountryState::getCountries();
+        $countries  = CountryState::getCountries();
+        $awards =$this->award->orderBy('created_at', 'asc')->get();
 
-        return view('welcome',compact('sliders','service_categories','latestPosts','testimonials','countries','client_groups','clients'));
+        return view('welcome',compact('awards','sliders','service_categories','latestPosts','testimonials','countries','client_groups','clients'));
 
     }
 

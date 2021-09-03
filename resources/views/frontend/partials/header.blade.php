@@ -288,32 +288,7 @@
         <div id="header-wrapper" class="">
             <!-- **Header** -->
             <header id="header">
-                <div class="top-bar dt-sc-skin-highlight dt-sc-dark-bg">
-                    <div class="container">
-                        <div class="vc_row wpb_row vc_row-fluid">
-                            <div class="wpb_column vc_column_container vc_col-sm-6">
-                                <div class="vc_column-inner ">
-                                    <div class="wpb_wrapper">
-                                        <div class='text-with-icon'><span class='fa fa-envelope'> </span><a title='info@example.com'
-                                                                                                            target='_blank' href='#'>info@example.com</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="alignright wpb_column vc_column_container vc_col-sm-6">
-                                <div class="vc_column-inner ">
-                                    <div class="wpb_wrapper">
-                                        <div class='text-with-icon'><span class='zmdi zmdi-pin-drop'> </span><a title='Branches'
-                                                                                                                target='_self' href='https://dtagency.wpengine.com/location'>Branches</a></div>
-                                        <div class='text-with-icon'><span class='zmdi zmdi-local-grocery-store'> </span><a title='Store'
-                                                                                                                           target='_self' href='shop//'>Store</a></div>
-                                        <div class='text-with-icon'><span class='zmdi zmdi-pin-account'> </span><a title='Contact us'
-                                                                                                                   target='_self' href='contact-us//'>Contact us</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              
                 <!-- **Main Header Wrapper** -->
                 <div id="main-header-wrapper" class="main-header-wrapper">
 
