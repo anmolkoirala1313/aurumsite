@@ -55,7 +55,7 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <label>Post </label>
+                            <label>Post  <span class="text-muted text-danger">*</span></label>
                             <input type="text" class="form-control" name="post" required>
                             <div class="invalid-feedback">
                                 Please enter the post.
@@ -204,7 +204,7 @@
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        <label>Post </label>
+                                        <label>Post  <span class="text-muted text-danger">*</span></label>
                                         <input type="text" class="form-control" name="post" id="post" required>
                                         <div class="invalid-feedback">
                                             Please enter the post.

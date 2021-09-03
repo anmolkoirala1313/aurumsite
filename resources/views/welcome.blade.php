@@ -13,7 +13,7 @@
         margin: 0 15px;
     }
 
-    .dt-sc-team.simple-rounded.aligncenter {
+    /* .dt-sc-team.simple-rounded.aligncenter {
         height: 470px;
     }
 
@@ -27,7 +27,7 @@
         .dt-sc-team.simple-rounded.aligncenter {
             height: 530px;
         }
-    }
+    } */
 </style>
 @endsection
 @section('slider')
