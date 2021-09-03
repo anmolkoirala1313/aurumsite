@@ -56,7 +56,7 @@
 
                         <div class="form-group mb-3">
                             <label>Post </label>
-                            <input type="text" class="form-control" name="post">
+                            <input type="text" class="form-control" name="post" required>
                             <div class="invalid-feedback">
                                 Please enter the post.
                             </div>
@@ -64,7 +64,7 @@
 
                         <div class="form-group mb-3">
                             <label>Description <span class="text-muted text-danger">*</span></label>
-                            <textarea class="form-control" rows="6" maxlength="50" name="description" ></textarea>
+                            <textarea class="form-control" rows="6" maxlength="50" name="description" required></textarea>
                             <div class="invalid-feedback">
                                 Please write the short description about service category.
                             </div>
@@ -205,7 +205,7 @@
 
                                     <div class="form-group mb-3">
                                         <label>Post </label>
-                                        <input type="text" class="form-control" name="post" id="post">
+                                        <input type="text" class="form-control" name="post" id="post" required>
                                         <div class="invalid-feedback">
                                             Please enter the post.
                                         </div>
@@ -215,7 +215,7 @@
                                         <label>Description <span class="text-muted text-danger">*</span></label>
                                         <textarea class="form-control" rows="6" maxlength="50" name="description" id="description" required></textarea>
                                         <div class="invalid-feedback">
-                                            Please write the short description.
+                                            Please write the description.
                                         </div>
                                     </div>
                                 </div>
