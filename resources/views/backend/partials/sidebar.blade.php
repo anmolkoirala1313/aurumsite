@@ -62,7 +62,7 @@
                                         <a href="#" class="text-dark p-4 second-slider-btn ctm-border-right ctm-border-top"><span class="lnr lnr-user pr-0 pb-lg-2 font-23"></span><span class="">Employees</span></a>
                                     </div>
                                     <div class="col-6 align-items-center shadow-none text-center">
-                                        <a href="#" class="text-dark p-4 ctm-border-right ctm-border-left"><span class="lnr lnr-apartment pr-0 pb-lg-2 font-23"></span><span class="">Company</span></a>
+                                        <a href="{{route('teams.index')}}" class="{{(Request::segment(2) == 'teams') ? "text-white active":"text-dark"}} p-4 ctm-border-right ctm-border-left"><span class="lnr lnr-license pr-0 pb-lg-2 font-23"></span><span class="">Teams</span></a>
                                     </div>
                                     <div class="col-6 align-items-center shadow-none text-center">
                                         <a href="{{route('clients.index')}}" class="{{(Request::segment(2) == 'clients') ? "text-white active":"text-dark"}} p-4 ctm-border-right"><span class="lnr lnr-users pr-0 pb-lg-2 font-23"></span><span class="">Clients</span></a>

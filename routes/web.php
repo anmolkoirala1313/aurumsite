@@ -169,4 +169,15 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
 
     //End of clients
 
+    //teams
+
+    Route::get('/teams', 'App\Http\Controllers\TeamController@index')->name('teams.index');
+    Route::get('/teams/create', 'App\Http\Controllers\TeamController@create')->name('teams.create');
+    Route::post('/teams', 'App\Http\Controllers\TeamController@store')->name('teams.store');
+    Route::put('/teams/{teams}', 'App\Http\Controllers\TeamController@update')->name('teams.update');
+    Route::delete('/teams/{teams}', 'App\Http\Controllers\TeamController@destroy')->name('teams.destroy');
+    Route::get('/teams/{teams}/edit', 'App\Http\Controllers\TeamController@edit')->name('teams.edit');
+
+    //End of teams
+
 });
