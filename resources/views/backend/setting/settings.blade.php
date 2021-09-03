@@ -392,7 +392,7 @@
                                                         <div class="custom-file h-auto">
                                                             <div class="avatar-upload">
                                                                 <div class="avatar-edit">
-                                                                    <input type="file" class="custom-file-input" hidden id="award-image" onchange="loadawardFile(event)" name="image">
+                                                                    <input type="file" class="custom-file-input" hidden id="award-image" onchange="loadawardFile(event)" name="image" required>
                                                                     <label for="award-image"></label>
                                                                     <div class="invalid-feedback" style="position: absolute; width: 45px;">
                                                                         Please select a image.
@@ -430,7 +430,7 @@
                                                             <thead>
                                                             <tr>
                                                                 <th>Award Image</th>
-                                                                <th>Name</th>
+                                                                <th>Title</th>
                                                                 <th class="text-right">Action</th>
                                                             </tr>
                                                             </thead>
@@ -510,7 +510,7 @@
                             <div class="custom-file h-auto">
                                 <div class="avatar-upload">
                                     <div class="avatar-edit">
-                                        <input type="file" class="custom-file-input" hidden id="award-edit-image" onchange="loadawardeditFile(event)" name="image">
+                                        <input type="file" class="custom-file-input" hidden id="award-edit-image" onchange="loadawardeditFile(event)" name="image" required>
                                         <label for="award-edit-image"></label>
                                         <div class="invalid-feedback" style="position: absolute; width: 45px;">
                                             Please select a image.
