@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Awards;
+use App\Models\Award;
 use App\Models\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -58,7 +58,7 @@ class AwardController extends Controller
                 $data['image']= $name;
             }
         }
-        $cat = Awards::create($data);
+        $cat = Award::create($data);
         if($cat){
             Session::flash('success','Award details added successfully');
         }
@@ -87,7 +87,7 @@ class AwardController extends Controller
      */
     public function edit($id)
     {
-        $edit   = Awards::find($id);
+        $edit   = Award::find($id);
         return response()->json($edit);
     }
 
@@ -100,7 +100,7 @@ class AwardController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $award                      =  Awards::find($id);
+        $award                      =  Award::find($id);
         $award->name                =  $request->input('name');
         $oldimage                   =  $award->image;
 
@@ -134,7 +134,7 @@ class AwardController extends Controller
      */
     public function destroy($id)
     {
-        $delete             = Awards::find($id);
+        $delete             = Award::find($id);
         $rid                = $delete->id;
         if (!empty($delete->image) && file_exists(public_path().'/images/uploads/awards/'.$delete->image)){
             @unlink(public_path().'/images/uploads/awards/'.$delete->image);

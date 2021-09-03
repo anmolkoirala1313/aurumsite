@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\Awards;
+use App\Models\Award;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,7 +27,7 @@ class SettingController extends Controller
     public function index()
     {
         $settings = Setting::first();
-        $awards   = Awards::all();
+        $awards   = Award::all();
         return view('backend.setting.settings',compact('settings','awards'));
     }
 
