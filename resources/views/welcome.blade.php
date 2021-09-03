@@ -12,6 +12,22 @@
     #ult-carousel-18361286996107b7834a609 .slick-slide {
         margin: 0 15px;
     }
+
+    .dt-sc-team.simple-rounded.aligncenter {
+        height: 470px;
+    }
+
+    @media only screen and (min-width: 992px) and (max-width: 1199px){
+        .dt-sc-team.simple-rounded.aligncenter {
+            height: 515px;
+        }
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 991px){
+        .dt-sc-team.simple-rounded.aligncenter {
+            height: 530px;
+        }
+    }
 </style>
 @endsection
 @section('slider')
@@ -528,6 +544,8 @@
                             data-img-parallax-mobile-disable="true" data-rtl="false" data-custom-vc-row="" data-vc="6.5.0"
                             data-is_old_vc="" data-theme-support="" data-overlay="false" data-overlay-color=""
                             data-overlay-pattern="" data-overlay-pattern-opacity="" data-overlay-pattern-size=""></div>
+                    @if(count($teams) > 0)
+                    
                     <div data-vc-full-width="true" data-vc-full-width-init="false"
                             class="vc_row wpb_row vc_row-fluid wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp vc_custom_1504782187535 vc_row-has-fill">
                         <div class="wpb_column vc_column_container vc_col-sm-12">
@@ -550,6 +568,7 @@
                                             data-height-mobile="60" data-height-tab="75" data-height-tab-portrait="75"
                                             data-height-mobile-landscape="60" style="clear:both;display:block;"></div>
                                     <div class="vc_row wpb_row vc_inner vc_row-fluid" style="color: rgba(114, 152, 166, 0.3);">
+                                    @foreach(@$teams as $team)
                                         <div class="wpb_column vc_column_container vc_col-sm-4">
                                             <div class="vc_column-inner ">
                                                 <div class="wpb_wrapper">
@@ -558,64 +577,21 @@
                                                             style="opacity:0;" data-opacity_start_effect="">
                                                         <div class='dt-sc-team  simple-rounded aligncenter'>
                                                             <div class='dt-sc-team-thumb'><img width="300" height="300"
-                                                                                                src="{{asset('assets/frontend/images/11/testimonial4.jpg')}}"
-                                                                                                class="attachment-full" alt="testimonial4" loading="lazy"
-                                                                                                srcset="{{asset('assets/frontend/images/11/testimonial4.jpg')}} 300w, {{asset('assets/frontend/images/11/testimonial4-100x100.jpg')}} 100w, {{asset('assets/frontend/images/11/testimonial4-150x150.jpg')}} 150w"
+                                                                                                src="{{asset('/images/uploads/teams/'.@$team->image)}}"
+                                                                                                class="attachment-full" alt="{{@$team->name}}" loading="lazy"
+                                                                                                srcset="{{asset('/images/uploads/teams/'.@$team->image)}} 300w, {{asset('/images/uploads/teams/'.@$team->image)}} 100w, {{asset('/images/uploads/teams/'.@$team->image)}} 150w"
                                                                                                 sizes="(max-width: 300px) 100vw, 300px" /></div>
                                                             <div class='dt-sc-team-details'>
-                                                                <h4>Jeff Norton</h4>
-                                                                <h5>Business Analyst</h5>
-                                                                <p>Mirum est notare quam littera gothica, quam putamus.</p>
+                                                                <h4>{{ucwords(@$team->name)}}</h4>
+                                                                <h5>{{ucwords(@$team->post)}}</h5>
+                                                                <p>{{ucfirst(@$team->description)}}</p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="wpb_column vc_column_container vc_col-sm-4">
-                                            <div class="vc_column-inner ">
-                                                <div class="wpb_wrapper">
-                                                    <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="fadeInUp"
-                                                            data-animation-delay="1.6" data-animation-duration="1" data-animation-iteration="1"
-                                                            style="opacity:0;" data-opacity_start_effect="">
-                                                        <div class='dt-sc-team  simple-rounded aligncenter'>
-                                                            <div class='dt-sc-team-thumb'><img width="300" height="300"
-                                                                                                src="{{asset('assets/frontend/images/11/testimonial8.jpg')}}"
-                                                                                                class="attachment-full" alt="testimonial8" loading="lazy"
-                                                                                                srcset="{{asset('assets/frontend/images/11/testimonial8.jpg')}} 300w, {{asset('assets/frontend/images/11/testimonial8-100x100.jpg')}} 100w, {{asset('assets/frontend/images/11/testimonial8-150x150.jpg')}} 150w"
-                                                                                                sizes="(max-width: 300px) 100vw, 300px" /></div>
-                                                            <div class='dt-sc-team-details'>
-                                                                <h4>Anita Allen</h4>
-                                                                <h5>Marketing Research</h5>
-                                                                <p>Mirum est notare quam littera gothica, quam putamus.</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="wpb_column vc_column_container vc_col-sm-4">
-                                            <div class="vc_column-inner ">
-                                                <div class="wpb_wrapper">
-                                                    <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="fadeInUp"
-                                                            data-animation-delay="1.9" data-animation-duration="1" data-animation-iteration="1"
-                                                            style="opacity:0;" data-opacity_start_effect="">
-                                                        <div class='dt-sc-team  simple-rounded aligncenter'>
-                                                            <div class='dt-sc-team-thumb'><img width="300" height="300"
-                                                                                                src="{{asset('assets/frontend/images/11/testimonial6.jpg')}}"
-                                                                                                class="attachment-full" alt="testimonial6" loading="lazy"
-                                                                                                srcset="{{asset('assets/frontend/images/11/testimonial6.jpg')}} 300w, {{asset('assets/frontend/images/11/testimonial6-100x100.jpg')}} 100w, {{asset('assets/frontend/images/11/testimonial6-150x150.jpg')}} 150w"
-                                                                                                sizes="(max-width: 300px) 100vw, 300px" /></div>
-                                                            <div class='dt-sc-team-details'>
-                                                                <h4>Sonja Summers</h4>
-                                                                <h5>Digital Analyst</h5>
-                                                                <p>Mirum est notare quam littera gothica, quam putamus.</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    @endforeach
                                     </div>
                                     <div class="ult-spacer spacer-6107b9a4c55cc" data-id="6107b9a4c55cc" data-height="135"
                                             data-height-mobile="90" data-height-tab="120" data-height-tab-portrait="120"
@@ -624,6 +600,9 @@
                             </div>
                         </div>
                     </div>
+
+                    @endif
+
                     <div class="vc_row-full-width vc_clearfix"></div>
                     <div class="vc_row wpb_row vc_row-fluid">
                         <div class="wpb_column vc_column_container vc_col-sm-12">
