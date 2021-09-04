@@ -87,6 +87,8 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
     Route::post('/settings', 'App\Http\Controllers\SettingController@store')->name('setting.store');
     Route::put('/settings/{id}', 'App\Http\Controllers\SettingController@update')->name('setting.update');
     Route::put('/setting/{id}/images', 'App\Http\Controllers\SettingController@imageupdate')->name('setting.imageupdate');
+    Route::put('/settings/{id}/welcome', 'App\Http\Controllers\SettingController@welcomeupdate')->name('welcome.update');
+
     //End of General setting
 
     //Blog categories

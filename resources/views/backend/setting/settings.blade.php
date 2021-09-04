@@ -56,7 +56,15 @@
                            aria-controls="media" aria-selected="false">
                             Images Information</a>
                     </li>
+
+                    <li class="list-group-item text-center button-6">
+                        <a class="in-active"
+                           id="welcome-info-tab" data-toggle="pill" data-number="" href="#welcome-info" role="tab"
+                           aria-controls="media" aria-selected="false">
+                            Homepage Welcome Section</a>
+                    </li>
                     @endif
+
 
                     <li class="list-group-item text-center button-6">
                         <a class="in-active"
@@ -358,7 +366,115 @@
                         </div>
                     </div>
 
+
+                        <div class="tab-pane tab-pane-parent fade px-0" id="welcome-info" role="tabpanel"
+                         aria-labelledby="welcome-info-tab">
+                        <div class="bg-transparent border-0">
+                            <div id="sensitive-info-collapse" class="collapse show collapsible"
+                                 aria-labelledby="heading-sensitive-info"
+                                 data-parent="#collapse-tabs-accordion">
+                                {{--  Tab content--}}
+
+                                {!! Form::open(['url'=>route('welcome.update', @$settings->id),'method'=>'PUT','enctype'=>'multipart/form-data']) !!}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card ctm-border-radius shadow-sm grow flex-fill">
+                                            <div class="card-header">
+                                                <h4 class="card-title mb-0">
+                                                    Welcome Section Details
+                                                </h4>
+                                            </div>
+
+                                            <div class="card-body">
+                                                <div class="form-group mb-3">
+                                                    <label>Heading <span class="text-muted text-danger">*</span></label>
+                                                    <input type="text" class="form-control" name="intro_heading" value="{{@$settings->intro_heading}}" required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter the welcome section heading.
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Sub Heading <span class="text-muted text-danger">*</span></label>
+                                                    <input type="text" class="form-control" name="intro_subheading" value="{{@$settings->intro_subheading}}" required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter the welcome section subheading.
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Welcome Message <span class="text-muted text-danger">*</span></label>
+                                                    <textarea class="form-control" rows="6" maxlength="230" name="intro_description" required> {{@$settings->intro_description}} </textarea>
+                                                    <div class="invalid-feedback">
+                                                        Please write the short introduction description.
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Button Text <span class="text-muted text-danger">*</span></label>
+                                                    <input type="text" class="form-control" maxlength="12" name="intro_button" value="{{@$settings->intro_button}}" required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter the welcome section button text.
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Button Link <span class="text-muted text-danger">*</span></label>
+                                                    <input type="text" class="form-control" name="intro_button_link" value="{{@$settings->intro_button_link}}" required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter the link for button in welcome section.
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card ctm-border-radius shadow-sm grow flex-fill">
+                                            <div class="card-header">
+                                                <h4 class="card-title mb-0">
+                                                    Welcome Section Image
+                                                </h4>
+                                            </div>
+                                            <div class="card-body">
+
+                                                <div class="row justify-content-center">
+                                                    <div class="col-9 mb-4">
+                                                        <div class="custom-file h-auto">
+                                                            <div class="avatar-upload">
+                                                                <div class="avatar-edit">
+                                                                    <input type="file"  accept="image/png, image/jpeg" class="custom-file-input" hidden id="introimage" onchange="loadwelcomeFile(event)" name="intro_image">
+                                                                    <label for="introimage"></label>
+                                                                    <div class="invalid-feedback" style="position: absolute; width: 45px;">
+                                                                        Please select a image.
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <img id="current-intro-img" src="<?php if(!empty($settings->intro_image)){ echo '/images/uploads/settings/'.$settings->intro_image; } else{  echo '/images/uploads/default-placeholder.png'; } ?>" alt="{{@$settings->intro_heading}}" class="w-100 current-img">
+                                                        </div>
+                                                        <span class="ctm-text-sm">*use image minimum of 600 x 370px for Welcome section <br/> *The image will be used when there is no image(s) in awards section</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="text-center">
+                                                    <button type="submit" class="btn btn-theme button-1 text-white ctm-border-radius mt-4" >Add Welcome Details</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {!! Form::close() !!}
+
+                                {{--  End Tab content--}}
+                            </div>
+                        </div>
+                    </div>
+
                     @endif
+
+
 
                 <div class="tab-pane tab-pane-parent fade px-0" id="award-info" role="tabpanel"
                      aria-labelledby="award-info-tab">
@@ -573,6 +689,11 @@
             var replacement = document.getElementById('edit-award-img');
             replacement.src = URL.createObjectURL(event.target.files[0]);
         };
+        var loadwelcomeFile = function(event) {
+            var image = document.getElementById('introimage');
+            var replacement = document.getElementById('current-intro-img');
+            replacement.src = URL.createObjectURL(event.target.files[0]);
+        };
 
         $(document).ready(function () {
             $('#awards-index').DataTable({
@@ -581,7 +702,6 @@
                 ordering:  true,
                 lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
             });
-
         });
 
         //necessary for switching tabs

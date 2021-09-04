@@ -8,6 +8,7 @@ use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Intervention\Image\Facades\Image;
 
 class SettingController extends Controller
 {
@@ -131,6 +132,40 @@ class SettingController extends Controller
         }
         return redirect()->back();
     }
+
+    public function welcomeupdate(Request $request, $id){
+        $update_intro                           =  Setting::find($id);
+        $update_intro->intro_heading            =  $request->input('intro_heading');
+        $update_intro->intro_subheading         =  $request->input('intro_subheading');
+        $update_intro->intro_description        =  $request->input('intro_description');
+        $update_intro->intro_button             =  $request->input('intro_button');
+        $update_intro->intro_button_link        =  $request->input('intro_button_link');
+        $oldimage                               = $update_intro->intro_image;
+        if (!empty($request->file('intro_image'))){
+            $image     = $request->file('intro_image');
+            $name1     = uniqid().'_'.$image->getClientOriginalName();
+            $path      = base_path().'/public/images/uploads/settings/';
+            $moved     = Image::make($image->getRealPath())->resize(600, 370)->orientate()->save($path.$name1);
+
+            if ($moved){
+                $update_intro->intro_image= $name1;
+                if (!empty($oldimage) && file_exists(public_path().'/images/uploads/settings/'.$oldimage)){
+                    @unlink(public_path().'/images/uploads/settings/'.$oldimage);
+                }
+            }
+        }
+
+        $status=$update_intro->update();
+
+        if($status){
+            Session::flash('success','Welcome Section Details added Successfully');
+        }
+        else{
+            Session::flash('error','Something Went Wrong. Welcome Section Details could not be Updated');
+        }
+        return redirect()->back();
+    }
+
 
     public function imageupdate(Request $request, $id)
     {
