@@ -440,22 +440,18 @@
                                                             data-animate="fadeInRight" data-animation-delay="0.5" data-animation-duration="1"
                                                             data-animation-iteration="1" style="opacity:0;" data-opacity_start_effect="">
                                                         <div class='alignleft  dt-sc-subtitle-text'>
-                                                            <p>BUILDING RELATIONSHIPS</p>
+                                                            <p>{{ucwords(@$welcome_settings->intro_subheading)}}</p>
                                                         </div>
-                                                        <h2 style="text-align: left" class="vc_custom_heading vcr_heading-right"><strong>How you
-                                                                can save time &amp; money in your Business</strong></h2>
-                                                        <p style="text-align: left" class="vc_custom_heading vcr_heading-right">You don’t have
-                                                            to reinvent the wheels, right? When you entrust the task of launching a strategy for
-                                                            your latest marketing campaign, you would get many time tested modules that have
-                                                            delivered consistently across different industries.</p>
+                                                        <h2 style="text-align: left" class="vc_custom_heading vcr_heading-right"><strong>{{strtoupper(@$welcome_settings->intro_heading)}}</strong></h2>
+                                                        <p style="text-align: left" class="vc_custom_heading vcr_heading-right">{{ucfirst(@$welcome_settings->intro_description)}}</p>
                                                     </div>
                                                     <div class="ult-spacer spacer-6107b9a4c33f1" data-id="6107b9a4c33f1" data-height="25"
                                                             data-height-mobile="25" data-height-tab="25" data-height-tab-portrait=""
                                                             data-height-mobile-landscape="" style="clear:both;display:block;"></div>
                                                     <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="bounceIn"
                                                             data-animation-delay="0.8" data-animation-duration="1" data-animation-iteration="1"
-                                                            style="opacity:0;" data-opacity_start_effect=""><a href='#' target='_self' title=''
-                                                                                                            class='dt-sc-button   medium   filled  default'> Consult Now </a></div>
+                                                            style="opacity:0;" data-opacity_start_effect=""><a href='{{ucwords(@$welcome_settings->intro_button_link)}}' target='_self' title=''
+                                                                                                            class='dt-sc-button   medium   filled  default'> {{ucwords(@$welcome_settings->intro_button)}} </a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -463,22 +459,7 @@
                                             class="dt-sc-three-fifth rs_col-sm-12 wpb_column vc_column_container vc_col-sm-8 vc_col-lg-8 vc_col-md-12">
                                             <div class="vc_column-inner vc_custom_1494982255920">
                                                 <div class="wpb_wrapper">
-                                                    <!-- <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="zoomInDown"
-                                                            data-animation-delay="1.1" data-animation-duration="1" data-animation-iteration="1"
-                                                            style="opacity:0;" data-opacity_start_effect="">
-                                                        <div
-                                                            class="wpb_single_image wpb_content_element vc_align_center   dt-sc-outer-frame-border dt-sc-skin-highlight-border">
-
-                                                            <figure class="wpb_wrapper vc_figure">
-                                                                <div class="vc_single_image-wrapper   vc_box_border_grey"><img width="600"
-                                                                                                                                height="370"
-                                                                                                                                src="{{asset('assets/frontend/images/05/about-agency.jpg')}}"
-                                                                                                                                class="vc_single_image-img attachment-full" alt="about-agency" loading="lazy"
-                                                                                                                                srcset="{{asset('assets/frontend/images/05/about-agency.jpg')}} 600w, {{asset('assets/frontend/images/05/about-agency-300x185.jpg')}} 300w"
-                                                                                                                                sizes="(max-width: 600px) 100vw, 600px" /></div>
-                                                            </figure>
-                                                        </div>
-                                                    </div> -->
+                                                   
                                                     @if(count($awards) >= 2)
 
                                                     <div id="ult-carousel-18361286996107b7834a609" class="ult-carousel-wrapper   ult_horizontal"
@@ -518,6 +499,25 @@
                                                         
                                                         </div>
                                                     </div>
+                                                    @else
+
+                                                     <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="zoomInDown"
+                                                            data-animation-delay="1.1" data-animation-duration="1" data-animation-iteration="1"
+                                                            style="opacity:0;" data-opacity_start_effect="">
+                                                        <div
+                                                            class="wpb_single_image wpb_content_element vc_align_center   dt-sc-outer-frame-border dt-sc-skin-highlight-border">
+
+                                                            <figure class="wpb_wrapper vc_figure">
+                                                                <div class="vc_single_image-wrapper   vc_box_border_grey"><img width="600"
+                                                                                                                                height="370"
+                                                                                                                                src="{{asset('/images/uploads/settings/'.$welcome_settings->intro_image) }}"
+                                                                                                                                class="vc_single_image-img attachment-full" alt="about-aurum" loading="lazy"
+                                                                                                                                srcset="{{asset('/images/uploads/settings/'.$welcome_settings->intro_image) }} 600w, {{asset('/images/uploads/settings/'.$welcome_settings->intro_image) }} 300w"
+                                                                                                                                sizes="(max-width: 600px) 100vw, 600px" /></div>
+                                                            </figure>
+                                                        </div>
+                                                    </div>
+
                                                     @endif
                                                     
 

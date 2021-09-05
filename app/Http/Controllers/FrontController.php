@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\Client;
 use App\Models\ServiceCategory;
+use App\Models\Setting;
 use App\Models\Slider;
 use App\Models\Testimonial;
 use App\Models\Team;
@@ -24,10 +25,10 @@ class FrontController extends Controller
     protected $client = null;
     protected $award = null;
     protected $team = null;
-    
+    protected $settting = null;
  
 
-    public function __construct(BlogCategory $bcategory,Blog $blog,Slider $slider,ServiceCategory $S_category,Testimonial $testimonial,Client $client,Award $award,Team $team)
+    public function __construct(Setting $setting,BlogCategory $bcategory,Blog $blog,Slider $slider,ServiceCategory $S_category,Testimonial $testimonial,Client $client,Award $award,Team $team)
     {
         $this->bcategory = $bcategory;
         $this->blog = $blog;
@@ -37,6 +38,7 @@ class FrontController extends Controller
         $this->client = $client;
         $this->award = $award;
         $this->team = $team;
+        $this->setting = $setting;
         
     }
 
@@ -52,8 +54,9 @@ class FrontController extends Controller
         $countries  = CountryState::getCountries();
         $awards =$this->award->orderBy('created_at', 'asc')->get();
         $teams =$this->team->orderBy('name', 'asc')->take(3)->get();
+        $welcome_settings = $this->setting->first();
 
-        return view('welcome',compact('teams','awards','sliders','service_categories','latestPosts','testimonials','countries','client_groups','clients'));
+        return view('welcome',compact('welcome_settings','teams','awards','sliders','service_categories','latestPosts','testimonials','countries','client_groups','clients'));
 
     }
 
