@@ -182,4 +182,16 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
 
     //End of teams
 
+    //pages
+
+    Route::get('/pages', 'App\Http\Controllers\PageController@index')->name('pages.index');
+    Route::get('/pages/create', 'App\Http\Controllers\PageController@create')->name('pages.create');
+    Route::post('/pages', 'App\Http\Controllers\PageController@store')->name('pages.store');
+    Route::put('/pages/{pages}', 'App\Http\Controllers\PageController@update')->name('pages.update');
+    Route::delete('/pages/{pages}', 'App\Http\Controllers\PageController@destroy')->name('pages.destroy');
+    Route::get('/pages/{pages}/edit', 'App\Http\Controllers\PageController@edit')->name('pages.edit');
+    Route::patch('/pages/{id}/update', 'App\Http\Controllers\PageController@updateStatus')->name('pages-status.update');
+
+    //End of pages
+
 });
