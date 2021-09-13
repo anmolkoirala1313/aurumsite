@@ -186,7 +186,7 @@
                                         <tbody>
                                         @if(@$pages)
                                             @foreach($pages as  $page)
-                                                    <td><a href="#">{{ucfirst($page->name)}}</a></td>
+                                                    <td><a href="{{route('section-elements.create',$page->id)}}">{{ucfirst($page->name)}}</a></td>
                                                     <td>{{$page->slug}}</td>
                                                     <td>
 

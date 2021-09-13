@@ -194,4 +194,15 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
 
     //End of pages
 
+
+    //pages
+
+    Route::get('/section-elements/', 'App\Http\Controllers\SectionElementController@index')->name('section-elements.index');
+    Route::get('/section-elements/create/{id}', 'App\Http\Controllers\SectionElementController@create')->name('section-elements.create');
+    Route::post('/section-elements', 'App\Http\Controllers\SectionElementController@store')->name('section-elements.store');
+    Route::put('/section-elements/{elements}', 'App\Http\Controllers\SectionElementController@update')->name('section-elements.update');
+    Route::delete('/section-elements/{elements}', 'App\Http\Controllers\SectionElementController@destroy')->name('section-elements.destroy');
+    Route::get('/section-elements/{elements}/edit', 'App\Http\Controllers\SectionElementController@edit')->name('section-elements.edit');
+
+    //End of pages
 });

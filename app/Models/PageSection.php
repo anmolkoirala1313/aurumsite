@@ -15,4 +15,9 @@ class PageSection extends Model
     {
         return $this->belongsTo('App\Models\Page');
     }
+
+    public function elements()
+    {
+        return $this->hasMany('App\Models\SectionElement');
+    }
 }
