@@ -139,7 +139,7 @@ class SectionElementController extends Controller
         for ($i = 0; $i < count($photos); $i++) {
             $photo = $photos[$i];
 
-            $name = $page_section->page->slug."page_gallery_".date('YmdHis') . uniqid();
+            $name = $page_section->page->slug."_page_gallery_".date('YmdHis') . uniqid();
             $save_name = $name . '.' . $photo->getClientOriginalExtension();
             $resize_name = "Thumb_".$name . '.' . $photo->getClientOriginalExtension();
 
@@ -165,7 +165,7 @@ class SectionElementController extends Controller
     {
 
         $filename = $request->get('filename');
-        // $uploaded_image = PropertyImage::where('filename', $filename)->first();
+        // $uploaded_image = SectionElement::where('filename', $filename)->first();
 
         if (empty($uploaded_image)) {
             return Response::json(['message' => 'Sorry file does not exist'], 400);
@@ -191,7 +191,7 @@ class SectionElementController extends Controller
 
     public function getGallery(Request $request,$id)
     {
-        // $images = PropertyImage::where('property_id',$id)->get()->toArray();
+        // $images = SectionElement::where('property_id',$id)->get()->toArray();
     //     foreach($images as $image){
     //         $tableImages[] = $image['filename'];
     //     }

@@ -93,7 +93,7 @@ Dropzone.options.myDropzone = {
     // },
     success: function (file, done) {
         total_photos_counter++;
-        $("#counter").text("# " + total_photos_counter);
+        $("#counter").text("| Total Image's #" + total_photos_counter);
         file.previewElement.id = done.success;
 				//console.log(file); 
 				// set new images names in dropzone’s preview box.
