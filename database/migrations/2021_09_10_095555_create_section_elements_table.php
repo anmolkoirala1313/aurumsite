@@ -15,15 +15,15 @@ class CreateSectionElementsTable extends Migration
     {
         Schema::create('section_elements', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('heading');
-            $table->string('subheading');
-            $table->string('image');
-            $table->longText('description');
-            $table->string('list_header');
-            $table->string('list_image');
-            $table->longText('list_description');
-            $table->string('button');
-            $table->string('button_link');
+            $table->string('heading')->nullable();
+            $table->string('subheading')->nullable();
+            $table->string('image')->nullable();
+            $table->longText('description')->nullable();
+            $table->string('list_header')->nullable();
+            $table->string('list_image')->nullable();
+            $table->longText('list_description')->nullable();
+            $table->string('button')->nullable();
+            $table->string('button_link')->nullable();
             $table->unsignedBigInteger('page_section_id');
             $table->unsignedBigInteger('created_by');
             $table->unsignedBigInteger('updated_by')->nullable();

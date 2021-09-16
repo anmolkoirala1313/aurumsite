@@ -6,7 +6,9 @@ use App\Models\Page;
 use App\Models\PageSection;
 use App\Models\SectionElement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Session;
 use Intervention\Image\Facades\Image;
 
 
@@ -28,7 +30,7 @@ class SectionElementController extends Controller
     }
 
 
-    public function index($id)
+    public function index()
     {
         //
     }
@@ -41,7 +43,7 @@ class SectionElementController extends Controller
     public function create($id)
     {
         $page_section = PageSection::with('page')->where('page_id', $id)->get();
-      
+
         $sections      = array();
         $list_1 = "";
         $list_2 = "";
@@ -68,7 +70,49 @@ class SectionElementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        dd($request->all());
+
+        $section_name = $request->input('section_name');
+        $section_id   = $request->input('page_section_id');
+        if($section_name == 'basic_section'){
+            $data=[
+                'heading'                => $request->input('heading'),
+                'page_section_id'        => $section_id,
+                'subheading'             => $request->input('subheading'),
+                'description'            => $request->input('description'),
+                'button'                 => $request->input('button'),
+                'button_link'            => $request->input('button_link'),
+                'created_by'             => Auth::user()->id,
+            ];
+            if(!empty($request->file('image'))){
+                $image        = $request->file('image');
+                $name         = uniqid().'_basic_'.$image->getClientOriginalName();
+                $path         = base_path().'/public/images/uploads/section_elements/basic_section/';
+                $moved        = Image::make($image->getRealPath())->resize(660, 410)->orientate()->save($path.$name);
+                if ($moved){
+                    $data['image']= $name;
+                }
+            }
+            $status = SectionElement::create($data);
+        } elseif ($section_name == 'call_to_action'){
+            $data=[
+                'heading'                => $request->input('heading'),
+                'page_section_id'        => $section_id,
+                'description'            => $request->input('description'),
+                'button'                 => $request->input('button'),
+                'button_link'            => $request->input('button_link'),
+                'created_by'             => Auth::user()->id,
+            ];
+            $status = SectionElement::create($data);
+        }
+
+        if($status){
+            $response = 'success';
+        }
+        else{
+            $response = 'error';
+        }
+        return response()->json($response);
     }
 
     /**

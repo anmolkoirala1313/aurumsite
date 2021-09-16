@@ -2,6 +2,8 @@
 @section('title') Section Elements @endsection
 @section('css')
 <link rel="stylesheet" href="{{asset('assets/backend/plugins/dropzone/dropzone.css')}}">
+<link rel="stylesheet" href="{{asset('assets/backend/css/successbox.css')}}">
+
     <style>
         .ck-editor__editable_inline {
             min-height: 150px !important;
@@ -34,7 +36,6 @@
 
         /*end for image*/
 
-
     </style>
 @endsection
 @section('content')
@@ -66,7 +67,8 @@
                     <div class="tab-pane fade {{($j==0) ? 'show active':''}} " id="pills-{{$value}}" role="tabpanel" aria-labelledby="pills-{{$value}}-tab">
 
                         @if($value == 'basic_section')
-                            <div class="row">
+                            {!! Form::open(['route' => 'section-elements.store','method'=>'post','class'=>'needs-validation','id'=>'basic-form','novalidate'=>'','enctype'=>'multipart/form-data']) !!}
+                            <div class="row" id="basic-form-ajax">
                                 <div class="col-md-7">
                                     <div class="card ctm-border-radius shadow-sm flex-fill">
                                         <div class="card-header">
@@ -78,6 +80,8 @@
                                             <div class="form-group mb-3">
                                                 <label>Heading <span class="text-muted text-danger">*</span></label>
                                                 <input type="text" class="form-control" name="heading" required>
+                                                <input type="hidden" class="form-control" value="{{$key}}" name="page_section_id" required>
+                                                <input type="hidden" class="form-control" value="{{$value}}" name="section_name" required>
                                                 <div class="invalid-feedback">
                                                     Please enter the basic section heading.
                                                 </div>
@@ -93,7 +97,7 @@
 
                                             <div class="form-group mb-3">
                                                 <label>Description <span class="text-muted text-danger">*</span></label>
-                                                <textarea class="form-control" rows="6" name="description" id="editor" required></textarea>
+                                                <textarea class="form-control" rows="6" name="description" id="basic_editor"  required></textarea>
                                                 <div class="invalid-feedback">
                                                     Please write the short description for basic section.
                                                 </div>
@@ -128,7 +132,7 @@
                                                     <div class="custom-file h-auto">
                                                         <div class="avatar-upload">
                                                             <div class="avatar-edit">
-                                                                <input type="file" class="custom-file-input" hidden id="basic-image" onchange="loadbasicFile('basic-image','current-basic-img',event)" name="image">
+                                                                <input type="file" class="custom-file-input" hidden id="basic-image" onchange="loadbasicFile('basic-image','current-basic-img',event)" name="image" required>
                                                                 <label for="basic-image"></label>
                                                                 <div class="invalid-feedback" style="position: absolute; width: 45px;">
                                                                     Please select a image.
@@ -146,13 +150,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="text-center mt-3">
-                                <a href="javascript:void(0)" id="basic-button-submit" class="btn btn-theme button-1 ctm-border-radius text-white">Add Details</a>
+                            <div class="text-center mt-3" id="basic-form-button">
+                                <button id="basic-button-submit" class="btn btn-theme button-1 ctm-border-radius text-white">Add Details</button>
                             </div>
+                            {!! Form::close() !!}
                         @endif
 
                         @if($value == 'call_to_action')
-                                <div class="row">
+                                {!! Form::open(['route' => 'section-elements.store','method'=>'post','class'=>'needs-validation','id'=>'call-action-form','novalidate'=>'','enctype'=>'multipart/form-data']) !!}
+
+                                <div class="row" id="call-action-form-ajax">
                                     <div class="col-md-12">
                                         <div class="card ctm-border-radius shadow-sm flex-fill">
                                             <div class="card-header">
@@ -164,6 +171,8 @@
                                                 <div class="form-group mb-3">
                                                     <label>Heading <span class="text-muted text-danger">*</span></label>
                                                     <input type="text" class="form-control" name="heading" required>
+                                                    <input type="hidden" class="form-control" value="{{$key}}" name="page_section_id" required>
+                                                    <input type="hidden" class="form-control" value="{{$value}}" name="section_name" required>
                                                     <div class="invalid-feedback">
                                                         Please enter the Call to action heading.
                                                     </div>
@@ -171,7 +180,7 @@
 
                                                 <div class="form-group mb-3">
                                                     <label>Description <span class="text-muted text-danger">*</span></label>
-                                                    <textarea class="form-control" rows="6" name="short_description" required></textarea>
+                                                    <textarea class="form-control" rows="6" name="description" required></textarea>
                                                     <div class="invalid-feedback">
                                                         Please write the short description for basic section.
                                                     </div>
@@ -194,9 +203,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="text-center mt-3">
-                                    <a href="javascript:void(0)" id="callaction-button-submit" class="btn btn-theme button-1 ctm-border-radius text-white">Add Details</a>
+                                <div class="text-center mt-3" id="call-action-form-button">
+                                    <button id="call-action-button-submit" class="btn btn-theme button-1 ctm-border-radius text-white">Add Details</button>
                                 </div>
+                                {!! Form::close() !!}
+
                         @endif
 
                         @if($value == 'background_image_section')
@@ -226,7 +237,7 @@
 
                                             <div class="form-group mb-3">
                                                 <label>Description <span class="text-muted text-danger">*</span></label>
-                                                <textarea class="form-control" rows="6" id="editor2" name="short_description" required></textarea>
+                                                <textarea class="form-control" rows="6" id="background_editor" name="short_description" required></textarea>
                                                 <div class="invalid-feedback">
                                                     Please write the short description for basic section.
                                                 </div>
@@ -264,6 +275,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                             <div class="text-center mt-3">
                                 <a href="javascript:void(0)" id="background-button-submit" class="btn btn-theme button-1 ctm-border-radius text-white">Add Details</a>
@@ -299,7 +311,7 @@
                                                             </div>
                                                             <div class="form-group mb-3">
                                                                 <label>Description <span class="text-muted text-danger">*</span></label>
-                                                                <textarea class="form-control" rows="6" name="list_description[]" id="editor3" required></textarea>
+                                                                <textarea class="form-control" rows="6" name="list_description[]" id="mission_editor" required></textarea>
                                                                 <div class="invalid-feedback">
                                                                     Please write the Mission description.
                                                                 </div>
@@ -358,14 +370,14 @@
                                                                 <label>Heading <span class="text-muted text-danger">*</span></label>
                                                                 <input type="text" class="form-control" name="list_header[]" required>
                                                                 <div class="invalid-feedback">
-                                                                    Please enter the Mission heading.
+                                                                    Please enter the Vision heading.
                                                                 </div>
                                                             </div>
                                                             <div class="form-group mb-3">
                                                                 <label>Description <span class="text-muted text-danger">*</span></label>
-                                                                <textarea class="form-control" rows="6" name="list_description[]" id="editor4" required></textarea>
+                                                                <textarea class="form-control" rows="6" name="list_description[]" id="vision_editor" required></textarea>
                                                                 <div class="invalid-feedback">
-                                                                    Please write the Mission description.
+                                                                    Please write the Vision description.
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -422,14 +434,14 @@
                                                                 <label>Heading <span class="text-muted text-danger">*</span></label>
                                                                 <input type="text" class="form-control" name="list_header[]" required>
                                                                 <div class="invalid-feedback">
-                                                                    Please enter the Mission heading.
+                                                                    Please enter the Goal heading.
                                                                 </div>
                                                             </div>
                                                             <div class="form-group mb-3">
                                                                 <label>Description <span class="text-muted text-danger">*</span></label>
-                                                                <textarea class="form-control" rows="6" name="list_description[]" id="editor5" required></textarea>
+                                                                <textarea class="form-control" rows="6" name="list_description[]" id="goal_editor" required></textarea>
                                                                 <div class="invalid-feedback">
-                                                                    Please write the Mission description.
+                                                                    Please write the Goal description.
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -471,7 +483,7 @@
                         @endif
 
                         @if($value == 'tab_section_2')
-                            <div class="accordion add-tab-section2-details" id="accordion-details">
+                            <div class="accordion add-tab-section2-details" id="accordion-details-two">
 
                                 <div class="card shadow-sm ctm-border-radius">
                                     <div class="card-header" id="headingtab2">
@@ -643,7 +655,7 @@
                                                             </div>
                                                             <div class="form-group mb-3">
                                                                 <label>Description <span class="text-muted text-danger">*</span></label>
-                                                                <textarea class="form-control" rows="6" name="description[]" id="editor6" required></textarea>
+                                                                <textarea class="form-control" rows="6" name="description[]" id="editor9" required></textarea>
                                                                 <div class="invalid-feedback">
                                                                     Please write the description.
                                                                 </div>
@@ -960,7 +972,7 @@
                                                 </h4>
                                             </div>
                                             <div class="card-body">
-                                                <h2 class="page-heading">Upload your Images <span id="counter"></span></h2>            
+                                                <h2 class="page-heading">Upload your Images <span id="counter"></span></h2>
                                                 <div class="invalid-feedback">    </div>
                                                 <script type="text/javascript">
                                                 var page_section_id = "{{$key}}"
@@ -982,20 +994,20 @@
 
                                                     {{--Dropzone Preview Template--}}
                                                 <div id="preview" style="display: none;">
-                                            
+
                                                     <div class="dz-preview dz-file-preview">
                                                         <div class="dz-image"><img data-dz-thumbnail /></div>
-                                            
+
                                                         <div class="dz-details">
                                                             <div class="dz-size"><span data-dz-size></span></div>
                                                             <div class="dz-filename"><span data-dz-name></span></div>
                                                         </div>
                                                         <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
                                                         <div class="dz-error-message"><span data-dz-errormessage></span></div>
-                                            
-                                            
+
+
                                                         <div class="dz-success-mark">
-                                            
+
                                                             <svg width="54px" height="54px" viewBox="0 0 54 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
                                                                 <title>Check</title>
                                                                 <desc>Created with Sketch.</desc>
@@ -1004,10 +1016,10 @@
                                                                     <path d="M23.5,31.8431458 L17.5852419,25.9283877 C16.0248253,24.3679711 13.4910294,24.366835 11.9289322,25.9289322 C10.3700136,27.4878508 10.3665912,30.0234455 11.9283877,31.5852419 L20.4147581,40.0716123 C20.5133999,40.1702541 20.6159315,40.2626649 20.7218615,40.3488435 C22.2835669,41.8725651 24.794234,41.8626202 26.3461564,40.3106978 L43.3106978,23.3461564 C44.8771021,21.7797521 44.8758057,19.2483887 43.3137085,17.6862915 C41.7547899,16.1273729 39.2176035,16.1255422 37.6538436,17.6893022 L23.5,31.8431458 Z M27,53 C41.3594035,53 53,41.3594035 53,27 C53,12.6405965 41.3594035,1 27,1 C12.6405965,1 1,12.6405965 1,27 C1,41.3594035 12.6405965,53 27,53 Z" id="Oval-2" stroke-opacity="0.198794158" stroke="#747474" fill-opacity="0.816519475" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
                                                                 </g>
                                                             </svg>
-                                            
+
                                                         </div>
                                                         <div class="dz-error-mark">
-                                            
+
                                                             <svg width="54px" height="54px" viewBox="0 0 54 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
                                                                 <title>error</title>
                                                                 <desc>Created with Sketch.</desc>
@@ -1027,7 +1039,7 @@
                                         </div>
                                     </div>
                                 </div>
-                              
+
                         @endif
 
 
@@ -1047,6 +1059,10 @@
 @endsection
 
 @section('js')
+    <script src="{{asset('assets/backend/plugins/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{asset('assets/backend/plugins/dropzone/dropzone.js')}}"></script>
+    <script src="{{asset('assets/backend/plugins/dropzone/dropzone.config.js')}}"></script>
+
     <script type="text/javascript">
     $(document).ready(function () {
         $.ajaxSetup({
@@ -1056,19 +1072,46 @@
         });
     });
     </script>
-    <script src="{{asset('assets/backend/plugins/ckeditor/ckeditor.js')}}"></script>
-    <script src="{{asset('assets/backend/plugins/dropzone/dropzone.js')}}"></script>
-    <script src="{{asset('assets/backend/plugins/dropzone/dropzone.config.js')}}"></script>
 
     <script type="text/javascript">
-
+        var section_list = new Array();
+        <?php foreach($sections as $key => $val){ ?>
+        section_list.push('<?php echo $val; ?>');
+        <?php } ?>
         var loadbasicFile = function(id1,id2,event) {
             var image       = document.getElementById(id1);
             var replacement = document.getElementById(id2);
             replacement.src = URL.createObjectURL(event.target.files[0]);
         };
 
-        function createEditor( elementId ) {
+        function ElementData(post_url,request_method,form_data,divID,buttonID){
+            $.ajax({
+                url : post_url,
+                type: request_method,
+                data : form_data,
+                contentType: false,
+                cache: false,
+                processData:false
+            }).done(function(response){ //
+                if (response=="success"){
+                    var replacement = '<div class="col-md-12"><div id="container">' +
+                        '<div id="success-box">' +
+                        '<div class="face"><div class="eye"></div><div class="eye right"></div><div class="mouth happy"></div>' +
+                        '</div>' +
+                        '<div class="shadow scale"></div> ' +
+                        '<div class="message">' +
+                        '<h1 class="alert">Successfully Submitted!</h1>' +
+                        '<p class="alert-para">The section element has been created.</p><' +
+                        '/div>' +
+                        '<button class="button-box"><h1 class="green">continue</h1></button></div></div>' +
+                        '</div>';
+                    $('#' + divID).html(replacement);
+                    $('#' + buttonID).html("");
+                }
+            });
+        }
+
+     function createEditor ( elementId ) {
             return ClassicEditor
                 .create( document.querySelector( '#' + elementId ), {
                 toolbar : {
@@ -1092,16 +1135,66 @@
                 } );
         }
 
+
         $(document).ready(function () {
-            createEditor('editor');
-            createEditor('editor2');
-            createEditor('editor3');
-            createEditor('editor4');
-            createEditor('editor5');
-            createEditor('editor6');
-            createEditor('editor7');
-            createEditor('editor8');
+            if(section_list.includes("basic_section")) {
+                createEditor('basic_editor');
+            }
+            if(section_list.includes("background_image_section")){
+                createEditor('background_editor');
+            }
+
+            if(section_list.includes("tab_section_1")){
+                createEditor('mission_editor');
+                createEditor('vision_editor');
+                createEditor('goal_editor');
+            }
+            if(section_list.includes("tab_section_2")){
+                createEditor('editor6');
+                createEditor('editor7');
+                createEditor('editor8');
+                createEditor('editor9');
+            }
         });
 
+        if($.inArray("basic_section", section_list) !== -1) {
+
+            $("#basic-form").submit(function(event){
+                event.preventDefault(); //prevent default action
+                var post_url       = $(this).attr("action"); //get form action url
+                var request_method = $(this).attr("method"); //get form GET/POST method
+                var form_data      = new FormData(this); //Creates new FormData object
+                var divID          = $(this).attr('id')+'-ajax';
+                var buttonID       = $(this).attr('id')+'-button';
+                if (!this.checkValidity()) { return false;
+                }else{
+                    ElementData(post_url,request_method,form_data,divID,buttonID);
+                }
+            });
+
+        }
+
+        if($.inArray("call_to_action", section_list) !== -1) {
+            $("#call-action-form").submit(function(event){
+                event.preventDefault(); //prevent default action
+                var post_url       = $(this).attr("action"); //get form action url
+                var request_method = $(this).attr("method"); //get form GET/POST method
+                var form_data      = new FormData(this); //Creates new FormData object
+                var divID          = $(this).attr('id')+'-ajax';
+                var buttonID       = $(this).attr('id')+'-button';
+                console.log(divID);
+                if (!this.checkValidity()) { return false;
+                }else{
+                    ElementData(post_url,request_method,form_data,divID,buttonID);
+                }
+            });
+        }
+
+
+
+
+
     </script>
+
+
 @endsection
