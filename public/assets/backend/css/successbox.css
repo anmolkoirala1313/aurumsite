@@ -24,13 +24,18 @@
 }
 
 .red {
+    font-size: 0.9em;
+    font-weight: 100;
+    letter-spacing: 3px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
     color: #e96075;
 }
 
 .alert {
     font-weight: 700;
     font-size: 1.5em;
-
     letter-spacing: 5px;
     padding-top: 5px;
     color: #FCFCFC;
@@ -61,16 +66,13 @@ button{
 }
 
 #error-box {
-    position: absolute;
-    width: 35%;
+    width: 100%;
     height: 100%;
     right: 12%;
     background: linear-gradient(to bottom left, #EF8D9C 40%, #FFC39E 100%);
     border-radius: 20px;
     box-shadow: 5px 5px 20px rgba(203, 205, 211, 0.1);
 }
-
-
 
 .two {
     right: 12%;
@@ -85,22 +87,22 @@ button{
     border-radius: 50%;
     border: 1px solid #777777;
     top: 21%;
-    left: 45.5%;
+    left: 46%;
     z-index: 2;
     animation: bounce 1s ease-in infinite;
 }
 
 .face2 {
     position: absolute;
-    width: 22%;
+    width: 7%;
     height: 22%;
     background: #FCFCFC;
     border-radius: 50%;
     border: 1px solid #777777;
     top: 21%;
-    left: 37.5%;
+    left: 47%;
     z-index: 2;
-    animation: roll 3s ease-in-out infinite;
+    animation: bounce 1s ease-in infinite
 }
 
 .eye {
@@ -141,12 +143,24 @@ button{
 
 .shadow {
     position: absolute;
-    width: 11%;
+    width: 12%;
     height: 3%;
     opacity: 0.5;
     background: #777777;
     left: 45%;
     top: 43%;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.shadow2 {
+    position: absolute;
+    width: 9%;
+    height: 3%;
+    opacity: 0.5;
+    background: #777777;
+    left: 46%;
+    top: 44%;
     border-radius: 50%;
     z-index: 1;
 }
@@ -162,6 +176,14 @@ button{
 .message {
     position: absolute;
     width: 100%;
+    text-align: center;
+    height: 40%;
+    top: 47%;
+}
+
+.message2{
+    position: absolute;
+    width: 75%;
     text-align: center;
     height: 40%;
     top: 47%;

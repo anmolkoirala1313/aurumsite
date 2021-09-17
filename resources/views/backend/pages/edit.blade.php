@@ -199,7 +199,13 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Number of List <span class="text-muted text-danger">*</span></label>
-                                    <input type="number" class="form-control" name="list_number_1" id="list_number_1">
+                                    <select class="form-control select" name="list_number_1" id="list_number_1">
+                                        <option {{($list1 == null) ? "selected":"disabled"}}>Select Number of List</option>
+                                        <option value="3" {{($list1 =="3") ? "selected":""}}>Three</option>
+                                        <option value="6" {{($list1 =="6") ? "selected":""}}>Six</option>
+                                        <option value="9" {{($list1 =="9") ? "selected":""}}>Nine</option>
+                                    </select>
+                                    <input type="hidden" name="list_1_id" value="{{$list1_id}}">
                                     <span class="ctm-text-sm text-warning">* Please choose the list numbers in odd format such as 3, 6, or 9.</span>
                                     <div class="invalid-feedback">
                                         Please enter the list number.
@@ -225,8 +231,14 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>Number of List <span class="text-muted text-danger">*</span></label>
-                                    <input type="number" class="form-control" name="list_number_2" id="list_number_2">
+                                    <label>Select number of List <span class="text-muted text-danger">*</span></label>
+                                    <select class="form-control select" name="list_number_2" id="list_number_2">
+                                        <option {{($list2 == null) ? "selected":"disabled"}}>Select Number of List</option>
+                                        <option value="3" {{($list2 =="3") ? "selected":""}}>Three</option>
+                                        <option value="6" {{($list2 =="6") ? "selected":""}}>Six</option>
+                                        <option value="9" {{($list2 =="9") ? "selected":""}}>Nine</option>
+                                    </select>
+                                    <input type="hidden" name="list_2_id" value="{{$list2_id}}">
                                     <span class="ctm-text-sm text-warning">* Please choose the list numbers in odd format such as 3, 6, or 9.</span>
                                     <div class="invalid-feedback">
                                         Please enter the list number.
@@ -269,8 +281,14 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>Number of Process Steps <span class="text-muted text-danger">*</span></label>
-                                    <input type="number" class="form-control" name="list_number_3" id="list_number_3">
+                                    <label>Select number of Process Steps <span class="text-muted text-danger">*</span></label>
+                                    <select class="form-control select" name="list_number_3" id="list_number_3">
+                                        <option {{($list3 == null) ? "selected":"disabled"}}>Select Number of List</option>
+                                        <option value="3" {{($list3 =="3") ? "selected":""}}>Three</option>
+                                        <option value="6" {{($list3 =="6") ? "selected":""}}>Six</option>
+                                        <option value="9" {{($list3 =="9") ? "selected":""}}>Nine</option>
+                                    </select>
+                                    <input type="hidden" name="list_3_id" value="{{$list3_id}}">
                                     <span class="ctm-text-sm text-warning">* Please choose the list numbers in odd format such as 3, 6, or 9.</span>
                                     <div class="invalid-feedback">
                                         Please enter the list number.

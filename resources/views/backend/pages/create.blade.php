@@ -195,8 +195,13 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>Number of List <span class="text-muted text-danger">*</span></label>
-                                    <input type="number" class="form-control" name="list_number_1" id="list_number_1">
+                                    <label>Select number of List <span class="text-muted text-danger">*</span></label>
+                                    <select class="form-control select" name="list_number_1" id="list_number_1">
+                                        <option selected>Select Number of List</option>
+                                        <option value="3">Three</option>
+                                        <option value="6">Six</option>
+                                        <option value="9">Nine</option>
+                                    </select>
                                     <span class="ctm-text-sm text-warning">* Please choose the list numbers in odd format such as 3, 6, or 9.</span>
                                     <div class="invalid-feedback">
                                         Please enter the list number.
@@ -222,8 +227,13 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>Number of List <span class="text-muted text-danger">*</span></label>
-                                    <input type="number" class="form-control" name="list_number_2" id="list_number_2">
+                                    <label>Select number of List <span class="text-muted text-danger">*</span></label>
+                                    <select class="form-control select" name="list_number_2" id="list_number_2">
+                                        <option selected>Select Number of List</option>
+                                        <option value="3">Three</option>
+                                        <option value="6">Six</option>
+                                        <option value="9">Nine</option>
+                                    </select>
                                     <span class="ctm-text-sm text-warning">* Please choose the list numbers in odd format such as 3, 6, or 9.</span>
                                     <div class="invalid-feedback">
                                         Please enter the list number.
@@ -266,8 +276,13 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>Number of Process Steps <span class="text-muted text-danger">*</span></label>
-                                    <input type="number" class="form-control" name="list_number_3" id="list_number_3">
+                                    <label>Select number of Process Steps <span class="text-muted text-danger">*</span></label>
+                                    <select class="form-control select" name="list_number_3" id="list_number_3">
+                                        <option selected>Select Number of List</option>
+                                        <option value="3">Three</option>
+                                        <option value="6">Six</option>
+                                        <option value="9">Nine</option>
+                                    </select>
                                     <span class="ctm-text-sm text-warning">* Please choose the list numbers in odd format such as 3, 6, or 9.</span>
                                     <div class="invalid-feedback">
                                         Please enter the list number.

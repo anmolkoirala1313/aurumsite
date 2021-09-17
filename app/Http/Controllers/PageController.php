@@ -135,13 +135,29 @@ class PageController extends Controller
      */
     public function edit($id)
     {
-        $page     = Page::find($id);
-        $sections = array();
+        $page               = Page::find($id);
+        $sections           = array();
+        $list1              = "";
+        $list1_id           = "";
+        $list2              = "";
+        $list2_id           = "";
+        $list3              = "";
+        $list3_id           = "";
         foreach ($page->sections as $section){
             $sections[] = $section->section_slug;
+            if( $section->section_slug == 'list_section_1'){
+                $list1      = $section->list_number_1;
+                $list1_id   = $section->id;
+            }elseif ($section->section_slug == 'list_section_2'){
+                $list2      = $section->list_number_2;
+                $list2_id   = $section->id;
+            }elseif ($section->section_slug == 'process_selection'){
+                $list3      = $section->list_number_3;
+                $list3_id   = $section->id;
+            }
         }
 
-        return view('backend.pages.edit',compact('page','sections'));
+        return view('backend.pages.edit',compact('page','sections','list1','list2','list3','list1_id','list2_id','list3_id'));
     }
 
     /**
@@ -153,14 +169,16 @@ class PageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $incoming_sections      = $request->input('section');
-        $section                = PageSection::where('page_id',$id)->get()->toArray();
-        $db_section_slug        = array_map(function($item){ return $item['section_slug']; }, $section);
+        $incoming_sections        = $request->input('section');
+        $section                  = PageSection::where('page_id',$id)->get()->toArray();
+        $db_section_slug          = array_map(function($item){ return $item['section_slug']; }, $section);
 
-        $page                   = Page::find($id);
-        $page->name             = $request->input('name');
-        $page->slug             = $request->input('slug');
-        $page->status           = $request->input('status');
+        $page                     = Page::find($id);
+        $page->name               = $request->input('name');
+        $page->slug               = $request->input('slug');
+        $page->status             = $request->input('status');
+
+
         $status                 = $page->update();
 
         $listval1               = ($request->input('list_number_1')==null) ? 3:$request->input('list_number_1');
@@ -173,14 +191,14 @@ class PageController extends Controller
                 if (!in_array($ins, $db_section_slug)) {
                     $section_name = str_replace("_", " ", $ins);
                     if ($ins == 'list_section_1') {
-                        $dataone = [
-                            'section_name' => $section_name,
-                            'section_slug' => $ins,
+                        $section_status = PageSection::create(
+                            [
+                            'section_name'  => $section_name,
+                            'section_slug'  => $ins,
                             'list_number_1' => $listval1,
-                            'page_id' => $page->id,
-                            'created_by' => Auth::user()->id,
-                        ];
-                        $section_status = PageSection::create($dataone);
+                            'page_id'       => $page->id,
+                            'created_by'    => Auth::user()->id,
+                        ]);
                     }
                     elseif ($ins == 'list_section_2') {
                         $section_status = PageSection::create([
@@ -202,12 +220,26 @@ class PageController extends Controller
                         ]);
                     }
                     else {
-                        $section_status = PageSection::create([
+                        $section_status = PageSection::updateOrCreate([
                             'section_name' => $section_name,
                             'section_slug' => $ins,
                             'page_id' => $page->id,
                             'created_by' => Auth::user()->id,
                         ]);
+                    }
+                }else{
+                    if ($ins == 'list_section_1') {
+                        $section_element                  = PageSection::find($request->input('list_1_id'));
+                        $section_element->list_number_1   = $request->input('list_number_1');
+                        $section_status                   = $section_element->update();
+                    }  elseif ($ins == 'list_section_2'){
+                        $section_element                  = PageSection::find($request->input('list_2_id'));
+                        $section_element->list_number_2   = $request->input('list_number_2');
+                        $section_status                   = $section_element->update();
+                    } elseif ($ins == 'process_selection'){
+                        $section_element                  = PageSection::find($request->input('list_3_id'));
+                        $section_element->list_number_3   = $request->input('list_number_3');
+                        $section_status                   = $section_element->update();
                     }
                 }
             }

@@ -13,6 +13,6 @@ class SectionElement extends Model
 
     public function section()
     {
-        return $this->belongsTo('App\Models\PageSection');
+        return $this->belongsTo('App\Models\PageSection','page_section_id', 'id');
     }
 }
