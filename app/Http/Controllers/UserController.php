@@ -38,7 +38,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.user.create');
+
     }
 
     /**
@@ -49,7 +50,35 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data=[
+            'name'              =>$request->input('name'),
+            'email'             =>$request->input('email'),
+            'gender'            =>$request->input('gender'),
+            'contact'           =>$request->input('contact'),
+            'user_type'         =>$request->input('user_type'),
+            'status'            =>$request->input('status'),
+            'password'          =>bcrypt($request->input('password')),
+        ];
+        if(!empty($request->file('image'))) {
+            $image = $request->file('image');
+            $name1 = uniqid() . '_' . $image->getClientOriginalName();
+            $path = base_path() . '/public/images/profiles/' . $name1;
+            $image_resize = Image::make($image->getRealPath())->orientate();
+            $image_resize->resize(300, 300);
+            if ($image_resize->save($path, 80)) {
+                $data['image'] = $name1;
+            }
+        }
+        $status = User::create($data);
+      
+
+        if($status){
+            Session::flash('success','New User Created Successfully');
+
+        }else{
+            Session::flash('error','New User  Creation Failed');
+        }
+        return redirect()->back();
     }
 
     /**
@@ -107,9 +136,7 @@ class UserController extends Controller
             $name1 = uniqid().'_'.$image->getClientOriginalName();
             $path = base_path().'/public/images/uploads/profiles/'.$name1;
             $image_resize = Image::make($image->getRealPath())->orientate();
-            $image_resize->resize(300, 300, function ($constraint) {
-                $constraint->aspectRatio(); //maintain image ratio
-            });
+            $image_resize->resize(300, 300);
             if ($image_resize->save($path,80)){
                 $user->image= $name1;
                 if (!empty($oldimage) && file_exists(public_path().'/images/uploads/profiles/'.$oldimage)){

@@ -37,7 +37,6 @@
 @section('content')
 
 
-
     <div class="col-xl-9 col-lg-8  col-md-12">
         <div class="collapse-tabs">
             <div class="quicklink-sidebar-menu ctm-border-radius shadow-sm grow bg-white p-4 mb-4 card">
