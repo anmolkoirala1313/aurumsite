@@ -81,6 +81,18 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
     Route::put('/profile/password', 'App\Http\Controllers\UserController@profilepassword')->name('user.password');
     //end of signed-in user routes
 
+      //user
+      Route::put('/users/{id}/updates', 'App\Http\Controllers\UserController@userUpdate')->name('users.update');
+      Route::put('/password', 'App\Http\Controllers\UserController@password')->name('users.password');
+      Route::get('/user', 'App\Http\Controllers\UserController@index')->name('user.index');
+      Route::get('/user/create', 'App\Http\Controllers\UserController@create')->name('user.create');
+      Route::post('/user', 'App\Http\Controllers\UserController@store')->name('user.store');
+      Route::get('/user/{id}/edit', 'App\Http\Controllers\UserController@edit')->name('user.edit');
+      Route::patch('/status/{id}/update', 'App\Http\Controllers\UserController@statusupdate')->name('user-status.update');
+      Route::delete('/user/{id}', 'App\Http\Controllers\UserController@destroy')->name('user.destroy');
+  
+      //End user
+
 
     //General setting
     Route::get('/settings', 'App\Http\Controllers\SettingController@index')->name('setting.index');

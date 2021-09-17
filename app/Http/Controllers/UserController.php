@@ -25,7 +25,10 @@ class UserController extends Controller
 
     public function index()
     {
-        //
+        $all_user = User::orderBy('name','asc')->get();
+        $general  = User::where('user_type','general')->orderBy('name','asc')->get();
+        $admin    = User::where('user_type','admin')->orderBy('name','asc')->get();
+        return view('backend.user.index',compact('all_user','general','admin'));
     }
 
     /**

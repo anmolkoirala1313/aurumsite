@@ -58,6 +58,9 @@
                                     <div class="col-6 align-items-center text-center">
                                         <a href="{{route('dashboard')}}" class="{{(Request::segment(2) == 'dashboard') ? "text-white active":"text-dark"}} p-4 first-slider-btn ctm-border-right ctm-border-left ctm-border-top"><span class="lnr lnr-home pr-0 pb-lg-2 font-23"></span><span class="">Dashboard</span></a>
                                     </div>
+                                    <div class="col-6 align-items-center text-center">
+                                        <a href="{{route('user.index')}}" class="{{(Request::segment(2) == 'user') ? "text-white active":"text-dark"}} p-4 second-slider-btn ctm-border-right ctm-border-top" title="User Management"><span class="lnr lnr-users pr-0 pb-lg-2 font-23"></span><span class="">All User's</span></a>
+                                    </div>
                                     <div class="col-6 align-items-center shadow-none text-center">
                                         <a href="{{route('pages.index')}}" class="{{(Request::segment(2) == 'pages') ? "text-white active":"text-dark"}} p-4 second-slider-btn ctm-border-right ctm-border-top"><span class="lnr lnr-file-empty pr-0 pb-lg-2 font-23"></span><span class="">Pages</span></a>
                                     </div>
@@ -65,7 +68,7 @@
                                         <a href="{{route('teams.index')}}" class="{{(Request::segment(2) == 'teams') ? "text-white active":"text-dark"}} p-4 ctm-border-right ctm-border-left"><span class="lnr lnr-license pr-0 pb-lg-2 font-23"></span><span class="">Teams</span></a>
                                     </div>
                                     <div class="col-6 align-items-center shadow-none text-center">
-                                        <a href="{{route('clients.index')}}" class="{{(Request::segment(2) == 'clients') ? "text-white active":"text-dark"}} p-4 ctm-border-right"><span class="lnr lnr-users pr-0 pb-lg-2 font-23"></span><span class="">Clients</span></a>
+                                        <a href="{{route('clients.index')}}" class="{{(Request::segment(2) == 'clients') ? "text-white active":"text-dark"}} p-4 ctm-border-right"><span class="lnr lnr-user pr-0 pb-lg-2 font-23"></span><span class="">Clients</span></a>
                                     </div>
                                     <div class="col-6 align-items-center shadow-none text-center">
                                         <a href="{{route('testimonials.index')}}" class="{{(Request::segment(2) == 'testimonials') ? "text-white active":"text-dark"}} p-4 ctm-border-right ctm-border-left"><span class="lnr lnr-star-half pr-0 pb-lg-2 font-23"></span><span class="">Testimonials</span></a>
@@ -83,7 +86,7 @@
                                         <a href="{{route('setting.index')}}" class="{{(Request::segment(2) == 'settings') ? "text-white active":"text-dark"}} p-4 last-slider-btn1 ctm-border-right ctm-border-left"><span class="lnr lnr-cog pr-0 pb-lg-2 font-23"></span><span class="">Settings</span></a>
                                     </div>
                                     <div class="col-6 align-items-center shadow-none text-center">
-                                        <a href="{{route('profile')}}" class="{{(Request::segment(2) == 'profile') ? "text-white active":"text-dark"}} p-4 last-slider-btn ctm-border-right"><span class="lnr lnr-user pr-0 pb-lg-2 font-23"></span><span class="">Profile</span></a>
+                                        <a href="{{route('profile')}}" class="{{(Request::segment(2) == 'profile') ? "text-white active":"text-dark"}} p-4 last-slider-btn ctm-border-right"><span class="lnr lnr-smile pr-0 pb-lg-2 font-23"></span><span class="">Profile</span></a>
                                     </div>
                                 </div>
                             </div>
