@@ -10,7 +10,7 @@
                 <a class=" active list-group-item" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">All</a>
                 <a class="list-group-item" id="v-pills-admin-tab" data-toggle="pill" href="#v-pills-admin" role="tab" aria-controls="v-pills-admin" aria-selected="false">Admin</a>
                 <a class="list-group-item" id="v-pills-general-tab" data-toggle="pill" href="#v-pills-general" role="tab" aria-controls="v-pills-general" aria-selected="false">General</a>
-                
+
             </div>
         </div>
     </div>
@@ -22,6 +22,10 @@
         <div class="card-body align-center">
             <div class="tab-content" id="v-pills-tabContent">
 
+            <form action="#" method="post" id="deleted-form">
+                {{csrf_field()}}
+                <input name="_method" type="hidden" value="DELETE">
+            </form>
                 <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                     <div class="employee-office-table">
                         <div class="table-responsive">
@@ -129,7 +133,7 @@
                                     </tr>
                                     @endforeach
                                 @endif
-                                    
+
                                 </tbody>
                             </table>
                         </div>
@@ -186,7 +190,7 @@
                                     </tr>
                                     @endforeach
                                 @endif
-                                 
+
                                 </tbody>
                             </table>
                         </div>
@@ -203,13 +207,113 @@
 @section('js')
     <script type="text/javascript">
         $(document).ready(function () {
-                    $('#alluser-index, #admin-index , #general-index').DataTable({
-                        paging: true,
-                        searching: true,
-                        ordering:  true,
-                        lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
-                    });
+            $('#alluser-index, #admin-index , #general-index').DataTable({
+                paging: true,
+                searching: true,
+                ordering:  true,
+                lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+            });
 
+        });
+
+
+    $(document).on('click','.status-update', function (e) {
+        e.preventDefault();
+        var status = $(this).attr('id');
+        var url = $(this).attr('aurum-update-action');
+        if(status == '0'){
+            swal({
+                title: "Are You Sure?",
+                text: "Setting the user status to De-active will prevent them from logging in. \n \n Set their status to active to enable the login feature!",
+                type: "info",
+                showCancelButton: true,
+                closeOnConfirm: false,
+                showLoaderOnConfirm: true,
+            }, function(){
+                statusupdate(url,status);
+            });
+        }else{
+            statusupdate(url,status);
+        }
+
+    });
+
+
+    function statusupdate(url,status){
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': "{{ csrf_token() }}"
+            },
+            url: url,
+            type: "PATCH",
+            cache: false,
+            data:{
+                status: status,
+            },
+            success: function(dataResult){
+                if(dataResult == "yes"){
+                    swal("Success!", "User Status has been updated", "success");
+                    $(dataResult).remove();
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 2500);
+                }else{
+                    swal({
+                        title: "Error!",
+                        text: "Failed to update user status",
+                        type: "error",
+                        showCancelButton: true,
+                        closeOnConfirm: false,
+                        showLoaderOnConfirm: true,
+                    }, function(){
+                        //window.location.href = ""
+                        swal.close();
+                    })
+                }
+            },
+            error: function() {
+                swal({
+                    title: 'User Warning',
+                    text: "Error. Could not confirm the status of the user.",
+                    type: "info",
+                    showCancelButton: true,
+                    closeOnConfirm: false,
+                    showLoaderOnConfirm: true,
                 });
+            }
+        });
+    }
+
+    $(document).on('click','.action-per-delete', function (e) {
+        e.preventDefault();
+        var form = $('#deleted-form');
+        var action = $(this).attr('aurum-delete-per-action');
+        form.attr('action',$(this).attr('aurum-delete-per-action'));
+        $url = form.attr('action');
+        var form_data = form.serialize();
+        // $('.deleterole').attr('action',action);
+        swal({
+            title: "Are You Sure?",
+            text: "You will not be able to recover this",
+            type: "info",
+            showCancelButton: true,
+            closeOnConfirm: false,
+            showLoaderOnConfirm: true,
+        }, function(){
+            $.post( $url, form_data)
+                .done(function(response) {
+                        swal("Deleted!", "Deleted Successfully", "success");
+                        // toastr.success('file deleted Successfully');
+                        $(response).remove();
+                        setTimeout(function() {
+                            window.location.reload();
+                        }, 2500);
+                })
+                .fail(function(response){
+                    // console.log(response)
+                });
+        })
+    })
+
     </script>
 @endsection

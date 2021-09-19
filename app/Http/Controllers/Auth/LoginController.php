@@ -42,6 +42,15 @@ class LoginController extends Controller
     public function authenticated(Request $request, $user)
     {
 
-        return redirect()->intended($this->redirectPath());
+        if($user->status == 0){
+            $request->session()->flush();
+            return redirect()->route('login')->with('error', 'This account is not activated. Please contact the administrator.');
+        }else if($user->status == 1){
+
+            return redirect()->intended($this->redirectPath());
+
+        }
+
+
     }
 }

@@ -70,7 +70,7 @@ class UserController extends Controller
             }
         }
         $status = User::create($data);
-      
+
 
         if($status){
             Session::flash('success','New User Created Successfully');
@@ -163,7 +163,27 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $deleteuser          = User::find($id);
+        $rid             = $deleteuser->id;
+        if (!empty($deleteuser->image) && file_exists(public_path().'/images/uploads/profiles/'.$deleteuser->image)){
+            @unlink(public_path().'/images/uploads/profiles/'.$deleteuser->image);
+        }
+        $deleteuser->delete();
+
+        return '#user_management';
+    }
+
+    public function statusupdate(Request $request, $id){
+        $user          = User::find($id);
+        $user->status  = $request->status;
+        $status        = $user->update();
+        if($status){
+            $confirmed = "yes";
+        }
+        else{
+            $confirmed = "no";
+        }
+        return response()->json($confirmed);
     }
 
     public function profile(){
