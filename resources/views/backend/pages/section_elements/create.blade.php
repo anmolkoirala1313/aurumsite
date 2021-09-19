@@ -69,7 +69,7 @@
 
                         @if($value == 'basic_section')
                             @if($basic_elements !== null)
-                                {!! Form::open(['url'=>route('section-elements.update', @$basic_elements->id),'id'=>'basic-form','method'=>'PUT','enctype'=>'multipart/form-data']) !!}
+                                {!! Form::open(['url'=>route('section-elements.update', @$basic_elements->id),'id'=>'basic-form','class'=>'needs-validation','method'=>'PUT','novalidate'=>'','enctype'=>'multipart/form-data']) !!}
                             @else
                                 {!! Form::open(['route' => 'section-elements.store','method'=>'post','class'=>'needs-validation','id'=>'basic-form','novalidate'=>'','enctype'=>'multipart/form-data']) !!}
                             @endif
@@ -99,10 +99,9 @@
                                                     Please enter the basic section Sub heading.
                                                 </div>
                                             </div>
-
                                             <div class="form-group mb-3">
                                                 <label>Description <span class="text-muted text-danger">*</span></label>
-                                                <textarea class="form-control" rows="6" name="description" id="basic_editor" required>{{@$basic_elements->description}}</textarea>
+                                                <textarea class="form-control" rows="6" name="description" id="basic_editor" required>{!! @$basic_elements->description !!}</textarea>
                                                 <div class="invalid-feedback">
                                                     Please write the short description for basic section.
                                                 </div>
@@ -277,7 +276,7 @@
                                                             <div class="custom-file h-auto">
                                                                 <div class="avatar-upload">
                                                                     <div class="avatar-edit">
-                                                                        <input type="file" class="custom-file-input" hidden id="background-image" onchange="loadbasicFile('background-image','current-backgroundss-img',event)" name="image">
+                                                                        <input type="file" class="custom-file-input" hidden id="background-image" onchange="loadbasicFile('background-image','current-backgroundss-img',event)" name="image" {{(@$bgimage_elements !=="")? "":"required"}}>
                                                                         <label for="background-image"></label>
                                                                         <div class="invalid-feedback" style="position: absolute; width: 45px;">
                                                                             Please select a image.
@@ -286,7 +285,7 @@
                                                                 </div>
                                                                 <img  id="current-backgroundss-img" src="<?php if(!empty(@$bgimage_elements->image)){ echo '/images/uploads/section_elements/bgimage_section/'.@$bgimage_elements->image; } else{  echo '/images/uploads/default-placeholder.png'; } ?>" alt="background_section_image" class="current-img w-100">
                                                             </div>
-                                                            <span class="ctm-text-sm">*use image minimum of 1920 x 1280px for Background section</span>
+                                                            <span class="ctm-text-sm">*use image minimum of 1920 x 1280px for Background section element</span>
                                                         </div>
 
                                                     </div>
@@ -304,9 +303,10 @@
 
                         @if($value == 'tab_section_1')
                                 @if(sizeof($tab1_elements) !== 0)
-                                    {!! Form::open(['url'=>route('section-elements.update',@$tab1_elements[0]->id),'id'=>'tab1-form','method'=>'PUT']) !!}
+                                    {!! Form::open(['route' => 'section-elements.tablistUpdate','method'=>'post','class'=>'needs-validation','id'=>'tab1-form','novalidate'=>'','enctype'=>'multipart/form-data']) !!}
+
                                 @else
-                                    {!! Form::open(['route' => 'section-elements.store','method'=>'post','class'=>'needs-validation','id'=>'tab1-form','novalidate'=>'']) !!}
+                                    {!! Form::open(['route' => 'section-elements.store','method'=>'post','class'=>'needs-validation','id'=>'tab1-form','novalidate'=>'','enctype'=>'multipart/form-data']) !!}
                                 @endif
                                     <div id="tab1-form-ajax">
                                         <div class="accordion add-tab-section1-details" id="accordion-details">
@@ -331,6 +331,7 @@
                                                                     <div class="form-group mb-3">
                                                                         <label>Heading <span class="text-muted text-danger">*</span></label>
                                                                         <input type="hidden" class="form-control" value="{{$key}}" name="page_section_id" required>
+                                                                        <input type="hidden" class="form-control" value="{{@$tab1_elements[0]->id}}" name="id[]">
                                                                         <input type="hidden" class="form-control" value="{{$value}}" name="section_name" required>
                                                                         <input type="text" class="form-control" name="list_header[]" value="{{@$tab1_elements[0]->list_header}}" required>
                                                                         <div class="invalid-feedback">
@@ -397,6 +398,7 @@
                                                                 <div class="card-body">
                                                                     <div class="form-group mb-3">
                                                                         <label>Heading <span class="text-muted text-danger">*</span></label>
+                                                                        <input type="hidden" class="form-control" value="{{@$tab1_elements[1]->id}}" name="id[]">
                                                                         <input type="text" class="form-control" name="list_header[]" value="{{@$tab1_elements[1]->list_header}}" required>
                                                                         <div class="invalid-feedback">
                                                                             Please enter the Vision heading.
@@ -462,6 +464,7 @@
                                                                 <div class="card-body">
                                                                     <div class="form-group mb-3">
                                                                         <label>Heading <span class="text-muted text-danger">*</span></label>
+                                                                        <input type="hidden" class="form-control" value="{{@$tab1_elements[2]->id}}" name="id[]">
                                                                         <input type="text" class="form-control" name="list_header[]" value="{{@$tab1_elements[2]->list_header}}" required>
                                                                         <div class="invalid-feedback">
                                                                             Please enter the Goal heading.
@@ -516,7 +519,7 @@
 
                         @if($value == 'tab_section_2')
                                 @if(sizeof($tab2_elements) !== 0)
-                                    {!! Form::open(['url'=>route('section-elements.update',@$tab2_elements[0]->id),'id'=>'tab2-form','method'=>'PUT']) !!}
+                                    {!! Form::open(['route' => 'section-elements.tablistUpdate','method'=>'post','class'=>'needs-validation','id'=>'tab2-form','novalidate'=>'']) !!}
                                 @else
                                     {!! Form::open(['route' => 'section-elements.store','method'=>'post','class'=>'needs-validation','id'=>'tab2-form','novalidate'=>'']) !!}
                                 @endif
@@ -543,6 +546,7 @@
                                                                             <label>Heading <span class="text-muted text-danger">*</span></label>
                                                                             <input type="text" class="form-control" name="heading[]" value="{{@$tab2_elements[0]->heading}}" required>
                                                                             <input type="hidden" class="form-control" value="{{$key}}" name="page_section_id" required>
+                                                                            <input type="hidden" class="form-control" value="{{@$tab2_elements[0]->id}}" name="id[]">
                                                                             <input type="hidden" class="form-control" value="{{$value}}" name="section_name" required>
                                                                             <div class="invalid-feedback">
                                                                                 Please enter the heading.
@@ -552,7 +556,7 @@
                                                                             <label>Sub Heading <span class="text-muted text-danger">*</span></label>
                                                                             <input type="text" class="form-control" name="subheading[]" value="{{@$tab2_elements[0]->subheading}}"  required>
                                                                             <div class="invalid-feedback">
-                                                                                Please enter the heading.
+                                                                                Please enter the sub heading.
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-group mb-3">
@@ -589,6 +593,7 @@
                                                                     <div class="card-body">
                                                                         <div class="form-group mb-3">
                                                                             <label>Heading <span class="text-muted text-danger">*</span></label>
+                                                                            <input type="hidden" class="form-control" value="{{@$tab2_elements[1]->id}}" name="id[]">
                                                                             <input type="text" class="form-control" name="heading[]" value="{{@$tab2_elements[1]->heading}}" required>
                                                                             <div class="invalid-feedback">
                                                                                 Please enter the heading.
@@ -598,7 +603,7 @@
                                                                             <label>Sub Heading <span class="text-muted text-danger">*</span></label>
                                                                             <input type="text" class="form-control" name="subheading[]" value="{{@$tab2_elements[1]->subheading}}" required>
                                                                             <div class="invalid-feedback">
-                                                                                Please enter the heading.
+                                                                                Please enter the sub heading.
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-group mb-3">
@@ -635,6 +640,7 @@
                                                                     <div class="card-body">
                                                                         <div class="form-group mb-3">
                                                                             <label>Heading <span class="text-muted text-danger">*</span></label>
+                                                                            <input type="hidden" class="form-control" value="{{@$tab2_elements[2]->id}}" name="id[]">
                                                                             <input type="text" class="form-control" name="heading[]" value="{{@$tab2_elements[2]->heading}}" required>
                                                                             <div class="invalid-feedback">
                                                                                 Please enter the heading.
@@ -644,7 +650,7 @@
                                                                             <label>Sub Heading <span class="text-muted text-danger">*</span></label>
                                                                             <input type="text" class="form-control" name="subheading[]" value="{{@$tab2_elements[2]->subheading}}" required>
                                                                             <div class="invalid-feedback">
-                                                                                Please enter the heading.
+                                                                                Please enter the sub heading.
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-group mb-3">
@@ -681,6 +687,7 @@
                                                                     <div class="card-body">
                                                                         <div class="form-group mb-3">
                                                                             <label>Heading <span class="text-muted text-danger">*</span></label>
+                                                                            <input type="hidden" class="form-control" value="{{@$tab2_elements[3]->id}}" name="id[]">
                                                                             <input type="text" class="form-control" name="heading[]" value="{{@$tab2_elements[3]->heading}}" required>
                                                                             <div class="invalid-feedback">
                                                                                 Please enter the heading.
@@ -690,7 +697,7 @@
                                                                             <label>Sub Heading <span class="text-muted text-danger">*</span></label>
                                                                             <input type="text" class="form-control" name="subheading[]" value="{{@$tab2_elements[3]->subheading}}" required>
                                                                             <div class="invalid-feedback">
-                                                                                Please enter the heading.
+                                                                                Please enter the sub heading.
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-group mb-3">
@@ -719,7 +726,8 @@
 
                         @if($value == 'list_section_1')
                                 @if(sizeof($list1_elements) !== 0)
-                                    {!! Form::open(['url'=>route('section-elements.update',@$list1_elements[0]->id),'id'=>'list1-form','method'=>'PUT','enctype'=>'multipart/form-data']) !!}
+                                    {!! Form::open(['route' => 'section-elements.tablistUpdate','method'=>'post','class'=>'needs-validation','id'=>'list1-form','novalidate'=>'','enctype'=>'multipart/form-data']) !!}
+
                                 @else
                                     {!! Form::open(['route' => 'section-elements.store','method'=>'post','class'=>'needs-validation','id'=>'list1-form','novalidate'=>'','enctype'=>'multipart/form-data']) !!}
                                 @endif
@@ -746,6 +754,7 @@
                                                                         <label>Heading <span class="text-muted text-danger">*</span></label>
                                                                         <input type="hidden" class="form-control" value="{{$key}}"    name="page_section_id" required>
                                                                         <input type="hidden" class="form-control" value="{{$value}}"  name="section_name" required>
+                                                                        <input type="hidden" class="form-control" value="{{@$list1_elements[$i-1]->id}}" name="id[]">
                                                                         <input type="hidden" class="form-control" value="{{$list_1}}" name="list_number_1" required>
                                                                         <input type="text" class="form-control" name="list_header[]" value="{{@$list1_elements[$i-1]->list_header}}" required>
                                                                         <div class="invalid-feedback">
@@ -756,7 +765,7 @@
                                                                         <label>Sub Heading <span class="text-muted text-danger">*</span></label>
                                                                         <input type="text" class="form-control" name="subheading[]" value="{{@$list1_elements[$i-1]->subheading}}" required>
                                                                         <div class="invalid-feedback">
-                                                                            Please enter the heading.
+                                                                            Please enter the sub heading.
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group mb-3">
@@ -791,7 +800,7 @@
                                                                             <div class="custom-file h-auto">
                                                                                 <div class="avatar-upload">
                                                                                     <div class="avatar-edit">
-                                                                                        <input type="file" class="custom-file-input" hidden id="list-{{$i}}-image" onchange="loadbasicFile('list-{{$i}}-image','current-list-{{$i}}-img',event)" name="list_image[]" required>
+                                                                                        <input type="file" class="custom-file-input" hidden id="list-{{$i}}-image" onchange="loadbasicFile('list-{{$i}}-image','current-list-{{$i}}-img',event)" name="list_image[]" {{(@sizeof($list1_elements) !== 0)? "":"required"}}>
                                                                                         <label for="list-{{$i}}-image"></label>
                                                                                         <div class="invalid-feedback" style="position: absolute; width: 45px;">
                                                                                             Please select a image.
@@ -801,7 +810,7 @@
                                                                                 <img id="current-list-{{$i}}-img" src="<?php if(!empty(@$list1_elements[$i-1]->list_image)){ echo '/images/uploads/section_elements/list_1/'.@$list1_elements[$i-1]->list_image; } else{  echo '/images/uploads/default-placeholder.png'; } ?>" alt="list_{{$i}}_section_image" class="current-img w-100">
 
                                                                             </div>
-                                                                            <span class="ctm-text-sm text-danger">*required</span>
+                                                                            <span class="ctm-text-sm text-danger">{{(@sizeof(@$list1_elements) !== 0)? "":"*required"}}</span>
                                                                             <span class="ctm-text-sm">*use image minimum of 400 x 280px for List {{$i}} element</span>
                                                                         </div>
 
@@ -828,7 +837,7 @@
 
                         @if($value == 'list_section_2')
                                 @if(sizeof($list2_elements) !== 0)
-                                    {!! Form::open(['url'=>route('section-elements.update',@$list2_elements[0]->id),'id'=>'list2-form','method'=>'PUT','enctype'=>'multipart/form-data']) !!}
+                                    {!! Form::open(['route' => 'section-elements.tablistUpdate','method'=>'post','class'=>'needs-validation','id'=>'list2-form','novalidate'=>'','enctype'=>'multipart/form-data']) !!}
                                 @else
                                     {!! Form::open(['route' => 'section-elements.store','method'=>'post','class'=>'needs-validation','id'=>'list2-form','novalidate'=>'','enctype'=>'multipart/form-data']) !!}
                                 @endif
@@ -856,6 +865,7 @@
                                                                                 <input type="hidden" class="form-control" value="{{$key}}"    name="page_section_id" required>
                                                                                 <input type="hidden" class="form-control" value="{{$value}}"  name="section_name" required>
                                                                                 <input type="hidden" class="form-control" value="{{$list_2}}" name="list_number_2" required>
+                                                                                <input type="hidden" class="form-control" value="{{@$list2_elements[$i-1]->id}}" name="id[]">
                                                                                 <input type="text" class="form-control" name="list_header[]" value="{{@$list2_elements[$i-1]->list_header}}" required>
                                                                                 <div class="invalid-feedback">
                                                                                     Please enter the heading.
@@ -865,7 +875,7 @@
                                                                                 <label>Sub Heading <span class="text-muted text-danger">*</span></label>
                                                                                 <input type="text" class="form-control" name="subheading[]" value="{{@$list2_elements[$i-1]->subheading}}" required>
                                                                                 <div class="invalid-feedback">
-                                                                                    Please enter the heading.
+                                                                                    Please enter the sub heading.
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group mb-3">
@@ -900,7 +910,7 @@
                                                                                     <div class="custom-file h-auto">
                                                                                         <div class="avatar-upload">
                                                                                             <div class="avatar-edit">
-                                                                                                <input type="file" class="custom-file-input" hidden id="listtwo-{{$i}}-image" onchange="loadbasicFile('listtwo-{{$i}}-image','current-listtwo-{{$i}}-img',event)" name="list_image[]" required>
+                                                                                                <input type="file" class="custom-file-input" hidden id="listtwo-{{$i}}-image" onchange="loadbasicFile('listtwo-{{$i}}-image','current-listtwo-{{$i}}-img',event)" name="list_image[]" {{(@sizeof(@$list2_elements) !== 0)? "":"required"}}>
                                                                                                 <label for="listtwo-{{$i}}-image"></label>
                                                                                                 <div class="invalid-feedback" style="position: absolute; width: 45px;">
                                                                                                     Please select a image.
@@ -910,15 +920,15 @@
                                                                                         <img id="current-listtwo-{{$i}}-img" src="<?php if(!empty(@$list2_elements[$i-1]->list_image)){ echo '/images/uploads/section_elements/list_2/'.@$list2_elements[$i-1]->list_image; } else{  echo '/images/uploads/default-placeholder.png'; } ?>" alt="listtwo_{{$i}}_section_image" class="current-img w-100">
 
                                                                                     </div>
-                                                                                    <span class="ctm-text-sm text-danger">*required</span>
-                                                                                    <span class="ctm-text-sm">*use image minimum of 400 x 280px for List {{$i}} element</span>                                                                            </div>
+                                                                                    <span class="ctm-text-sm text-danger">{{(@sizeof(@$list2_elements) !== 0)? "":"*required"}}</span>
+                                                                                    <span class="ctm-text-sm">*use image minimum of 400 x 280px for List {{$i}} element</span>
+                                                                                </div>
 
                                                                             </div>
 
                                                                         </div>
                                                                     </div>
                                                                 </div>
-
                                                             </div>
 
                                                         </div>
@@ -936,7 +946,7 @@
 
                         @if($value == 'process_selection')
                                 @if(sizeof($process_elements) !== 0)
-                                    {!! Form::open(['url'=>route('section-elements.update',@$process_elements[0]->id),'id'=>'process-form','method'=>'PUT','enctype'=>'multipart/form-data']) !!}
+                                    {!! Form::open(['route' => 'section-elements.tablistUpdate','method'=>'post','class'=>'needs-validation','id'=>'process-form','novalidate'=>'','enctype'=>'multipart/form-data']) !!}
                                 @else
                                     {!! Form::open(['route' => 'section-elements.store','method'=>'post','class'=>'needs-validation','id'=>'process-form','novalidate'=>'','enctype'=>'multipart/form-data']) !!}
                                 @endif
@@ -964,6 +974,7 @@
                                                                             <input type="hidden" class="form-control" value="{{$key}}"    name="page_section_id" required>
                                                                             <input type="hidden" class="form-control" value="{{$value}}"  name="section_name" required>
                                                                             <input type="hidden" class="form-control" value="{{$list_3}}" name="list_number_3" required>
+                                                                            <input type="hidden" class="form-control" value="{{@$process_elements[$i-1]->id}}" name="id[]">
                                                                             <input type="text" class="form-control" name="list_header[]" value="{{@$process_elements[$i-1]->list_header}}"  required>
                                                                             <div class="invalid-feedback">
                                                                                 Please enter the heading.
@@ -973,7 +984,7 @@
                                                                             <label>Sub Heading <span class="text-muted text-danger">*</span></label>
                                                                             <input type="text" class="form-control" name="subheading[]" value="{{@$process_elements[$i-1]->subheading}}"  required>
                                                                             <div class="invalid-feedback">
-                                                                                Please enter the heading.
+                                                                                Please enter the sub heading.
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-group mb-3">
@@ -1008,7 +1019,7 @@
                                                                                 <div class="custom-file h-auto">
                                                                                     <div class="avatar-upload">
                                                                                         <div class="avatar-edit">
-                                                                                            <input type="file" class="custom-file-input" hidden id="processelect-{{$i}}-image" onchange="loadbasicFile('processelect-{{$i}}-image','current-processelect-{{$i}}-img',event)" name="list_image[]" required>
+                                                                                            <input type="file" class="custom-file-input" hidden id="processelect-{{$i}}-image" onchange="loadbasicFile('processelect-{{$i}}-image','current-processelect-{{$i}}-img',event)" name="list_image[]" {{(@sizeof(@$process_elements) !== 0)? "":"required"}}>
                                                                                             <label for="processelect-{{$i}}-image"></label>
                                                                                             <div class="invalid-feedback" style="position: absolute; width: 45px;">
                                                                                                 Please select a image.
@@ -1017,7 +1028,7 @@
                                                                                     </div>
                                                                                     <img id="current-processelect-{{$i}}-img" src="<?php if(!empty(@$process_elements[$i-1]->list_image)){ echo '/images/uploads/section_elements/process_list/'.@$process_elements[$i-1]->list_image; } else{  echo '/images/uploads/default-placeholder.png'; } ?>"  alt="processelect_{{$i}}_section_image" class="current-img w-100">
                                                                                 </div>
-                                                                                <span class="ctm-text-sm text-danger">*required</span>
+                                                                                <span class="ctm-text-sm text-danger">{{(@sizeof(@$process_elements) !== 0)? "":"*required"}}</span>
                                                                                 <span class="ctm-text-sm">*use image minimum of 600 x 330px for  Process {{$i}} element</span>
                                                                             </div>
 
@@ -1158,6 +1169,8 @@
         <?php foreach($sections as $key => $val){ ?>
         section_list.push('<?php echo $val; ?>');
         <?php } ?>
+
+
         var loadbasicFile = function(id1,id2,event) {
             var image       = document.getElementById(id1);
             var replacement = document.getElementById(id2);
@@ -1173,15 +1186,15 @@
                 cache: false,
                 processData:false
             }).done(function(response){
-                if (response=="success"){
+                if (response=="successfully created" || response=="successfully updated"){
                     var replacement = '<div class="col-md-12"><div id="container">' +
                         '<div id="success-box">' +
                         '<div class="face"><div class="eye"></div><div class="eye right"></div><div class="mouth happy"></div>' +
                         '</div>' +
-                        '<div class="shadow scale"></div> ' +
+                        '<div class="shadow scale"></div>' +
                         '<div class="message">' +
                         '<h1 class="alert">Successfully Submitted!</h1>' +
-                        '<p class="alert-para">The section element has been created.</p>' +
+                        '<p class="alert-para">The section element has been '+ response +'.</p>' +
                         '</div>' +
                         '<button class="button-box"><h1 class="green">continue</h1></button></div></div>' +
                         '</div>';
@@ -1195,7 +1208,7 @@
                         '<div class="eye"></div><div class="eye right"></div><div class="mouth sad"></div> ' +
                         '</div> ' +
                         '<div class="shadow scale"></div> ' +
-                        '<div class="message2"><h1 class="alert">Error! Something went wrong.</h1><p class="alert-para">The section element could not be created.</div> ' +
+                        '<div class="message2"><h1 class="alert">Error! Something went wrong.</h1><p class="alert-para">The section element could not be created or updated.</div> ' +
                         '<button class="button-box"><h1 class="red">try again</h1></button></div></div> ' +
                         '</div>';
                     $('#' + divID).html(replacements);
@@ -1216,17 +1229,19 @@
                         'insertTable', 'blockQuote', '|',
                         'undo', 'redo'
                     ],
-                    shouldNotGroupWhenFull: false,
-
                 },
             } )
                 .then( editor => {
                     window.editor = editor;
+                    editor.model.document.on( 'change:data', () => {
+                        $( '#' + elementId).text(editor.getData());
+                    } );
                 } )
                 .catch( err => {
                     console.error( err.stack );
                 } );
         }
+
 
         $(document).ready(function () {
             if(section_list.includes("basic_section")) {
@@ -1253,8 +1268,7 @@
 
             $("#basic-form").submit(function(event){
                 event.preventDefault(); //prevent default action
-                if (!this.checkValidity()) { return false;}
-
+                if (!this.checkValidity()) { return false; }
                 var post_url       = $(this).attr("action"); //get form action url
                 var request_method = $(this).attr("method"); //get form GET/POST method
                 var form_data      = new FormData(this); //Creates new FormData object

@@ -90,7 +90,7 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
       Route::get('/user/{id}/edit', 'App\Http\Controllers\UserController@edit')->name('user.edit');
       Route::patch('/status/{id}/update', 'App\Http\Controllers\UserController@statusupdate')->name('user-status.update');
       Route::delete('/user/{id}', 'App\Http\Controllers\UserController@destroy')->name('user.destroy');
-  
+
       //End user
 
 
@@ -218,6 +218,7 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
     Route::put('/section-elements-upload-gallery/{id}', 'App\Http\Controllers\SectionElementController@uploadGallery')->name('section-elements-gallery.update');
     Route::post('/section-elements/image-delete', 'App\Http\Controllers\SectionElementController@deleteGallery')->name('section-elements-gallery.delete');
     Route::get('/section-elements/gallery/{id}', 'App\Http\Controllers\SectionElementController@getGallery')->name('section-elements-gallery.display');
+    Route::post('/section-elements/tablist/', 'App\Http\Controllers\SectionElementController@tablistUpdate')->name('section-elements.tablistUpdate');
 
     //End of pages
 });

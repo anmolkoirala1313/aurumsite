@@ -108,7 +108,7 @@ class SectionElementController extends Controller
             }
         }
 
-//        dd($process_elements);
+//        dd($tab1_elements[1]->list_image);
         return view('backend.pages.section_elements.create',compact( 'sections','list_1','list_2','list_3','basic_elements','call_elements','bgimage_elements','tab1_elements','tab2_elements','gallery_elements','list1_elements','list2_elements','process_elements'));
     }
 
@@ -182,15 +182,17 @@ class SectionElementController extends Controller
                     'created_by'             => Auth::user()->id,
                 ];
 
-                if (array_key_exists($i,$request->file('list_image'))){
-                        $image        = $request->file('list_image')[$i];
-                        $name         = uniqid().'_tab1_'.$image->getClientOriginalName();
-                        $path         = base_path().'/public/images/uploads/section_elements/tab_1/';
-                        $moved        = Image::make($image->getRealPath())->resize(370, 370)->orientate()->save($path.$name);
-                        if ($moved){
-                            $data['list_image']= $name;
+                if($request->file('list_image') !== null) {
+                     if (array_key_exists($i, $request->file('list_image'))) {
+                        $image = $request->file('list_image')[$i];
+                        $name = uniqid() . '_tab1_' . $image->getClientOriginalName();
+                        $path = base_path() . '/public/images/uploads/section_elements/tab_1/';
+                        $moved = Image::make($image->getRealPath())->resize(370, 370)->orientate()->save($path . $name);
+                        if ($moved) {
+                            $data['list_image'] = $name;
                         }
 
+                    }
                 }
                 $status = SectionElement::create($data);
             }
@@ -272,7 +274,7 @@ class SectionElementController extends Controller
                 ];
                 if (array_key_exists($i,$request->file('list_image'))){
                     $image        = $request->file('list_image')[$i];
-                    $name         = uniqid().'_list1_'.$image->getClientOriginalName();
+                    $name         = uniqid().'_list3_'.$image->getClientOriginalName();
                     $path         = base_path().'/public/images/uploads/section_elements/process_list/';
                     $moved        = Image::make($image->getRealPath())->resize(600, 330)->orientate()->save($path.$name);
                     if ($moved){
@@ -284,7 +286,7 @@ class SectionElementController extends Controller
             }
         }
         if($status){
-            $response = 'success';
+            $response = 'successfully created';
         }
         else{
             $response = 'error';
@@ -323,7 +325,222 @@ class SectionElementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request->all());
+        $section_name = $request->input('section_name');
+        $section_id   = $request->input('page_section_id');
+
+        if($section_name == 'basic_section'){
+            $basic                      = SectionElement::find($id);
+            $basic->heading             = $request->input('heading');
+            $basic->page_section_id     = $section_id;
+            $basic->subheading          = $request->input('subheading');
+            $basic->description         = $request->input('description');
+            $basic->button              = $request->input('button');
+            $basic->button_link         = $request->input('button_link');
+            $basic->updated_by          = Auth::user()->id;
+            $oldimage                   = $basic->image;
+
+            if (!empty($request->file('image'))){
+                $image                = $request->file('image');
+                $name                 = uniqid().'_basic_'.$image->getClientOriginalName();
+                $path                 = base_path().'/public/images/uploads/section_elements/basic_section/';
+                $moved                = Image::make($image->getRealPath())->resize(660, 410)->orientate()->save($path.$name);
+                if ($moved){
+                    $basic->image = $name;
+                    if (!empty($oldimage) && file_exists(public_path().'/images/uploads/section_elements/basic_section/'.$oldimage)){
+                        @unlink(public_path().'/images/uploads/section_elements/basic_section/'.$oldimage);
+                    }
+                }
+            }
+            $status = $basic->update();
+        }
+        elseif ($section_name == 'call_to_action'){
+            $action                      = SectionElement::find($id);
+            $action->heading             = $request->input('heading');
+            $action->page_section_id     = $section_id;
+            $action->description         = $request->input('description');
+            $action->button              = $request->input('button');
+            $action->button_link         = $request->input('button_link');
+            $action->updated_by          = Auth::user()->id;
+            $status                      = $action->update();
+
+        }
+        elseif ($section_name == 'background_image_section'){
+            $bgimage                      = SectionElement::find($id);
+            $bgimage->heading             = $request->input('heading');
+            $bgimage->page_section_id     = $section_id;
+            $bgimage->subheading          = $request->input('subheading');
+            $bgimage->description         = $request->input('description');
+            $bgimage->updated_by          = Auth::user()->id;
+            $oldimage                     = $bgimage->image;
+
+            if (!empty($request->file('image'))){
+                $image                = $request->file('image');
+                $name                 = uniqid().'_background_'.$image->getClientOriginalName();
+                $path                 = base_path().'/public/images/uploads/section_elements/bgimage_section/';
+                $moved                = Image::make($image->getRealPath())->resize(1920, 1280)->orientate()->save($path.$name);
+                if ($moved){
+                    $bgimage->image = $name;
+                    if (!empty($oldimage) && file_exists(public_path().'/images/uploads/section_elements/bgimage_section/'.$oldimage)){
+                        @unlink(public_path().'/images/uploads/section_elements/bgimage_section/'.$oldimage);
+                    }
+                }
+            }
+            $status = $bgimage->update();
+        }
+
+        if($status){
+            $response = 'successfully updated';
+        }
+        else{
+            $response = 'error';
+        }
+        return response()->json($response);
+    }
+
+    public function tablistUpdate(Request $request)
+    {
+        $section_name       = $request->input('section_name');
+        $section_id         = $request->input('page_section_id');
+        if($section_name == 'tab_section_1'){
+            for ($i=0;$i<3;$i++){
+                $tab1                    = SectionElement::find($request->input('id')[$i]);
+                $tab1->list_header       = $request->input('list_header')[$i];
+                $tab1->page_section_id   = $section_id;
+                $tab1->list_description  = $request->input('list_description')[$i];
+                $tab1->updated_by        = Auth::user()->id;
+                $oldimage                = $tab1->list_image;
+
+                if($request->file('list_image') !== null){
+                    if (array_key_exists($i,$request->file('list_image'))){
+                        $image        = $request->file('list_image')[$i];
+                        $name         = uniqid().'_tab1_'.$image->getClientOriginalName();
+                        $path         = base_path().'/public/images/uploads/section_elements/tab_1/';
+                        $moved        = Image::make($image->getRealPath())->resize(400, 280)->orientate()->save($path.$name);
+                        if ($moved){
+                            $tab1->list_image = $name;
+                            if (!empty($oldimage) && file_exists(public_path().'/images/uploads/section_elements/tab_1/'.$oldimage)){
+                                @unlink(public_path().'/images/uploads/section_elements/tab_1/'.$oldimage);
+                            }
+                        }
+
+                    }
+
+                }
+                $status = $tab1->update();
+            }
+        }
+        elseif ($section_name == 'tab_section_2') {
+            for ($i = 0; $i < 4; $i++) {
+                $tab2                   = SectionElement::find($request->input('id')[$i]);
+                $tab2->heading          = $request->input('heading')[$i];
+                $tab2->page_section_id  = $section_id;
+                $tab2->subheading       = $request->input('subheading')[$i];
+                $tab2->description      = $request->input('description')[$i];
+                $tab2->updated_by       = Auth::user()->id;
+                $status                 = $tab2->update();
+            }
+        }
+        elseif ($section_name == 'list_section_1') {
+            $list1_num   = $request->input('list_number_1');
+            for ($i=0;$i<$list1_num;$i++){
+                $list1                      = SectionElement::find($request->input('id')[$i]);
+                $list1->list_header         = $request->input('list_header')[$i];
+                $list1->page_section_id     = $section_id;
+                $list1->subheading          = $request->input('subheading')[$i];
+                $list1->list_description    = $request->input('list_description')[$i];
+                $list1->button              = $request->input('button')[$i];
+                $list1->button_link         = $request->input('button_link')[$i];
+                $list1->updated_by          = Auth::user()->id;
+                $oldimage                   = $list1->list_image;
+                if($request->file('list_image') !== null){
+                    if (array_key_exists($i,$request->file('list_image'))){
+                        $image        = $request->file('list_image')[$i];
+                        $name         = uniqid().'_list1_'.$image->getClientOriginalName();
+                        $path         = base_path().'/public/images/uploads/section_elements/list_1/';
+                        $moved        = Image::make($image->getRealPath())->resize(400, 280)->orientate()->save($path.$name);
+
+                        if ($moved){
+                            $list1->list_image = $name;
+                            if (!empty($oldimage) && file_exists(public_path().'/images/uploads/section_elements/list_1/'.$oldimage)){
+                                @unlink(public_path().'/images/uploads/section_elements/list_1/'.$oldimage);
+                            }
+                        }
+                    }
+
+                }
+                $status = $list1->update();
+            }
+        }
+        elseif ($section_name == 'list_section_2') {
+            $list2_num   = $request->input('list_number_2');
+            for ($i=0;$i<$list2_num;$i++) {
+                $list2                      = SectionElement::find($request->input('id')[$i]);
+                $list2->list_header         = $request->input('list_header')[$i];
+                $list2->page_section_id     = $section_id;
+                $list2->subheading          = $request->input('subheading')[$i];
+                $list2->list_description    = $request->input('list_description')[$i];
+                $list2->button              = $request->input('button')[$i];
+                $list2->button_link         = $request->input('button_link')[$i];
+                $list2->updated_by          = Auth::user()->id;
+                $oldimage                   = $list2->list_image;
+
+                if($request->file('list_image') !== null){
+                    if (array_key_exists($i,$request->file('list_image'))){
+                        $image        = $request->file('list_image')[$i];
+                        $name         = uniqid().'_list2_'.$image->getClientOriginalName();
+                        $path         = base_path().'/public/images/uploads/section_elements/list_2/';
+                        $moved        = Image::make($image->getRealPath())->resize(600, 330)->orientate()->save($path.$name);
+
+                        if ($moved){
+                            $list2->list_image = $name;
+                            if (!empty($oldimage) && file_exists(public_path().'/images/uploads/section_elements/list_2/'.$oldimage)){
+                                @unlink(public_path().'/images/uploads/section_elements/list_2/'.$oldimage);
+                            }
+                        }
+                    }
+                }
+                $status = $list2->update();
+            }
+        }
+        elseif ($section_name == 'process_selection') {
+            $list3_num   = $request->input('list_number_3');
+            for ($i=0;$i<$list3_num;$i++) {
+                $list3                      = SectionElement::find($request->input('id')[$i]);
+                $list3->list_header         = $request->input('list_header')[$i];
+                $list3->page_section_id     = $section_id;
+                $list3->subheading          = $request->input('subheading')[$i];
+                $list3->list_description    = $request->input('list_description')[$i];
+                $list3->button              = $request->input('button')[$i];
+                $list3->button_link         = $request->input('button_link')[$i];
+                $list3->updated_by          = Auth::user()->id;
+                $oldimage                   = $list3->list_image;
+
+                if($request->file('list_image') !== null){
+                    if (array_key_exists($i,$request->file('list_image'))){
+                        $image        = $request->file('list_image')[$i];
+                        $name         = uniqid().'_list3_'.$image->getClientOriginalName();
+                        $path         = base_path().'/public/images/uploads/section_elements/process_list/';
+                        $moved        = Image::make($image->getRealPath())->resize(600, 330)->orientate()->save($path.$name);
+                        if ($moved){
+                            $list3->list_image = $name;
+                            if (!empty($oldimage) && file_exists(public_path().'/images/uploads/section_elements/process_list/'.$oldimage)){
+                                @unlink(public_path().'/images/uploads/section_elements/process_list/'.$oldimage);
+                            }
+                        }
+                    }
+                }
+                $status = $list3->update();
+
+            }
+        }
+
+        if($status){
+            $response = 'successfully updated';
+        }
+        else{
+            $response = 'error';
+        }
+        return response()->json($response);
     }
 
     /**
