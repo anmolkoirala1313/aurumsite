@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserCreateRequest;
+use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -48,7 +50,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserCreateRequest $request)
     {
         $data=[
             'name'              =>$request->input('name'),
@@ -56,13 +58,12 @@ class UserController extends Controller
             'gender'            =>$request->input('gender'),
             'contact'           =>$request->input('contact'),
             'user_type'         =>$request->input('user_type'),
-            'status'            =>$request->input('status'),
             'password'          =>bcrypt($request->input('password')),
         ];
         if(!empty($request->file('image'))) {
             $image = $request->file('image');
             $name1 = uniqid() . '_' . $image->getClientOriginalName();
-            $path = base_path() . '/public/images/profiles/' . $name1;
+            $path = base_path() . '/public/images/uploads/profiles/' . $name1;
             $image_resize = Image::make($image->getRealPath())->orientate();
             $image_resize->resize(300, 300);
             if ($image_resize->save($path, 80)) {
@@ -100,7 +101,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $useredit = User::find($id);
+        return view('backend.user.edit',compact('useredit'));
     }
 
     /**
@@ -110,7 +112,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserUpdateRequest $request, $id)
     {
         $user                 =  User::find($id);
         $user->name           =  $request->input('name');
@@ -221,5 +223,43 @@ class UserController extends Controller
             Session::flash('error','Something Went Wrong. Your Password could not be Updated');
         }
         return redirect()->back();
+    }
+
+    public function userUpdate(UserUpdateRequest $request, $id)
+    {
+        $user                 =  User::find($id);
+        $user->name           =  $request->input('name');
+        $user->email          =  $request->input('email');
+        $user->gender         =  $request->input('gender');
+        $user->contact        =  $request->input('contact');
+        $user->user_type      =  $request->input('user_type');
+
+        if($request->input('password') !== null){
+            $user->password        =  bcrypt($request->input('password'));
+        }
+        $oldimage             =  $user->image;
+        if (!empty($request->file('image'))){
+            $image =$request->file('image');
+            $name1 = uniqid().'_'.$image->getClientOriginalName();
+            $path = base_path().'/public/images/uploads/profiles/'.$name1;
+            $image_resize = Image::make($image->getRealPath())->orientate();
+            $image_resize->resize(300, 300);
+            if ($image_resize->save($path,80)){
+                $user->image= $name1;
+                if (!empty($oldimage) && file_exists(public_path().'/images/uploads/profiles/'.$oldimage)){
+                    @unlink(public_path().'/images/uploads/profiles/'.$oldimage);
+                }
+            }
+        }
+        $status = $user->update();
+       
+        if($status){
+            Session::flash('success','User Details Updated Successfully');
+        }
+        else{
+            Session::flash('error','Something Went Wrong. User Details could not be Updated');
+        }
+        return redirect()->back();
+
     }
 }

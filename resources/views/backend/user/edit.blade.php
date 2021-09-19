@@ -1,32 +1,33 @@
 @extends('backend.layouts.master')
-@section('title') Create User @endsection
+@section('title') Edit User @endsection
 @section('content')
+
 
 <div class="col-xl-9 col-lg-8  col-md-12">
 
 <div class="col-xl-12 col-lg-12 col-md-12">
-    {!! Form::open(['route' => 'user.store','method'=>'post','class'=>'needs-validation','novalidate'=>'','enctype'=>'multipart/form-data']) !!}
+    {!! Form::open(['url'=>route('users.update', @$useredit->id),'method'=>'PUT','class'=>'needs-validation','novalidate'=>'','enctype'=>'multipart/form-data']) !!}
 
     <div class="row">
         <div class="col-md-6">
             <div class="card ctm-border-radius shadow-sm grow flex-fill">
                 <div class="card-header">
                     <h4 class="card-title mb-0">
-                        User Details
+                        Edit User Detail's
                     </h4>
                 </div>
 
                 <div class="card-body">
                     <div class="form-group mb-3">
                         <label>Full Name <span class="text-muted text-danger">*</span></label>
-                        <input type="text" class="form-control" id="name" name="name" required>
+                        <input type="text" class="form-control" id="name" name="name" value="{{@$useredit->name}}" required>
                         <div class="invalid-feedback">
                             Please enter your fullname
                         </div>
                     </div>
                     <div class="form-group mb-3">
                         <label>Email <span class="text-muted text-danger">*</span></label>
-                        <input type="email" class="form-control" name="email" id="email" required>
+                        <input type="email" class="form-control" name="email" id="email" value="{{@$useredit->email}}" required>
                         <div class="invalid-feedback">
                             Please enter your email.
                         </div>
@@ -40,7 +41,7 @@
                     <div class="form-group">
                             <label>Phone Number <span class="text-muted text-danger">*</span></label>
                             <input type="text" class="form-control"
-                                id="contact" name="contact"  required>
+                                id="contact" name="contact" value="{{@$useredit->contact}}"  required>
                             <div class="invalid-feedback">
                                     Please enter phone number.
                             </div>
@@ -52,11 +53,11 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Password <span class="text-muted text-danger">*</span></label>
+                            <label>Password <span class="text-muted text-danger"></span></label>
 
                             <label for="password" class="text-heading"></label>
                             <input type="password" class="form-control"
-                                id="password" name="password"  required>
+                                id="password" name="password"  placeholder="If you want to change then only type.." >
                             <div class="invalid-feedback">
                                     Please enter password.
                             </div>
@@ -72,9 +73,9 @@
                             <label>Gender <span class="text-muted text-danger">*</span></label>
                             <select class="form-control  shadow-none " name="gender" required>
                                 <option value disabled selected> Select Gender</option>
-                                <option value="male"> Male</option>
-                                <option value="female"> Female</option>
-                                <option value="others"> Others</option>
+                                <option value="male" <?php if(@$useredit->gender == "male") echo "selected"; ?>> Male</option>
+                                <option value="female" <?php if(@$useredit->gender == "female") echo "selected"; ?>> Female</option>
+                                <option value="others" <?php if(@$useredit->gender == "others") echo "selected"; ?>> Others</option>
                             </select>
                             <div class="invalid-feedback">
                                 Please select a gender.
@@ -96,7 +97,7 @@
             <div class="card ctm-border-radius shadow-sm grow flex-fill">
                 <div class="card-header">
                     <h4 class="card-title mb-0">
-                        User Details <span class="text-muted text-danger">*</span>
+                        Edit User Detail's <span class="text-muted text-danger">*</span>
                     </h4>
                 </div>
                 <div class="card-body">
@@ -118,7 +119,12 @@
                                         @endif
                                     </div>
                                 </div>
-                                <img id="current-img" src="{{asset('/images/uploads/default-placeholder.png')}}" alt="profile_image" class="w-100 current-img">
+                                <?php if(!empty($useredit->image)){?>
+                                <img id="current-img"  src="<?php if(!empty($useredit->image)){ echo '/images/uploads/profiles/'.$useredit->image; }  ?>"  alt="{{@$useredit->name}}" >
+                                <?php }else{?>
+                                    <img id="current-img" src="{{asset('/images/uploads/default-placeholder.png')}}" alt="profile_image" class="w-100 current-img">
+
+                                <?php }?>
                             </div>
                             <span class="ctm-text-sm">*use image minimum of 300 x 300px for profile</span>
                         </div>
@@ -129,8 +135,8 @@
                         <label>User Type <span class="text-muted text-danger">*</span></label>
                         <select class="form-control" name="user_type" required>
                             <option value disabled selected> Select User Type</option>
-                                <option value="general"> General</option>
-                                <option value="admin"> Admin</option>
+                                <option value="general" <?php if(@$useredit->user_type == "general") echo "selected"; ?>> General</option>
+                                <option value="admin" <?php if(@$useredit->user_type == "admin") echo "selected"; ?>> Admin</option>
                         </select>
                         <div class="invalid-feedback">
                             Please select a user type.
@@ -138,7 +144,7 @@
                     </div>
 
                     <div class="text-center">
-                        <button type="submit" class="btn btn-theme button-1 text-white ctm-border-radius mt-4" value="submit">Submit</button>
+                        <button type="submit" class="btn btn-theme button-1 text-white ctm-border-radius mt-4" value="submit">Update</button>
                     </div>
 
                 </div>
