@@ -120,6 +120,10 @@ class SettingController extends Controller
         $update_theme->address                  =  $request->input('address');
         $update_theme->email                    =  $request->input('email');
         $update_theme->google_analytics         =  $request->input('google_analytics');
+        $update_theme->customer_served          =  $request->input('customer_served');
+        $update_theme->visa_approved            =  $request->input('visa_approved');
+        $update_theme->success_stories          =  $request->input('success_stories');
+        $update_theme->happy_customers          =  $request->input('happy_customers');
         $update_theme->updated_by               =  Auth::user()->id;
 
         $status=$update_theme->update();
@@ -129,6 +133,27 @@ class SettingController extends Controller
         }
         else{
             Session::flash('error','Something Went Wrong. Settings could not be Updated');
+        }
+        return redirect()->back();
+    }
+
+
+    public function statusupdate(Request $request, $id)
+    {
+        $update_theme                           =  Setting::find($id);
+        $update_theme->customer_served          =  $request->input('customer_served');
+        $update_theme->visa_approved            =  $request->input('visa_approved');
+        $update_theme->success_stories          =  $request->input('success_stories');
+        $update_theme->happy_customers          =  $request->input('happy_customers');
+        $update_theme->updated_by               =  Auth::user()->id;
+
+        $status=$update_theme->update();
+
+        if($status){
+            Session::flash('success','Status Updated Successfully');
+        }
+        else{
+            Session::flash('error','Something Went Wrong. Status could not be Updated');
         }
         return redirect()->back();
     }

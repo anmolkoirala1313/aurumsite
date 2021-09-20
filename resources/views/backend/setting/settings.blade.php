@@ -72,6 +72,14 @@
                            aria-controls="media" aria-selected="false">
                             Award Section</a>
                     </li>
+
+                 
+                    <li class="list-group-item text-center button-6">
+                        <a class="in-active"
+                           id="status-info-tab" data-toggle="pill" data-number="" href="#status-info" role="tab"
+                           aria-controls="media" aria-selected="false">
+                           Status Section</a>
+                    </li>
                 </ul>
             </div>
 
@@ -585,6 +593,86 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+
+                            {{--  End Tab content--}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane tab-pane-parent fade px-0" id="status-info" role="tabpanel"
+                     aria-labelledby="status-info-tab">
+                    <div class="bg-transparent border-0">
+                        <div id="sensitive-info-collapse" class="collapse show collapsible"
+                             aria-labelledby="heading-sensitive-info"
+                             data-parent="#collapse-tabs-accordion">
+                            {{--  Tab content--}}
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card ctm-border-radius shadow-sm grow flex-fill">
+                                            <div class="card-header">
+                                                <h4 class="card-title mb-0">
+                                                    Add Status Details
+                                                </h4>
+                                            </div>
+                                            @if(!empty($settings))
+                                                {!! Form::open(['url'=>route('status.update', @$settings->id),'method'=>'PUT','enctype'=>'multipart/form-data']) !!}
+                                            @else
+
+                                                <form action="{{ route('setting.store') }}" class="needs-validation" novalidate="" method="POST" enctype="multipart/form-data">
+                                                @csrf
+                                            @endif
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group">
+                                                                    <label for="customer_served" class="text-heading">Customer Served</label>
+                                                                    <input type="number" min="100" class="form-control form-control-lg"
+                                                                            id="customer_served" name="customer_served" value="{{@$settings->customer_served}}" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-6 leave-col">
+                                                                <div class="form-group">
+                                                                    <label for="visa_approved" class="text-heading">Visa Approved</label>
+                                                                    <input type="number" min="100" class="form-control form-control-lg"
+                                                                            id="visa_approved" name="visa_approved" value="{{@$settings->visa_approved}}" required>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group">
+                                                                    <label for="success_stories" class="text-heading">Success Stories</label>
+                                                                    <input type="number" min="100" class="form-control form-control-lg"
+                                                                            id="success_stories" name="success_stories" value="{{@$settings->success_stories}}" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-6 leave-col">
+                                                                <div class="form-group">
+                                                                    <label for="happy_customers" class="text-heading">Happy Customers</label>
+                                                                    <input type="number" min="100" class="form-control form-control-lg"
+                                                                            id="happy_customers" name="happy_customers" value="{{@$settings->happy_customers}}" required>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                      
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="text-center mt-3">
+                                                    <input type="submit" value="Update Status" class="btn btn-theme text-white ctm-border-radius button-1"/>
+                                                </div>
+                                            </div>
+
+                                            {!! Form::close() !!}
+
+                                        </div>
+                                    </div>
+                                   
                                 </div>
 
                             {{--  End Tab content--}}
