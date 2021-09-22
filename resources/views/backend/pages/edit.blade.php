@@ -200,7 +200,7 @@
                                 <div class="form-group">
                                     <label>Number of List <span class="text-muted text-danger">*</span></label>
                                     <select class="form-control select" name="list_number_1" id="list_number_1">
-                                        <option {{($list1 == null) ? "selected":"disabled"}}>Select Number of List</option>
+                                        <option {{($list1 == null) ? "disabled selected":"disabled"}}>Select Number of List</option>
                                         <option value="3" {{($list1 =="3") ? "selected":""}}>Three</option>
                                         <option value="6" {{($list1 =="6") ? "selected":""}}>Six</option>
                                         <option value="9" {{($list1 =="9") ? "selected":""}}>Nine</option>
@@ -233,7 +233,7 @@
                                 <div class="form-group">
                                     <label>Select number of List <span class="text-muted text-danger">*</span></label>
                                     <select class="form-control select" name="list_number_2" id="list_number_2">
-                                        <option {{($list2 == null) ? "selected":"disabled"}}>Select Number of List</option>
+                                        <option {{($list2 == null) ? "disabled selected":"disabled"}}>Select Number of List</option>
                                         <option value="3" {{($list2 =="3") ? "selected":""}}>Three</option>
                                         <option value="6" {{($list2 =="6") ? "selected":""}}>Six</option>
                                         <option value="9" {{($list2 =="9") ? "selected":""}}>Nine</option>
@@ -283,7 +283,7 @@
                                 <div class="form-group">
                                     <label>Select number of Process Steps <span class="text-muted text-danger">*</span></label>
                                     <select class="form-control select" name="list_number_3" id="list_number_3">
-                                        <option {{($list3 == null) ? "selected":"disabled"}}>Select Number of List</option>
+                                        <option {{($list3 == null) ? "disabled selected":"disabled"}}>Select Number of List</option>
                                         <option value="3" {{($list3 =="3") ? "selected":""}}>Three</option>
                                         <option value="6" {{($list3 =="6") ? "selected":""}}>Six</option>
                                         <option value="9" {{($list3 =="9") ? "selected":""}}>Nine</option>

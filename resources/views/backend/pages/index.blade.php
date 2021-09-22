@@ -261,7 +261,7 @@
             // $('.deleterole').attr('action',action);
             swal({
                 title: "Are You Sure?",
-                text: "You will not be able to recover this",
+                text: "Removing page will delete its section and data",
                 type: "info",
                 showCancelButton: true,
                 closeOnConfirm: false,

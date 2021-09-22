@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Page;
 use App\Models\PageSection;
+use App\Models\SectionElement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -144,7 +145,7 @@ class PageController extends Controller
         $list3              = "";
         $list3_id           = "";
         foreach ($page->sections as $section){
-            $sections[] = $section->section_slug;
+            $sections[$section->id] = $section->section_slug;
             if( $section->section_slug == 'list_section_1'){
                 $list1      = $section->list_number_1;
                 $list1_id   = $section->id;
@@ -247,9 +248,72 @@ class PageController extends Controller
             foreach ($db_section_slug as $dbs){
                 if(!in_array($dbs,$incoming_sections)){
                     $delete_section   = PageSection::where('page_id',$id)->where('section_slug',$dbs);
+                    $sections         = PageSection::with('elements')->where('page_id',$id)->where('section_slug',$dbs)->get();
+                    foreach ($sections as $section){
+                        if($section->section_slug == 'basic_section'){
+                            $basic_element = SectionElement::where('page_section_id', $section->id)
+                                ->first();
+                            if (!empty($basic_element->image) && file_exists(public_path().'/images/uploads/section_elements/basic_section/'.$basic_element->image)){
+                                @unlink(public_path().'/images/uploads/section_elements/basic_section/'.$basic_element->image);
+                            }
+                        }
+                        if($section->section_slug == 'background_image_section'){
+                            $bgimage_element = SectionElement::where('page_section_id', $section->id)
+                                ->first();
+                            if (!empty($bgimage_element->image) && file_exists(public_path().'/images/uploads/section_elements/bgimage_section/'.$bgimage_element->image)){
+                                @unlink(public_path().'/images/uploads/section_elements/bgimage_section/'.$bgimage_element->image);
+                            }
+                        }
+                        if($section->section_slug == 'tab_section_1'){
+                            $tab1_element = SectionElement::where('page_section_id', $section->id)
+                                ->get();
+                            foreach ($tab1_element as $elements){
+                                if (!empty($elements->list_image) && file_exists(public_path().'/images/uploads/section_elements/tab_1/'.$elements->list_image)){
+                                    @unlink(public_path().'/images/uploads/section_elements/tab_1/'.$elements->list_image);
+                                }
+                            }
+
+                        }
+                        if($section->section_slug == 'list_section_1'){
+                            $list1_element = SectionElement::where('page_section_id', $section->id)
+                                ->get();
+                            foreach ($list1_element as $elements){
+                                if (!empty($elements->list_image) && file_exists(public_path().'/images/uploads/section_elements/list_1/'.$elements->list_image)){
+                                    @unlink(public_path().'/images/uploads/section_elements/list_1/'.$elements->list_image);
+                                }
+                            }
+                        }
+                        if($section->section_slug == 'list_section_2'){
+                            $list2_element = SectionElement::where('page_section_id', $section->id)
+                                ->get();
+                            foreach ($list2_element as $elements){
+                                if (!empty($elements->list_image) && file_exists(public_path().'/images/uploads/section_elements/list_2/'.$elements->list_image)){
+                                    @unlink(public_path().'/images/uploads/section_elements/list_2/'.$elements->list_image);
+                                }
+                            }
+                        }
+                        if($section->section_slug == 'process_selection'){
+                            $list2_element = SectionElement::where('page_section_id', $section->id)
+                                ->get();
+                            foreach ($list2_element as $elements){
+                                if (!empty($elements->list_image) && file_exists(public_path().'/images/uploads/section_elements/process_list/'.$elements->list_image)){
+                                    @unlink(public_path().'/images/uploads/section_elements/process_list/'.$elements->list_image);
+                                }
+                            }
+                        }
+                    }
                     $delete_status    = $delete_section->delete();
                 }
             }
+        }else{
+            $delete_section   = PageSection::where('page_id',$id);
+            $delete_status    = $delete_section->delete();
+            $section_status = PageSection::create([
+                'section_name'                  => 'basic section',
+                'section_slug'                  => 'basic_section',
+                'page_id'                       => $page->id,
+                'created_by'                    => Auth::user()->id,
+            ]);
         }
 
         if($status){
@@ -270,7 +334,61 @@ class PageController extends Controller
      */
     public function destroy($id)
     {
-        $delete             = Page::find($id);
+        $delete             = Page::with('sections')->find($id);
+
+        foreach ($delete->sections as $section){
+            if($section->section_slug == 'basic_section'){
+                $basic_element = SectionElement::where('page_section_id', $section->id)
+                    ->first();
+                if (!empty($basic_element->image) && file_exists(public_path().'/images/uploads/section_elements/basic_section/'.$basic_element->image)){
+                    @unlink(public_path().'/images/uploads/section_elements/basic_section/'.$basic_element->image);
+                }
+            }
+            if($section->section_slug == 'background_image_section'){
+                $bgimage_element = SectionElement::where('page_section_id', $section->id)
+                    ->first();
+                if (!empty($bgimage_element->image) && file_exists(public_path().'/images/uploads/section_elements/bgimage_section/'.$bgimage_element->image)){
+                    @unlink(public_path().'/images/uploads/section_elements/bgimage_section/'.$bgimage_element->image);
+                }
+            }
+            if($section->section_slug == 'tab_section_1'){
+                $tab1_element = SectionElement::where('page_section_id', $section->id)
+                    ->get();
+                foreach ($tab1_element as $elements){
+                    if (!empty($elements->list_image) && file_exists(public_path().'/images/uploads/section_elements/tab_1/'.$elements->list_image)){
+                        @unlink(public_path().'/images/uploads/section_elements/tab_1/'.$elements->list_image);
+                    }
+                }
+
+            }
+            if($section->section_slug == 'list_section_1'){
+                $list1_element = SectionElement::where('page_section_id', $section->id)
+                    ->get();
+                foreach ($list1_element as $elements){
+                    if (!empty($elements->list_image) && file_exists(public_path().'/images/uploads/section_elements/list_1/'.$elements->list_image)){
+                        @unlink(public_path().'/images/uploads/section_elements/list_1/'.$elements->list_image);
+                    }
+                }
+            }
+            if($section->section_slug == 'list_section_2'){
+                $list2_element = SectionElement::where('page_section_id', $section->id)
+                    ->get();
+                foreach ($list2_element as $elements){
+                    if (!empty($elements->list_image) && file_exists(public_path().'/images/uploads/section_elements/list_2/'.$elements->list_image)){
+                        @unlink(public_path().'/images/uploads/section_elements/list_2/'.$elements->list_image);
+                    }
+                }
+            }
+            if($section->section_slug == 'process_selection'){
+                $list2_element = SectionElement::where('page_section_id', $section->id)
+                    ->get();
+                foreach ($list2_element as $elements){
+                    if (!empty($elements->list_image) && file_exists(public_path().'/images/uploads/section_elements/process_list/'.$elements->list_image)){
+                        @unlink(public_path().'/images/uploads/section_elements/process_list/'.$elements->list_image);
+                    }
+                }
+            }
+        }
         $rid                = $delete->id;
         $delete->delete();
         return '#page_'.$rid;

@@ -524,7 +524,7 @@
                                     {!! Form::open(['route' => 'section-elements.store','method'=>'post','class'=>'needs-validation','id'=>'tab2-form','novalidate'=>'']) !!}
                                 @endif
                                     <div id="tab2-form-ajax">
-                                        <div class="accordion add-tab-section2-details" id="accordion-details-two">
+                                        <div class="accordion add-tab-section2-details" id="accordion-details">
 
                                             <div class="card shadow-sm ctm-border-radius">
                                                 <div class="card-header" id="headingtab2">
@@ -733,101 +733,102 @@
                                 @endif
                                     <div id="list1-form-ajax">
                                         <div class="accordion add-employee" id="accordion-details">
+                                            <input type="hidden" class="form-control" value="{{@$list1_elements}}" name="list1_elements">
 
-                                        @for ($i = 1; $i <=$list_1; $i++)
-                                        <div class="card shadow-sm ctm-border-radius">
-                                            <div class="card-header" id="listheading{{$i}}">
-                                                <h4 class="cursor-pointer mb-0">
-                                                    <a class="{{($i==1) ? 'coll-arrow d-block text-dark':'coll-arrow d-block text-dark collapsed'}}" href="javascript:void(0)" data-toggle="collapse" data-target="#list-heading-{{$i}}" aria-expanded="{{($i==1) ? 'true':'false'}}">
-                                                        List {{$i}} details <span class="text-muted text-danger">*</span>
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div class="card-body p-0">
-                                                <div id="list-heading-{{$i}}" class="{{($i==1) ? 'collapse show ctm-padding':'collapse ctm-padding'}}" aria-labelledby="listheading{{$i}}" data-parent="#accordion-details" >
+                                            @for ($i = 1; $i <=$list_1; $i++)
+                                            <div class="card shadow-sm ctm-border-radius">
+                                                <div class="card-header" id="listheading{{$i}}">
+                                                    <h4 class="cursor-pointer mb-0">
+                                                        <a class="{{($i==1) ? 'coll-arrow d-block text-dark':'coll-arrow d-block text-dark collapsed'}}" href="javascript:void(0)" data-toggle="collapse" data-target="#list-heading-{{$i}}" aria-expanded="{{($i==1) ? 'true':'false'}}">
+                                                            List {{$i}} details <span class="text-muted text-danger">*</span>
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div class="card-body p-0">
+                                                    <div id="list-heading-{{$i}}" class="{{($i==1) ? 'collapse show ctm-padding':'collapse ctm-padding'}}" aria-labelledby="listheading{{$i}}" data-parent="#accordion-details" >
 
-                                                    <div class="row">
-                                                        <div class="col-md-7">
-                                                            <div class="card ctm-border-radius shadow-sm flex-fill">
-                                                                <div class="card-body">
-                                                                    <div class="form-group mb-3">
-                                                                        <label>Heading <span class="text-muted text-danger">*</span></label>
-                                                                        <input type="hidden" class="form-control" value="{{$key}}"    name="page_section_id" required>
-                                                                        <input type="hidden" class="form-control" value="{{$value}}"  name="section_name" required>
-                                                                        <input type="hidden" class="form-control" value="{{@$list1_elements[$i-1]->id}}" name="id[]">
-                                                                        <input type="hidden" class="form-control" value="{{$list_1}}" name="list_number_1" required>
-                                                                        <input type="text" class="form-control" name="list_header[]" value="{{@$list1_elements[$i-1]->list_header}}" required>
-                                                                        <div class="invalid-feedback">
-                                                                            Please enter the heading.
+                                                        <div class="row">
+                                                            <div class="col-md-7">
+                                                                <div class="card ctm-border-radius shadow-sm flex-fill">
+                                                                    <div class="card-body">
+                                                                        <div class="form-group mb-3">
+                                                                            <label>Heading <span class="text-muted text-danger">*</span></label>
+                                                                            <input type="hidden" class="form-control" value="{{$key}}"    name="page_section_id" required>
+                                                                            <input type="hidden" class="form-control" value="{{$value}}"  name="section_name" required>
+                                                                            <input type="hidden" class="form-control" value="{{@$list1_elements[$i-1]->id}}" name="id[]">
+                                                                            <input type="hidden" class="form-control" value="{{$list_1}}" name="list_number_1" required>
+                                                                            <input type="text" class="form-control" name="list_header[]" value="{{@$list1_elements[$i-1]->list_header}}" required>
+                                                                            <div class="invalid-feedback">
+                                                                                Please enter the heading.
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="form-group mb-3">
-                                                                        <label>Sub Heading <span class="text-muted text-danger">*</span></label>
-                                                                        <input type="text" class="form-control" name="subheading[]" value="{{@$list1_elements[$i-1]->subheading}}" required>
-                                                                        <div class="invalid-feedback">
-                                                                            Please enter the sub heading.
+                                                                        <div class="form-group mb-3">
+                                                                            <label>Sub Heading <span class="text-muted text-danger">*</span></label>
+                                                                            <input type="text" class="form-control" name="subheading[]" value="{{@$list1_elements[$i-1]->subheading}}" required>
+                                                                            <div class="invalid-feedback">
+                                                                                Please enter the sub heading.
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="form-group mb-3">
-                                                                        <label>Description <span class="text-muted text-danger">*</span></label>
-                                                                        <textarea class="form-control" rows="6" name="list_description[]" required>{{@$list1_elements[$i-1]->list_description}}</textarea>
-                                                                        <div class="invalid-feedback">
-                                                                            Please write the description.
+                                                                        <div class="form-group mb-3">
+                                                                            <label>Description <span class="text-muted text-danger">*</span></label>
+                                                                            <textarea class="form-control" rows="6" name="list_description[]" required>{{@$list1_elements[$i-1]->list_description}}</textarea>
+                                                                            <div class="invalid-feedback">
+                                                                                Please write the description.
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="form-group mb-3">
-                                                                        <label>Button Text </label>
-                                                                        <input type="text" maxlength="18" class="form-control" value="{{@$list1_elements[$i-1]->button}}" name="button[]">
-                                                                        <div class="invalid-feedback">
-                                                                            Please enter the button text.
+                                                                        <div class="form-group mb-3">
+                                                                            <label>Button Text </label>
+                                                                            <input type="text" maxlength="18" class="form-control" value="{{@$list1_elements[$i-1]->button}}" name="button[]">
+                                                                            <div class="invalid-feedback">
+                                                                                Please enter the button text.
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="form-group mb-3">
-                                                                        <label>Button Link </label>
-                                                                        <input type="text" class="form-control" value="{{@$list1_elements[$i-1]->button_link}}" name="button_link[]">
-                                                                        <div class="invalid-feedback">
-                                                                            Please enter the button link.
+                                                                        <div class="form-group mb-3">
+                                                                            <label>Button Link </label>
+                                                                            <input type="text" class="form-control" value="{{@$list1_elements[$i-1]->button_link}}" name="button_link[]">
+                                                                            <div class="invalid-feedback">
+                                                                                Please enter the button link.
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-md-5">
-                                                            <div class="card ctm-border-radius shadow-sm flex-fill">
-                                                                <div class="card-body">
-                                                                    <div class="row justify-content-center">
-                                                                        <div class="col-9 mb-4">
-                                                                            <div class="custom-file h-auto">
-                                                                                <div class="avatar-upload">
-                                                                                    <div class="avatar-edit">
-                                                                                        <input type="file" class="custom-file-input" hidden id="list-{{$i}}-image" onchange="loadbasicFile('list-{{$i}}-image','current-list-{{$i}}-img',event)" name="list_image[]" {{(@sizeof($list1_elements) !== 0)? "":"required"}}>
-                                                                                        <label for="list-{{$i}}-image"></label>
-                                                                                        <div class="invalid-feedback" style="position: absolute; width: 45px;">
-                                                                                            Please select a image.
+                                                            <div class="col-md-5">
+                                                                <div class="card ctm-border-radius shadow-sm flex-fill">
+                                                                    <div class="card-body">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-9 mb-4">
+                                                                                <div class="custom-file h-auto">
+                                                                                    <div class="avatar-upload">
+                                                                                        <div class="avatar-edit">
+                                                                                            <input type="file" class="custom-file-input" hidden id="list-{{$i}}-image" onchange="loadbasicFile('list-{{$i}}-image','current-list-{{$i}}-img',event)" name="list_image[]" {{  (@$list1_elements[$i-1]->id !== null) ? "":"required" }}>
+                                                                                            <label for="list-{{$i}}-image"></label>
+                                                                                            <div class="invalid-feedback" style="position: absolute; width: 45px;">
+                                                                                                Please select a image.
+                                                                                            </div>
                                                                                         </div>
                                                                                     </div>
-                                                                                </div>
-                                                                                <img id="current-list-{{$i}}-img" src="<?php if(!empty(@$list1_elements[$i-1]->list_image)){ echo '/images/uploads/section_elements/list_1/'.@$list1_elements[$i-1]->list_image; } else{  echo '/images/uploads/default-placeholder.png'; } ?>" alt="list_{{$i}}_section_image" class="current-img w-100">
+                                                                                    <img id="current-list-{{$i}}-img" src="<?php if(!empty(@$list1_elements[$i-1]->list_image)){ echo '/images/uploads/section_elements/list_1/'.@$list1_elements[$i-1]->list_image; } else{  echo '/images/uploads/default-placeholder.png'; } ?>" alt="list_{{$i}}_section_image" class="current-img w-100">
 
+                                                                                </div>
+                                                                                <span class="ctm-text-sm text-danger">{{  (@$list1_elements[$i-1]->id !== null) ? "":"*required" }}</span>
+                                                                                <span class="ctm-text-sm">*use image minimum of 400 x 280px for List {{$i}} element</span>
                                                                             </div>
-                                                                            <span class="ctm-text-sm text-danger">{{(@sizeof(@$list1_elements) !== 0)? "":"*required"}}</span>
-                                                                            <span class="ctm-text-sm">*use image minimum of 400 x 280px for List {{$i}} element</span>
+
                                                                         </div>
 
                                                                     </div>
-
                                                                 </div>
                                                             </div>
+
                                                         </div>
 
                                                     </div>
-
                                                 </div>
                                             </div>
-                                        </div>
-                                        @endfor
+                                            @endfor
 
-                                    </div>
+                                        </div>
                                     </div>
                                     <div class="text-center mt-3" id="list1-form-button">
                                         <button id="list1-button-submit" class="btn btn-theme button-1 ctm-border-radius text-white">{{(sizeof(@$list1_elements) !== 0) ? "Update Details":"Add Details"}}</button>
@@ -843,6 +844,7 @@
                                 @endif
                                     <div id="list2-form-ajax">
                                         <div class="accordion listwo" id="accordion-details">
+                                            <input type="hidden" class="form-control" value="{{@$list2_elements}}" name="list2_elements">
 
                                             @for ($i = 1; $i <=$list_2; $i++)
                                                 <div class="card shadow-sm ctm-border-radius">
@@ -910,7 +912,7 @@
                                                                                     <div class="custom-file h-auto">
                                                                                         <div class="avatar-upload">
                                                                                             <div class="avatar-edit">
-                                                                                                <input type="file" class="custom-file-input" hidden id="listtwo-{{$i}}-image" onchange="loadbasicFile('listtwo-{{$i}}-image','current-listtwo-{{$i}}-img',event)" name="list_image[]" {{(@sizeof(@$list2_elements) !== 0)? "":"required"}}>
+                                                                                                <input type="file" class="custom-file-input" hidden id="listtwo-{{$i}}-image" onchange="loadbasicFile('listtwo-{{$i}}-image','current-listtwo-{{$i}}-img',event)" name="list_image[]" {{  (@$list2_elements[$i-1]->id !== null) ? "":"required" }}>
                                                                                                 <label for="listtwo-{{$i}}-image"></label>
                                                                                                 <div class="invalid-feedback" style="position: absolute; width: 45px;">
                                                                                                     Please select a image.
@@ -920,7 +922,7 @@
                                                                                         <img id="current-listtwo-{{$i}}-img" src="<?php if(!empty(@$list2_elements[$i-1]->list_image)){ echo '/images/uploads/section_elements/list_2/'.@$list2_elements[$i-1]->list_image; } else{  echo '/images/uploads/default-placeholder.png'; } ?>" alt="listtwo_{{$i}}_section_image" class="current-img w-100">
 
                                                                                     </div>
-                                                                                    <span class="ctm-text-sm text-danger">{{(@sizeof(@$list2_elements) !== 0)? "":"*required"}}</span>
+                                                                                    <span class="ctm-text-sm text-danger">{{  (@$list2_elements[$i-1]->id !== null) ? "":"*required" }}</span>
                                                                                     <span class="ctm-text-sm">*use image minimum of 400 x 280px for List {{$i}} element</span>
                                                                                 </div>
 
@@ -952,6 +954,7 @@
                                 @endif
                                         <div id="process-form-ajax">
                                             <div class="accordion listwo" id="accordion-details">
+                                                <input type="hidden" class="form-control" value="{{@$process_elements}}" name="list3_elements">
 
                                         @for ($i = 1; $i <=$list_3; $i++)
                                             <div class="card shadow-sm ctm-border-radius">
@@ -1019,7 +1022,7 @@
                                                                                 <div class="custom-file h-auto">
                                                                                     <div class="avatar-upload">
                                                                                         <div class="avatar-edit">
-                                                                                            <input type="file" class="custom-file-input" hidden id="processelect-{{$i}}-image" onchange="loadbasicFile('processelect-{{$i}}-image','current-processelect-{{$i}}-img',event)" name="list_image[]" {{(@sizeof(@$process_elements) !== 0)? "":"required"}}>
+                                                                                            <input type="file" class="custom-file-input" hidden id="processelect-{{$i}}-image" onchange="loadbasicFile('processelect-{{$i}}-image','current-processelect-{{$i}}-img',event)" name="list_image[]" {{(@$process_elements[$i-1]->id !== null) ? "":"required" }}>
                                                                                             <label for="processelect-{{$i}}-image"></label>
                                                                                             <div class="invalid-feedback" style="position: absolute; width: 45px;">
                                                                                                 Please select a image.
@@ -1028,7 +1031,7 @@
                                                                                     </div>
                                                                                     <img id="current-processelect-{{$i}}-img" src="<?php if(!empty(@$process_elements[$i-1]->list_image)){ echo '/images/uploads/section_elements/process_list/'.@$process_elements[$i-1]->list_image; } else{  echo '/images/uploads/default-placeholder.png'; } ?>"  alt="processelect_{{$i}}_section_image" class="current-img w-100">
                                                                                 </div>
-                                                                                <span class="ctm-text-sm text-danger">{{(@sizeof(@$process_elements) !== 0)? "":"*required"}}</span>
+                                                                                <span class="ctm-text-sm text-danger"> {{(@$process_elements[$i-1]->id !== null) ? "":"*required" }}</span>
                                                                                 <span class="ctm-text-sm">*use image minimum of 600 x 330px for  Process {{$i}} element</span>
                                                                             </div>
 
@@ -1177,6 +1180,9 @@
             replacement.src = URL.createObjectURL(event.target.files[0]);
         };
 
+        function reload(){
+            location.reload();
+        }
         function ElementData(post_url,request_method,form_data,divID,buttonID){
             $.ajax({
                 url : post_url,
@@ -1196,7 +1202,7 @@
                         '<h1 class="alert">Successfully Submitted!</h1>' +
                         '<p class="alert-para">The section element has been '+ response +'.</p>' +
                         '</div>' +
-                        '<button class="button-box"><h1 class="green">continue</h1></button></div></div>' +
+                        '<a onclick="reload()" class="button-box"><h1 class="green">Refresh</h1></a></div></div>' +
                         '</div>';
                     $('#' + divID).html(replacement);
                     $('#' + buttonID).html("");
@@ -1209,7 +1215,7 @@
                         '</div> ' +
                         '<div class="shadow scale"></div> ' +
                         '<div class="message2"><h1 class="alert">Error! Something went wrong.</h1><p class="alert-para">The section element could not be created or updated.</div> ' +
-                        '<button class="button-box"><h1 class="red">try again</h1></button></div></div> ' +
+                        '<a onclick="reload()" class="button-box"><h1 class="red">try again</h1></a></div></div> ' +
                         '</div>';
                     $('#' + divID).html(replacements);
                     $('#' + buttonID).html("");

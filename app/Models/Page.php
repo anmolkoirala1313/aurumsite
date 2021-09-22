@@ -13,6 +13,6 @@ class Page extends Model
 
     public function sections()
     {
-        return $this->hasMany('App\Models\PageSection');
+        return $this->hasMany('App\Models\PageSection')->with('elements');
     }
 }
