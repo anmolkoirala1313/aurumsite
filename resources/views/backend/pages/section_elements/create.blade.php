@@ -94,21 +94,21 @@
 
                                             <div class="form-group mb-3">
                                                 <label>Sub Heading </label>
-                                                <input type="text" class="form-control" name="subheading" value="{{@$basic_elements->subheading}}">
+                                                <input type="text" class="form-control" maxlength="25" name="subheading" value="{{@$basic_elements->subheading}}">
                                                 <div class="invalid-feedback">
                                                     Please enter the basic section Sub heading.
                                                 </div>
                                             </div>
                                             <div class="form-group mb-3">
                                                 <label>Description <span class="text-muted text-danger">*</span></label>
-                                                <textarea class="form-control" rows="6" name="description" id="basic_editor" required>{!! @$basic_elements->description !!}</textarea>
+                                                <textarea class="form-control" maxlength="235" rows="6" name="description" id="basic_editor" required>{!! @$basic_elements->description !!}</textarea>
                                                 <div class="invalid-feedback">
                                                     Please write the short description for basic section.
                                                 </div>
                                             </div>
                                             <div class="form-group mb-3">
                                                 <label>Button Text </label>
-                                                <input type="text" maxlength="12" class="form-control" value="{{@$basic_elements->button}}" name="button">
+                                                <input type="text" maxlength="20" class="form-control" value="{{@$basic_elements->button}}" name="button">
                                                 <div class="invalid-feedback">
                                                     Please enter the button text.
                                                 </div>
@@ -196,7 +196,7 @@
                                                 </div>
                                                 <div class="form-group mb-3">
                                                     <label>Button Text </label>
-                                                    <input type="text" maxlength="18" class="form-control" value="{{@$call_elements->button}}" name="button">
+                                                    <input type="text" maxlength="25" class="form-control" value="{{@$call_elements->button}}" name="button">
                                                     <div class="invalid-feedback">
                                                         Please enter the button text.
                                                     </div>
@@ -771,14 +771,14 @@
                                                                         </div>
                                                                         <div class="form-group mb-3">
                                                                             <label>Description <span class="text-muted text-danger">*</span></label>
-                                                                            <textarea class="form-control" rows="6" name="list_description[]" required>{{@$list1_elements[$i-1]->list_description}}</textarea>
+                                                                            <textarea class="form-control" maxlength="215" rows="6" name="list_description[]" required>{{@$list1_elements[$i-1]->list_description}}</textarea>
                                                                             <div class="invalid-feedback">
                                                                                 Please write the description.
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-group mb-3">
                                                                             <label>Button Text </label>
-                                                                            <input type="text" maxlength="18" class="form-control" value="{{@$list1_elements[$i-1]->button}}" name="button[]">
+                                                                            <input type="text" maxlength="20" class="form-control" value="{{@$list1_elements[$i-1]->button}}" name="button[]">
                                                                             <div class="invalid-feedback">
                                                                                 Please enter the button text.
                                                                             </div>
@@ -882,14 +882,14 @@
                                                                             </div>
                                                                             <div class="form-group mb-3">
                                                                                 <label>Description <span class="text-muted text-danger">*</span></label>
-                                                                                <textarea class="form-control" rows="6" name="list_description[]" required>{{@$list2_elements[$i-1]->list_description}}</textarea>
+                                                                                <textarea class="form-control" maxlength="175" rows="6" name="list_description[]" required>{{@$list2_elements[$i-1]->list_description}}</textarea>
                                                                                 <div class="invalid-feedback">
                                                                                     Please write the description.
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group mb-3">
                                                                                 <label>Button Text </label>
-                                                                                <input type="text" maxlength="18" class="form-control" value="{{@$list2_elements[$i-1]->button}}" name="button[]">
+                                                                                <input type="text" maxlength="20" class="form-control" value="{{@$list2_elements[$i-1]->button}}" name="button[]">
                                                                                 <div class="invalid-feedback">
                                                                                     Please enter the button text.
                                                                                 </div>
@@ -992,7 +992,7 @@
                                                                         </div>
                                                                         <div class="form-group mb-3">
                                                                             <label>Description <span class="text-muted text-danger">*</span></label>
-                                                                            <textarea class="form-control" rows="6" name="list_description[]" required>{{@$process_elements[$i-1]->list_description}}</textarea>
+                                                                            <textarea class="form-control" maxlength="650" rows="6" name="list_description[]" required>{{@$process_elements[$i-1]->list_description}}</textarea>
                                                                             <div class="invalid-feedback">
                                                                                 Please write the description.
                                                                             </div>

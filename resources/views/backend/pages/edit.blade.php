@@ -89,7 +89,7 @@
                         </div>
                         <div class="form-group">
                             <label>Slug <span class="text-muted text-danger">*</span></label>
-                            <input type="text" class="form-control" name="slug" id="slug" value="{{$page->name}}" required>
+                            <input type="text" class="form-control" name="slug" id="slug" value="{{$page->slug}}" required>
                             <div class="invalid-feedback">
                                 Please enter the Page Slug.
                             </div>
