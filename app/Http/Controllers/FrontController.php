@@ -6,6 +6,9 @@ use App\Models\Award;
 use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\Client;
+use App\Models\Page;
+use App\Models\PageSection;
+use App\Models\SectionElement;
 use App\Models\ServiceCategory;
 use App\Models\Setting;
 use App\Models\Slider;
@@ -26,9 +29,12 @@ class FrontController extends Controller
     protected $award = null;
     protected $team = null;
     protected $settting = null;
- 
+    protected $page = null;
+    protected $pagesection = null;
+    
 
-    public function __construct(Setting $setting,BlogCategory $bcategory,Blog $blog,Slider $slider,ServiceCategory $S_category,Testimonial $testimonial,Client $client,Award $award,Team $team)
+
+    public function __construct(PageSection $pagesection,Page $page,Setting $setting,BlogCategory $bcategory,Blog $blog,Slider $slider,ServiceCategory $S_category,Testimonial $testimonial,Client $client,Award $award,Team $team)
     {
         $this->bcategory = $bcategory;
         $this->blog = $blog;
@@ -39,6 +45,8 @@ class FrontController extends Controller
         $this->award = $award;
         $this->team = $team;
         $this->setting = $setting;
+        $this->page = $page;
+        $this->pagesection = $pagesection;
         
     }
 
@@ -105,9 +113,9 @@ class FrontController extends Controller
         return view('frontend.pages.blogs.category',compact('allPosts','cat_name','latestPosts','bcategories'));
     }
 
-   
 
-    
+
+
 
     public function searchBlog(Request $request)
     {
@@ -119,4 +127,83 @@ class FrontController extends Controller
         return view('frontend.pages.blogs.search',compact('allPosts','query','latestPosts','bcategories'));
     }
 
+    public function page($page)
+    {
+        $page_detail = $this->page->with('sections')->where('slug', $page)->where('status','active')->first();
+        if (!$page_detail) {
+            return abort(404);
+        }
+        $page_section = $this->pagesection->with('page')->where('page_id', $page_detail->id)->get();
+        if (!$page_section) {
+            return abort(404);
+        }
+        $sections      = array();
+        $list_1 = "";
+        $list_2 = "";
+        $list_3 = "";
+        $basic_elements = "";
+        $call_elements = "";
+        $bgimage_elements = "";
+        $tab1_elements = "";
+        $tab2_elements = "";
+        $gallery_elements = "";
+        $list1_elements = "";
+        $list2_elements = "";
+        $process_elements = "";
+        foreach ($page_section as $section){
+            $sections[$section->id] = $section->section_slug;
+            if($section->section_slug == 'basic_section'){
+                $basic_elements = SectionElement::with('section')
+                    ->where('page_section_id', $section->id)
+                    ->first();
+            }
+            elseif ($section->section_slug == 'call_to_action'){
+                $call_elements = SectionElement::with('section')
+                    ->where('page_section_id', $section->id)
+                    ->first();
+            }
+            elseif ($section->section_slug == 'background_image_section'){
+                $bgimage_elements = SectionElement::with('section')
+                    ->where('page_section_id', $section->id)
+                    ->first();
+            }
+            elseif ($section->section_slug == 'tab_section_1'){
+                $tab1_elements = SectionElement::with('section')
+                    ->where('page_section_id', $section->id)
+                    ->get();
+            }
+            elseif ($section->section_slug == 'tab_section_2'){
+                $tab2_elements = SectionElement::with('section')
+                    ->where('page_section_id', $section->id)
+                    ->get();
+            }
+            elseif ($section->section_slug == 'gallery_section'){
+                $gallery_elements = SectionElement::with('section')
+                    ->where('page_section_id', $section->id)
+                    ->first();
+            }
+            elseif($section->section_slug == 'list_section_1'){
+                $list_1 = $section->list_number_1;
+                $list1_elements = SectionElement::with('section')
+                    ->where('page_section_id', $section->id)
+                    ->get();
+            }
+            elseif($section->section_slug == 'list_section_2'){
+                $list_2 = $section->list_number_2;
+                $list2_elements = SectionElement::with('section')
+                    ->where('page_section_id', $section->id)
+                    ->get();
+            }
+            elseif ($section->section_slug == 'process_selection'){
+                $list_3 = $section->list_number_3;
+                $process_elements = SectionElement::with('section')
+                    ->where('page_section_id', $section->id)
+                    ->get();
+            }
+        }
+
+
+        return view('frontend.pages.dynamic_page', compact('page_detail','sections','list_1','list_2','list_3','basic_elements','call_elements','bgimage_elements','tab1_elements','tab2_elements','gallery_elements','list1_elements','list2_elements','process_elements'));
+
+    }
 }

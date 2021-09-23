@@ -125,7 +125,7 @@
           type='text/css' media='all' />
     <link rel='stylesheet' id='pe-icon-7-stroke-css'
             href="{{asset('assets/frontend/css/themes/css/pe-icon-7-stroke.css')}}"
-          type='text/css' media='all' />
+           type='text/css' media='all' />
     <link rel='stylesheet' id='stroke-gap-icons-style-css'
         href="{{asset('assets/frontend/css/themes/css/stroke-gap-icons-style.css')}}"
           type='text/css' media='all' />
@@ -288,7 +288,7 @@
         <div id="header-wrapper" class="">
             <!-- **Header** -->
             <header id="header">
-              
+
                 <!-- **Main Header Wrapper** -->
                 <div id="main-header-wrapper" class="main-header-wrapper">
 
@@ -314,26 +314,18 @@
                                         <li id="menu-item-1770"
                                          class="{{request()->is('/') ? 'current_page_item' : ''}} menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-5   menu-item-depth-0 menu-links-with-arrow single">
                                             <a href="/">Home</a>
-                                     
                                         </li>
-                                        <li id="menu-item-1768"
-                                            class="{{request()->is('about') ? 'current_page_item' : ''}} menu-item menu-item-type-post_type menu-item-object-page menu-item-depth-0 menu-links-with-arrow single menu-item-simple-parent ">
-                                            <a href="about">About us</a></li>
-                                        <li id="menu-item-7640"
-                                            class="{{request()->is('team') ? 'current_page_item' : ''}} menu-item menu-item-type-post_type menu-item-object-page menu-item-depth-0 menu-links-with-arrow single menu-item-simple-parent ">
-                                            <a href="team">Team</a></li>
+                                      
                                         <li id="menu-item-7641"
                                             class="{{request()->is('service') ? 'current_page_item' : ''}} menu-item menu-item-type-post_type menu-item-object-page menu-item-depth-0 menu-links-with-arrow single menu-item-simple-parent ">
                                             <a href="{{url('/services')}}">Services</a></li>
-                                        <li id="menu-item-1779"
-                                            class="{{request()->is('process') ? 'current_page_item' : ''}} menu-item menu-item-type-post_type menu-item-object-page menu-item-depth-0 menu-links-with-arrow single menu-item-simple-parent ">
-                                            <a href="process">Process</a></li>
+                                      
                                         <li id="menu-item-1779"
                                             class="{{request()->is('blog*') ? 'current_page_item' : ''}}  menu-item menu-item-type-post_type menu-item-object-page menu-item-depth-0 menu-links-with-arrow single menu-item-simple-parent ">
                                             <a href="{{url('/blog')}}">Blog</a></li>
                                         <li id="menu-item-1769"
                                             class="{{request()->is('contact-us') ? 'current_page_item' : ''}} menu-item menu-item-type-post_type menu-item-object-page menu-item-depth-0 menu-links-with-arrow single menu-item-simple-parent ">
-                                            <a href="contact-us">Contact Us</a></li>
+                                            <a href="{{url('/contact-us')}}">Contact Us</a></li>
 
                                     </ul>
                                 </nav>

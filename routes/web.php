@@ -33,20 +33,6 @@ Route::get('/categories', function () {
 
 
 
-
-Route::get('/about', function () {
-    return view('frontend.pages.aboutus');
-});
-
-Route::get('/team', function () {
-    return view('frontend.pages.team');
-});
-
-
-Route::get('/process', function () {
-    return view('frontend.pages.process');
-});
-
 Route::get('/contact-us', function () {
     return view('frontend.pages.contact-us');
 });
@@ -223,3 +209,8 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
 
     //End of pages
 });
+
+
+Route::get('/{page}', 'App\Http\Controllers\FrontController@page')
+        ->name('page');
+        // ->where('page','about-us|privacy-policy|terms-of-condition|services');

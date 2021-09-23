@@ -8,7 +8,7 @@
         background-color: #f6f6f6 !important;
         border-radius: 10px !important;
     }
-    
+
     #ult-carousel-18361286996107b7834a609 .slick-slide {
         margin: 0 15px;
     }
@@ -243,180 +243,7 @@
             <section id="primary" class="content-full-width">
                 <!-- #post-5 -->
                 <div id="post-5" class="post-5 page type-page status-publish hentry">
-                    <div data-vc-full-width="true" data-vc-full-width-init="false"
-                            class="vc_row wpb_row vc_row-fluid vc_custom_1493802286760 vc_row-has-fill">
-                        <div class="wpb_column vc_column_container vc_col-sm-12">
-                            <div class="vc_column-inner ">
-                                <div class="wpb_wrapper">
-                                    <div class="ult-spacer spacer-6107b9a4bd866" data-id="6107b9a4bd866" data-height="90"
-                                            data-height-mobile="45" data-height-tab="75" data-height-tab-portrait="75"
-                                            data-height-mobile-landscape="45" style="clear:both;display:block;"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="rs_col-sm-12 wpb_column vc_column_container vc_col-sm-3 vc_col-lg-3 vc_col-md-12">
-                            <div class="vc_column-inner ">
-                                <div class="wpb_wrapper">
-                                    <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="fadeInRight"
-                                            data-animation-delay="0.5" data-animation-duration="1" data-animation-iteration="1"
-                                            style="opacity:0;" data-opacity_start_effect="">
-                                        <h5
-                                            style="line-height: 36px;text-align: left;font-family:Montserrat;font-weight:700;font-style:normal"
-                                            class="vc_custom_heading vcr_heading-right">The Best Agency for your Business</h5>
-                                        <p style="text-align: left" class="vc_custom_heading vcr_heading-right vc_custom_1496127376202">
-                                            Our strategy is dependent on your world and your goals. Moving towards your goal empowers us
-                                            too!</p>
-                                    </div>
-                                    <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="bounceIn"
-                                            data-animation-delay="0.8" data-animation-duration="1" data-animation-iteration="1"
-                                            style="opacity:0;" data-opacity_start_effect=""><a href='#' target='_self' title=''
-                                                                                            class='dt-sc-button   medium   filled  default'> Consult Now </a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="rs_col-sm-12 wpb_column vc_column_container vc_col-sm-9 vc_col-lg-9 vc_col-md-12">
-                            <div class="vc_column-inner ">
-                                <div class="wpb_wrapper">
-                                    <div class="vc_row wpb_row vc_inner vc_row-fluid">
-                                        <div class="wpb_column vc_column_container vc_col-sm-4">
-                                            <div class="vc_column-inner ">
-                                                <div class="wpb_wrapper">
-                                                    <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="flipInX"
-                                                            data-animation-delay="1.1" data-animation-duration="1" data-animation-iteration="1"
-                                                            style="opacity:0;" data-opacity_start_effect="">
-                                                        <div class='dt-sc-icon-box type5 no-icon-bg aligncenter'>
-                                                            <div class="icon-wrapper"><img width="150" height="150"
-                                                                                            src="{{asset('assets/frontend/images/05/icon-arrow-board.png')}}"
-                                                                                            class="attachment-full" alt="icon-arrow-board" loading="lazy"
-                                                                                            srcset="{{asset('assets/frontend/images/05/icon-arrow-board.png')}} 150w, {{asset('assets/frontend/images/05/icon-arrow-board-100x100.png')}} 100w"
-                                                                                            sizes="(max-width: 150px) 100vw, 150px" /></div>
-                                                            <div class="icon-content">
-                                                                <h4>Engrossing content</h4>
-                                                                <p>The content delivery needs to be original &amp; engrossing to hold the attention
-                                                                    of the visitors.</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="wpb_column vc_column_container vc_col-sm-4">
-                                            <div class="vc_column-inner ">
-                                                <div class="wpb_wrapper">
-                                                    <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="flipInX"
-                                                            data-animation-delay="1.4" data-animation-duration="1" data-animation-iteration="1"
-                                                            style="opacity:0;" data-opacity_start_effect="">
-                                                        <div class='dt-sc-icon-box type5 no-icon-bg aligncenter'>
-                                                            <div class="icon-wrapper"><img width="150" height="150"
-                                                                                            src="{{asset('assets/frontend/images/05/icon-mount-flag.png')}}"
-                                                                                            class="attachment-full" alt="icon-mount-flag" loading="lazy"
-                                                                                            srcset="{{asset('assets/frontend/images/05/icon-mount-flag.png')}} 150w, {{asset('assets/frontend/images/05/icon-mount-flag-100x100.png')}} 100w"
-                                                                                            sizes="(max-width: 150px) 100vw, 150px" /></div>
-                                                            <div class="icon-content">
-                                                                <h4>Engaging copy nails!</h4>
-                                                                <p>When the visitor is impressed with the content, the retention is likely to be
-                                                                    longer in the site.</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="wpb_column vc_column_container vc_col-sm-4">
-                                            <div class="vc_column-inner ">
-                                                <div class="wpb_wrapper">
-                                                    <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="flipInX"
-                                                            data-animation-delay="1.7" data-animation-duration="1" data-animation-iteration="1"
-                                                            style="opacity:0;" data-opacity_start_effect="">
-                                                        <div class='dt-sc-icon-box type5 no-icon-bg aligncenter'>
-                                                            <div class="icon-wrapper"><img width="150" height="150"
-                                                                                            src="{{asset('assets/frontend/images/05/icon-fire-torch.png')}}"
-                                                                                            class="attachment-full" alt="icon-fire-torch" loading="lazy"
-                                                                                            srcset="{{asset('assets/frontend/images/05/icon-fire-torch.png')}} 150w, {{asset('assets/frontend/images/05/icon-fire-torch-100x100.png')}} 100w"
-                                                                                            sizes="(max-width: 150px) 100vw, 150px" /></div>
-                                                            <div class="icon-content">
-                                                                <h4>Retaining the visitor</h4>
-                                                                <p>When the copy nails it, the call to action appears like a shadow intending to
-                                                                    trigger a move.</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="wpb_column vc_column_container vc_col-sm-12">
-                            <div class="vc_column-inner ">
-                                <div class="wpb_wrapper">
-                                    <div class="ult-spacer spacer-6107b9a4bf656" data-id="6107b9a4bf656" data-height="90"
-                                            data-height-mobile="45" data-height-tab="75" data-height-tab-portrait="75"
-                                            data-height-mobile-landscape="45" style="clear:both;display:block;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="vc_row-full-width vc_clearfix"></div>
-                    <div data-vc-full-width="true" data-vc-full-width-init="false"
-                            class="vc_row wpb_row vc_row-fluid dt-sc-custom-bg left-bg-stripebox-shape right-bg-triangle-shape">
-                        <div class="wpb_column vc_column_container vc_col-sm-12">
-                            <div class="vc_column-inner ">
-                                <div class="wpb_wrapper">
-                                    <div class="ult-spacer spacer-6107b9a4bf9eb" data-id="6107b9a4bf9eb" data-height="100"
-                                            data-height-mobile="80" data-height-tab="90" data-height-tab-portrait="90"
-                                            data-height-mobile-landscape="80" style="clear:both;display:block;"></div>
-                                    <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="bounceInDown"
-                                            data-animation-delay="0.5" data-animation-duration="1" data-animation-iteration="1"
-                                            style="opacity:0;" data-opacity_start_effect="">
-                                        <div class='aligncenter  dt-sc-subtitle-text with-bottom-border'>
-                                            <p>WE ARE THE BEST AGENCY FOR YOU</p>
-                                        </div>
-                                        <div class="ult-spacer spacer-6107b9a4bfaa1" data-id="6107b9a4bfaa1" data-height="20"
-                                                data-height-mobile="20" data-height-tab="20" data-height-tab-portrait=""
-                                                data-height-mobile-landscape="" style="clear:both;display:block;"></div>
-                                        <h2 style="font-size: 40px;line-height: 50px;text-align: center" class="vc_custom_heading">
-                                            <strong>Take your business soaring high...<br />
-                                                Reach for us</strong></h2>
-                                    </div>
-                                    <div class="ult-spacer spacer-6107b9a4bfc0a" data-id="6107b9a4bfc0a" data-height="10"
-                                            data-height-mobile="10" data-height-tab="10" data-height-tab-portrait=""
-                                            data-height-mobile-landscape="" style="clear:both;display:block;"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="wpb_column vc_column_container vc_col-sm-2">
-                            <div class="vc_column-inner ">
-                                <div class="wpb_wrapper"></div>
-                            </div>
-                        </div>
-                        <div class="aligncenter wpb_column vc_column_container vc_col-sm-8">
-                            <div class="vc_column-inner ">
-                                <div class="wpb_wrapper">
-                                    <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="fadeInDown"
-                                            data-animation-delay="0.8" data-animation-duration="1" data-animation-iteration="1"
-                                            style="opacity:0;" data-opacity_start_effect="">
-                                        <p style="text-align: center" class="vc_custom_heading">When you objectively analyze your
-                                            business, you are likely to get a new perspective. These new perspectives propel your business
-                                            up by infusing fresh strategy. We can support whenever new strategy is needed.</p><a href='#'
-                                                                                                                                    target='_self' title=''
-                                                                                                                                    class='dt-sc-button   medium   rounded-border  with-ballpin-needle-holder'> Hire us </a>
-                                    </div>
-                                    <div class="ult-spacer spacer-6107b9a4bfff1" data-id="6107b9a4bfff1" data-height="64"
-                                            data-height-mobile="48" data-height-tab="64" data-height-tab-portrait="64"
-                                            data-height-mobile-landscape="48" style="clear:both;display:block;"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="wpb_column vc_column_container vc_col-sm-2">
-                            <div class="vc_column-inner ">
-                                <div class="wpb_wrapper"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="vc_row-full-width vc_clearfix"></div><!-- Row Backgrounds -->
-                 
+
                     <div class="vc_row wpb_row vc_row-fluid dt-sc-custom-bg left-bg-diamond-shape right-bg-circle-shape">
                         <div class="wpb_column vc_column_container vc_col-sm-12">
                             <div class="vc_column-inner ">
@@ -459,13 +286,13 @@
                                             class="dt-sc-three-fifth rs_col-sm-12 wpb_column vc_column_container vc_col-sm-8 vc_col-lg-8 vc_col-md-12">
                                             <div class="vc_column-inner vc_custom_1494982255920">
                                                 <div class="wpb_wrapper">
-                                                   
+
                                                     @if(count($awards) >= 2)
 
                                                     <div id="ult-carousel-18361286996107b7834a609" class="ult-carousel-wrapper   ult_horizontal"
                                                         data-gutter="15" data-rtl="false">
                                                         <div class="ult-carousel-20935043566107b7834a5d4 ">
-                                                        
+
                                                         @foreach(@$awards as $award)
                                                             <div class="ult-item-wrap" data-animation="animated no-animation">
                                                                 <div class="vc_row wpb_row vc_inner vc_row-fluid vc_custom_1494067265881 slick-custom-background vc_row-has-fill">
@@ -496,7 +323,7 @@
                                                                 </div>
                                                             </div>
                                                         @endforeach
-                                                        
+
                                                         </div>
                                                     </div>
                                                     @else
@@ -519,7 +346,7 @@
                                                     </div>
 
                                                     @endif
-                                                    
+
 
 
                                                 </div>
@@ -545,7 +372,7 @@
                             data-is_old_vc="" data-theme-support="" data-overlay="false" data-overlay-color=""
                             data-overlay-pattern="" data-overlay-pattern-opacity="" data-overlay-pattern-size=""></div>
                     @if(count($teams) > 0)
-                    
+
                     <div data-vc-full-width="true" data-vc-full-width-init="false"
                             class="vc_row wpb_row vc_row-fluid wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp vc_custom_1504782187535 vc_row-has-fill">
                         <div class="wpb_column vc_column_container vc_col-sm-12">
@@ -604,31 +431,28 @@
                     @endif
 
                     <div class="vc_row-full-width vc_clearfix"></div>
+
+
                     <div class="vc_row wpb_row vc_row-fluid">
                         <div class="wpb_column vc_column_container vc_col-sm-12">
                             <div class="vc_column-inner ">
                                 <div class="wpb_wrapper">
-                                    <div class="ult-spacer spacer-6107b9a4c5905" data-id="6107b9a4c5905" data-height="75"
-                                            data-height-mobile="45" data-height-tab="60" data-height-tab-portrait="60"
-                                            data-height-mobile-landscape="45" style="clear:both;display:block;"></div>
+                                    <div class="wpb_text_column wpb_content_element  vc_custom_1451371259984 alignleft">
+                                    </div>
+                                    <div class="dt-sc-hr-invisible-xsmall "> </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="ult-spacer spacer-6107b9a4cb1aa" data-id="6107b9a4cb1aa" data-height="60" data-height-mobile="35" data-height-tab="45" data-height-tab-portrait="45" data-height-mobile-landscape="35" style="clear:both;display:block;"></div>
                         <div class="wpb_column vc_column_container vc_col-sm-3">
                             <div class="vc_column-inner ">
                                 <div class="wpb_wrapper">
-                                    <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="fadeIn"
-                                            data-animation-delay="0.5" data-animation-duration="1" data-animation-iteration="1"
-                                            style="opacity:0;" data-opacity_start_effect="">
-                                        <div class='dt-sc-counter type1  aligncenter'>
-                                            <div class='dt-sc-couter-icon-holder'>
-                                                <div class='icon-wrapper'><span><img width="60" height="60"
-                                                                                        src="{{asset('assets/frontend/images/05/icon-phone.png')}}"
-                                                                                        class="attachment-full" alt="icon-phone" loading="lazy" /></span></div>
-                                                <div class='dt-sc-counter-number' data-value='500' data-append='M'>500</div>
-                                            </div>
-                                            <h4></h4>
+                                    <div class="dt-sc-counter type4 green ">
+                                        <div class="dt-sc-couter-icon-holder">
+                                            <div class="icon-wrapper"><span class="pe-icon pe-like"> </span></div>
+                                            <div class="dt-sc-counter-number" data-value="@if(!empty(@$setting_data->customer_served)) {{@$setting_data->customer_served}} @else 10000 @endif" data-append="+">@if(!empty(@$setting_data->customer_served)) {{@$setting_data->customer_served}}+ @else 10000+ @endif</div>
                                         </div>
+                                        <h4>Customer Served</h4>
                                     </div>
                                 </div>
                             </div>
@@ -636,18 +460,12 @@
                         <div class="wpb_column vc_column_container vc_col-sm-3">
                             <div class="vc_column-inner ">
                                 <div class="wpb_wrapper">
-                                    <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="fadeIn"
-                                            data-animation-delay="0.8" data-animation-duration="1" data-animation-iteration="1"
-                                            style="opacity:0;" data-opacity_start_effect="">
-                                        <div class='dt-sc-counter type1  aligncenter'>
-                                            <div class='dt-sc-couter-icon-holder'>
-                                                <div class='icon-wrapper'><span><img width="60" height="60"
-                                                                                        src="{{asset('assets/frontend/images/05/icon-cost-n-time.png')}}"
-                                                                                        class="attachment-full" alt="icon-cost-n-time" loading="lazy" /></span></div>
-                                                <div class='dt-sc-counter-number' data-value='19000'>19000</div>
-                                            </div>
-                                            <h4></h4>
+                                    <div class="dt-sc-counter type4 cyan ">
+                                        <div class="dt-sc-couter-icon-holder">
+                                            <div class="icon-wrapper"><span class="pe-icon pe-paper-plane"> </span></div>
+                                            <div class="dt-sc-counter-number" data-value="@if(!empty(@$setting_data->visa_approved)) {{@$setting_data->visa_approved}} @else 1892 @endif" data-append="+">@if(!empty(@$setting_data->visa_approved)) {{@$setting_data->visa_approved}}+ @else 1892+ @endif</div>
                                         </div>
+                                        <h4>Visa Approved</h4>
                                     </div>
                                 </div>
                             </div>
@@ -655,18 +473,12 @@
                         <div class="wpb_column vc_column_container vc_col-sm-3">
                             <div class="vc_column-inner ">
                                 <div class="wpb_wrapper">
-                                    <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="fadeIn"
-                                            data-animation-delay="1.1" data-animation-duration="1" data-animation-iteration="1"
-                                            style="opacity:0;" data-opacity_start_effect="">
-                                        <div class='dt-sc-counter type1  aligncenter'>
-                                            <div class='dt-sc-couter-icon-holder'>
-                                                <div class='icon-wrapper'><span><img width="60" height="60"
-                                                                                        src="{{asset('assets/frontend/images/05/icon-stats-bar-chart.png')}}"
-                                                                                        class="attachment-full" alt="icon-stats-bar-chart" loading="lazy" /></span></div>
-                                                <div class='dt-sc-counter-number' data-value='2331'>2331</div>
-                                            </div>
-                                            <h4></h4>
+                                    <div class="dt-sc-counter type4 red ">
+                                        <div class="dt-sc-couter-icon-holder">
+                                            <div class="icon-wrapper"><span class="pe-icon pe-check"> </span></div>
+                                            <div class="dt-sc-counter-number" data-value="@if(!empty(@$setting_data->success_stories)) {{@$setting_data->success_stories}} @else 250 @endif" data-append="+">@if(!empty(@$setting_data->success_stories)) {{@$setting_data->success_stories}}+ @else 250+ @endif</div>
                                         </div>
+                                        <h4>Success Stories</h4>
                                     </div>
                                 </div>
                             </div>
@@ -674,18 +486,12 @@
                         <div class="wpb_column vc_column_container vc_col-sm-3">
                             <div class="vc_column-inner ">
                                 <div class="wpb_wrapper">
-                                    <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="fadeIn"
-                                            data-animation-delay="1.4" data-animation-duration="1" data-animation-iteration="1"
-                                            style="opacity:0;" data-opacity_start_effect="">
-                                        <div class='dt-sc-counter type1  aligncenter last'>
-                                            <div class='dt-sc-couter-icon-holder'>
-                                                <div class='icon-wrapper'><span><img width="60" height="60"
-                                                                                        src="{{asset('assets/frontend/images/05/icon-cup-coffee.png')}}"
-                                                                                        class="attachment-full" alt="icon-cup-coffee" loading="lazy" /></span></div>
-                                                <div class='dt-sc-counter-number' data-value='112260'>112260</div>
-                                            </div>
-                                            <h4></h4>
+                                    <div class="dt-sc-counter type4 orange ">
+                                        <div class="dt-sc-couter-icon-holder">
+                                            <div class="icon-wrapper"><span class="pe-icon pe-smile"> </span></div>
+                                            <div class="dt-sc-counter-number" data-value="@if(!empty(@$setting_data->happy_customers)) {{@$setting_data->happy_customers}} @else 1546 @endif" data-append="+">@if(!empty(@$setting_data->happy_customers)) {{@$setting_data->happy_customers}}+ @else 1546+ @endif</div>
                                         </div>
+                                        <h4>Happy Customers</h4>
                                     </div>
                                 </div>
                             </div>
@@ -693,13 +499,12 @@
                         <div class="wpb_column vc_column_container vc_col-sm-12">
                             <div class="vc_column-inner ">
                                 <div class="wpb_wrapper">
-                                    <div class="ult-spacer spacer-6107b9a4c6de9" data-id="6107b9a4c6de9" data-height="90"
-                                            data-height-mobile="60" data-height-tab="75" data-height-tab-portrait="75"
-                                            data-height-mobile-landscape="60" style="clear:both;display:block;"></div>
+                                    <div class="dt-sc-hr-invisible-large "> </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
 
                     @if(count($service_categories) > 0)
 
@@ -781,11 +586,11 @@
                                 </div>
                                 <div class='dt-sc-hr-invisible-small '> </div>
                                 <div class='dt-sc-hr-invisible-xsmall '> </div>
-                                
+
                                 <div class="dt-sc-partners-carousel-wrapper" data-scroll="3" data-visible="5">
                                     <ul class='dt-sc-partners-carousel'>
                                         @foreach(@$clients as $client)
-                                        
+
                                             <li><a href="{{@$client->link}}" @if(@$client->link) target="_blank"  @endif > <img width="155" height="125"
                                                 src="<?php if(@$client->image){?>{{asset('/images/uploads/clients/'.@$client->image)}}<?php }?>"
                                                 class="attachment-full" alt="" loading="lazy" /></a></li>
@@ -819,11 +624,11 @@
                                         <h2 style="font-size: 60px;line-height: 50px;text-align: center" class="vc_custom_heading">
                                             <strong>Testimonials</strong></h2>
                                     </div>
-                                   
+
                                     <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="fadeInUp"
                                             data-animation-delay="0.8" data-animation-duration="1" data-animation-iteration="1"
                                             style="opacity:0;" data-opacity_start_effect="">
-                                       
+
                                             <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid">
                                                 <div class="wpb_column vc_column_container vc_col-sm-12">
                                                     <div class="vc_column-inner ">
@@ -847,7 +652,7 @@
                                                                     </div>
                                                                 </li>
                                                             @endforeach
-                                                            
+
                                                             </ul>
                                                             <div class="carousel-arrows"> <a href="#" class="testimonial-prev"> </a> <a href="#"
                                                                 class="testimonial-next"> </a></div>
@@ -871,7 +676,7 @@
                   @endif
 
 
-                    
+
                     @if(count($latestPosts) > 0)
 
                     <div class="vc_row-full-width vc_clearfix"></div>
@@ -911,7 +716,7 @@
                                                     <div class="entry-details">
                                                         <div class="entry-meta ">
                                                             <div class="date ">Posted on {{date('j ',strtotime(@$post->created_at))}}{{date('M Y',strtotime(@$post->created_at))}} </div>
-                                                            
+
                                                         </div>
                                                         <div class="entry-title">
                                                             <h4><a href="{{route('blog.single',$post->slug)}}">{{ucwords($post->title)}}</a></h4>
