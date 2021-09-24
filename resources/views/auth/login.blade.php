@@ -5,8 +5,13 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="@if(!empty(@$setting_data->website_description)) {{ucwords(@$setting_data->website_description)}} @else Aurum @endif">
+    <meta name="author" content="Aurum">
+    <link rel="canonical" href="https://aurum.com.np//" />
+    <title>Login - @if(!empty(@$setting_data->website_name)) {{ucwords(@$setting_data->website_name)}} @else Aurum @endif </title>
 
-    <link rel="icon" type="image/x-icon" href="{{asset('assets/backend//img/favicon.png')}}">
+
+    <link rel="icon" type="image/x-icon" href="{{asset('assets/backend/img/favicon.png')}}">
 
     <link rel="stylesheet" href="{{asset('assets/backend/css/bootstrap.min.css')}}">
 
@@ -15,7 +20,8 @@
     <link rel="stylesheet" href="{{asset('assets/backend/css/font-awesome.min.css')}}">
 
     <link rel="stylesheet" href="{{asset('assets/backend/css/style.css')}}">
-    <title>Login Page</title>
+    <link rel="icon" type="image/x-icon" href="<?php if(@$setting_data->favicon){?>{{asset('/images/uploads/settings/'.@$setting_data->favicon)}}<?php }else{ echo "images/favicon.ico"; }?>">
+
 
     <!--[if lt IE 9]>
             <script src="{{asset('assets/backend/js/html5shiv.min.js')}}"></script>
@@ -39,7 +45,7 @@
         <div class="container">
             <div class="loginbox shadow-sm grow">
                 <div class="login-left">
-                    <img class="img-fluid" src="{{asset('assets/backend/img/logo.png')}}" alt="Logo">
+                    <img class="img-fluid" src="<?php if(@$setting_data->logo_white){?>{{asset('/images/uploads/settings/'.@$setting_data->logo_white)}}<?php }?>" alt="Logo">
                 </div>
                 <div class="login-right">
                     <div class="login-right-wrap">

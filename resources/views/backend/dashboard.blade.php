@@ -12,8 +12,8 @@
                                         <i class="fa fa-users" aria-hidden="true"></i>
                                     </div>
                                     <div class="card-right">
-                                        <h4 class="card-title">Employees</h4>
-                                        <p class="card-text">700</p>
+                                        <h4 class="card-title">Users</h4>
+                                        <p class="card-text">{{@$user_count}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -22,11 +22,11 @@
                             <div class="card dash-widget ctm-border-radius shadow-sm grow">
                                 <div class="card-body">
                                     <div class="card-icon bg-warning">
-                                        <i class="fa fa-building-o"></i>
+                                        <i class="fa fa-handshake-o"></i>
                                     </div>
                                     <div class="card-right">
-                                        <h4 class="card-title">Companies</h4>
-                                        <p class="card-text">30</p>
+                                        <h4 class="card-title">Clients</h4>
+                                        <p class="card-text">{{@$client_count}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -35,11 +35,11 @@
                             <div class="card dash-widget ctm-border-radius shadow-sm grow">
                                 <div class="card-body">
                                     <div class="card-icon bg-danger">
-                                        <i class="fa fa-suitcase" aria-hidden="true"></i>
+                                        <i class="fa fa-files-o " aria-hidden="true"></i>
                                     </div>
                                     <div class="card-right">
-                                        <h4 class="card-title">Leaves</h4>
-                                        <p class="card-text">3</p>
+                                        <h4 class="card-title">Pages</h4>
+                                        <p class="card-text">{{@$page_count}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -48,11 +48,11 @@
                             <div class="card dash-widget ctm-border-radius shadow-sm grow">
                                 <div class="card-body">
                                     <div class="card-icon bg-success">
-                                        <i class="fa fa-money" aria-hidden="true"></i>
+                                        <i class="fa fa-trophy" aria-hidden="true"></i>
                                     </div>
                                     <div class="card-right">
-                                        <h4 class="card-title">Salary</h4>
-                                        <p class="card-text">$5.8M</p>
+                                        <h4 class="card-title">Awards</h4>
+                                        <p class="card-text">{{@$award_count}}</p>
                                     </div>
                                 </div>
                             </div>

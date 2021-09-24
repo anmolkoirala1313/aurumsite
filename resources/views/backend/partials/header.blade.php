@@ -4,8 +4,13 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="@if(!empty(@$setting_data->website_description)) {{ucwords(@$setting_data->website_description)}} @else Aurum @endif">
+    <meta name="author" content="Aurum">
+    <link rel="canonical" href="https://aurum.com.np//" />
+    <title>@yield('title') - @if(!empty(@$setting_data->website_name)) {{ucwords(@$setting_data->website_name)}} @else Aurum @endif </title>
+    <link rel="icon" type="image/x-icon" href="<?php if(@$setting_data->favicon){?>{{asset('/images/uploads/settings/'.@$setting_data->favicon)}}<?php }else{ echo "images/favicon.ico"; }?>">
 
-    <link rel="icon" type="image/x-icon" href="{{asset('assets/backend/img/favicon.png')}}">
 
     <link rel="stylesheet" href="{{asset('assets/backend/css/bootstrap.min.css')}}">
 
@@ -24,7 +29,6 @@
     <link rel="stylesheet" href="{{asset('assets/backend/css/toastr.min.css')}}">
 
     <link href="{{asset('assets/backend/css/sweetalert.css')}}" rel="stylesheet">
-    <title>@yield('title')</title>
 
 <!--[if lt IE 9]>
 {{--    <script src="{{asset('assets/backend/js/html5shiv.min.js')}}"></script>--}}
@@ -55,8 +59,8 @@
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-3 col-sm-3 col-6">
                         <div class="logo my-3 my-sm-0">
-                            <a href="#">
-                                <img src="{{asset('assets/backend/img/logo.png')}}" alt="logo image" class="img-fluid" width="100">
+                            <a href="https://aurum.com.np/" target="_blank">
+                                <img src="<?php if(@$setting_data->logo_white){?>{{asset('/images/uploads/settings/'.@$setting_data->logo_white)}}<?php }?>" alt="logo image" class="img-fluid" width="100">
                             </a>
                         </div>
                     </div>
@@ -64,25 +68,7 @@
                         <div class="user-block d-none d-lg-block">
                             <div class="row align-items-center">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <div class="user-notification-block align-right d-inline-block">
-                                        <div class="top-nav-search">
-                                            <form>
-                                                <input type="text" class="form-control" placeholder="Search here">
-                                                <button class="btn" type="submit"><i class="fa fa-search"></i></button>
-                                            </form>
-                                        </div>
-                                    </div>
-
-                                    <div class="user-notification-block align-right d-inline-block">
-                                        <ul class="list-inline m-0">
-                                            <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="" data-original-title="Apply Leave">
-                                                <a href="#" class="font-23 menu-style text-white align-middle">
-                                                    <span class="lnr lnr-briefcase position-relative"></span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-
+                                   
 
                                     <div class="user-info align-right dropdown d-inline-block header-dropdown">
                                         <a href="javascript:void(0)" data-toggle="dropdown" class=" menu-style dropdown-toggle">
@@ -138,21 +124,13 @@
                                 <div class="user-info align-center bg-theme text-center">
                                     <a href="javascript:void(0)" class="d-block menu-style text-white">
                                         <div class="user-avatar d-inline-block mr-3">
-                                            <img src="{{asset('assets/backend/img/profiles/img-6.jpg')}}" alt="user avatar" class="rounded-circle img-fluid" width="55">
+                                            <img src="{{(!empty(Auth::user()->image)) ? '/images/uploads/profiles/'.Auth::user()->image : '/images/uploads/profiles/default-profile.png'}}" alt="user avatar" class="rounded-circle img-fluid" width="55">
                                         </div>
                                     </a>
                                 </div>
-                                <div class="user-notification-block align-center">
-                                    <div class="top-nav-search">
-                                        <form>
-                                            <input type="text" class="form-control" placeholder="Search here">
-                                            <button class="btn" type="submit"><i class="fa fa-search"></i></button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <hr>
+                              
                                 <div class="user-menu-items px-3 m-0">
-                                    <a class="px-0 pb-2 pt-0" href="#">
+                                    <a class="px-0 pb-2 pt-0" href="{{route('dashboard')}}">
                                         <span class="media align-items-center">
                                         <span class="lnr lnr-home mr-3"></span>
                                         <span class="media-body text-truncate text-left">
@@ -160,63 +138,71 @@
                                         </span>
                                         </span>
                                     </a>
-                                    <a class="p-2" href="#">
+                                    <a class="p-2" href="{{route('user.index')}}">
                                         <span class="media align-items-center">
                                         <span class="lnr lnr-users mr-3"></span>
                                         <span class="media-body text-truncate text-left">
-                                        <span class="text-truncate text-left">Employees</span>
+                                        <span class="text-truncate text-left">Users</span>
                                         </span>
                                         </span>
                                     </a>
-                                    <a class="p-2" href="#">
+                                    <a class="p-2" href="{{route('pages.index')}}">
                                         <span class="media align-items-center">
-                                        <span class="lnr lnr-apartment mr-3"></span>
+                                        <span class="lnr lnr-file-empty mr-3"></span>
                                         <span class="media-body text-truncate text-left">
-                                        <span class="text-truncate text-left">Company</span>
+                                        <span class="text-truncate text-left">Pages</span>
                                         </span>
                                         </span>
                                     </a>
-                                    <a class="p-2" href="#">
+                                    <a class="p-2" href="{{route('teams.index')}}">
                                         <span class="media align-items-center">
-                                        <span class="lnr lnr-calendar-full mr-3"></span>
+                                        <span class="lnr lnr-license mr-3"></span>
                                         <span class="media-body text-truncate text-left">
-                                        <span class="text-truncate text-left">Calendar</span>
+                                        <span class="text-truncate text-left">Teams</span>
                                         </span>
                                         </span>
                                     </a>
-                                    <a class="p-2" href="#">
+                                    <a class="p-2" href="{{route('clients.index')}}">
                                         <span class="media align-items-center">
-                                        <span class="lnr lnr-briefcase mr-3"></span>
+                                        <span class="lnr lnr-user mr-3"></span>
                                         <span class="media-body text-truncate text-left">
-                                        <span class="text-truncate text-left">Leave</span>
+                                        <span class="text-truncate text-left">Clients</span>
                                         </span>
                                         </span>
                                     </a>
-                                    <a class="p-2" href="#">
+                                    <a class="p-2" href="{{route('testimonials.index')}}">
                                         <span class="media align-items-center">
-                                        <span class="lnr lnr-star mr-3"></span>
+                                        <span class="lnr lnr-star-half mr-3"></span>
                                         <span class="media-body text-truncate text-left">
-                                        <span class="text-truncate text-left">Reviews</span>
+                                        <span class="text-truncate text-left">Testimonials</span>
                                         </span>
                                         </span>
                                     </a>
-                                    <a class="p-2" href="#">
+                                    <a class="p-2" href="{{route('service-category.index')}}">
                                         <span class="media align-items-center">
-                                        <span class="lnr lnr-rocket mr-3"></span>
+                                        <span class="lnr lnr-tag mr-3"></span>
                                         <span class="media-body text-truncate text-left">
-                                        <span class="text-truncate text-left">Reports</span>
+                                        <span class="text-truncate text-left">Service Category</span>
                                          </span>
                                         </span>
                                     </a>
-                                    <a class="p-2" href="#">
+                                    <a class="p-2" href="{{route('sliders.index')}}">
                                         <span class="media align-items-center">
-                                        <span class="lnr lnr-sync mr-3"></span>
+                                        <span class="lnr lnr-picture mr-3"></span>
                                         <span class="media-body text-truncate text-left">
-                                        <span class="text-truncate text-left">Manage</span>
+                                        <span class="text-truncate text-left">Sliders</span>
                                         </span>
                                         </span>
                                     </a>
-                                    <a class="p-2" href="#">
+                                    <a class="p-2" href="{{route('blogcategory.index')}}">
+                                        <span class="media align-items-center">
+                                        <span class="lnr lnr-book mr-3"></span>
+                                        <span class="media-body text-truncate text-left">
+                                        <span class="text-truncate text-left">Blog</span>
+                                        </span>
+                                        </span>
+                                    </a>
+                                    <a class="p-2" href="{{route('setting.index')}}">
                                         <span class="media align-items-center">
                                         <span class="lnr lnr-cog mr-3"></span>
                                         <span class="media-body text-truncate text-left">
