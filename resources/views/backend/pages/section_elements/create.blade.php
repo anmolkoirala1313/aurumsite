@@ -874,13 +874,6 @@
                                                                                 </div>
                                                                             </div>
                                                                             <div class="form-group mb-3">
-                                                                                <label>Sub Heading <span class="text-muted text-danger">*</span></label>
-                                                                                <input type="text" class="form-control" name="subheading[]" value="{{@$list2_elements[$i-1]->subheading}}" required>
-                                                                                <div class="invalid-feedback">
-                                                                                    Please enter the sub heading.
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="form-group mb-3">
                                                                                 <label>Description <span class="text-muted text-danger">*</span></label>
                                                                                 <textarea class="form-control" maxlength="175" rows="6" name="list_description[]" required>{{@$list2_elements[$i-1]->list_description}}</textarea>
                                                                                 <div class="invalid-feedback">

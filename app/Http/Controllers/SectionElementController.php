@@ -240,7 +240,6 @@ class SectionElementController extends Controller
                 $data=[
                     'list_header'           => $request->input('list_header')[$i],
                     'page_section_id'       => $section_id,
-                    'subheading'            => $request->input('subheading')[$i],
                     'list_description'      => $request->input('list_description')[$i],
                     'button'                => $request->input('button')[$i],
                     'button_link'           => $request->input('button_link')[$i],
@@ -519,7 +518,6 @@ class SectionElementController extends Controller
                     $data=[
                         'list_header'           => $request->input('list_header')[$i],
                         'page_section_id'       => $section_id,
-                        'subheading'            => $request->input('subheading')[$i],
                         'list_description'      => $request->input('list_description')[$i],
                         'button'                => $request->input('button')[$i],
                         'button_link'           => $request->input('button_link')[$i],
