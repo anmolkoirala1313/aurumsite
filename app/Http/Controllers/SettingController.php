@@ -63,6 +63,7 @@ class SettingController extends Controller
             'address'                   => $request->input('address'),
             'email'                     => $request->input('email'),
             'google_analytics'          => $request->input('google_analytics'),
+            'google_map'                => $request->input('google_map'),
             'created_by'                => Auth::user()->id,
         ];
 
@@ -120,10 +121,8 @@ class SettingController extends Controller
         $update_theme->address                  =  $request->input('address');
         $update_theme->email                    =  $request->input('email');
         $update_theme->google_analytics         =  $request->input('google_analytics');
-        $update_theme->customer_served          =  $request->input('customer_served');
-        $update_theme->visa_approved            =  $request->input('visa_approved');
-        $update_theme->success_stories          =  $request->input('success_stories');
-        $update_theme->happy_customers          =  $request->input('happy_customers');
+        $update_theme->google_map               =  $request->input('google_map');
+        
         $update_theme->updated_by               =  Auth::user()->id;
 
         $status=$update_theme->update();

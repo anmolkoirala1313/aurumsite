@@ -36,6 +36,7 @@ Route::get('/categories', function () {
 Route::get('/contact-us', function () {
     return view('frontend.pages.contact-us');
 });
+Route::post('/contact-us', 'App\Http\Controllers\FrontController@contactStore')->name('contact.store');
 
 
 Route::get('/', 'App\Http\Controllers\FrontController@index')->name('home');

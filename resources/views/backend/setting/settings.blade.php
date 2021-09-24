@@ -250,6 +250,23 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            <div class="card shadow-none">
+                                                <div class="card-header">
+                                                    <h5 class="card-title text-primary mb-0">Google Map</h5>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="form-group mb-0">
+                                                                <label>Map Code</label>
+                                                                <textarea class="form-control" rows=4 name="google_map" id="google_map">{{@$settings->google_map}}</textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                             <div class="add-doc text-center">
                                                 <button type="submit" class="btn btn-theme button-1 ctm-border-radius text-white text-center">{{(empty($settings)) ? "Save Settings":"Update Settings"}}</button>
                                             </div>
