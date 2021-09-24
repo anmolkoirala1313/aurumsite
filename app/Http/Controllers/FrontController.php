@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactDetail;
 use App\Models\Award;
 use App\Models\Blog;
 use App\Models\BlogCategory;
@@ -17,6 +18,10 @@ use App\Models\Team;
 use CountryState;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
+
 
 class FrontController extends Controller
 {
@@ -205,5 +210,28 @@ class FrontController extends Controller
 
         return view('frontend.pages.dynamic_page', compact('page_detail','sections','list_1','list_2','list_3','basic_elements','call_elements','bgimage_elements','tab1_elements','tab2_elements','gallery_elements','list1_elements','list2_elements','process_elements'));
 
+    }
+
+    public function contactStore(Request $request)
+    {
+        $theme_data = Setting::first();
+            $data = array(
+                'fullname'        =>$request->input('fullname'),
+                'message'        =>$request->input('message'),
+                'email'        =>$request->input('email'),
+                'subject'        =>$request->input('subject'),
+                'address'        =>ucwords($theme_data->address),
+                'site_email'        =>ucwords($theme_data->email),
+                'site_name'        =>ucwords($theme_data->website_name),
+                'phone'        =>ucwords($theme_data->phone),
+                'logo'        =>ucwords($theme_data->logo),
+            );
+             Mail::to('surajmzn75@gmail.com')->send(new ContactDetail($data));
+
+            // Mail::to('info@aurum.com')->cc(['suraj@canosoft.com.np','info@canosoft.com.np'])->send(new ContactDetail($data));
+
+            Session::flash('success','Thank you for contacting us!');
+       
+        return redirect()->back();
     }
 }

@@ -18,8 +18,8 @@
                                                 <li class="facebook"><a target="_blank" href="@if(!empty(@$setting_data->facebook)) {{@$setting_data->facebook}} @endif" rel="noopener"></a></li>
                                                 <li class="instagram"><a target="_blank"href="@if(!empty(@$setting_data->instagram)) {{@$setting_data->instagram}} @endif" rel="noopener"></a></li>
                                                 <li class="youtube"><a target="_blank" href="@if(!empty(@$setting_data->youtube)) {{@$setting_data->youtube}} @endif" rel="noopener"></a></li>
-                                                <li class="whatsapp"><a target="_blank" href="@if(!empty(@$setting_data->whatsapp)) {{@$setting_data->whatsapp}} @endif" rel="noopener"></a></li>
-                                                <a class="viber-anchor" target="_blank" href="@if(!empty(@$setting_data->viber)) {{@$setting_data->viber}} @endif" rel="noopener"><i class="fab fa-viber"></i> </a>
+                                                <li class="whatsapp"><a target="_blank" href="https://wa.me/@if(!empty(@$setting_data->whatsapp)) {{@$setting_data->whatsapp}} @endif" rel="noopener"></a></li>
+                                                <a class="viber-anchor" target="_blank" href="viber://chat?number=@if(!empty(@$setting_data->viber)) {{@$setting_data->viber}} @endif" rel="noopener"><i class="fab fa-viber"></i> </a>
                                            
                                             </ul>
 
