@@ -30,12 +30,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $client_count         = Client::count();
-        $user_count           = User::count();
-        $award_count          = Award::count();
-        $page_count          = Page::count();
+        $client_count =     Client::count();
+        $user_count   =     User::count();
+        $award_count  =     Award::count();
+        $page_count   =     Page::count();
+        $latestPosts  =     Blog::orderBy('created_at', 'DESC')->take(3)->get();
+        $latestPages  =     Page::orderBy('created_at', 'DESC')->take(4)->get();
+        $latestUsers  =     User::orderBy('created_at', 'DESC')->take(4)->get();
+
         
-        return view('backend.dashboard',compact('client_count','user_count','award_count','page_count'));
+        return view('backend.dashboard',compact('latestUsers','latestPages','client_count','user_count','award_count','page_count','latestPosts'));
 
     }
 }

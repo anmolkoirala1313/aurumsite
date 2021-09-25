@@ -11,8 +11,6 @@
     <title>Login - @if(!empty(@$setting_data->website_name)) {{ucwords(@$setting_data->website_name)}} @else Aurum @endif </title>
 
 
-    <link rel="icon" type="image/x-icon" href="{{asset('assets/backend/img/favicon.png')}}">
-
     <link rel="stylesheet" href="{{asset('assets/backend/css/bootstrap.min.css')}}">
 
     <link rel="stylesheet" href="{{asset('assets/backend/css/lnr-icon.css')}}">

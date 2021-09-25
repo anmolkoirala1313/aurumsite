@@ -45,7 +45,7 @@
                                     @foreach($all_user as  $user)
                                     <tr>
                                         <td>
-                                            <a href="{{route('user.edit',$user->id)}}" class="avatar"><img class="img-fluid"  src="<?php if(!empty(@$user->image)){ echo '/images/uploads/profiles/'.@$user->image; } else { if(@$user->gender=="male") {echo '/images/uploads/profiles/male.png'; } elseif(@$user->gender=="female") {echo '/images/uploads/profiles/female.png'; } elseif(@$user->gender=="others") {echo '/images/uploads/profiles/others.png'; } } ?>" alt="{{ucfirst(Auth::user()->name)}}"></a>
+                                            <a href="{{route('user.edit',$user->id)}}" class="avatar"><img class="img-fluid"  src="<?php if(!empty(@$user->image)){ echo '/images/uploads/profiles/'.@$user->image; } else { if(@$user->gender=="male") {echo '/images/uploads/profiles/male.png'; } elseif(@$user->gender=="female") {echo '/images/uploads/profiles/female.png'; } elseif(@$user->gender=="others") {echo '/images/uploads/profiles/others.png'; } } ?>" alt="{{@$user->name}}"></a>
                                             <h2><a href="{{route('user.edit',$user->id)}}"> {{ucwords(@$user->name)}}</a></h2>
                                         </td>
                                         <td>{{@$user->email}}</td>
@@ -102,7 +102,7 @@
                                     @foreach($admin as  $user)
                                     <tr>
                                         <td>
-                                            <a href="{{route('user.edit',$user->id)}}" class="avatar"><img class="img-fluid"  src="<?php if(!empty(@$user->image)){ echo '/images/uploads/profiles/'.@$user->image; } else { if(@$user->gender=="male") {echo '/images/uploads/profiles/male.png'; } elseif(@$user->gender=="female") {echo '/images/uploads/profiles/female.png'; } elseif(@$user->gender=="others") {echo '/images/uploads/profiles/others.png'; } } ?>" alt="{{ucfirst(Auth::user()->name)}}"></a>
+                                            <a href="{{route('user.edit',$user->id)}}" class="avatar"><img class="img-fluid"  src="<?php if(!empty(@$user->image)){ echo '/images/uploads/profiles/'.@$user->image; } else { if(@$user->gender=="male") {echo '/images/uploads/profiles/male.png'; } elseif(@$user->gender=="female") {echo '/images/uploads/profiles/female.png'; } elseif(@$user->gender=="others") {echo '/images/uploads/profiles/others.png'; } } ?>" alt="{{@$user->name}}"></a>
                                             <h2><a href="{{route('user.edit',$user->id)}}"> {{ucwords(@$user->name)}}</a></h2>
                                         </td>
                                         <td>{{@$user->email}}</td>
@@ -159,7 +159,7 @@
                                     @foreach($general as  $user)
                                     <tr>
                                         <td>
-                                            <a href="{{route('user.edit',$user->id)}}" class="avatar"><img class="img-fluid"  src="<?php if(!empty(@$user->image)){ echo '/images/uploads/profiles/'.@$user->image; } else { if(@$user->gender=="male") {echo '/images/uploads/profiles/male.png'; } elseif(@$user->gender=="female") {echo '/images/uploads/profiles/female.png'; } elseif(@$user->gender=="others") {echo '/images/uploads/profiles/others.png'; } } ?>" alt="{{ucfirst(Auth::user()->name)}}"></a>
+                                            <a href="{{route('user.edit',$user->id)}}" class="avatar"><img class="img-fluid"  src="<?php if(!empty(@$user->image)){ echo '/images/uploads/profiles/'.@$user->image; } else { if(@$user->gender=="male") {echo '/images/uploads/profiles/male.png'; } elseif(@$user->gender=="female") {echo '/images/uploads/profiles/female.png'; } elseif(@$user->gender=="others") {echo '/images/uploads/profiles/others.png'; } } ?>" alt="{{@$user->name}}"></a>
                                             <h2><a href="{{route('user.edit',$user->id)}}"> {{ucwords(@$user->name)}}</a></h2>
                                         </td>
                                         <td>{{@$user->email}}</td>
