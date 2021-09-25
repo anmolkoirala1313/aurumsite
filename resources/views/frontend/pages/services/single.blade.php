@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title') {{ucwords(@$singleService->name)}} | Aurum @endsection
+@section('title') {{ucwords(@$singleService->name)}}  @endsection
 @section('styles')
 <style>
     .dt-sc-sociable li a {

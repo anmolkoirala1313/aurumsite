@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title') Search Blog | Aurum @endsection
+@section('title') Search Blog @endsection
 @section('content')
 
   <!-- **Main** -->

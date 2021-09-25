@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title') {{ucwords(@$singleBlog->title)}} | Aurum @endsection
+@section('title') {{ucwords(@$singleBlog->title)}} @endsection
 @section('styles')
 <style>
     .dt-sc-sociable li a {

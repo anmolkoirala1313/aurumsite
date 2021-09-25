@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title') Process | Aurum @endsection
+@section('title') Process  @endsection
 @section('content')
 
  <!-- **Main** -->

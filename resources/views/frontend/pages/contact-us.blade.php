@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title') Contact Us | Aurum @endsection
+@section('title') Contact Us @endsection
 @section('styles')
 <style>
   .sent-success{

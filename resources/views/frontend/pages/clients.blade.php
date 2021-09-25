@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title') Clients | Aurum @endsection
+@section('title') Clients @endsection
 @section('styles')
 <style>
     .type8 ul.dt-sc-tabs-horizontal-frame {

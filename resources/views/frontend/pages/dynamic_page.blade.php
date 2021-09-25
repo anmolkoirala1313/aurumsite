@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title') {{ucwords(@$page_detail->name)}} | Aurum @endsection
+@section('title') {{ucwords(@$page_detail->name)}} @endsection
 @section('styles')
 <style>
     .list_section_1{

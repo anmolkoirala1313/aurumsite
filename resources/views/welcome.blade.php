@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title') Aurum @endsection
+@section('title') Home @endsection
 
 @section('styles')
 <style>

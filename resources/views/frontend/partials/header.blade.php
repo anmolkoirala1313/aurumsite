@@ -8,7 +8,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script>document.documentElement.className = document.documentElement.className + ' yes-js js_active js'</script>
-    <title>@yield('title')</title>
+    <title>@yield('title') - @if(!empty(@$setting_data->website_name)) {{ucwords(@$setting_data->website_name)}} @else Aurum @endif </title>
 
     <link rel="shortcut icon" type="image/x-icon" href="<?php if(@$setting_data->favicon){?>{{asset('/images/uploads/settings/'.@$setting_data->favicon)}}<?php }?>">
 
