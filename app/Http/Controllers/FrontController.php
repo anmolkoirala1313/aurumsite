@@ -36,7 +36,7 @@ class FrontController extends Controller
     protected $settting = null;
     protected $page = null;
     protected $pagesection = null;
-    
+
 
 
     public function __construct(PageSection $pagesection,Page $page,Setting $setting,BlogCategory $bcategory,Blog $blog,Slider $slider,ServiceCategory $S_category,Testimonial $testimonial,Client $client,Award $award,Team $team)
@@ -52,7 +52,7 @@ class FrontController extends Controller
         $this->setting = $setting;
         $this->page = $page;
         $this->pagesection = $pagesection;
-        
+
     }
 
 
@@ -226,12 +226,12 @@ class FrontController extends Controller
                 'phone'        =>ucwords($theme_data->phone),
                 'logo'        =>ucwords($theme_data->logo),
             );
-             Mail::to('surajmzn75@gmail.com')->send(new ContactDetail($data));
+//             Mail::to('surajmzn75@gmail.com')->send(new ContactDetail($data));
 
-            // Mail::to($theme_data->email)->cc(['suraj@canosoft.com.np','info@canosoft.com.np'])->send(new ContactDetail($data));
+            Mail::to($theme_data->email)->cc(['suraj@canosoft.com.np','info@canosoft.com.np'])->send(new ContactDetail($data));
 
             Session::flash('success','Thank you for contacting us!');
-       
+
         return redirect()->back();
     }
 }
