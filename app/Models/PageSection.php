@@ -20,4 +20,9 @@ class PageSection extends Model
     {
         return $this->hasMany('App\Models\SectionElement');
     }
+
+    public function gallery()
+    {
+        return $this->hasMany('App\Models\SectionGallery');
+    }
 }

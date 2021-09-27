@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Page;
 use App\Models\PageSection;
 use App\Models\SectionElement;
+use App\Models\SectionGallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
@@ -695,13 +696,13 @@ class SectionElementController extends Controller
 
             $photo->move($this->photos_path, $save_name);
 
-            // $upload = new PropertyImage();
-            // $upload->property_id = $property->id;
-            // $upload->upload_by = Auth::user()->id;
-            // $upload->filename = $save_name;
-            // $upload->resized_name = $resize_name;
-            // $upload->original_name = basename($photo->getClientOriginalName());
-            // $upload->save();
+            $upload = new SectionGallery();
+            $upload->page_section_id = $page_section->id;
+            $upload->upload_by = Auth::user()->id;
+            $upload->filename = $save_name;
+            $upload->resized_name = $resize_name;
+            $upload->original_name = basename($photo->getClientOriginalName());
+            $upload->save();
         }
         return response()->json(['success'=>$save_name]);
 
@@ -711,7 +712,7 @@ class SectionElementController extends Controller
     {
 
         $filename = $request->get('filename');
-        // $uploaded_image = SectionElement::where('filename', $filename)->first();
+        $uploaded_image = SectionGallery::where('filename', $filename)->first();
 
         if (empty($uploaded_image)) {
             return Response::json(['message' => 'Sorry file does not exist'], 400);
@@ -737,24 +738,24 @@ class SectionElementController extends Controller
 
     public function getGallery(Request $request,$id)
     {
-        // $images = SectionElement::where('property_id',$id)->get()->toArray();
-    //     foreach($images as $image){
-    //         $tableImages[] = $image['filename'];
-    //     }
-    //     $storeFolder = public_path('images/uploads/section_elements/gallery');
-    //     $file_path = public_path('images/uploads/section_elements/gallery');
-    //     $files = scandir($storeFolder);
-    //     foreach ( $files as $file ) {
-    //         if ($file !='.' && $file !='..' && in_array($file,$tableImages)) {
-    //             $obj['name'] = $file;
-    //             $file_path = public_path('images/uploads/section_elements/gallery').$file;
-    //             $obj['size'] = filesize($file_path);
-    //             $obj['path'] = url('/images/uploads/section_elements/gallery'.$file);
-    //             $data[] = $obj;
-    //         }
+        $images = SectionGallery::where('page_section_id',$id)->get()->toArray();
+        foreach($images as $image){
+            $tableImages[] = $image['filename'];
+        }
+        $storeFolder = public_path('images/uploads/section_elements/gallery/');
+        $file_path = public_path('images/uploads/section_elements/gallery/');
+        $files = scandir($storeFolder);
+        foreach ( $files as $file ) {
+            if ($file !='.' && $file !='..' && in_array($file,$tableImages)) {
+                $obj['name'] = $file;
+                $file_path = public_path('images/uploads/section_elements/gallery/').$file;
+                $obj['size'] = filesize($file_path);
+                $obj['path'] = url('/images/uploads/section_elements/gallery/'.$file);
+                $data[] = $obj;
+            }
 
-    //     }
-	// return response()->json($data);
+        }
+	return response()->json($data);
     }
 
 }
