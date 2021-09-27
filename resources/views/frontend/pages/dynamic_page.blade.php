@@ -535,7 +535,7 @@
                         <div class="wpb_wrapper">
                             <div class="ult-spacer spacer-6107b781da0fd" data-id="6107b781da0fd" data-height="100" data-height-mobile="60" data-height-tab="80" data-height-tab-portrait="80" data-height-mobile-landscape="60" style="clear:both;display:block;"></div>
                             <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="bounceInDown" data-animation-delay="0.5" data-animation-duration="1" data-animation-iteration="1" style="opacity:0;" data-opacity_start_effect="">
-                                <h2 style="font-size: 46px;text-align: center" class="vc_custom_heading vc_custom_1496400834504">The Photo Gallery</h2>
+                                <h2 style="font-size: 46px;text-align: center" class="vc_custom_heading vc_custom_1496400834504">Gallery</h2>
                                 <div class='dt-sc-small-separator black curved-line aligncenter'></div>
                             </div>
                             <div class="ult-spacer spacer-6107b781da2dd" data-id="6107b781da2dd" data-height="75" data-height-mobile="45" data-height-tab="60" data-height-tab-portrait="60" data-height-mobile-landscape="45" style="clear:both;display:block;"></div>
