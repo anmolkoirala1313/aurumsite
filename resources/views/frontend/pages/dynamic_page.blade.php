@@ -13,6 +13,10 @@
     .vc_custom_1504784267864 {
     background-color: aliceblue !important;
     }
+    .portfolio.type5:hover .image-overlay .links a:last-child {
+        left: 30px;
+        bottom: 0%;
+    }
 </style>
 @endsection
 @section('content')
@@ -72,8 +76,8 @@
                                                     <div class="wpb_single_image wpb_content_element vc_align_center   dt-sc-outer-frame-border dt-sc-skin-highlight-border">
 
                                                         <figure class="wpb_wrapper vc_figure">
-                                                            <div class="vc_single_image-wrapper   vc_box_border_grey"><img width="600" height="370" src="{{asset('/images/uploads/section_elements/basic_section/'.$basic_elements->image) }}" class="vc_single_image-img attachment-full" alt="basic-image"
-                                                                    loading="lazy" srcset="{{asset('/images/uploads/section_elements/basic_section/'.$basic_elements->image) }} 600w, {{asset('/images/uploads/section_elements/basic_section/'.$basic_elements->image) }} 300w"
+                                                            <div class="vc_single_image-wrapper   vc_box_border_grey"><img width="600" height="370" src="{{asset('/images/uploads/section_elements/basic_section/'.@$basic_elements->image) }}" class="vc_single_image-img attachment-full" alt="basic-image"
+                                                                    loading="lazy" srcset="{{asset('/images/uploads/section_elements/basic_section/'.@$basic_elements->image) }} 600w, {{asset('/images/uploads/section_elements/basic_section/'.@$basic_elements->image) }} 300w"
                                                                     sizes="(max-width: 600px) 100vw, 600px" /></div>
                                                         </figure>
                                                     </div>
@@ -520,7 +524,51 @@
         @endif
         <!-- End List section 2 -->
 
-   
+
+        <!-- Gallery Section  -->
+        @if(@$gallery_elements !== "")
+
+        <div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid">
+            <div class="dt-sc-stretch-row-content">
+                <div class="wpb_column vc_column_container vc_col-sm-12">
+                    <div class="vc_column-inner ">
+                        <div class="wpb_wrapper">
+                            <div class="ult-spacer spacer-6107b781da0fd" data-id="6107b781da0fd" data-height="100" data-height-mobile="60" data-height-tab="80" data-height-tab-portrait="80" data-height-mobile-landscape="60" style="clear:both;display:block;"></div>
+                            <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="bounceInDown" data-animation-delay="0.5" data-animation-duration="1" data-animation-iteration="1" style="opacity:0;" data-opacity_start_effect="">
+                                <h2 style="font-size: 46px;text-align: center" class="vc_custom_heading vc_custom_1496400834504">The Photo Gallery</h2>
+                                <div class='dt-sc-small-separator black curved-line aligncenter'></div>
+                            </div>
+                            <div class="ult-spacer spacer-6107b781da2dd" data-id="6107b781da2dd" data-height="75" data-height-mobile="45" data-height-tab="60" data-height-tab-portrait="60" data-height-mobile-landscape="45" style="clear:both;display:block;"></div>
+                            <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="fadeInUp" data-animation-delay="0.8" data-animation-duration="1" data-animation-iteration="1" style="opacity:0;" data-opacity_start_effect="">
+                                <div class="dt-sc-portfolio-container no-space">
+                                    @foreach($gallery_elements as $gallery_element)
+
+                                    <div id="dt_portfolios-7425" class="type5 no-space portfolio column dt-sc-one-fourth @if(@$loop->index == 0 || @$loop->index == 4 || @$loop->index == 8 || @$loop->index == 12  || @$loop->index == 16  || @$loop->index == 20 || @$loop->index == 24 || @$loop->index == 28 || @$loop->index == 32 ) first @endif">
+                                        <figure> <img src="{{asset('/images/uploads/section_elements/gallery/'.@$gallery_element->resized_name)}}" alt="{{@$gallery_element->filename}}" />
+                                            <div class="image-overlay">
+                                                <div class="links">
+                                                    <a title="{{@$gallery_element->filename}}" data-gal="prettyPhoto[gallery]" href="{{asset('/images/uploads/section_elements/gallery/'.@$gallery_element->resized_name)}}"> 
+                                                    <span class="icon icon-search"> </span> </a>
+                                                </div>
+                                            </div>
+                                        </figure>
+                                    </div>
+                                    @endforeach
+                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ult-spacer spacer-6107b781dbf3c" data-id="6107b781dbf3c" data-height="100" data-height-mobile="35" data-height-tab="35" data-height-tab-portrait="" data-height-mobile-landscape="" style="clear:both;display:block;"></div>
+
+            </div>
+        </div>
+        <div class="vc_row-full-width vc_clearfix"></div>
+
+        @endif
+        <!-- End Gallery Section  -->
+        
 
         </div><!-- #post-1578 -->
         </section><!-- **Primary - End** -->

@@ -10,6 +10,7 @@ use App\Models\Client;
 use App\Models\Page;
 use App\Models\PageSection;
 use App\Models\SectionElement;
+use App\Models\SectionGallery;
 use App\Models\ServiceCategory;
 use App\Models\Setting;
 use App\Models\Slider;
@@ -182,11 +183,6 @@ class FrontController extends Controller
                     ->where('page_section_id', $section->id)
                     ->get();
             }
-            elseif ($section->section_slug == 'gallery_section'){
-                $gallery_elements = SectionElement::with('section')
-                    ->where('page_section_id', $section->id)
-                    ->first();
-            }
             elseif($section->section_slug == 'list_section_1'){
                 $list_1 = $section->list_number_1;
                 $list1_elements = SectionElement::with('section')
@@ -202,6 +198,11 @@ class FrontController extends Controller
             elseif ($section->section_slug == 'process_selection'){
                 $list_3 = $section->list_number_3;
                 $process_elements = SectionElement::with('section')
+                    ->where('page_section_id', $section->id)
+                    ->get();
+            }
+            elseif ($section->section_slug == 'gallery_section'){
+                $gallery_elements = SectionGallery::with('section')
                     ->where('page_section_id', $section->id)
                     ->get();
             }
