@@ -59,10 +59,13 @@
                                         <a href="{{route('dashboard')}}" class="{{(Request::segment(2) == 'dashboard') ? "text-white active":"text-dark"}} p-4 first-slider-btn ctm-border-right ctm-border-left ctm-border-top"><span class="lnr lnr-home pr-0 pb-lg-2 font-23"></span><span class="">Dashboard</span></a>
                                     </div>
                                     <div class="col-6 align-items-center text-center">
-                                        <a href="{{route('user.index')}}" class="{{(Request::segment(2) == 'user') ? "text-white active":"text-dark"}} p-4 second-slider-btn ctm-border-right ctm-border-top" title="User Management"><span class="lnr lnr-users pr-0 pb-lg-2 font-23"></span><span class="">All User's</span></a>
+                                        <a href="{{route('user.index')}}" class="{{(Request::segment(2) == 'user') ? "text-white active":"text-dark"}} p-4 second-slider-btn ctm-border-right ctm-border-top" title="User Management"><span class="lnr lnr-users pr-0 pb-lg-2 font-23"></span><span class="">All Users</span></a>
                                     </div>
                                     <div class="col-6 align-items-center shadow-none text-center">
-                                        <a href="{{route('pages.index')}}" class="{{(Request::segment(2) == 'pages') ? "text-white active":"text-dark"}} p-4 second-slider-btn ctm-border-right ctm-border-top"><span class="lnr lnr-file-empty pr-0 pb-lg-2 font-23"></span><span class="">Pages</span></a>
+                                        <a href="{{route('pages.index')}}" class="{{(Request::segment(2) == 'pages') ? "text-white active":"text-dark"}} p-4 ctm-border-right ctm-border-left"><span class="lnr lnr-file-empty pr-0 pb-lg-2 font-23"></span><span class="">Sliders</span></a>
+                                    </div>
+                                    <div class="col-6 align-items-center shadow-none text-center">
+                                        <a href="{{route('menu.index')}}" class="{{(Request::segment(2) == 'manage-menus') ? "text-white active":"text-dark"}} p-4 ctm-border-right"><span class="lnr lnr-menu pr-0 pb-lg-2 font-23"></span><span class="">Menu</span></a>
                                     </div>
                                     <div class="col-6 align-items-center shadow-none text-center">
                                         <a href="{{route('teams.index')}}" class="{{(Request::segment(2) == 'teams') ? "text-white active":"text-dark"}} p-4 ctm-border-right ctm-border-left"><span class="lnr lnr-license pr-0 pb-lg-2 font-23"></span><span class="">Teams</span></a>
@@ -74,7 +77,7 @@
                                         <a href="{{route('testimonials.index')}}" class="{{(Request::segment(2) == 'testimonials') ? "text-white active":"text-dark"}} p-4 ctm-border-right ctm-border-left"><span class="lnr lnr-star-half pr-0 pb-lg-2 font-23"></span><span class="">Testimonials</span></a>
                                     </div>
                                     <div class="col-6 align-items-center shadow-none text-center">
-                                        <a id="service-cat" href="{{route('service-category.index')}}" class="{{(Request::segment(2) == 'service-category') ? "text-white active":"text-dark"}} p-4 last-slider-btn ctm-border-right" title="Service Category"><span class="lnr lnr-tag pr-0 pb-lg-2 font-23"></span><span class="">Category</span></a>
+                                        <a id="service-cat" href="{{route('service-category.index')}}" class="{{(Request::segment(2) == 'service-category') ? "text-white active":"text-dark"}} p-4 ctm-border-right" title="Service Category"><span class="lnr lnr-tag pr-0 pb-lg-2 font-23"></span><span class="">Category</span></a>
                                     </div>
                                     <div class="col-6 align-items-center shadow-none text-center">
                                         <a href="{{route('sliders.index')}}" class="{{(Request::segment(2) == 'sliders') ? "text-white active":"text-dark"}} p-4 ctm-border-right ctm-border-left"><span class="lnr lnr-picture pr-0 pb-lg-2 font-23"></span><span class="">Sliders</span></a>
