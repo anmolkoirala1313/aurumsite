@@ -70,6 +70,8 @@ class FrontController extends Controller
         $teams =$this->team->orderBy('name', 'asc')->take(3)->get();
         $welcome_settings = $this->setting->first();
 
+        
+
         return view('welcome',compact('welcome_settings','teams','awards','sliders','service_categories','latestPosts','testimonials','countries','client_groups','clients'));
 
     }

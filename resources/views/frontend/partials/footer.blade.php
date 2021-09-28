@@ -32,18 +32,26 @@
                                         <h3 class="widgettitle">Useful Links</h3>
                                         <div class="textwidget">
                                             <ul class="split-list no-border no-bullet hvr-push-to-right">
-                                                <li> <a title="" href="#"> <i class="fa fa-angle-right"></i> Home </a> </li>
-                                                <li> <a title="" href="#"> <i class="fa fa-angle-right"></i> Company News </a> </li>
-                                                <li> <a title="" href="#"> <i class="fa fa-angle-right"></i> About us </a> </li>
-                                                <li> <a title="" href="#"> <i class="fa fa-angle-right"></i> Projects </a> </li>
-                                                <li> <a title="" href="#"> <i class="fa fa-angle-right"></i> Careers </a> </li>
+                                            @if(!empty($footer_nav_data))
+                                                @foreach($footer_nav_data as $nav)
+                                                    @if(!empty($nav->children[0]))
+                                                    @else
+                                                        @if($nav->type == 'custom')
+                                                        <li>
+                                                            <a href="{{$nav->slug}}"  @if($nav->target == NULL)  @else target="{{$nav->target}}" @endif> <i class="fa fa-angle-right"></i> @if($nav->name == NULL) {{$nav->title}} @else {{$nav->name}} @endif</a></li>
+                                                        @elseif($nav->type == 'post')
+                                                        <li>
+                                                            <a href="{{url('blog')}}/{{$nav->slug}}"><i class="fa fa-angle-right"></i> @if($nav->name == NULL) {{$nav->title}} @else {{$nav->name}} @endif</a></li>
+                                                        @else
+                                                        <li>
+                                                            <a href="{{url('/')}}/{{$nav->slug}}"> <i class="fa fa-angle-right"></i>@if($nav->name == NULL) {{$nav->title}} @else {{$nav->name}} @endif</a></li>	
+                                                        @endif
+                                                    @endif	
+                                                @endforeach
+                                            @endif
+                                               
                                             </ul>
-                                            <ul class="split-list no-border no-bullet hvr-push-to-right">
-                                                <li> <a title="" href="#"> <i class="fa fa-angle-right"></i> Contact us </a> </li>
-                                                <li> <a title="" href="#"> <i class="fa fa-angle-right"></i> Legal Support </a> </li>
-                                                <li> <a title="" href="#"> <i class="fa fa-angle-right"></i> Give us feedback </a> </li>
-                                                <li> <a title="" href="#"> <i class="fa fa-angle-right"></i> Talk to us </a> </li>
-                                            </ul>
+                                           
                                         </div>
                                     </aside>
                                 </div>
@@ -53,7 +61,7 @@
                                         <div class="textwidget">
                                             <div class='dt-sc-contact-info  '><span class='fa fa-home'> </span>@if(!empty(@$setting_data->address)) {{@$setting_data->address}} @else Kathmandu, Nepal @endif </div>
                                             <div class='dt-sc-hr-invisible-xsmall '> </div>
-                                            <div class='dt-sc-contact-info  '><span class='fa fa-phone'> </span>@if(!empty(@$setting_data->phone)) {{@$setting_data->phone}} @else +977 1234567 @endif<br>@if(!empty(@$setting_data->mobile)) {{@$setting_data->mobile}} @else +977 1234567 @endif
+                                            <div class='dt-sc-contact-info  '><span class='fa fa-phone'> </span>@if(!empty(@$setting_data->phone)) {{@$setting_data->phone}} , @else +977 1234567 , @endif @if(!empty(@$setting_data->mobile)) {{@$setting_data->mobile}} @else +977 1234567 @endif
                                             </div>
                                             <div class='dt-sc-hr-invisible-xsmall '> </div>
                                             <div class='dt-sc-contact-info  '><span class='fa fa-envelope'> </span><a href="mailto:@if(!empty(@$setting_data->email)) {{@$setting_data->email}} @else example@gmail.com @endif">
@@ -236,7 +244,16 @@
                 <script type='text/javascript'
                 src="{{asset('assets/frontend/plugins/js_composer/assets/lib/vc_waypoints/vc-waypoints.min.js')}}"
                 id='vc_waypoints-js'></script>
-               
+                <script type='text/javascript'>
+
+                (function($) {
+                    $(document).ready(function() {
+                        $('ul.sub-menu li.current-menu-item.page_team.current_page_item').closest('li.menu-item-has-children').addClass('current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor');
+
+                    });
+                })(jQuery);
+                   
+                </script>
                 @yield('js')
 
         </body>

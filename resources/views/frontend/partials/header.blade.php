@@ -311,24 +311,51 @@
 
                                 <nav id="main-menu" class="menu-main-menu-container">
                                     <ul class="menu">
-                                        <li id="menu-item-1770"
-                                         class="{{request()->is('/') ? 'current_page_item' : ''}} menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-5   menu-item-depth-0 menu-links-with-arrow single">
-                                            <a href="/">Home</a>
-                                        </li>
-                                      
-                                        <li id="menu-item-7641"
-                                            class="{{request()->is('service') ? 'current_page_item' : ''}} menu-item menu-item-type-post_type menu-item-object-page menu-item-depth-0 menu-links-with-arrow single menu-item-simple-parent ">
-                                            <a href="{{url('/services')}}">Services</a></li>
-                                      
-                                        <li id="menu-item-1779"
-                                            class="{{request()->is('blog*') ? 'current_page_item' : ''}}  menu-item menu-item-type-post_type menu-item-object-page menu-item-depth-0 menu-links-with-arrow single menu-item-simple-parent ">
-                                            <a href="{{url('/blog')}}">Blog</a></li>
-                                        <li id="menu-item-1769"
-                                            class="{{request()->is('contact-us') ? 'current_page_item' : ''}} menu-item menu-item-type-post_type menu-item-object-page menu-item-depth-0 menu-links-with-arrow single menu-item-simple-parent ">
-                                            <a href="{{url('/contact-us')}}">Contact Us</a></li>
+
+                                        @if(!empty($top_nav_data))
+                                            @foreach($top_nav_data as $nav)
+                                            @if(!empty($nav->children[0]))
+                                            <li id="menu-item-176{{@$loop->index}}" class="{{request()->is(@$nav->slug)  ? 'current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor ' : ''}} menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-depth-0 menu-links-with-arrow single menu-item-simple-parent ">
+                                                <a href="#">@if(@$nav->name == NULL) {{ucwords(@$nav->title)}} @else {{ucwords(@$nav->name)}} @endif </a>
+
+                                                <ul class="sub-menu ">
+                                                    
+                                                    @foreach($nav->children[0] as $childNav)
+                                                    @if($childNav->type == 'custom')
+                                                        <li id="menu-item-743{{@$loop->index}}" class="menu-item menu-item-type-post_type menu-item-object-page {{request()->is(@$childNav->slug) ? 'current-menu-item page_team current_page_item' : ''}} menu-item-depth-1">
+                                                            <a href="/{{@$childNav->slug}}" @if(@$childNav->target !== NULL) target="_blank" @endif >@if($childNav->name == NULL) {{@$childNav->title}} @else {{@$childNav->name}} @endif</a></li>
+                                                    @elseif($childNav->type == 'post')
+                                                    <li id="menu-item-743{{@$loop->index}}" class="menu-item menu-item-type-post_type menu-item-object-page {{request()->is('blog/'.@$childNav->slug) ? 'current-menu-item page_team current_page_item' : ''}}  menu-item-depth-1">
+                                                            <a href="{{url('blog')}}/{{@$childNav->slug}}" >@if(@$childNav->name == NULL) {{@$childNav->title}} @else {{@$childNav->name}} @endif</a></li>
+                                                    @else
+                                                    <li id="menu-item-743{{@$loop->index}}" class="menu-item menu-item-type-post_type menu-item-object-page {{request()->is(@$childNav->slug) ? 'current-menu-item page_team current_page_item' : ''}} menu-item-depth-1">
+                                                            <a href="{{url('/')}}/{{@$childNav->slug}}" >@if($childNav->name == NULL) {{@$childNav->title}} @else {{@$childNav->name}} @endif</a></li>
+                                                    @endif
+                                                    @endforeach
+                                                
+                                                </ul>
+                                                <a class="dt-menu-expand" href="javascript:void(0)">+</a>
+                                            </li>
+
+                                            @else
+                                                @if($nav->type == 'custom')
+                                                <li id="menu-item-176{{@$loop->index}}"  class="{{request()->is(@$nav->slug.'*') ? 'current_page_item current-menu-item' : ''}} menu-item menu-item-type-post_type menu-item-object-page menu-item-depth-0 menu-links-with-arrow single menu-item-simple-parent ">
+                                                    <a href="{{$nav->slug}}"  @if($nav->target == NULL)  @else target="{{$nav->target}}" @endif>@if($nav->name == NULL) {{$nav->title}} @else {{$nav->name}} @endif</a></li>
+                                                @elseif($nav->type == 'post')
+                                                <li id="menu-item-176{{@$loop->index}}"  class="{{request()->is('blog/'.@$nav->slug.'*') ? 'current_page_item current-menu-item' : ''}} menu-item menu-item-type-post_type menu-item-object-page menu-item-depth-0 menu-links-with-arrow single menu-item-simple-parent ">
+                                                    <a href="{{url('blog')}}/{{$nav->slug}}">@if($nav->name == NULL) {{$nav->title}} @else {{$nav->name}} @endif</a></li>
+                                                @else
+                                                <li id="menu-item-176{{@$loop->index}}"  class="{{request()->is(@$nav->slug.'*') ? 'current_page_item current-menu-item' : ''}} menu-item menu-item-type-post_type menu-item-object-page menu-item-depth-0 menu-links-with-arrow single menu-item-simple-parent ">
+                                                    <a href="{{url('/')}}/{{$nav->slug}}">@if($nav->name == NULL) {{$nav->title}} @else {{$nav->name}} @endif</a></li>	
+                                                @endif
+                                            @endif	
+                                            @endforeach
+                                        @endif
+                                   
 
                                     </ul>
                                 </nav>
+
                                 <div class="menu-icons-wrapper">
                                     <div class="search"> <a href="javascript:void(0)" id="overlay-search-type1"
                                                             class="dt-search-icon type1"> <span class="fa fa-search"> </span> </a>
