@@ -74,6 +74,7 @@
         .list > ol {
             list-style-type: none;
             padding-left: 0px;
+            margin-bottom: 0px;
             width:220px
         }
 
@@ -376,6 +377,12 @@
 
         document.addEventListener("DOMContentLoaded", function() {
             this.querySelectorAll("div.list").forEach(list => {
+                let listnum = list.querySelectorAll("li").length;
+                if(listnum <= 3){
+                    list.querySelector("button").classList.add('hidden');
+                }else{
+                    list.querySelector("button").classList.remove('hidden');
+                }
                 list.querySelector("button").addEventListener("click", function() {
                     let blocks = list.querySelectorAll("li");
                     switch(this.value) {
