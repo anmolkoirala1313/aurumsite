@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Page;
 use App\Models\PageSection;
 use App\Models\SectionElement;
+use App\Models\SectionGallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -233,11 +234,13 @@ class PageController extends Controller
                         $section_element                  = PageSection::find($request->input('list_1_id'));
                         $section_element->list_number_1   = $request->input('list_number_1');
                         $section_status                   = $section_element->update();
-                    }  elseif ($ins == 'list_section_2'){
+                    }
+                    elseif ($ins == 'list_section_2'){
                         $section_element                  = PageSection::find($request->input('list_2_id'));
                         $section_element->list_number_2   = $request->input('list_number_2');
                         $section_status                   = $section_element->update();
-                    } elseif ($ins == 'process_selection'){
+                    }
+                    elseif ($ins == 'process_selection'){
                         $section_element                  = PageSection::find($request->input('list_3_id'));
                         $section_element->list_number_3   = $request->input('list_number_3');
                         $section_status                   = $section_element->update();
@@ -301,6 +304,17 @@ class PageController extends Controller
                                 }
                             }
                         }
+                        if($section->section_slug == 'gallery_section'){
+                            $gallery_element = SectionGallery::where('page_section_id', $section->id)
+                                ->get();
+                            foreach ($gallery_element as $elements){
+                                if (!empty($elements->filename) && !empty($elements->resized_name) && file_exists(public_path().'/images/uploads/section_elements/gallery/'.$elements->filename) && file_exists(public_path().'/images/uploads/section_elements/gallery/'.$elements->resized_name)){
+                                    @unlink(public_path().'/images/uploads/section_elements/gallery/'.$elements->filename);
+                                    @unlink(public_path().'/images/uploads/section_elements/gallery/'.$elements->resized_name);
+                                }
+                            }
+                        }
+
                     }
                     $delete_status    = $delete_section->delete();
                 }
@@ -388,7 +402,18 @@ class PageController extends Controller
                     }
                 }
             }
+            if($section->section_slug == 'gallery_section'){
+                $gallery_element = SectionGallery::where('page_section_id', $section->id)
+                    ->get();
+                foreach ($gallery_element as $elements){
+                    if (!empty($elements->filename) && !empty($elements->resized_name) && file_exists(public_path().'/images/uploads/section_elements/gallery/'.$elements->filename) && file_exists(public_path().'/images/uploads/section_elements/gallery/'.$elements->resized_name)){
+                        @unlink(public_path().'/images/uploads/section_elements/gallery/'.$elements->filename);
+                        @unlink(public_path().'/images/uploads/section_elements/gallery/'.$elements->resized_name);
+                    }
+                }
+            }
         }
+
         $rid                = $delete->id;
         $delete->delete();
         return '#page_'.$rid;

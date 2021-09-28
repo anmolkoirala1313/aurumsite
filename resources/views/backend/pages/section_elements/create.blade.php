@@ -1055,7 +1055,7 @@
                                         <div class="card ctm-border-radius shadow-sm flex-fill">
                                             <div class="card-header">
                                                 <h4 class="card-title mb-0">
-                                                    Add image to gallery section 
+                                                    Add image to gallery section
                                                 </h4>
                                                 <p class="text-danger">Note* Please add the images in the multiplication of 4 (like 4, 8, 12) for perfect design  </p>
                                             </div>
@@ -1063,7 +1063,7 @@
                                                 <h2 class="page-heading">Upload your Images <span id="counter"></span></h2>
                                                 <div class="invalid-feedback">    </div>
                                                 <script type="text/javascript">
-                                                var page_section_id = "{{$key}}"
+                                                var page_section_id = "{{$key}}";
                                                   </script>
                                                 {!! Form::open(['url'=>route('section-elements-gallery.update', @$key),'method'=>'PUT','class'=>'dropzone','id'=>'myDropzone','enctype'=>'multipart/form-data']) !!}
                                                     <div class="dz-message">
@@ -1177,6 +1177,7 @@
         function reload(){
             location.reload();
         }
+
         function ElementData(post_url,request_method,form_data,divID,buttonID){
             $.ajax({
                 url : post_url,
