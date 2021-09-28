@@ -180,7 +180,6 @@
                 </div>
             </div>
 
-
             <div class="col-md-7 col-sm-12">
                 <div class="card flex-fill office-card-last ctm-border-radius shadow-sm grow">
                     <div class="card-header ">
@@ -304,7 +303,7 @@
                                                                                             </div>
                                                                                         </div>
 
-                                                                                        @if($item->type == 'custom')
+                                                                                        @if($data->type == 'custom')
                                                                                             <div class="form-group mb-3">
                                                                                                 <label>URL </label>
                                                                                                 <input type="text" class="form-control" name="slug" value="{{$data->slug}}">

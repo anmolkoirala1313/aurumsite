@@ -329,7 +329,11 @@ class MenuController extends Controller
 
     public function updateMenuItem(Request $request){
         $data           = $request->all();
+        $target         = $request->input('target');
         $item           = MenuItem::findOrFail($request->id);
+        if($target == null){
+            $data['target'] = NULL;
+        }
         $status         = $item->update($data);
         if($status){
             Session::flash('success','Menu Item Updated Successfully');
