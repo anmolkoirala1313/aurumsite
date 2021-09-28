@@ -62,7 +62,7 @@
                                         <a href="{{route('user.index')}}" class="{{(Request::segment(2) == 'user') ? "text-white active":"text-dark"}} p-4 second-slider-btn ctm-border-right ctm-border-top" title="User Management"><span class="lnr lnr-users pr-0 pb-lg-2 font-23"></span><span class="">All Users</span></a>
                                     </div>
                                     <div class="col-6 align-items-center shadow-none text-center">
-                                        <a href="{{route('pages.index')}}" class="{{(Request::segment(2) == 'pages') ? "text-white active":"text-dark"}} p-4 ctm-border-right ctm-border-left"><span class="lnr lnr-file-empty pr-0 pb-lg-2 font-23"></span><span class="">Sliders</span></a>
+                                        <a href="{{route('pages.index')}}" class="{{(Request::segment(2) == 'pages') ? "text-white active":"text-dark"}} p-4 ctm-border-right ctm-border-left"><span class="lnr lnr-file-empty pr-0 pb-lg-2 font-23"></span><span class="">Pages</span></a>
                                     </div>
                                     <div class="col-6 align-items-center shadow-none text-center">
                                         <a href="{{route('menu.index')}}" class="{{(Request::segment(2) == 'manage-menus') ? "text-white active":"text-dark"}} p-4 ctm-border-right"><span class="lnr lnr-menu pr-0 pb-lg-2 font-23"></span><span class="">Menu</span></a>
