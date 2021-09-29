@@ -80,7 +80,7 @@
                     <div class="card-body recent-activ">
                         <div class="recent-comment">
                                 <div class="dash-card-container">
-                                
+
                                 @if(count($latestPages) > 0)
 
                                     @foreach($latestPages as $index => $latest)
@@ -95,13 +95,13 @@
 
                                     @endforeach
                                 @else
-                                
+
                                 <p>There are no listed page found. You can start by add one from <a href="{{route('pages.create')}}">here.</a></p>
-                                
+
                                 @endif
-                                
+
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -114,7 +114,7 @@
                         <a href="{{route('user.index')}}" class="dash-card float-right mb-0 text-primary">Manage Users </a>
                     </div>
                     <div class="card-body">
-                        
+
                         @if(count($latestUsers) > 0)
                             @foreach($latestUsers as $index => $latest)
                                 <div class="media mb-3">
@@ -127,7 +127,7 @@
                                 <hr>
                             @endforeach
                         @endif
-                       
+
                     </div>
                 </div>
             </div>
@@ -196,22 +196,23 @@
                                 </div>
                             </div>
                             <hr>
-                            
+
                         @endforeach
                         @else
-                        
+
                         <p>There are no listed blog found. You can start by add one from <a href="{{route('blogcategory.index')}}">here.</a></p>
                         @endif
-                            
+
                         </div>
                     </div>
                 </div>
             </div>
-           
+
         </div>
     </div>
 
- <!-- Edit Status Modal !-->
+    @if($setting_data !== null)
+    <!-- Edit Status Modal !-->
     <div class="modal fade" id="editStatus" role="document">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -257,7 +258,7 @@
                             </div>
                         </div>
                     </div>
-                   
+
                     <button type="button" class="mb-3 btn btn-danger text-white ctm-border-radius float-right ml-3" data-dismiss="modal">Cancel</button>
                     <button type="submit" class="mb-3 btn btn-theme ctm-border-radius text-white float-right button-1">Update</button>
                 </div>
@@ -266,13 +267,14 @@
             </div>
         </div>
     </div>
+    @endif
 
 @endsection
 
 @section('js')
 <script type="text/javascript">
 
-      
+
 </script>
 
 @endsection
