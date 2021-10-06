@@ -169,7 +169,7 @@
                                             </div>
                                             <img id="current-img" src="{{asset('/images/uploads/default-placeholder.png')}}" alt="slider image" class="w-100 current-img">
                                         </div>
-                                        <span class="ctm-text-sm">*use image minimum of 1920 x 850px for blog</span>
+                                        <span class="ctm-text-sm">*use image minimum of 1920 x 850px for slider</span>
                                     </div>
 
                                 </div>
@@ -299,7 +299,7 @@
                                                 </div>
                                                 <img id="current-edit-img" src="{{asset('/images/uploads/default-placeholder.png')}}" alt="slider image" class="w-100 current-img">
                                             </div>
-                                            <span class="ctm-text-sm">*use image minimum of 1920 x 850px for blog</span>
+                                            <span class="ctm-text-sm">*use image minimum of 1920 x 850px for slider</span>
                                         </div>
 
                                     </div>
