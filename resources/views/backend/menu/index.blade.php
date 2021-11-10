@@ -92,17 +92,24 @@
                                 </div>
                                 <div class="card-body p-0 {{(count($menus) == 0) ? 'disabled':''}}" id="menu-list">
                                     <div id="basic-one" class="ctm-padding collapse show" aria-labelledby="basic1" data-parent="#accordion-details" style="">
-                                        @foreach($pages as $page)
-                                            <div class="custom-control custom-checkbox mb-3">
-                                                <input type="checkbox" class="custom-control-input" id="page-{{$page->id}}" value="{{$page->id}}" name="select-pages[]">
-                                                <label class="custom-control-label" for="page-{{$page->id}}">
-                                                    <span class="h6">
-                                                        {{ucfirst($page->name)}}</span>
-                                                </label>
+                                        @if(count($pages) !== 0)
+                                            @foreach($pages as $page)
+                                                <div class="custom-control custom-checkbox mb-3">
+                                                    <input type="checkbox" class="custom-control-input" id="page-{{$page->id}}" value="{{$page->id}}" name="select-pages[]">
+                                                    <label class="custom-control-label" for="page-{{$page->id}}">
+                                                        <span class="h6">
+                                                            {{ucfirst($page->name)}}</span>
+                                                    </label>
+                                                </div>
+                                            @endforeach
+                                        @else
+                                            <div class="pb-2">
+                                                <span class="h6">Please <a href="{{route('pages.index')}}">create a page</a> to add in menu.</span>
                                             </div>
-                                        @endforeach
+                                        @endif
 
-                                        <div class="text-center">
+
+                                        <div class="text-center {{(count($pages) == 0) ? 'disabled':''}}">
                                             <label class="pull-left btn-sm btn btn-theme button-1 ctm-border-radius text-white"><input type="checkbox" id="select-all-menus" class="hidden"> Select All</label>
                                             <button type="button" class="pull-right btn-sm btn btn-theme button-1 ctm-border-radius text-white" id="add-pages">Add to Menu</button>
                                         </div>
@@ -122,16 +129,21 @@
                                 </div>
                                 <div class="card-body p-0 {{(count($menus) == 0) ? 'disabled':''}}" id="posts-list">
                                     <div id="term-office" class="ctm-padding collapse" aria-labelledby="headingThree" data-parent="#accordion-details" style="">
-
-                                        @foreach($blogs as $blog)
-                                            <div class="custom-control custom-checkbox mb-3">
-                                                <input type="checkbox" name="select-post[]" value="{{$blog->id}}" class="custom-control-input" id="posts-{{$blog->id}}">
-                                                <label class="custom-control-label" for="posts-{{$blog->id}}">
-                                                    <span class="h6">{{$blog->title}}</span>
-                                                </label>
+                                        @if(count($blogs) !== 0)
+                                            @foreach($blogs as $blog)
+                                                <div class="custom-control custom-checkbox mb-3">
+                                                    <input type="checkbox" name="select-post[]" value="{{$blog->id}}" class="custom-control-input" id="posts-{{$blog->id}}">
+                                                    <label class="custom-control-label" for="posts-{{$blog->id}}">
+                                                        <span class="h6">{{$blog->title}}</span>
+                                                    </label>
+                                                </div>
+                                            @endforeach
+                                        @else
+                                            <div class="pb-2">
+                                                <span class="h6">Please <a href="{{route('blogcategory.index')}}">create a blog</a> to add in menu.</span>
                                             </div>
-                                        @endforeach
-                                        <div class="text-center">
+                                        @endif
+                                        <div class="text-center {{(count($blogs) == 0) ? 'disabled':''}}">
                                             <label class="pull-left btn btn-sm btn-theme button-1 ctm-border-radius text-white"><input type="checkbox" id="select-all-posts" class="hidden"> Select All</label>
                                             <button type="button" class="pull-right btn-sm btn btn-theme button-1 ctm-border-radius text-white" id="add-posts">Add to Menu</button>
                                         </div>
@@ -155,14 +167,14 @@
                                         <div class="form-group mb-3">
                                             <label>URL </label>
                                             <input type="url" name="url" id="url" class="form-control"  placeholder="https://" required>
-                                            <div class="invalid-feedback">
+                                            <div class="invalid-feedback" id="custom-slug">
                                                 Please enter the url.
                                             </div>
                                         </div>
                                         <div class="form-group mb-3">
                                             <label>URL Text</label>
                                             <input type="url" name="url_text" id="url_text" class="form-control" required>
-                                            <div class="invalid-feedback">
+                                            <div class="invalid-feedback" id="custom-name">
                                                 Please enter the url text.
                                             </div>
                                         </div>
@@ -255,7 +267,7 @@
                                                                         @if($item->type == 'custom')
                                                                             <div class="form-group mb-3">
                                                                                 <label>URL </label>
-                                                                                <input type="text" class="form-control" name="slug" value="{{$item->slug}}">
+                                                                                <input type="text" class="form-control" name="slug" value="{{$item->slug}}" required>
                                                                                 <div class="invalid-feedback">
                                                                                     Please enter the URL.
                                                                                 </div>
@@ -306,7 +318,7 @@
                                                                                         @if($data->type == 'custom')
                                                                                             <div class="form-group mb-3">
                                                                                                 <label>URL </label>
-                                                                                                <input type="text" class="form-control" name="slug" value="{{$data->slug}}">
+                                                                                                <input type="text" class="form-control" name="slug" value="{{$data->slug}}" required>
                                                                                                 <div class="invalid-feedback">
                                                                                                     Please enter the URL.
                                                                                                 </div>
@@ -359,7 +371,7 @@
 
                                     <div class="text-center">
                                         <a href="{{route('menu.delete',$desiredMenu->id)}}" class="pull-left btn btn-sm btn-outline-danger" id="deleteMenu">
-                                            <span class="lnr lnr-trash"></span> Delete
+                                            <span class="lnr lnr-trash"></span> Delete Menu
                                         </a>
 
                                         <button type="button" class="pull-right btn btn-sm btn-outline-success" id="saveMenu">
@@ -531,6 +543,10 @@
                 var array   = $('input[name="select-pages[]"]:checked');
                 var ids     = [];
 
+                if(n == 0){
+                    return false;
+                }
+
                 for(var i=0;i<n;i++){
                     ids[i] =  array.eq(i).val();
                 }
@@ -554,6 +570,10 @@
                 var n       = $('input[name="select-post[]"]:checked').length;
                 var array   = $('input[name="select-post[]"]:checked');
                 var ids     = [];
+
+                if(n == 0){
+                    return false;
+                }
 
                 for(var i=0;i<n;i++){
                     ids[i] =  array.eq(i).val();
@@ -579,7 +599,14 @@
                 var url = $('#url').val();
                 var url_text = $('#url_text').val();
 
+                if(url_text !== ''){
+                    $("#custom-name").hide();
+                }else{
+                    $("#custom-name").show();
+                }
+
                 if(url !== ''){
+                    $("#custom-slug").hide();
                     $.ajax({
                         type:"get",
                         data: {menuid:menuid,url:url,url_text:url_text},
@@ -588,6 +615,8 @@
                             location.reload();
                         }
                     });
+                }else{
+                    $("#custom-slug").show();
                 }
             });
 
@@ -595,7 +624,7 @@
                 var menuid  = "{{$desiredMenu->id}}";
                 var location = $('input[name="location"]:checked').val();
                 if(location == null){
-                    swal("Mission location!", "Select the location to save the menu", "info");
+                    swal("Missing location!", "Select the location to save the menu", "info");
                     return false;
                 }
                 var data = JSON.parse($("#serialize_output").text());
