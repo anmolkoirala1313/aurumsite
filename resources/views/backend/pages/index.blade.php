@@ -217,6 +217,7 @@
                                                             <a href="javascript:void(0)" class="btn btn-white btn-sm" data-toggle="dropdown" aria-expanded="false"> <span class="lnr lnr-cog"></span>
                                                             </a>
                                                             <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 31px, 0px);">
+                                                                <a class="dropdown-item" href="{{route('page',$page->slug)}}" target="_blank"> Frontend View </a>
                                                                 <a class="dropdown-item" href="{{route('pages.edit',$page->id)}}" > Edit </a>
                                                                 <a class="dropdown-item action-delete" href="#" hrm-delete-per-action="{{route('pages.destroy',$page->id)}}"> Delete </a>
                                                             </div>

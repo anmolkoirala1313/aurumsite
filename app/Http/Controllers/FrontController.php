@@ -70,7 +70,7 @@ class FrontController extends Controller
         $teams =$this->team->orderBy('name', 'asc')->take(3)->get();
         $welcome_settings = $this->setting->first();
 
-        
+
 
         return view('welcome',compact('welcome_settings','teams','awards','sliders','service_categories','latestPosts','testimonials','countries','client_groups','clients'));
 
@@ -141,11 +141,11 @@ class FrontController extends Controller
         if (!$page_detail) {
             return abort(404);
         }
-        $page_section = $this->pagesection->with('page')->where('page_id', $page_detail->id)->get();
+        $page_section = $this->pagesection->with('page')->where('page_id', $page_detail->id)->orderBy('position', 'ASC')->get();
         if (!$page_section) {
             return abort(404);
         }
-        $sections      = array();
+        $sorted_sections      = array();
         $list_1 = "";
         $list_2 = "";
         $list_3 = "";
@@ -159,7 +159,7 @@ class FrontController extends Controller
         $list2_elements = "";
         $process_elements = "";
         foreach ($page_section as $section){
-            $sections[$section->id] = $section->section_slug;
+            $sorted_sections[$section->id] = $section->section_slug;
             if($section->section_slug == 'basic_section'){
                 $basic_elements = SectionElement::with('section')
                     ->where('page_section_id', $section->id)
@@ -210,8 +210,7 @@ class FrontController extends Controller
             }
         }
 
-
-        return view('frontend.pages.dynamic_page', compact('page_detail','sections','list_1','list_2','list_3','basic_elements','call_elements','bgimage_elements','tab1_elements','tab2_elements','gallery_elements','list1_elements','list2_elements','process_elements'));
+        return view('frontend.pages.dynamic_page', compact('page_detail','sorted_sections','list_1','list_2','list_3','basic_elements','call_elements','bgimage_elements','tab1_elements','tab2_elements','gallery_elements','list1_elements','list2_elements','process_elements'));
 
     }
 
