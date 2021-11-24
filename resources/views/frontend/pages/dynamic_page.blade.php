@@ -36,10 +36,11 @@
         <section id="primary" class="content-full-width">
         <!-- #post-1578 -->
         <div id="post-1637" class="post-1637 page type-page status-publish hentry">
-           
-        <!-- Basic elements -->
 
-            @if(@$basic_elements !== "")
+        @foreach($sorted_sections as $key=>$value)
+
+            <!-- Basic elements -->
+            @if(@$value == "basic_section")
                 <div class="vc_row wpb_row vc_row-fluid dt-sc-custom-bg left-bg-diamond-shape right-bg-circle-shape">
                     <div class="wpb_column vc_column_container vc_col-sm-12">
                         <div class="vc_column-inner ">
@@ -98,12 +99,10 @@
                     </div>
                 </div>
             @endif
-        <!-- End basic elements -->
+            <!-- End basic elements -->
 
-     
-        <!-- Call to action -->
-
-            @if(@$call_elements !== "")
+            <!-- Call to action -->
+            @if(@$value == "call_to_action")
                 <div data-vc-full-width="true" data-vc-full-width-init="false"
                         class="vc_row wpb_row vc_row-fluid wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp vc_custom_1504784267864 vc_row-has-fill">
                     <div class="wpb_column vc_column_container vc_col-sm-12">
@@ -151,11 +150,56 @@
                 </div>
                 <div class="vc_row-full-width vc_clearfix"></div>
             @endif
-        <!-- End Call to action -->
+            <!-- End Call to action -->
 
-   <!-- Tab section 1-->
+            <!-- Background image section -->
+            @if(@$value == "background_image_section")
+                    <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid dt-sc-dark-bg vcr_float_right wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp vc_custom_1504790526766 vc_row-has-fill">
+                        <div class="wpb_column vc_column_container vc_col-sm-12">
+                            <div class="vc_column-inner ">
+                                <div class="wpb_wrapper">
+                                    <div class="ult-spacer spacer-6107b781d8d68" data-id="6107b781d8d68" data-height="100" data-height-mobile="60" data-height-tab="80" data-height-tab-portrait="80" data-height-mobile-landscape="60" style="clear:both;display:block;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wpb_column vc_column_container vc_col-sm-6">
+                            <div class="vc_column-inner ">
+                                <div class="wpb_wrapper"></div>
+                            </div>
+                        </div>
+                        <div class="rs_col-sm-12 wpb_column vc_column_container vc_col-sm-6">
+                            <div class="vc_column-inner ">
+                                <div class="wpb_wrapper">
+                                    <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="fadeInRight" data-animation-delay="1.0" data-animation-duration="1" data-animation-iteration="1" style="opacity:0;" data-opacity_start_effect="">
+                                        <p style="font-size: 22px;text-align: left;font-family:Alegreya;font-weight:400;font-style:italic" class="vc_custom_heading">{{ucwords(@$bgimage_elements->heading)}}</p>
+                                        <h2 style="font-size: 42px;text-align: left" class="vc_custom_heading vc_custom_1495797869428"><strong>{{ucfirst(@$bgimage_elements->subheading)}}</strong></h2>
+                                        <div class='dt-sc-small-separator black curved-line white'></div>
+                                        <p style="text-align: left" class="vc_custom_heading vc_custom_1495797837957">{!! @$bgimage_elements->description !!} </p>
+                                    </div>
+                                    <div class="ult-spacer spacer-6107b781d93a9" data-id="6107b781d93a9" data-height="35" data-height-mobile="35" data-height-tab="35" data-height-tab-portrait="" data-height-mobile-landscape="" style="clear:both;display:block;"></div>
 
-        @if(@$tab1_elements !== "")
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wpb_column vc_column_container vc_col-sm-12">
+                            <div class="vc_column-inner ">
+                                <div class="wpb_wrapper">
+                                    <div class="ult-spacer spacer-6107b781d99a2" data-id="6107b781d99a2" data-height="100" data-height-mobile="60" data-height-tab="80" data-height-tab-portrait="80" data-height-mobile-landscape="60" style="clear:both;display:block;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vc_row-full-width vc_clearfix"></div>
+                    <div class="upb_bg_img" data-ultimate-bg="url({{asset('/images/uploads/section_elements/bgimage_section/'.@$bgimage_elements->image)}})" data-image-id="id^1625|url^{{asset('/images/uploads/section_elements/bgimage_section/'.@$bgimage_elements->image)}}|caption^null|alt^content-bgimage1|title^content-bgimage1|description^null"
+                         data-ultimate-bg-style="vcpb-default" data-bg-img-repeat="no-repeat" data-bg-img-size="cover" data-bg-img-position="" data-parallx_sense="30" data-bg-override="0" data-bg_img_attach="fixed" data-upb-overlay-color="rgba(0,0,0,0.5)"
+                         data-upb-bg-animation="" data-fadeout="" data-bg-animation="left-animation" data-bg-animation-type="h" data-animation-repeat="repeat" data-fadeout-percentage="30" data-parallax-content="" data-parallax-content-sense="30" data-row-effect-mobile-disable="true"
+                         data-img-parallax-mobile-disable="true" data-rtl="false" data-custom-vc-row="" data-vc="6.5.0" data-is_old_vc="" data-theme-support="" data-overlay="true" data-overlay-color="rgba(0,0,0,0.5)" data-overlay-pattern="" data-overlay-pattern-opacity="0.8"
+                         data-overlay-pattern-size="" data-overlay-pattern-attachment="scroll"></div>
+                @endif
+            <!-- End Background image section -->
+
+            <!-- Tab section 1-->
+            @if(@$value == "tab_section_1")
 
             <div class='dt-sc-hr-invisible-small '> </div>
             <div class='dt-sc-hr-invisible-xsmall '> </div>
@@ -183,7 +227,7 @@
                                                 </div>
                                             </div>
                                             <div class='dt-sc-hr-invisible-xsmall '> </div>
-                                          
+
                                         </div>
                                     </div>
                                 </div>
@@ -222,7 +266,7 @@
                                             </div>
                                         </div>
                                         <div class='dt-sc-hr-invisible-xsmall '> </div>
-                                       
+
                                     </div>
                                 </div>
                             </div>
@@ -260,7 +304,7 @@
                                                 </div>
                                             </div>
                                             <div class='dt-sc-hr-invisible-xsmall '> </div>
-                                          
+
                                         </div>
                                     </div>
                                 </div>
@@ -288,287 +332,238 @@
             <div class='dt-sc-hr-invisible-xsmall '> </div>
 
         @endif
-        <!-- End Tab section 1 -->
+            <!-- End Tab section 1 -->
 
-        <!-- Background image section -->
+            <!-- Tab section 2 -->
+             @if(@$value == "tab_section_2")
+                <div class='dt-sc-hr-invisible-small '> </div>
+                <div class='dt-sc-hr-invisible-xsmall '> </div>
 
-        @if(@$bgimage_elements !== "")
-            <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid dt-sc-dark-bg vcr_float_right wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp vc_custom_1504790526766 vc_row-has-fill">
-                <div class="wpb_column vc_column_container vc_col-sm-12">
-                    <div class="vc_column-inner ">
-                        <div class="wpb_wrapper">
-                            <div class="ult-spacer spacer-6107b781d8d68" data-id="6107b781d8d68" data-height="100" data-height-mobile="60" data-height-tab="80" data-height-tab-portrait="80" data-height-mobile-landscape="60" style="clear:both;display:block;"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="wpb_column vc_column_container vc_col-sm-6">
-                    <div class="vc_column-inner ">
-                        <div class="wpb_wrapper"></div>
-                    </div>
-                </div>
-                <div class="rs_col-sm-12 wpb_column vc_column_container vc_col-sm-6">
-                    <div class="vc_column-inner ">
-                        <div class="wpb_wrapper">
-                            <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="fadeInRight" data-animation-delay="1.0" data-animation-duration="1" data-animation-iteration="1" style="opacity:0;" data-opacity_start_effect="">
-                                <p style="font-size: 22px;text-align: left;font-family:Alegreya;font-weight:400;font-style:italic" class="vc_custom_heading">{{ucwords(@$bgimage_elements->heading)}}</p>
-                                <h2 style="font-size: 42px;text-align: left" class="vc_custom_heading vc_custom_1495797869428"><strong>{{ucfirst(@$bgimage_elements->subheading)}}</strong></h2>
-                                <div class='dt-sc-small-separator black curved-line white'></div>
-                                <p style="text-align: left" class="vc_custom_heading vc_custom_1495797837957">{!! @$bgimage_elements->description !!} </p>
-                            </div>
-                            <div class="ult-spacer spacer-6107b781d93a9" data-id="6107b781d93a9" data-height="35" data-height-mobile="35" data-height-tab="35" data-height-tab-portrait="" data-height-mobile-landscape="" style="clear:both;display:block;"></div>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="wpb_column vc_column_container vc_col-sm-12">
-                    <div class="vc_column-inner ">
-                        <div class="wpb_wrapper">
-                            <div class="ult-spacer spacer-6107b781d99a2" data-id="6107b781d99a2" data-height="100" data-height-mobile="60" data-height-tab="80" data-height-tab-portrait="80" data-height-mobile-landscape="60" style="clear:both;display:block;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="vc_row-full-width vc_clearfix"></div>
-            <div class="upb_bg_img" data-ultimate-bg="url({{asset('/images/uploads/section_elements/bgimage_section/'.@$bgimage_elements->image)}})" data-image-id="id^1625|url^{{asset('/images/uploads/section_elements/bgimage_section/'.@$bgimage_elements->image)}}|caption^null|alt^content-bgimage1|title^content-bgimage1|description^null"
-            data-ultimate-bg-style="vcpb-default" data-bg-img-repeat="no-repeat" data-bg-img-size="cover" data-bg-img-position="" data-parallx_sense="30" data-bg-override="0" data-bg_img_attach="fixed" data-upb-overlay-color="rgba(0,0,0,0.5)"
-            data-upb-bg-animation="" data-fadeout="" data-bg-animation="left-animation" data-bg-animation-type="h" data-animation-repeat="repeat" data-fadeout-percentage="30" data-parallax-content="" data-parallax-content-sense="30" data-row-effect-mobile-disable="true"
-            data-img-parallax-mobile-disable="true" data-rtl="false" data-custom-vc-row="" data-vc="6.5.0" data-is_old_vc="" data-theme-support="" data-overlay="true" data-overlay-color="rgba(0,0,0,0.5)" data-overlay-pattern="" data-overlay-pattern-opacity="0.8"
-            data-overlay-pattern-size="" data-overlay-pattern-attachment="scroll"></div>
-        @endif
-        <!-- End Background image section -->
+                <div class="vc_row wpb_row vc_row-fluid">
+                    <div class="wpb_column vc_column_container vc_col-sm-12">
+                        <div class="vc_column-inner ">
+                            <div class="wpb_wrapper">
+                                <div class='dt-sc-hr-invisible-xsmall '> </div>
+                                <div class='dt-sc-tabs-vertical-frame-container type2'>
+                                    <ul class='dt-sc-tabs-vertical-frame'>
+                                        @foreach(@$tab2_elements as $tab_element)
+                                        <li><a href="javascript:void(0);">{{ucwords($tab_element->heading)}}</a></li>
+                                        @endforeach
+                                    </ul>
 
-
-        <!-- Tab section 2 -->
-            @if(@$tab2_elements !== "")
-            <div class='dt-sc-hr-invisible-small '> </div>
-            <div class='dt-sc-hr-invisible-xsmall '> </div>
-
-            <div class="vc_row wpb_row vc_row-fluid">
-                <div class="wpb_column vc_column_container vc_col-sm-12">
-                    <div class="vc_column-inner ">
-                        <div class="wpb_wrapper">
-                            <div class='dt-sc-hr-invisible-xsmall '> </div>
-                            <div class='dt-sc-tabs-vertical-frame-container type2'>
-                                <ul class='dt-sc-tabs-vertical-frame'>
                                     @foreach(@$tab2_elements as $tab_element)
-                                    <li><a href="javascript:void(0);">{{ucwords($tab_element->heading)}}</a></li>
-                                    @endforeach
-                                </ul>
-
-                                @foreach(@$tab2_elements as $tab_element)
-                                <div class='dt-sc-tabs-vertical-frame-content'>
-                                    <div class="wpb_text_column wpb_content_element  vc_custom_1451042676199">
-                                        <div class="wpb_wrapper">
-                                            <h3><strong>{{ucwords($tab_element->subheading)}}</strong></h3>
-                                            <p>{!! @$tab_element->description !!}</p>
+                                    <div class='dt-sc-tabs-vertical-frame-content'>
+                                        <div class="wpb_text_column wpb_content_element  vc_custom_1451042676199">
+                                            <div class="wpb_wrapper">
+                                                <h3><strong>{{ucwords($tab_element->subheading)}}</strong></h3>
+                                                <p>{!! @$tab_element->description !!}</p>
+                                            </div>
                                         </div>
                                     </div>
+                                    @endforeach
+
                                 </div>
-                                @endforeach
-                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wpb_column vc_column_container vc_col-sm-12">
+                        <div class="vc_column-inner ">
+                            <div class="wpb_wrapper">
+                                <div class='dt-sc-hr-invisible-small '> </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="wpb_column vc_column_container vc_col-sm-12">
-                    <div class="vc_column-inner ">
-                        <div class="wpb_wrapper">
-                            <div class='dt-sc-hr-invisible-small '> </div>
+
+                @endif
+            <!-- End Tab section 2 -->
+
+            <!-- List section 1 -->
+            @if(@$value == "list_section_1")
+                <div data-vc-full-width="true" data-vc-full-width-init="false" class="list_section_1 vc_row wpb_row vc_row-fluid">
+                    <div class="wpb_column vc_column_container vc_col-sm-12">
+                        <div class="vc_column-inner ">
+                            <div class="wpb_wrapper">
+                                <div class="wpb_text_column wpb_content_element  vc_custom_1451372730817 aligncenter">
+                                </div>
+                                <div class='dt-sc-hr-invisible-small '> </div>
+                                <div class='dt-sc-hr-invisible-small '> </div>
+                                <div class='dt-sc-hr-invisible-xsmall '> </div>
+                                <div class="vc_row wpb_row vc_inner vc_row-fluid">
+                                    @foreach(@$list1_elements as $list_element)
+                                        <div class="wpb_column vc_column_container vc_col-sm-4">
+                                            <div class="vc_column-inner ">
+                                                <div class="wpb_wrapper">
+                                                    <div class='dt-sc-image-caption  '>
+                                                        <div class='dt-sc-image-wrapper'><img width="400" height="280" src="{{asset('/images/uploads/section_elements/list_1/'.@$list_element->list_image)}}" class="attachment-full" alt="" loading="lazy" srcset="{{asset('/images/uploads/section_elements/list_1/'.@$list_element->list_image)}} 400w, {{asset('/images/uploads/section_elements/list_1/'.@$list_element->list_image)}} 300w"
+                                                                sizes="(max-width: 400px) 100vw, 400px" />
+                                                        </div>
+                                                        <div class='dt-sc-image-content'>
+                                                            <div class='dt-sc-image-title'>
+                                                                <h3 class="text-capitalize">{{$list_element->list_header}}</h3>
+                                                                <h6 class="text-capitalize">{{$list_element->subheading}}</h6>
+                                                            </div>
+                                                            <p>{!! @$list_element->list_description !!}</p>
+                                                            @if(@$list_element->button)
+                                                                <p><a href="{{@$list_element->button_link}}" target='_self' title='' class='dt-sc-button   medium   filled  '> {{ucwords(@$list_element->button)}} </a></p>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class='dt-sc-hr-invisible-xlarge '> </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                <div class="vc_row-full-width vc_clearfix"></div>
 
             @endif
-        <!-- End Tab section 2 -->
+            <!-- End List section 1 -->
 
-        <!-- List section 1 -->
-        @if(@$list1_elements !== "")
-            <div data-vc-full-width="true" data-vc-full-width-init="false" class="list_section_1 vc_row wpb_row vc_row-fluid">
-                <div class="wpb_column vc_column_container vc_col-sm-12">
-                    <div class="vc_column-inner ">
-                        <div class="wpb_wrapper">
-                            <div class="wpb_text_column wpb_content_element  vc_custom_1451372730817 aligncenter">
-                            </div>
-                            <div class='dt-sc-hr-invisible-small '> </div>
-                            <div class='dt-sc-hr-invisible-small '> </div>
-                            <div class='dt-sc-hr-invisible-xsmall '> </div>
-                            <div class="vc_row wpb_row vc_inner vc_row-fluid">
-                                @foreach(@$list1_elements as $list_element)
-                                    <div class="wpb_column vc_column_container vc_col-sm-4">
-                                        <div class="vc_column-inner ">
-                                            <div class="wpb_wrapper">
-                                                <div class='dt-sc-image-caption  '>
-                                                    <div class='dt-sc-image-wrapper'><img width="400" height="280" src="{{asset('/images/uploads/section_elements/list_1/'.@$list_element->list_image)}}" class="attachment-full" alt="" loading="lazy" srcset="{{asset('/images/uploads/section_elements/list_1/'.@$list_element->list_image)}} 400w, {{asset('/images/uploads/section_elements/list_1/'.@$list_element->list_image)}} 300w"
-                                                            sizes="(max-width: 400px) 100vw, 400px" />
-                                                    </div>
-                                                    <div class='dt-sc-image-content'>
-                                                        <div class='dt-sc-image-title'>
-                                                            <h3 class="text-capitalize">{{$list_element->list_header}}</h3>
-                                                            <h6 class="text-capitalize">{{$list_element->subheading}}</h6>
+            <!-- List section 2 -->
+            @if(@$value == "list_section_2")
+                    <div data-vc-full-width="true" data-vc-full-width-init="false" class="list_section_2 vc_row wpb_row vc_row-fluid">
+                        <div class="wpb_column vc_column_container vc_col-sm-12">
+                            <div class="vc_column-inner ">
+                                <div class="wpb_wrapper">
+                                    <div class="wpb_text_column wpb_content_element  vc_custom_1451382036908 aligncenter">
+                                    </div>
+                                    <div class='dt-sc-hr-invisible-small '> </div>
+                                    <div class='dt-sc-hr-invisible-small '> </div>
+                                    <div class='dt-sc-hr-invisible-xsmall '> </div>
+                                    <div class="vc_row wpb_row vc_inner vc_row-fluid">
+                                        @foreach(@$list2_elements as $list_element)
+
+                                            <div class="wpb_column vc_column_container vc_col-sm-4">
+                                                <div class="vc_column-inner ">
+                                                    <div class="wpb_wrapper">
+                                                        <div class='dt-sc-image-caption type9 '>
+                                                            <div class='dt-sc-image-wrapper'><img width="400" height="280" src="{{asset('/images/uploads/section_elements/list_2/'.@$list_element->list_image)}}" class="attachment-full" alt="" loading="lazy" srcset="{{asset('/images/uploads/section_elements/list_2/'.@$list_element->list_image)}} 400w, {{asset('/images/uploads/section_elements/list_2/'.@$list_element->list_image)}} 300w"
+                                                                                                  sizes="(max-width: 400px) 100vw, 400px" />
+                                                                <div class="dt-sc-image-overlay">
+                                                                    <p>{!! @$list_element->list_description !!}</p>
+                                                                    @if(@$list_element->button)
+                                                                        <p><a href="{{@$list_element->button_link}}" target='_self' title='' class='dt-sc-button   small   filled  '> {{ucwords(@$list_element->button)}} </a></p>
+                                                                    @endif
+                                                                </div>
+                                                            </div>
+                                                            <div class='dt-sc-image-content'>
+                                                                <div class='dt-sc-image-title'>
+                                                                    <h3>{{ucwords(@$list_element->list_header)}}</h3>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <p>{!! @$list_element->list_description !!}</p>
-                                                        @if(@$list_element->button)
-                                                            <p><a href="{{@$list_element->button_link}}" target='_self' title='' class='dt-sc-button   medium   filled  '> {{ucwords(@$list_element->button)}} </a></p>
-                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        @endforeach
+
                                     </div>
-                                @endforeach
+                                    <div class='dt-sc-hr-invisible-medium '> </div>
+                                </div>
                             </div>
-                            <div class='dt-sc-hr-invisible-xlarge '> </div>
                         </div>
                     </div>
+                    <div class="vc_row-full-width vc_clearfix"></div>
+
+                @endif
+            <!-- End List section 2 -->
+
+            <!-- Process section  -->
+            @if(@$value == "process_selection")
+            <div class="vc_row wpb_row vc_row-fluid dt-sc-process-with-caption wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp">
+                <div class="wpb_column vc_column_container vc_col-sm-12">
+                    <div class="vc_column-inner ">
+                        <div class="wpb_wrapper">
+                            <div class="ult-spacer spacer-6107b781d1ff0" data-id="6107b781d1ff0" data-height="65" data-height-mobile="35" data-height-tab="45" data-height-tab-portrait="45" data-height-mobile-landscape="35" style="clear:both;display:block;"></div>
+                            @foreach($process_elements as $process_element)
+                            @if($loop->odd)
+                            <div class='dt-sc-image-caption type7 '>
+                                <div class='dt-sc-image-wrapper'><img width="600" height="330" src="{{asset('/images/uploads/section_elements/process_list/'.@$process_element->list_image)}}" class="attachment-full" alt="" loading="lazy" srcset="{{asset('/images/uploads/section_elements/process_list/'.@$process_element->list_image)}} 600w, {{asset('/images/uploads/section_elements/process_list/'.@$process_element->list_image)}} 300w"
+                                        sizes="(max-width: 600px) 100vw, 600px" /></div>
+                                <div class='dt-sc-image-content'>
+                                    <div class='dt-sc-image-title'>
+                                        <h3>{{ucwords(@$process_element->list_header)}}</h3>
+                                        <h6>{{ucwords(@$process_element->subheading)}}</h6>
+                                    </div>
+                                    <p>{!! @$process_element->list_description !!}</p>
+                                </div>
+                            </div>
+                            <div class="ult-spacer spacer-6107b781d2917" data-id="6107b781d2917" data-height="120" data-height-mobile="45" data-height-tab="60" data-height-tab-portrait="60" data-height-mobile-landscape="45" style="clear:both;display:block;"></div>
+                           @endif
+
+                           @if($loop->even)
+                            <div class='dt-sc-image-caption type7 left-content'>
+                                <div class='dt-sc-image-wrapper'><img width="600" height="330" src="{{asset('/images/uploads/section_elements/process_list/'.@$process_element->list_image)}}" class="attachment-full" alt="" loading="lazy" srcset="{{asset('/images/uploads/section_elements/process_list/'.@$process_element->list_image)}} 600w, {{asset('/images/uploads/section_elements/process_list/'.@$process_element->list_image)}} 300w"
+                                        sizes="(max-width: 600px) 100vw, 600px" /></div>
+                                <div class='dt-sc-image-content'>
+                                    <div class='dt-sc-image-title'>
+                                        <h3>{{ucwords(@$process_element->list_header)}}</h3>
+                                        <h6>{{ucwords(@$process_element->subheading)}}</h6>
+                                    </div>
+                                    <p>{!! @$process_element->list_description !!}</p>
+                                </div>
+                            </div>
+                            <div class="ult-spacer spacer-6107b781d2f88" data-id="6107b781d2f88" data-height="120" data-height-mobile="45" data-height-tab="60" data-height-tab-portrait="60" data-height-mobile-landscape="45" style="clear:both;display:block;"></div>
+                            @endif
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
+            <!-- End Process section -->
+
+            <!-- Gallery Section  -->
+            @if(@$value == "gallery_section")
+
+            <div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid">
+                <div class="dt-sc-stretch-row-content">
+                    <div class="wpb_column vc_column_container vc_col-sm-12">
+                        <div class="vc_column-inner ">
+                            <div class="wpb_wrapper">
+                                <div class="ult-spacer spacer-6107b781da0fd" data-id="6107b781da0fd" data-height="100" data-height-mobile="60" data-height-tab="80" data-height-tab-portrait="80" data-height-mobile-landscape="60" style="clear:both;display:block;"></div>
+                                <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="bounceInDown" data-animation-delay="0.5" data-animation-duration="1" data-animation-iteration="1" style="opacity:0;" data-opacity_start_effect="">
+                                    <h2 style="font-size: 46px;text-align: center" class="vc_custom_heading vc_custom_1496400834504">Gallery</h2>
+                                    <div class='dt-sc-small-separator black curved-line aligncenter'></div>
+                                </div>
+                                <div class="ult-spacer spacer-6107b781da2dd" data-id="6107b781da2dd" data-height="75" data-height-mobile="45" data-height-tab="60" data-height-tab-portrait="60" data-height-mobile-landscape="45" style="clear:both;display:block;"></div>
+                                <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="fadeInUp" data-animation-delay="0.8" data-animation-duration="1" data-animation-iteration="1" style="opacity:0;" data-opacity_start_effect="">
+                                    <div class="dt-sc-portfolio-container no-space">
+                                        @foreach($gallery_elements as $gallery_element)
+
+                                        <div id="dt_portfolios-7425" class="type5 no-space portfolio column dt-sc-one-fourth @if(@$loop->index == 0 || @$loop->index == 4 || @$loop->index == 8 || @$loop->index == 12  || @$loop->index == 16  || @$loop->index == 20 || @$loop->index == 24 || @$loop->index == 28 || @$loop->index == 32 ) first @endif">
+                                            <figure> <img src="{{asset('/images/uploads/section_elements/gallery/'.@$gallery_element->resized_name)}}" alt="{{@$gallery_element->filename}}" />
+                                                <div class="image-overlay">
+                                                    <div class="links">
+                                                        <a title="{{@$gallery_element->filename}}" data-gal="prettyPhoto[gallery]" href="{{asset('/images/uploads/section_elements/gallery/'.@$gallery_element->resized_name)}}">
+                                                        <span class="icon icon-search"> </span> </a>
+                                                    </div>
+                                                </div>
+                                            </figure>
+                                        </div>
+                                        @endforeach
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ult-spacer spacer-6107b781dbf3c" data-id="6107b781dbf3c" data-height="100" data-height-mobile="35" data-height-tab="35" data-height-tab-portrait="" data-height-mobile-landscape="" style="clear:both;display:block;"></div>
+
                 </div>
             </div>
             <div class="vc_row-full-width vc_clearfix"></div>
 
-        @endif
-        <!-- End List section 1 -->
+            @endif
+            <!-- End Gallery Section  -->
 
+        @endforeach
 
-        <!-- Process section  -->
-        @if(@$process_elements !== "")
-        <div class="vc_row wpb_row vc_row-fluid dt-sc-process-with-caption wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp">
-            <div class="wpb_column vc_column_container vc_col-sm-12">
-                <div class="vc_column-inner ">
-                    <div class="wpb_wrapper">
-                        <div class="ult-spacer spacer-6107b781d1ff0" data-id="6107b781d1ff0" data-height="65" data-height-mobile="35" data-height-tab="45" data-height-tab-portrait="45" data-height-mobile-landscape="35" style="clear:both;display:block;"></div>
-                        @foreach($process_elements as $process_element)
-                        @if($loop->odd)
-                        <div class='dt-sc-image-caption type7 '>
-                            <div class='dt-sc-image-wrapper'><img width="600" height="330" src="{{asset('/images/uploads/section_elements/process_list/'.@$process_element->list_image)}}" class="attachment-full" alt="" loading="lazy" srcset="{{asset('/images/uploads/section_elements/process_list/'.@$process_element->list_image)}} 600w, {{asset('/images/uploads/section_elements/process_list/'.@$process_element->list_image)}} 300w"
-                                    sizes="(max-width: 600px) 100vw, 600px" /></div>
-                            <div class='dt-sc-image-content'>
-                                <div class='dt-sc-image-title'>
-                                    <h3>{{ucwords(@$process_element->list_header)}}</h3>
-                                    <h6>{{ucwords(@$process_element->subheading)}}</h6>
-                                </div>
-                                <p>{!! @$process_element->list_description !!}</p>
-                            </div>
-                        </div>
-                        <div class="ult-spacer spacer-6107b781d2917" data-id="6107b781d2917" data-height="120" data-height-mobile="45" data-height-tab="60" data-height-tab-portrait="60" data-height-mobile-landscape="45" style="clear:both;display:block;"></div>
-                       @endif
-
-                       @if($loop->even)
-                        <div class='dt-sc-image-caption type7 left-content'>
-                            <div class='dt-sc-image-wrapper'><img width="600" height="330" src="{{asset('/images/uploads/section_elements/process_list/'.@$process_element->list_image)}}" class="attachment-full" alt="" loading="lazy" srcset="{{asset('/images/uploads/section_elements/process_list/'.@$process_element->list_image)}} 600w, {{asset('/images/uploads/section_elements/process_list/'.@$process_element->list_image)}} 300w"
-                                    sizes="(max-width: 600px) 100vw, 600px" /></div>
-                            <div class='dt-sc-image-content'>
-                                <div class='dt-sc-image-title'>
-                                    <h3>{{ucwords(@$process_element->list_header)}}</h3>
-                                    <h6>{{ucwords(@$process_element->subheading)}}</h6>
-                                </div>
-                                <p>{!! @$process_element->list_description !!}</p>
-                            </div>
-                        </div>
-                        <div class="ult-spacer spacer-6107b781d2f88" data-id="6107b781d2f88" data-height="120" data-height-mobile="45" data-height-tab="60" data-height-tab-portrait="60" data-height-mobile-landscape="45" style="clear:both;display:block;"></div>
-                        @endif
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-        @endif
-        <!-- End Process section -->
-
-
-        <!-- List section 2 -->
-        @if(@$list2_elements !== "")
-        <div data-vc-full-width="true" data-vc-full-width-init="false" class="list_section_2 vc_row wpb_row vc_row-fluid">
-            <div class="wpb_column vc_column_container vc_col-sm-12">
-                <div class="vc_column-inner ">
-                    <div class="wpb_wrapper">
-                        <div class="wpb_text_column wpb_content_element  vc_custom_1451382036908 aligncenter">
-                        </div>
-                        <div class='dt-sc-hr-invisible-small '> </div>
-                        <div class='dt-sc-hr-invisible-small '> </div>
-                        <div class='dt-sc-hr-invisible-xsmall '> </div>
-                        <div class="vc_row wpb_row vc_inner vc_row-fluid">
-                            @foreach(@$list2_elements as $list_element)
-
-                                <div class="wpb_column vc_column_container vc_col-sm-4">
-                                    <div class="vc_column-inner ">
-                                        <div class="wpb_wrapper">
-                                            <div class='dt-sc-image-caption type9 '>
-                                                <div class='dt-sc-image-wrapper'><img width="400" height="280" src="{{asset('/images/uploads/section_elements/list_2/'.@$list_element->list_image)}}" class="attachment-full" alt="" loading="lazy" srcset="{{asset('/images/uploads/section_elements/list_2/'.@$list_element->list_image)}} 400w, {{asset('/images/uploads/section_elements/list_2/'.@$list_element->list_image)}} 300w"
-                                                        sizes="(max-width: 400px) 100vw, 400px" />
-                                                    <div class="dt-sc-image-overlay">
-                                                        <p>{!! @$list_element->list_description !!}</p>
-                                                        @if(@$list_element->button)
-                                                            <p><a href="{{@$list_element->button_link}}" target='_self' title='' class='dt-sc-button   small   filled  '> {{ucwords(@$list_element->button)}} </a></p>
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                                <div class='dt-sc-image-content'>
-                                                    <div class='dt-sc-image-title'>
-                                                        <h3>{{ucwords(@$list_element->list_header)}}</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                            
-                        </div>
-                        <div class='dt-sc-hr-invisible-medium '> </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="vc_row-full-width vc_clearfix"></div>
-
-        @endif
-        <!-- End List section 2 -->
-
-
-        <!-- Gallery Section  -->
-        @if(@$gallery_elements !== "")
-
-        <div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid">
-            <div class="dt-sc-stretch-row-content">
-                <div class="wpb_column vc_column_container vc_col-sm-12">
-                    <div class="vc_column-inner ">
-                        <div class="wpb_wrapper">
-                            <div class="ult-spacer spacer-6107b781da0fd" data-id="6107b781da0fd" data-height="100" data-height-mobile="60" data-height-tab="80" data-height-tab-portrait="80" data-height-mobile-landscape="60" style="clear:both;display:block;"></div>
-                            <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="bounceInDown" data-animation-delay="0.5" data-animation-duration="1" data-animation-iteration="1" style="opacity:0;" data-opacity_start_effect="">
-                                <h2 style="font-size: 46px;text-align: center" class="vc_custom_heading vc_custom_1496400834504">Gallery</h2>
-                                <div class='dt-sc-small-separator black curved-line aligncenter'></div>
-                            </div>
-                            <div class="ult-spacer spacer-6107b781da2dd" data-id="6107b781da2dd" data-height="75" data-height-mobile="45" data-height-tab="60" data-height-tab-portrait="60" data-height-mobile-landscape="45" style="clear:both;display:block;"></div>
-                            <div class="ult-animation  ult-animate-viewport  ult-no-mobile " data-animate="fadeInUp" data-animation-delay="0.8" data-animation-duration="1" data-animation-iteration="1" style="opacity:0;" data-opacity_start_effect="">
-                                <div class="dt-sc-portfolio-container no-space">
-                                    @foreach($gallery_elements as $gallery_element)
-
-                                    <div id="dt_portfolios-7425" class="type5 no-space portfolio column dt-sc-one-fourth @if(@$loop->index == 0 || @$loop->index == 4 || @$loop->index == 8 || @$loop->index == 12  || @$loop->index == 16  || @$loop->index == 20 || @$loop->index == 24 || @$loop->index == 28 || @$loop->index == 32 ) first @endif">
-                                        <figure> <img src="{{asset('/images/uploads/section_elements/gallery/'.@$gallery_element->resized_name)}}" alt="{{@$gallery_element->filename}}" />
-                                            <div class="image-overlay">
-                                                <div class="links">
-                                                    <a title="{{@$gallery_element->filename}}" data-gal="prettyPhoto[gallery]" href="{{asset('/images/uploads/section_elements/gallery/'.@$gallery_element->resized_name)}}"> 
-                                                    <span class="icon icon-search"> </span> </a>
-                                                </div>
-                                            </div>
-                                        </figure>
-                                    </div>
-                                    @endforeach
-                                  
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="ult-spacer spacer-6107b781dbf3c" data-id="6107b781dbf3c" data-height="100" data-height-mobile="35" data-height-tab="35" data-height-tab-portrait="" data-height-mobile-landscape="" style="clear:both;display:block;"></div>
-
-            </div>
-        </div>
-        <div class="vc_row-full-width vc_clearfix"></div>
-
-        @endif
-        <!-- End Gallery Section  -->
-        
 
         </div><!-- #post-1578 -->
         </section><!-- **Primary - End** -->

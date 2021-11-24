@@ -3,6 +3,11 @@
 @section('css')
 
     <style>
+
+        .upper-case{
+            text-transform: capitalize;
+        }
+
         /*for image*/
         .avatar-upload{
             max-width: 505px!important;
@@ -61,6 +66,22 @@
 
         /*end of checklist design*/
 
+        /*for sortable*/
+        #sortable { list-style-type: none; margin: 0; padding: 0; }
+        #sortable li {cursor:move; margin-top: 10px;  transition: -webkit-transform ease-out 0.3s;
+            -webkit-transform-origin: 50% 50%; }
+        body.dragging, body.dragging * {cursor: move !important; }
+        .dragged {position: absolute;z-index: 1; transform: perspective(800px) translateZ(20px);}
+        #sortable li span { position: absolute; }
+        #sortable li.fixed{cursor:default; color:#959595; opacity:0.5;}
+
+        .div-center{
+            margin: auto;width: 70%;
+        }
+
+
+        /*end of sortable*/
+
     </style>
 @endsection
 @section('content')
@@ -70,7 +91,7 @@
 
     <div class="col-xl-9 col-lg-8 col-md-12">
 
-        {!! Form::open(['method'=>'PUT','url'=>route('pages.update', $page->id),'class'=>'needs-validation','novalidate'=>'','enctype'=>'multipart/form-data']) !!}
+        {!! Form::open(['method'=>'PUT','id'=>'pageedit-form','url'=>route('pages.update', $page->id),'class'=>'needs-validation','novalidate'=>'','enctype'=>'multipart/form-data']) !!}
         <div class="row">
             <div class="col-md-12">
                 <div class="card ctm-border-radius shadow-sm flex-fill">
@@ -116,7 +137,7 @@
                             <div class="col-md-12">
                                 <label class="image-checkbox {{(in_array('basic_section', $sections) ? "image-checkbox-checked":"")}}">
                                     <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/basic_section.png')}}" />
-                                    <input type="checkbox" name="section[]" value="basic_section" {{(in_array('basic_section', $sections) ? "checked":"")}} />
+                                    <input type="checkbox" name="section[]" id="basic_section.png" value="basic_section" {{(in_array('basic_section', $sections) ? "checked":"")}} />
                                     <i class="fa fa-check hidden"></i>
                                 </label>
                             </div>
@@ -132,7 +153,7 @@
                             <div class="col-md-12">
                                 <label class="image-checkbox {{(in_array('call_to_action', $sections) ? "image-checkbox-checked":"")}}">
                                     <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/calltoaction.png')}}" />
-                                    <input type="checkbox" name="section[]" value="call_to_action" {{(in_array('call_to_action', $sections) ? "checked":"")}} />
+                                    <input type="checkbox" name="section[]" id="calltoaction.png" value="call_to_action" {{(in_array('call_to_action', $sections) ? "checked":"")}} />
                                     <i class="fa fa-check hidden"></i>
                                 </label>
                             </div>
@@ -149,7 +170,7 @@
                             <div class="col-md-12">
                                 <label class='image-checkbox {{(in_array('background_image_section', $sections) ? "image-checkbox-checked":"")}}'>
                                     <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/background_image_section.png')}}" />
-                                    <input type="checkbox" name="section[]" value="background_image_section" {{(in_array('background_image_section', $sections) ? "checked":"")}} />
+                                    <input type="checkbox" name="section[]" id="background_image_section.png" value="background_image_section" {{(in_array('background_image_section', $sections) ? "checked":"")}} />
                                     <i class="fa fa-check hidden"></i>
                                 </label>
                             </div>
@@ -165,7 +186,7 @@
                             <div class="col-md-12">
                                 <label class="image-checkbox {{(in_array('tab_section_1', $sections) ? "image-checkbox-checked":"")}}">
                                     <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/mission_vision.png')}}" />
-                                    <input type="checkbox" name="section[]" value="tab_section_1" {{(in_array('tab_section_1', $sections) ? "checked":"")}} />
+                                    <input type="checkbox" name="section[]" id="mission_vision.png" value="tab_section_1" {{(in_array('tab_section_1', $sections) ? "checked":"")}} />
                                     <i class="fa fa-check hidden"></i>
                                 </label>
                             </div>
@@ -181,7 +202,7 @@
                             <div class="col-md-12">
                                 <label class="image-checkbox {{(in_array('tab_section_2', $sections) ? "image-checkbox-checked":"")}}">
                                     <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/tab_option2.png')}}" />
-                                    <input type="checkbox" name="section[]" value="tab_section_2" {{(in_array('tab_section_2', $sections) ? "checked":"")}} />
+                                    <input type="checkbox" name="section[]" id="tab_option2.png" value="tab_section_2" {{(in_array('tab_section_2', $sections) ? "checked":"")}} />
                                     <i class="fa fa-check hidden"></i>
                                 </label>
                             </div>
@@ -215,7 +236,7 @@
                             <div class="col-md-12">
                                 <label class="image-checkbox {{(in_array('list_section_1', $sections) ? "image-checkbox-checked":"")}}">
                                     <img class="img-responsive" id="list_section_1" src="{{asset('assets/backend/img/page_sections/list_option1.png')}}" />
-                                    <input type="checkbox" name="section[]" value="list_section_1" {{(in_array('list_section_1', $sections) ? "checked":"")}} />
+                                    <input type="checkbox" name="section[]" id="list_option1.png" value="list_section_1" {{(in_array('list_section_1', $sections) ? "checked":"")}} />
                                     <i class="fa fa-check hidden"></i>
                                 </label>
                             </div>
@@ -248,7 +269,7 @@
                             <div class="col-md-12">
                                 <label class="image-checkbox {{(in_array('list_section_2', $sections) ? "image-checkbox-checked":"")}}">
                                     <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/list_option2.png')}}" />
-                                    <input type="checkbox" name="section[]" value="list_section_2" {{(in_array('list_section_2', $sections) ? "checked":"")}} />
+                                    <input type="checkbox" name="section[]" id="list_option2.png" value="list_section_2" {{(in_array('list_section_2', $sections) ? "checked":"")}} />
                                     <i class="fa fa-check hidden"></i>
                                 </label>
                             </div>
@@ -265,7 +286,7 @@
                             <div class="col-md-12">
                                 <label class="image-checkbox {{(in_array('gallery_section', $sections) ? "image-checkbox-checked":"")}}">
                                     <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/gallery_section.png')}}" />
-                                    <input type="checkbox" name="section[]" value="gallery_section" {{(in_array('gallery_section', $sections) ? "checked":"")}}  />
+                                    <input type="checkbox" name="section[]" id="gallery_section.png" value="gallery_section" {{(in_array('gallery_section', $sections) ? "checked":"")}}  />
                                     <i class="fa fa-check hidden"></i>
                                 </label>
                             </div>
@@ -298,7 +319,7 @@
                             <div class="col-md-12">
                                 <label class="image-checkbox {{(in_array('process_selection', $sections) ? "image-checkbox-checked":"")}}">
                                     <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/process_section.png')}}" />
-                                    <input type="checkbox" name="section[]" value="process_selection" {{(in_array('process_selection', $sections) ? "checked":"")}} />
+                                    <input type="checkbox" name="section[]" id="process_section.png" value="process_selection" {{(in_array('process_selection', $sections) ? "checked":"")}} />
                                     <i class="fa fa-check hidden"></i>
                                 </label>
                             </div>
@@ -310,8 +331,9 @@
         </div>
 
         <div class="text-center mb-3">
-            <button type="submit" class="btn btn-theme button-1 text-white ctm-border-radius mt-4" name="status" value="active">Active</button>
-            <button type="submit" class="btn btn-theme button-1 text-white ctm-border-radius mt-4" name="status" value="deactive">De-Active</button>
+            <input type="hidden" name="status" id="status" value="{{$page->status}}"/>
+            <button type="button" class="btn btn-theme button-1 text-white ctm-border-radius mt-4" name="btnstatus" id="status1" value="active">Active</button>
+            <button type="button" class="btn btn-theme button-1 text-white ctm-border-radius mt-4" name="btnstatus" id="status1" value="deactive">De-Active</button>
         </div>
 
         {!! Form::close() !!}
@@ -320,13 +342,87 @@
     </div>
 
 
+    <div class="modal fade bd-example-modal-lg" id="editStructure">
+        <form action="#" method="post" id="deleted-form" >
+            {{csrf_field()}}
+            <input name="_method" type="hidden" value="DELETE">
+        </form>
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title mb-3">Edit Your Page Sections Structure By Dragging Them</h4>
+
+                    <div id="items-container">
+                        <ul class="ui-sortable" id="sortable">
+                            {{-- list of section with their names and images are added here via jquery--}}
+                        </ul>
+                    </div>
+
+                    <div class="text-center mb-3">
+                        <button id="submiteditpagedata" class="btn btn-theme button-1 text-white ctm-border-radius mt-4">Update Page</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
 
 
 @endsection
 
 @section('js')
+    <script src="{{asset('assets/backend/js/jquery-sortable.js')}}"></script>
 
     <script type="text/javascript">
+        var section_list = new Array();
+        var section_names = new Array();
+        <?php foreach($ordered_sections as $key=>$value){ ?>
+        section_list.push({
+            name: '<?php echo $key; ?>',
+            image: '<?php echo $value; ?>'
+        });
+        section_names.push('<?php echo $key; ?>');
+        <?php } ?>
+
+
+        //settings for sortable JS
+        $("#sortable").sortable({
+            onDrop: function ($item, container, _super) {
+                //for animation
+                var $clonedItem = $('<li/>').css({height: 0});
+                $item.before($clonedItem);
+                $clonedItem.animate({'height': $item.height()});
+
+                $item.animate($clonedItem.position(), function  () {
+                    $clonedItem.detach();
+                    _super($item, container);
+                });
+            },
+            onDragStart: function ($item, container, _super) {
+                var offset = $item.offset(),
+                    pointer = container.rootGroup.pointer;
+
+                adjustment = {
+                    left: pointer.left - offset.left,
+                    top: pointer.top - offset.top
+                };
+
+                _super($item, container);
+            },
+            //for animation
+            onDrag: function ($item, position) {
+                $item.css({
+                    left: position.left - adjustment.left,
+                    top: position.top - adjustment.top
+                });
+            }
+        });
+        //settings for sortable JS
 
         $("#name").keyup(function(){
             var Text = $(this).val();
@@ -357,6 +453,94 @@
             $checkbox.prop("checked",!$checkbox.prop("checked"))
 
             e.preventDefault();
+        });
+
+        $('#status1, #status2').click(function(event){
+            event.preventDefault();
+            var form = $('#pageedit-form')[0];
+            if (!form.reportValidity()) {return false;}
+            var status         = $(this).val();
+            $('#status').val(status);
+            var namelist = new Array();
+            var newaddition = new Array();
+            $("input:checkbox:checked").each(function() {
+                //creating the array of section names only to check with db section names
+                namelist.push($(this).val());
+                //comparing all the selected sections from this edit page with original section list of DB
+                //creating array of newly added sections only
+                if($.inArray($(this).val(), section_names) == -1){
+                    newaddition.push({
+                        name: $(this).val(),
+                        image:  $(this).attr("id")
+                    });
+                }
+            });
+            $("#editStructure").modal("toggle");//activate the modal
+            $('#sortable').empty();//empty the sortable div data to avoid repetition
+            let i = 1; //counter for the original section list
+            section_list.forEach(function(item) {
+                var name = item.name;
+                var newname = name.replace(new RegExp('_', 'g')," ");
+                //adding the original sections that were created with the page in the list first
+                var dbsection = '<li class="'+item.name+'" id="' + i + '">' +
+                    '<div class="col-md-10 div-center">' +
+                    '<label class="upper-case">' + newname + '</label>' +
+                    '<img src="/assets/backend/img/page_sections/' + item.image + '"/>' +
+                    '</div>' +
+                    '</li> ';
+                $('#sortable').append(dbsection);
+                i++;
+
+                if($.inArray(item.name, namelist) == -1){
+                    $('.'+item.name+'').remove();
+                    //checking in the arrary if any of the original section is removed and if yes,
+                    //removing them from the UL list as well
+                }
+            });
+
+            //starting the counter where the first counter for already existing sections ended
+            let j = i;
+            //looping through the new sections which do not exist in the original section list from database
+            newaddition.forEach(function(item) {
+                var name = item.name;
+                var newname = name.replace(new RegExp('_', 'g')," ");
+                var replacements = '<li class="'+item.name+'" id="' + j + '">' +
+                    '<div class="col-md-10 div-center">' +
+                    '<label class="upper-case">' + newname + '</label>' +
+                    '<img src="/assets/backend/img/page_sections/' + item.image + '"/>' +
+                    '</div>' +
+                    '</li> ';
+                $('#sortable').append(replacements);
+                j++;
+                //populate the div by appending the image and section name from loop
+            });
+        });
+
+        //submit the data from previous form and the values of sortable field on button click
+        $('#submiteditpagedata').click(function(){
+            var form       = $('#pageedit-form')[0];
+            var form_data  = new FormData(form); //Creates new FormData object
+            var section_name        = $('#sortable li').map(function(i) {
+                return $(this).attr('class'); }).get();
+            //get the names of the section present as class in sortable UL's li
+
+            for (var i = 0; i < section_name.length; i++) {
+                form_data.append('position[]', i+1);//send the position array in terms of number of li present in sortable UL
+                form_data.append('sorted_sections[]', section_name[i]);//send the section names listed in sortable UL
+            }
+            var post_url       = $('#pageedit-form').attr("action"); //get form action url
+            var request_method = $('#pageedit-form').attr("method"); //get form GET/POST method
+
+            $.ajax({
+                url : post_url,
+                type: request_method,
+                data : form_data,
+                contentType: false,
+                cache: false,
+                processData:false
+            }).done(function(response){
+                window.location.replace(response);
+            });
         });
 
     </script>

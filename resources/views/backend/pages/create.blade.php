@@ -3,6 +3,22 @@
 @section('css')
 
     <style>
+
+        #sortable { list-style-type: none; margin: 0; padding: 0; }
+        #sortable li {cursor:move; margin-top: 10px;  transition: -webkit-transform ease-out 0.3s;
+            -webkit-transform-origin: 50% 50%; }
+        body.dragging, body.dragging * {cursor: move !important; }
+        .dragged {position: absolute;z-index: 1; transform: perspective(800px) translateZ(20px);}
+        #sortable li span { position: absolute; }
+        #sortable li.fixed{cursor:default; color:#959595; opacity:0.5;}
+
+        .upper-case{
+            text-transform: capitalize;
+        }
+        .div-center{
+            margin: auto;width: 70%;
+        }
+
         /*for image*/
         .avatar-upload{
             max-width: 505px!important;
@@ -67,7 +83,7 @@
 
     <div class="col-xl-9 col-lg-8 col-md-12">
 
-        {!! Form::open(['route' => 'pages.store','method'=>'post','class'=>'needs-validation','novalidate'=>'','enctype'=>'multipart/form-data']) !!}
+        {!! Form::open(['id'=>'pagecreate-form','class'=>'needs-validation','novalidate'=>'','enctype'=>'multipart/form-data']) !!}
         <div class="row">
             <div class="col-md-12">
                 <div class="card ctm-border-radius shadow-sm flex-fill">
@@ -113,7 +129,7 @@
                             <div class="col-md-12">
                                 <label class="image-checkbox">
                                     <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/basic_section.png')}}" />
-                                    <input type="checkbox" name="section[]" value="basic_section" />
+                                    <input type="checkbox" name="section[]" value="basic_section" id="basic_section.png"/>
                                     <i class="fa fa-check hidden"></i>
                                 </label>
                             </div>
@@ -129,7 +145,7 @@
                             <div class="col-md-12">
                                 <label class="image-checkbox">
                                     <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/calltoaction.png')}}" />
-                                    <input type="checkbox" name="section[]" value="call_to_action" />
+                                    <input type="checkbox" name="section[]" value="call_to_action" id="calltoaction.png" />
                                     <i class="fa fa-check hidden"></i>
                                 </label>
                             </div>
@@ -146,7 +162,7 @@
                             <div class="col-md-12">
                                 <label class="image-checkbox">
                                     <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/background_image_section.png')}}" />
-                                    <input type="checkbox" name="section[]" value="background_image_section" />
+                                    <input type="checkbox" name="section[]" value="background_image_section" id="background_image_section.png" />
                                     <i class="fa fa-check hidden"></i>
                                 </label>
                             </div>
@@ -162,7 +178,7 @@
                             <div class="col-md-12">
                                 <label class="image-checkbox">
                                     <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/mission_vision.png')}}" />
-                                    <input type="checkbox" name="section[]" value="tab_section_1" />
+                                    <input type="checkbox" name="section[]" value="tab_section_1" id="mission_vision.png" />
                                     <i class="fa fa-check hidden"></i>
                                 </label>
                             </div>
@@ -178,7 +194,7 @@
                             <div class="col-md-12">
                                 <label class="image-checkbox">
                                     <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/tab_option2.png')}}" />
-                                    <input type="checkbox" name="section[]" value="tab_section_2" />
+                                    <input type="checkbox" name="section[]" value="tab_section_2" id="tab_option2.png"/>
                                     <i class="fa fa-check hidden"></i>
                                 </label>
                             </div>
@@ -211,7 +227,7 @@
                             <div class="col-md-12">
                                 <label class="image-checkbox">
                                     <img class="img-responsive" id="list_section_1" src="{{asset('assets/backend/img/page_sections/list_option1.png')}}" />
-                                    <input type="checkbox" name="section[]" value="list_section_1" />
+                                    <input type="checkbox" name="section[]" value="list_section_1" id="list_option1.png" />
                                     <i class="fa fa-check hidden"></i>
                                 </label>
                             </div>
@@ -243,7 +259,7 @@
                             <div class="col-md-12">
                                 <label class="image-checkbox">
                                     <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/list_option2.png')}}" />
-                                    <input type="checkbox" name="section[]" value="list_section_2" />
+                                    <input type="checkbox" name="section[]" value="list_section_2" id="list_option2.png"/>
                                     <i class="fa fa-check hidden"></i>
                                 </label>
                             </div>
@@ -260,7 +276,7 @@
                             <div class="col-md-12">
                                 <label class="image-checkbox">
                                     <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/gallery_section.png')}}" />
-                                    <input type="checkbox" name="section[]" value="gallery_section" />
+                                    <input type="checkbox" name="section[]" value="gallery_section" id="gallery_section.png"/>
                                     <i class="fa fa-check hidden"></i>
                                 </label>
                             </div>
@@ -292,7 +308,7 @@
                             <div class="col-md-12">
                                 <label class="image-checkbox">
                                     <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/process_section.png')}}" />
-                                    <input type="checkbox" name="section[]" value="process_selection" />
+                                    <input type="checkbox" name="section[]" value="process_selection" id="process_section.png" />
                                     <i class="fa fa-check hidden"></i>
                                 </label>
                             </div>
@@ -304,8 +320,10 @@
         </div>
 
         <div class="text-center mb-3">
-            <button type="submit" class="btn btn-theme button-1 text-white ctm-border-radius mt-4" name="status" value="active">Active</button>
-            <button type="submit" class="btn btn-theme button-1 text-white ctm-border-radius mt-4" name="status" value="deactive">De-Active</button>
+            <input type="hidden" name="status" id="status"/>
+
+            <button type="button" class="btn btn-theme button-1 text-white ctm-border-radius mt-4" name="btnstatus" id="status1" value="active">Active</button>
+            <button type="button" class="btn btn-theme button-1 text-white ctm-border-radius mt-4" name="btnstatus" id="status2" value="deactive">De-Active</button>
         </div>
 
         {!! Form::close() !!}
@@ -313,14 +331,76 @@
 
     </div>
 
+    <div class="modal fade bd-example-modal-lg" id="addStructure">
+        <form action="#" method="post" id="deleted-form" >
+            {{csrf_field()}}
+            <input name="_method" type="hidden" value="DELETE">
+        </form>
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title mb-3">Structure Your Page Sections By Dragging Them</h4>
+
+                    <div id="items-container">
+                        <ul class="ui-sortable" id="sortable">
+                            {{-- list of section with their names and images are added here via jquery--}}
+
+                        </ul>
+                    </div>
+
+                    <div class="text-center mb-3">
+                        <button id="submitcreatepagedata" class="btn btn-theme button-1 text-white ctm-border-radius mt-4">Create Page</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 
 
 @endsection
 
 @section('js')
+    <script src="{{asset('assets/backend/js/jquery-sortable.js')}}"></script>
 
     <script type="text/javascript">
+
+        //settings for sortable JS
+        $("#sortable").sortable({
+            onDrop: function ($item, container, _super) {
+                //for animation
+                var $clonedItem = $('<li/>').css({height: 0});
+                $item.before($clonedItem);
+                $clonedItem.animate({'height': $item.height()});
+
+                $item.animate($clonedItem.position(), function  () {
+                    $clonedItem.detach();
+                    _super($item, container);
+                });
+            },
+            onDragStart: function ($item, container, _super) {
+                var offset = $item.offset(),
+                    pointer = container.rootGroup.pointer;
+
+                adjustment = {
+                    left: pointer.left - offset.left,
+                    top: pointer.top - offset.top
+                };
+
+                _super($item, container);
+            },
+            //for animation
+            onDrag: function ($item, position) {
+                $item.css({
+                    left: position.left - adjustment.left,
+                    top: position.top - adjustment.top
+                });
+            }
+        });
+        //settings for sortable JS
 
         $("#name").keyup(function(){
             var Text = $(this).val();
@@ -329,11 +409,6 @@
             Text = Text.replace(regExp,'-');
             $("#slug").val(Text);
         });
-
-        // $(document).ready(function () {
-        //
-        //
-        // });
 
         // image gallery
         // init the state from the input
@@ -353,6 +428,66 @@
             $checkbox.prop("checked",!$checkbox.prop("checked"))
 
             e.preventDefault();
+        });
+
+
+        $('#status1, #status2').click(function(event){
+            event.preventDefault();
+            var form = $('#pagecreate-form')[0];
+            if (!form.reportValidity()) {return false;}
+            var status         = $(this).val();
+            $('#status').val(status);
+            var selected = new Array();
+            $("input:checkbox:checked").each(function() {
+                selected.push({
+                    name: $(this).val(),
+                    image:  $(this).attr("id")
+                });
+            });
+            //activate the modal
+            $("#addStructure").modal("toggle");
+            $('#sortable').empty();//empty the sortable div data to avoid repetition
+            let i = 1;
+            selected.forEach(function(item) {
+                var name = item.name;
+                var newname = name.replace(new RegExp('_', 'g')," ");
+                var replacements = '<li class="'+item.name+'" id="'+i+'">' +
+                    '<div class="col-md-10 div-center">' +
+                    '<label class="upper-case">'+ newname +'</label>' +
+                    '<img src="/assets/backend/img/page_sections/'+item.image+'"/>' +
+                    '</div>' +
+                    '</li> ';
+                i++;
+                $('#sortable').append(replacements);
+                //populate the div by appending the image and section name from loop
+            });
+        });
+
+        //submit the data from previous form and the values of sortable field on button click
+        $('#submitcreatepagedata').click(function(){
+            var form                = $('#pagecreate-form')[0]; //get the form using ID
+            var form_data           = new FormData(form); //Creates new FormData object
+            var section_name        = $('#sortable li').map(function(i) {
+                return $(this).attr('class'); }).get();
+            //get the names of the section present as class in sortable UL's li
+
+            for (var i = 0; i < section_name.length; i++) {
+                form_data.append('position[]', i+1); //send the position array in terms of number of li present in sortable UL
+                form_data.append('sorted_sections[]', section_name[i]); //send the section names listed in sortable UL
+            }
+            var post_url       = "{{route('pages.store')}}"; //get form action url
+            var request_method = 'POST'; //get form GET/POST method
+            $.ajax({
+                url : post_url,
+                type: request_method,
+                data : form_data,
+                contentType: false,
+                cache: false,
+                processData:false
+            }).done(function(response){
+                //when the response is received, it will redirect to the dynamic route sent from controller
+                window.location.replace(response);
+            });
         });
 
     </script>
