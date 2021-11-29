@@ -119,7 +119,7 @@
                     <div class="card ctm-border-radius shadow-sm grow">
                         <div class="card-header">
                             <h4 class="card-title d-inline-block mb-0">
-                                Service Category List
+                                Team List
                             </h4>
                         </div>
                         <div class="card-body">
