@@ -1245,13 +1245,9 @@
 
 
         $(document).ready(function () {
-            if(section_list.includes("basic_section")) {
-                createEditor('basic_editor');
-            }
             if(section_list.includes("background_image_section")){
                 createEditor('background_editor');
             }
-
             if(section_list.includes("tab_section_1")){
                 createEditor('mission_editor');
                 createEditor('vision_editor');
